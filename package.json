@@ -1,0 +1,23 @@
+{
+  "name": "js-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quazar8/js-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quazar8/js-blog/issues"
+  },
+  "homepage": "https://github.com/Quazar8/js-blog#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}
