@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "webpack --config ./configs/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,10 @@
   "homepage": "https://github.com/Quazar8/js-blog#readme",
   "dependencies": {
     "express": "4.17.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "4.5.0",
+    "webpack": "5.4.0",
+    "webpack-cli": "4.2.0"
   }
 }
