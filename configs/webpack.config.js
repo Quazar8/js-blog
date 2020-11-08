@@ -7,6 +7,15 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "../static")
     },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }
+        ]
+    },
     plugins: [
         new HtmlPlugin({
             template: "./client/index.html"
