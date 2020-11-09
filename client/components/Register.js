@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-
-const assignVals = (obj, field, val) => {
-    return Object.assign({}, obj, { [field]: val})
-}
+import { assignVals } from '../utils'
 
 const Register = () => {
     const [inputs, setInputs] = useState({
@@ -22,7 +19,7 @@ const Register = () => {
                     "password", el.value)); break;
             case "confirm-pass":
                 setInputs(assignVals(inputs, 
-                    "confirmPass", el.value)); break
+                    "confirmPass", el.value)); break;
             default: break;
         }
     }
