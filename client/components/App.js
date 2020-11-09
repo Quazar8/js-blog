@@ -10,17 +10,19 @@ const App = () => {
     return (
         <div className="app-container">
             <Navbar />
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/register">
-                    <Register />
-                </Route>
-                <Route path="/login">
-                    <Login />
-                </Route>
-            </Switch>
+            <main>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                </Switch>
+            </main>
         </div>
     )
 }
