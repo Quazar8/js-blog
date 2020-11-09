@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: "./client/client.js",
+    entry: ["react-hot-loader/patch","./client/client.js"],
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "../static")
@@ -22,7 +22,6 @@ module.exports = {
         })
     ],
     devServer: {
-        hot: true,
         port: 3000,
         open: true
     },
