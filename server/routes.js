@@ -30,7 +30,8 @@ const routes = (app) => {
            
         let result = await registerUser(data)
         if(result.error)
-            res.status(500).send({error: true})
+            res.status(500).send({error: true, 
+                        errorMsg: result.errorMsg})
         else 
             res.status(200).send({error: false,
                  msg: "User registered"})
