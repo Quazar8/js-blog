@@ -20,6 +20,20 @@ const db = (callback) => {
     }
 }
 
+const writeDb = async (data) => {
+    try {
+        await fs.writeFile(dbURL, data, (err) => {
+            
+        })
+        return { error: false }
+    } catch(err) {
+        console.error(err)
+        return { error: true, errorMsg: "Problem with server" }
+    }
+    
+}
+
 module.exports = {
-    db
+    db,
+    writeDb
 }
