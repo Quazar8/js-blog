@@ -1,5 +1,5 @@
 const fs = require('fs')
-const dbURL = './db.json'
+const dbURL = './server/db.json'
 
 const dbScheme = {
     Users: {},
