@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { assignVals } from '../utils'
+import { registerUser } from '../api'
 
 const Register = () => {
     const [inputs, setInputs] = useState({
@@ -24,8 +25,18 @@ const Register = () => {
         }
     }
 
+    const handleSubmit =  (e) => {
+        e.preventDefault()
+        const data = {
+            username: inputs.username,
+            password: inputs.password
+        }
+
+       registerUser(data)
+    }
+
     return (
-        <form>
+        <form onSubmit={ handleSubmit }>
             <div className="field-container">
                 <label for="username">Username:</label>
                 <input type="text" id="username" 
