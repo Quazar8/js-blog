@@ -1,6 +1,7 @@
 const registerURL = 'http://localhost:8000/user/register'
+const loginUrl = 'http://localhost:8000/user/login'
 
-const postOptions = (data) => {
+const userPostQuery = (data) => {
     return {
         method: 'POST',
         mode: 'cors',
@@ -13,9 +14,9 @@ const postOptions = (data) => {
 
 const registerUser = (data) => {
     if(!data && !data.username && !data.password)
-        return { err: true, errMsg: "Missing data fields" }
+        return { err: true, errMsg: "Missing username or password" }
 
-    fetch(registerURL, postOptions(data)).
+    fetch(registerURL, userPostQuery(data)).
     then(resp => resp.json()).then(data => {
         console.log(data)
     })
@@ -24,6 +25,22 @@ const registerUser = (data) => {
     })
 }
 
+const loginUser = (data) => {
+    if(!data && !data.username && !data.password)
+        return { error: true,
+            errorMsg: 'Missing username or password'}
+
+    fetch(loginUrl, userPostQuery(data))
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(err => {
+        console.error(err)
+    })
+}
+
 export {
-    registerUser
+    registerUser,
+    loginUser
 }
