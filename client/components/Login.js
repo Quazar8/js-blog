@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { assignVals } from '../utils'
+import { loginUser } from '../api'
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -19,8 +20,20 @@ const Login = () => {
             default: break;
         }
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const data = {
+            username: inputs.username,
+            password: inputs.password
+        }
+
+        loginUser(data)
+    }    
+    
     return (
-        <form>
+        <form onSubmit={ handleSubmit }>
             <div className="field-container">
                 <label for="username">Usernamae:</label>
                 <input id="username" type="text"
