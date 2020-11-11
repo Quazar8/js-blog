@@ -1,5 +1,3 @@
-const { json } = require('express')
-const fs = require('fs')
 const { writeDb } = require('./db')
 
 const registerUser = async ({ username, password}) => {
@@ -18,9 +16,9 @@ const routes = (app) => {
     app.get('/', (req, res) => {
         res.send('Hello from Express!')
     }) 
-
+   
     app.post('/user/register',async (req, res) => {
-        console.log(req.body)
+        console.log('register', req.body)
         const data = req.body
         if(!data && !data.username && !data.password){
             res.status(500).send({ error: true, 
@@ -36,6 +34,11 @@ const routes = (app) => {
             res.status(200).send({error: false,
                  msg: "User registered"})
     })
+
+   app.post('/user/login', (req, res) => {
+       console.log('login', req.body)
+       res.status(200).send({error: false})
+   })
 }
 
 module.exports = routes
