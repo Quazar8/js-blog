@@ -45,13 +45,13 @@ const Register = () => {
             </div>
             <div className="field-container">
                 <label for="password">Password:</label>
-                <input type="text" id="password" 
+                <input type="password" id="password" 
                 onChange = { handleChange }
                 value = { inputs.password }/> 
             </div>
             <div className="field-container">
                 <label for="confirm-pass">Confirm Password:</label>
-                <input type="text" id="confirm-pass" 
+                <input type="password" id="confirm-pass" 
                 onChange = { handleChange }
                 value = { inputs.confirmPass }/> 
             </div>

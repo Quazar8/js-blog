@@ -31,7 +31,7 @@ const Login = () => {
 
         loginUser(data)
     }    
-    
+
     return (
         <form onSubmit={ handleSubmit }>
             <div className="field-container">
@@ -43,7 +43,7 @@ const Login = () => {
             </div>
             <div className="field-container">
                 <label for="password">Password:</label>
-                <input id="password" type="text" 
+                <input id="password" type="password" 
                     onChange = { handleChange }
                     value = { inputs.password }
                 />
