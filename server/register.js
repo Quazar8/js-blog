@@ -11,6 +11,7 @@ const registerUserDb = async ({ username, password}) => {
     let result = await writeDb(str)
     return result
 } 
+
 const registerUser = async (req, res) => {
     console.log('register', req.body)
     const data = req.body

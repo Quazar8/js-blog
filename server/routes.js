@@ -1,4 +1,5 @@
 const registerUser = require('./register')
+const loginUser = require('./login')
 
 const routes = (app) => {
     app.get('/', (req, res) => {
@@ -7,10 +8,7 @@ const routes = (app) => {
    
    app.post('/user/register', registerUser)
 
-   app.post('/user/login', (req, res) => {
-       console.log('login', req.body)
-       res.status(200).send({error: false})
-   })
+   app.post('/user/login', loginUser)
 }
 
 module.exports = routes
