@@ -12,7 +12,7 @@ const userPostQuery = (data) => {
     }
 }
 
-const registerUser = (data) => {
+const registerUserServer = (data) => {
     if(!data && !data.username && !data.password)
         return { err: true, errMsg: "Missing username or password" }
 
@@ -36,6 +36,6 @@ const loginUser = (data) => {
 }
 
 export {
-    registerUser,
+    registerUserServer,
     loginUser
 }

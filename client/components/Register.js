@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { assignVals } from '../utils'
-import { registerUser } from '../api'
+import { registerUserServer } from '../api'
 
 const Register = () => {
     const [inputs, setInputs] = useState({
@@ -32,7 +32,7 @@ const Register = () => {
             password: inputs.password
         }
 
-       registerUser(data)
+       registerUserServer(data)
     }
 
     return (

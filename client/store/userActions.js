@@ -1,3 +1,5 @@
+import { registerUserServer } from '../api'
+
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
     LOGGEDIN_USER: 'LOGGEDIN_USER',
@@ -19,8 +21,20 @@ const registeredUserAction = (data) => {
     }
 }
 
+const registerUser = (data) => {
+    return dispatch => {
+        registerUserServer(data).then(resp => {
+            dispatch(registeredUserAction(resp))
+        })
+        .catch(err => {
+            console.log('Error', err)
+        })
+    }
+}
+
 export {
     actionTypes,
     registerUserAction,
-    registeredUserAction
+    registeredUserAction,
+    registerUser
 }
