@@ -27,6 +27,7 @@ const registerUser = async (req, res) => {
                     errorMsg: result.errorMsg})
     else 
         res.status(200).send({error: false,
+                user: data.username,
                 msg: "User registered"})
 }
 
