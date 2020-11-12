@@ -14,7 +14,7 @@ const registerUserAction = (data) => {
 
 const registeredUserAction = (data) => {
     return {
-        type.actionTypes.REGISTERED_USER,
+        type: actionTypes.REGISTERED_USER,
         payload: data
     }
 }
