@@ -5,6 +5,14 @@ const actionTypes = {
     REGISTERED_USER: 'REGISTERED_USER'
 }
 
+const registerUserAction = (data) => {
+    return {
+        type: actionTypes.REGISTER_USER,
+        payload: data
+    }
+}
+
 export {
-    actionTypes
+    actionTypes,
+    registerUserAction
 }
