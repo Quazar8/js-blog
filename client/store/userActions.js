@@ -12,7 +12,15 @@ const registerUserAction = (data) => {
     }
 }
 
+const registeredUserAction = (data) => {
+    return {
+        type.actionTypes.REGISTERED_USER,
+        payload: data
+    }
+}
+
 export {
     actionTypes,
-    registerUserAction
+    registerUserAction,
+    registeredUserAction
 }
