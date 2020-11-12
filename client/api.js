@@ -16,13 +16,8 @@ const registerUser = (data) => {
     if(!data && !data.username && !data.password)
         return { err: true, errMsg: "Missing username or password" }
 
-    fetch(registerURL, userPostQuery(data)).
-    then(resp => resp.json()).then(data => {
-        console.log(data)
-    })
-    .catch(err => {
-        console.error(err)
-    })
+    return fetch(registerURL, userPostQuery(data)).
+    then(resp => resp.json())
 }
 
 const loginUser = (data) => {
