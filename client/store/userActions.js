@@ -24,7 +24,7 @@ const registeredUserAction = (data) => {
 const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
-            dispatch(registeredUserAction(resp))
+            dispatch(registeredUserAction(resp.user))
         })
         .catch(err => {
             console.log('Error', err)
