@@ -25,14 +25,9 @@ const loginUser = (data) => {
         return { error: true,
             errorMsg: 'Missing username or password'}
 
-    fetch(loginUrl, userPostQuery(data))
+    return fetch(loginUrl, userPostQuery(data))
     .then(resp => resp.json())
-    .then(data => {
-        console.log(data)
-    })
-    .catch(err => {
-        console.error(err)
-    })
+    
 }
 
 export {
