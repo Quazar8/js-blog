@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { registerUser } from '../store/userActions'
 import { assignVals } from '../utils'
-import { registerUserServer } from '../api'
 
-const Register = () => {
+const RegisterView = ({ dispatchRegister }) => {
     const [inputs, setInputs] = useState({
         username:"",
         password:"",
@@ -32,7 +33,7 @@ const Register = () => {
             password: inputs.password
         }
 
-       registerUserServer(data)
+        dispatchRegister(data)
     }
 
     return (
@@ -59,5 +60,13 @@ const Register = () => {
         </form>
     )
 }
+
+const mapDispatch = dispatch => ({
+    dispatchRegister: data => {
+        dispatch(registerUser(data))
+    }
+})
+
+const Register = connect(null, mapDispatch)(RegisterView)
 
 export default Register
