@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { assignVals } from '../utils'
-import { loginUser } from '../api'
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -29,7 +28,6 @@ const Login = () => {
             password: inputs.password
         }
 
-        loginUser(data)
     }    
 
     return (
