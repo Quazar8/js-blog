@@ -16,7 +16,9 @@ db(({ msg }) => {
 
 app.use(cors(corsOptions))
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({
+    extended: true
+}))
 routes(app)
 
 app.listen(port, () => {
