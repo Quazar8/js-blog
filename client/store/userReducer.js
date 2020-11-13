@@ -5,10 +5,18 @@ const initialUserState = {
     online: false
 }
 
+const registeredState = (state, username) => {
+    return {
+        ...state,
+        username,
+        online: true
+    }
+}
+
 const userReducer = (state = initialUserState, action) => {
     switch(action.type){
-        case actionTypes.REGISTER_USER:
-            return state
+        case actionTypes.REGISTERED_USER:
+            return registeredState(state, action.payload)
         default: return state
     }
 }
