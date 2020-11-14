@@ -14,7 +14,9 @@ const userPostQuery = (data) => {
 
 const registerUserServer = (data) => {
     if(!data && !data.username && !data.password)
-        return { err: true, errMsg: "Missing username or password" }
+        return new Promise((resolve) => {
+            resolve({ error: true, errMsg: "Missing username or password"})
+        })
 
     return fetch(registerURL, userPostQuery(data)).
     then(resp => resp.json())
@@ -22,8 +24,10 @@ const registerUserServer = (data) => {
 
 const loginUser = (data) => {
     if(!data && !data.username && !data.password)
-        return { error: true,
-            errorMsg: 'Missing username or password'}
+        return new Promise((resolve) => {
+            resolve({ error: true,
+            errorMsg: 'Missing username or password'})
+        })
 
     return fetch(loginUrl, userPostQuery(data))
     .then(resp => resp.json())
