@@ -22,7 +22,7 @@ const registeredUserAction = (data) => {
     }
 }
 
-const loginUserAction = (data) => {
+const loggedInUserAction = (data) => {
     return {
         type: actionTypes.LOGGEDIN_USER,
         payload: data
@@ -40,9 +40,21 @@ const registerUser = (data) => {
     }
 }
 
+const loginUser = (data) => {
+    return dispatch => {
+        loginUserServer(data).then(resp => {
+            dispatch(loggedInUserAction(resp.user))
+        })
+        .catch(err => {
+            console.log('Error', err)
+        })
+    }
+}
+
 export {
     actionTypes,
     registerUserAction,
     registeredUserAction,
-    registerUser
+    registerUser,
+    loginUser
 }
