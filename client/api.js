@@ -22,7 +22,7 @@ const registerUserServer = (data) => {
     then(resp => resp.json())
 }
 
-const loginUser = (data) => {
+const loginUserServer = (data) => {
     if(!data && !data.username && !data.password)
         return new Promise((resolve) => {
             resolve({ error: true,
@@ -36,5 +36,5 @@ const loginUser = (data) => {
 
 export {
     registerUserServer,
-    loginUser
+    loginUserServer
 }
