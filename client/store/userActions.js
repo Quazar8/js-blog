@@ -1,4 +1,5 @@
-import { registerUserServer } from '../api'
+import { registerUserServer,
+         loginUserServer } from '../api'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -17,6 +18,13 @@ const registerUserAction = (data) => {
 const registeredUserAction = (data) => {
     return {
         type: actionTypes.REGISTERED_USER,
+        payload: data
+    }
+}
+
+const loginUserAction = (data) => {
+    return {
+        type: actionTypes.LOGGEDIN_USER,
         payload: data
     }
 }
