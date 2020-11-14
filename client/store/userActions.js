@@ -32,7 +32,7 @@ const loggedInUserAction = (data) => {
 const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
-            dispatch(registeredUserAction(resp.user))
+            dispatch(registeredUserAction(resp.username))
         })
         .catch(err => {
             console.log('Error', err)
@@ -43,7 +43,7 @@ const registerUser = (data) => {
 const loginUser = (data) => {
     return dispatch => {
         loginUserServer(data).then(resp => {
-            dispatch(loggedInUserAction(resp.user))
+            dispatch(loggedInUserAction(resp.username))
         })
         .catch(err => {
             console.log('Error', err)

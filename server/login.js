@@ -21,7 +21,7 @@ const loginUser = (req, res, next) => {
         if(!user) 
             return res.send({ error: true, 
                 errorMsg: 'Username or Password incorrect' })
-        return res.status(200).send({error: false, user})
+        return res.status(200).send({error: false, username: user})
     })(req, res, next)
 }
 
