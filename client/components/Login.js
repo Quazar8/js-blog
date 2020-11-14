@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { loginUser } from '../store/userActions'
 import { assignVals } from '../utils'
 
-const Login = () => {
+const LoginView = ({ tryLogIn }) => {
     const [inputs, setInputs] = useState({
         username: "",
         password: ""
@@ -28,6 +30,7 @@ const Login = () => {
             password: inputs.password
         }
 
+        tryLogIn(data)
     }    
 
     return (
@@ -50,5 +53,13 @@ const Login = () => {
         </form>
     )
 }
+
+const mapDispatch = dispatch => ({
+    tryLogIn: (data) => {
+        dispatch(loginUser(data))
+    }
+})
+
+const Login = connect(null, mapDispatch)(LoginView)
 
 export default Login
