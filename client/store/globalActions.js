@@ -12,7 +12,15 @@ const showError = (msg) => {
     }
 }
 
+const clearError = () => {
+    return {
+        type: types.CLEAR_ERROR,
+        payload: null
+    }
+}
+
 export {
     types,
-    showError
+    showError,
+    clearError
 }
