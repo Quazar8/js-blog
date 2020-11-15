@@ -11,10 +11,19 @@ const setErrorState = (state, errorMsg) => {
     }
 }
 
+const clearErrorState = (state) => {
+    return {
+        ...state,
+        error: ""
+    }
+}
+
 const globalReducer = (state = globalState, action) => {
     switch(action.type){
         case types.ERROR:
             return setErrorState(state, action.payload)
+        case types.CLEAR_ERROR:
+            return clearErrorState(state)
         default: return state
     }
 }
