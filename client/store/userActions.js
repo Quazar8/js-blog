@@ -48,7 +48,11 @@ const loginUser = (data) => {
     return dispatch => {
         loginUserServer(data).then(resp => {
             dispatch(loggedInUserAction(resp.username))
-            dispatch(successAction("You are logged in"))
+            
+            if(resp.error)
+                dispatch(showErrorAction(resp.errorMsg))
+            else
+                dispatch(successAction("You are logged in"))
         })
         .catch(err => {
             console.log('Error', err)
