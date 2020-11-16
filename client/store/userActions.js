@@ -56,7 +56,7 @@ const loginUser = (data) => {
                 dispatch(showErrorAction(resp.errorMsg))
             else {
                 dispatch(loggedInUserAction(resp.username))
-                dispatch(successAction("You are logged in"))
+                dispatch(successAction("You have logged in"))
             }
         })
         .catch(err => {

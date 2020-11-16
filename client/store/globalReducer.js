@@ -8,7 +8,8 @@ const globalState = {
 const setErrorState = (state, errorMsg) => {
     return {
         ...state,
-        error: errorMsg
+        error: errorMsg,
+        success: ""
     }
 }
 
@@ -22,7 +23,8 @@ const clearErrorState = (state) => {
 const setSuccessState = (state, msg) => {
     return {
         ...state,
-        success: msg
+        success: msg,
+        error: ""
     }
 }
 
