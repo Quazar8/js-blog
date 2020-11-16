@@ -26,6 +26,13 @@ const setSuccessState = (state, msg) => {
     }
 }
 
+const clearSuccess = (state) => {
+    return {
+        ...state,
+        success: ""
+    }
+}
+
 const globalReducer = (state = globalState, action) => {
     switch(action.type){
         case types.ERROR:
@@ -34,6 +41,8 @@ const globalReducer = (state = globalState, action) => {
             return clearErrorState(state)
         case types.SUCCESS_NOTIFICATION:
             return setSuccessState(state, action.payload)
+        case types.CLEAR_SUCCESS_NOTIFICATION:
+            return clearSuccess(state)
         default: return state
     }
 }
