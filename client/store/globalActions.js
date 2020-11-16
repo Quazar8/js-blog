@@ -19,7 +19,7 @@ const clearErrorAction = () => {
     }
 }
 
-const successAction = (mag) => {
+const successAction = (msg) => {
     return {
         type: types.SUCCESS_NOTIFICATION,
         payload: msg

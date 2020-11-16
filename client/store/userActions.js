@@ -1,5 +1,7 @@
 import { registerUserServer,
          loginUserServer } from '../api'
+import { showErrorAction, 
+         successAction } from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -33,9 +35,11 @@ const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
             dispatch(registeredUserAction(resp.username))
+            dispatch(successAction("You have succesfully registered"))
         })
         .catch(err => {
             console.log('Error', err)
+            dispatch(showErrorAction("Error has occured"))
         })
     }
 }
@@ -44,9 +48,11 @@ const loginUser = (data) => {
     return dispatch => {
         loginUserServer(data).then(resp => {
             dispatch(loggedInUserAction(resp.username))
+            dispatch(successAction("You are logged in"))
         })
         .catch(err => {
             console.log('Error', err)
+            dispatch(showErrorAction("Error has occured"))
         })
     }
 }
