@@ -34,8 +34,12 @@ const loggedInUserAction = (data) => {
 const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
-            dispatch(registeredUserAction(resp.username))
-            dispatch(successAction("You have succesfully registered"))
+            if(resp.error)
+                dispatch(showErrorAction(errorMsg))
+            else {
+                dispatch(registeredUserAction(resp.username))
+                dispatch(successAction("You have succesfully registered"))
+            }
         })
         .catch(err => {
             console.log('Error', err)
@@ -47,12 +51,13 @@ const registerUser = (data) => {
 const loginUser = (data) => {
     return dispatch => {
         loginUserServer(data).then(resp => {
-            dispatch(loggedInUserAction(resp.username))
             
             if(resp.error)
                 dispatch(showErrorAction(resp.errorMsg))
-            else
+            else {
+                dispatch(loggedInUserAction(resp.username))
                 dispatch(successAction("You are logged in"))
+            }
         })
         .catch(err => {
             console.log('Error', err)
