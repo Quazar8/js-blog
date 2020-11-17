@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import DefaultNavLinks from './DefaultNavLinks'
 import LoggedNavLinks from './LoggedNavLinks'
 
+import { logoutUserAction } from '../store/userActions'
+
 const NavbarView = ({ username, online }) => {
     return (
         <nav className="main-navbar">
@@ -22,13 +24,21 @@ const NavbarView = ({ username, online }) => {
     )
 }
 
-const mapState = (state) => {
+const mapState = state => {
     return {
         username: state.user.username,
         online: state.user.online
     }
 }
 
-const Navbar = connect(mapState)(NavbarView)
+const mapDispatch = dispatch => {
+    return {
+        logoutUser: () => {
+            dispatch(logoutUserAction())
+        }
+    }
+}
+
+const Navbar = connect(mapState, mapDispatch)(NavbarView)
 
 export default Navbar
