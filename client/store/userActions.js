@@ -1,7 +1,8 @@
 import { registerUserServer,
          loginUserServer } from '../api'
 import { showErrorAction, 
-         successAction } from './globalActions'
+         successAction, 
+         types} from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -67,10 +68,18 @@ const loginUser = (data) => {
     }
 }
 
+const logoutUserAction = () => {
+    return {
+        type: types.LOGOUT_USER,
+        payload: null
+    }
+}
+
 export {
     actionTypes,
     registerUserAction,
     registeredUserAction,
     registerUser,
-    loginUser
+    loginUser,
+    logoutUserAction
 }
