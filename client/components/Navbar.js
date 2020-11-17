@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import DefaultNavLinks from './DefaultNavLinks'
+import LoggedNavLinks from './LoggedNavLinks'
 
 const NavbarView = ({ username, online }) => {
     return (
@@ -10,7 +11,13 @@ const NavbarView = ({ username, online }) => {
             <div className="logo-holder">
                 <Link to="/">Logo</Link>
             </div>
-            <DefaultNavLinks />
+            {   
+                online
+                ? <LoggedNavLinks
+                    username = { username }
+                   />
+                : <DefaultNavLinks />
+           }
         </nav>
     )
 }
