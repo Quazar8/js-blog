@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const NavbarView = ({ username, online }) => {
     return (
         <nav className="main-navbar">
             <div className="logo-holder">
@@ -14,5 +15,14 @@ const Navbar = () => {
         </nav>
     )
 }
+
+const mapState = (state) => {
+    return {
+        username: state.user.username,
+        online: state.user.online
+    }
+}
+
+const Navbar = connect(mapState)(NavbarView)
 
 export default Navbar
