@@ -1,5 +1,5 @@
 .main-navbar {
-    background-color: #83a5e2;
+    background-color: #3d3b38;
     height: 10vh;
     width:100%;
     display: flex;
@@ -7,20 +7,31 @@
     align-items: center;
 }
 
-.nav-links {
+.nav-links, h3 {
     text-decoration: none;
     color: white;
+    height: 100%;
     font-weight: bold;
     font-size: 1.4rem;
     font-family: sans-serif;
-    width: 20%;
-    display: flexbox;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links:hover, h3:hover {
+    background-color: white;
+    color: #3d3b38;
+    cursor: pointer;
 }
 
 .main-navbar > .links-container {
     display: flex;
-    justify-content: space-evenly;
-    width: 20%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    height: 100%;
 }
 
 .logo-container {
