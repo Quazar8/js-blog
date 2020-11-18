@@ -7,7 +7,8 @@ import LoggedNavLinks from './LoggedNavLinks'
 
 import { logoutUserAction } from '../store/userActions'
 
-const NavbarView = ({ username, online }) => {
+const NavbarView = ({ username, online,
+                        logoutUser }) => {
     return (
         <nav className="main-navbar">
             <div className="logo-holder">
@@ -17,6 +18,7 @@ const NavbarView = ({ username, online }) => {
                 online
                 ? <LoggedNavLinks
                     username = { username }
+                    logoutUser = { logoutUser }
                    />
                 : <DefaultNavLinks />
            }
