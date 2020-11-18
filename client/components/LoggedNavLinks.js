@@ -1,10 +1,11 @@
 import React from 'react'
 
-const LoggedNavLinks = ( { username }) => {
+const LoggedNavLinks = ( { username,
+                            logoutUser }) => {
     return (
         <div className="links-container">
             <h3>Hi, { username }</h3>
-            <a>Log out</a>
+            <h3 onClick= { logoutUser }>Log out</h3>
         </div>
     )
 }
