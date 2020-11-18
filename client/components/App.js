@@ -6,6 +6,7 @@ import Home from './Home'
 import Register from './Register'
 import Login from './Login'
 import Notification from './Notification'
+import PostForm from './PostForm'
 
 const App = () => {
     return (
@@ -22,6 +23,9 @@ const App = () => {
                     </Route>
                     <Route path="/login">
                         <Login />
+                    </Route>
+                    <Route path="/post">
+                        <PostForm />
                     </Route>
                 </Switch>
             </main>
