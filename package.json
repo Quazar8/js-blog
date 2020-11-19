@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "build": "webpack --config ./configs/webpack.config.js",
-    "dev": "webpack serve --config ./configs/webpack.config.js"
+    "dev": "webpack serve --config ./configs/webpack.config.js",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "babel-loader": "8.1.0",
     "css-loader": "5.0.1",
     "html-webpack-plugin": "4.5.0",
+    "nodemon": "2.0.6",
     "sass": "1.29.0",
     "sass-loader": "10.0.5",
     "style-loader": "2.0.0",
