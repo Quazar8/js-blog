@@ -1,6 +1,14 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
+passport.serializeUser((user, done) => {
+    done(null, user)
+})
+
+passport.deserializeUser((user, done) => {
+    done(null, user)
+})
+
 passport.use(new LocalStrategy((username, password, done) => {
     const db = require('./db.json')
     const users = db.Users
@@ -21,7 +29,12 @@ const loginUser = (req, res, next) => {
         if(!user) 
             return res.send({ error: true, 
                 errorMsg: 'Username or Password incorrect' })
-        return res.status(200).send({error: false, username: user})
+
+        req.login(user, (err) => {
+            if(err) return next(err)
+            return res.status(200).send({error: false, username: user})
+        })
+        
     })(req, res, next)
 }
 

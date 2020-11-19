@@ -6,12 +6,11 @@ import thunk from 'redux-thunk'
 import userReducer from './userReducer'
 import globalReducer from './globalReducer'
 import postsReducer from './postsReducer'
-import postReducer from './postsReducer'
 
 const rootReducer = combineReducers({
     user: userReducer,
     global: globalReducer,
-    posts: postReducer
+    posts: postsReducer
 })
 
 const store = createStore(rootReducer,
