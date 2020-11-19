@@ -1,5 +1,6 @@
-const registerURL = 'http://localhost:8000/user/register'
-const loginUrl = 'http://localhost:8000/user/login'
+const baseUrl = 'http://localhost:8000'
+const registerURL = baseUrl + '/user/register'
+const loginUrl = baseUrl + '/user/login'
 
 const userPostQuery = (data) => {
     return {
