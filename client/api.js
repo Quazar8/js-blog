@@ -2,8 +2,9 @@ const baseUrl = 'http://localhost:8000'
 const registerURL = baseUrl + '/user/register'
 const loginUrl = baseUrl + '/user/login'
 const logoutUrl = baseUrl + '/user/logout'
+const publishPostUrl = baseUrl + '/publish'
 
-const userPostQuery = (data) => {
+const postQuery = (data) => {
     return {
         method: 'POST',
         mode: 'cors',
@@ -20,7 +21,7 @@ const registerUserServer = (data) => {
             resolve({ error: true, errMsg: "Missing username or password"})
         })
 
-    return fetch(registerURL, userPostQuery(data)).
+    return fetch(registerURL, postQuery(data)).
     then(resp => resp.json())
 }
 
@@ -31,7 +32,7 @@ const loginUserServer = (data) => {
             errorMsg: 'Missing username or password'})
         })
 
-    return fetch(loginUrl, userPostQuery(data))
+    return fetch(loginUrl, postQuery(data))
     .then(resp => resp.json())
     
 }
@@ -40,8 +41,14 @@ const logoutUserServer = () => {
     return fetch(logoutUrl).then(resp => resp.json())
 }
 
+const publishPostServer = (data) => {
+    return fetch(publishPostUrl, postQuery(data))
+            .then(resp => resp.json())
+}
+
 export {
     registerUserServer,
     loginUserServer,
-    logoutUserServer
+    logoutUserServer,
+    publishPostServer
 }
