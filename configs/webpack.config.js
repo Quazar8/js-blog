@@ -4,7 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: ["react-hot-loader/patch","./client/client.js"],
     output: {
-        filename: "bundle.js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "../static")
     },
     module: {
@@ -35,5 +35,10 @@ module.exports = {
         open: true,
         historyApiFallback: true
     },
-    devtool: "source-map"
+    devtool: "source-map",
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
 }
