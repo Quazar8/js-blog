@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const LoggedNavLinks = ( { username,
-                            logoutUser }) => {
+                            tryLogoutUser }) => {
     return (
         <div className="links-container">
             <Link to = "/post"
@@ -10,7 +10,7 @@ const LoggedNavLinks = ( { username,
                  New Post
              </Link>
             <h3>Hi, { username }</h3>
-            <h3 onClick= { logoutUser }>Log out</h3>
+            <h3 onClick= { tryLogoutUser }>Log out</h3>
         </div>
     )
 }
