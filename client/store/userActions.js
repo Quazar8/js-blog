@@ -1,5 +1,6 @@
 import { registerUserServer,
-         loginUserServer } from '../api'
+         loginUserServer,
+         logoutUserServer } from '../api'
 import { showErrorAction, 
          successAction } from './globalActions'
 
@@ -74,11 +75,21 @@ const logoutUserAction = () => {
     }
 }
 
+const logoutUser = () => {
+    return dispatch => {
+        logoutUserServer().then(resp => {
+            if (resp.error) 
+                dispatch(showErrorAction(resp.errorMsg))
+            else
+                dispatch(logoutUserAction())
+        })
+    }
+}
 export {
     actionTypes,
     registerUserAction,
     registeredUserAction,
     registerUser,
     loginUser,
-    logoutUserAction
+    logoutUser
 }

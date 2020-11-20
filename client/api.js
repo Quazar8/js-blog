@@ -37,10 +37,7 @@ const loginUserServer = (data) => {
 }
 
 const logoutUserServer = () => {
-    fetch(logoutUrl).then(resp => resp.json())
-    .then(resp => {
-        console.log(resp)
-    })
+    return fetch(logoutUrl).then(resp => resp.json())
 }
 
 export {
