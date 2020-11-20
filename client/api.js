@@ -1,6 +1,7 @@
 const baseUrl = 'http://localhost:8000'
 const registerURL = baseUrl + '/user/register'
 const loginUrl = baseUrl + '/user/login'
+const logoutUrl = baseUrl + '/user/logout'
 
 const userPostQuery = (data) => {
     return {
@@ -35,7 +36,15 @@ const loginUserServer = (data) => {
     
 }
 
+const logoutUserServer = () => {
+    fetch(logoutUrl).then(resp => resp.json())
+    .then(resp => {
+        console.log(resp)
+    })
+}
+
 export {
     registerUserServer,
-    loginUserServer
+    loginUserServer,
+    logoutUserServer
 }
