@@ -80,8 +80,10 @@ const logoutUser = () => {
         logoutUserServer().then(resp => {
             if (resp.error) 
                 dispatch(showErrorAction(resp.errorMsg))
-            else
+            else {
                 dispatch(logoutUserAction())
+                dispatch(successAction('You have logged out'))
+            }
         })
     }
 }
