@@ -23,11 +23,16 @@ const PostFormView = () => {
        })
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log('to submit', inputs)
+    }
+
     return (
-        <form>
+        <form onSubmit = { handleSubmit }>
             <div className = "field-container">
                 <label for = "title">Title</label>
-                <input id = "title" value = "" 
+                <input id = "title" value = { inputs.title } 
                 onChange = { handleTitleCHange }/>
             </div>
             <div>
