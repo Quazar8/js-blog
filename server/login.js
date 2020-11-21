@@ -27,7 +27,7 @@ const loginUser = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if(err) return next(err)
         if(!user) 
-            return res.send({ error: true, 
+            return res.status(403).send({ error: true, 
                 errorMsg: 'Username or Password incorrect' })
 
         req.login(user, (err) => {
