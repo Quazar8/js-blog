@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { publishPostAction } from '../store/postsActions'
 
-const PostFormView = () => {
+const PostFormView = ({ tryPublishPost }) => {
     const [inputs, setInputs] = useState({
         title: '',
         content: ''
@@ -25,7 +25,11 @@ const PostFormView = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('to submit', inputs)
+
+        const data = {
+            ...inputs
+        }
+        tryPublishPost(data)
     }
 
     return (
