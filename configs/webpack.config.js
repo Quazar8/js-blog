@@ -1,8 +1,8 @@
-const path = require('path')
-const HtmlPlugin = require('html-webpack-plugin')
+const path = require("path")
+const HtmlPlugin = require("html-webpack-plugin")
 
 module.exports = {
-    entry: ["react-hot-loader/patch","./client/client.js"],
+    entry: ["react-hot-loader/patch", "./client/client.js"],
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, "../static")

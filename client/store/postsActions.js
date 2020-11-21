@@ -1,15 +1,17 @@
-const types = {
-    PUBLISH_POST: 'PUBLISH_POST'
-}
+import { publishPostServer } from '../api'
+import { showErrorAction } from './globalActions'
 
-const publishPostAction = (data) => {
-    return {
-        type: types.PUBLISH_POST,
-        payload: data
+const publishPostAction = data => {
+    return dispatch => {
+        publishPostServer(data).then(resp => {
+            if (resp.error)
+                dispatch(showErrorAction(resp.errorMsg))
+            else
+                console.log('Success posting', resp)
+        })
     }
 }
 
 export {
-    types,
     publishPostAction
 }
