@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 
-const PostForm = () => {
+import { publishPostAction } from '../store/postsActions'
+
+const PostFormView = () => {
     const [inputs, setInputs] = useState({
         title: '',
         content: ''
@@ -35,5 +38,15 @@ const PostForm = () => {
         </form>
     )
 }
+
+const mapDispatch = dispatch => {
+    return {
+        tryPublishPost: data => {
+            dispatch(publishPostAction(data))
+        }
+    }
+}
+
+const PostForm = connect(null, mapDispatch)(PostFormView)
 
 export default PostForm
