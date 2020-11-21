@@ -37,7 +37,7 @@ const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
             if(resp.error)
-                dispatch(showErrorAction(errorMsg))
+                dispatch(showErrorAction(resp.errorMsg))
             else {
                 dispatch(registeredUserAction(resp.username))
                 dispatch(successAction("You have succesfully registered"))

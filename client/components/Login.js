@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../store/userActions'
-import { assignVals } from '../utils'
 
 const LoginView = ({ tryLogIn }) => {
     const [inputs, setInputs] = useState({
@@ -11,13 +10,18 @@ const LoginView = ({ tryLogIn }) => {
 
     const handleChange = (e) => {
         const el = e.target
+        
         switch(el.id) {
             case "username":
-                setInputs(assignVals(inputs, 
-                    "username", el.value)); break;
+                setInputs({
+                    ...inputs,
+                    username: el.value
+                }); break;
             case "password":
-                setInputs(assignVals(inputs, 
-                    "password", el.value)); break;
+                setInputs({
+                    ...inputs,
+                    password: el.value
+                }); break;
             default: break;
         }
     }
