@@ -4,7 +4,7 @@ const loginUrl = baseUrl + '/user/login'
 const logoutUrl = baseUrl + '/user/logout'
 const publishPostUrl = baseUrl + '/publish'
 
-const postQuery = (data) => {
+const postQueryOptions = (data) => {
     return {
         method: 'POST',
         mode: 'cors',
@@ -17,13 +17,21 @@ const postQuery = (data) => {
     }
 }
 
+const getQueryOptions = () => {
+    return {
+        method: 'GET',
+        credentials: 'include',
+        withCredentials: true
+    }
+}
+
 const registerUserServer = (data) => {
     if(!data && !data.username && !data.password)
         return new Promise((resolve) => {
             resolve({ error: true, errMsg: "Missing username or password"})
         })
 
-    return fetch(registerURL, postQuery(data)).
+    return fetch(registerURL, postQueryOptions(data)).
     then(resp => resp.json())
 }
 
@@ -34,17 +42,17 @@ const loginUserServer = (data) => {
             errorMsg: 'Missing username or password'})
         })
 
-    return fetch(loginUrl, postQuery(data))
+    return fetch(loginUrl, postQueryOptions(data))
     .then(resp => resp.json())
     
 }
 
 const logoutUserServer = () => {
-    return fetch(logoutUrl).then(resp => resp.json())
+    return fetch(logoutUrl, getQueryOptions()).then(resp => resp.json())
 }
 
 const publishPostServer = (data) => {
-    return fetch(publishPostUrl, postQuery(data))
+    return fetch(publishPostUrl, postQueryOptions(data))
             .then(resp => resp.json())
 }
 
