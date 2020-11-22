@@ -30,8 +30,16 @@ const Error = ( { msg }) => {
 const NotificationView = ({errorMsg, successMsg}) => {
     return (
         <section className = "notification-container">
-            <Success msg = { "Success" } /> 
-            <Error msg = { "Error" } /> 
+            {   
+                successMsg 
+                ? <Success msg = { successMsg } />
+                : null 
+            }
+            {
+                errorMsg
+                ? <Error msg = { errorMsg } /> 
+                : null
+            }
         </section>
     )
 }
