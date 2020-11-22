@@ -1,9 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+const Success = ( { msg }) => {
+    return (
+        <div className = "success-notification">
+            <div>
+                { msg }
+            </div>
+            <div>
+                &#10004;
+            </div>
+        </div>
+    )
+}
+
 const NotificationView = ({errorMsg, successMsg}) => {
     return (
-        <h2>{errorMsg || successMsg }</h2>
+        <section className = "notification-container">
+            {
+                successMsg ? <Success msg = { successMsg } /> : null
+            }
+        </section>
     )
 }
 
