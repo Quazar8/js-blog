@@ -1,17 +1,21 @@
 .notification-container {
     width: 20%;
+    position: fixed;
+    top: 12%;
+    left: 70%;
 
     .message {
         width: 80%;
+        font-size: 1.3rem;
     }
 
     .mark {
         width: 15%;
+        font-size: 2rem;
     }
 }
 
 .success-notification, .error-notification {
-    font-size: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
