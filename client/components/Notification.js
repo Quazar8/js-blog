@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 const Success = ( { msg }) => {
     return (
         <div className = "success-notification">
-            <div>
+            <div className = "message">
                 { msg }
             </div>
-            <div>
+            <div className = "mark">
                 &#10004;
             </div>
         </div>

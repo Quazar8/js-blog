@@ -1,5 +1,13 @@
 .notification-container {
     width: 20%;
+
+    .message {
+        width: 80%;
+    }
+
+    .mark {
+        width: 15%;
+    }
 }
 
 .success-notification {
@@ -11,4 +19,5 @@
     padding: 2% 5%;
     box-sizing: border-box;
     border-radius: 5%;
+    margin: 5% 0;
 }
