@@ -1,0 +1,14 @@
+.notification-container {
+    width: 20%;
+}
+
+.success-notification {
+    background-color: #5dcc5d;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    word-break: break-all;
+    padding: 2% 5%;
+    box-sizing: border-box;
+    border-radius: 5%;
+}

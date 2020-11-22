@@ -18,7 +18,7 @@ const NotificationView = ({errorMsg, successMsg}) => {
     return (
         <section className = "notification-container">
             {
-                successMsg ? <Success msg = { successMsg } /> : null
+                true ? <Success msg = { "hi" } /> : null
             }
         </section>
     )
