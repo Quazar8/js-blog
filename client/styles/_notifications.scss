@@ -10,14 +10,23 @@
     }
 }
 
-.success-notification {
-    background-color: #5dcc5d;
+.success-notification, .error-notification {
     font-size: 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     word-break: break-all;
     padding: 2% 5%;
     box-sizing: border-box;
     border-radius: 5%;
     margin: 5% 0;
+    font-family: sans-serif;
+}
+
+.success-notification {
+    background-color: #5dcc5d;
+}
+
+.error-notification {
+    background-color: red;
 }
