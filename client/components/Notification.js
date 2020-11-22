@@ -14,12 +14,24 @@ const Success = ( { msg }) => {
     )
 }
 
+const Error = ( { msg }) => {
+    return (
+        <div className = "error-notification">
+            <div className = "message">
+                { msg }
+            </div>
+            <div className = "mark">
+                X
+            </div>
+        </div>
+    )
+}
+
 const NotificationView = ({errorMsg, successMsg}) => {
     return (
         <section className = "notification-container">
-            {
-                true ? <Success msg = { "hi" } /> : null
-            }
+            <Success msg = { "Success" } /> 
+            <Error msg = { "Error" } /> 
         </section>
     )
 }
