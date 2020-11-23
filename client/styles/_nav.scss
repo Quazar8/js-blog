@@ -39,8 +39,12 @@
 
 
 .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 4%;
     min-width: 3rem;
     max-width: 6rem;
     margin: 0 0 0 2%;
+    animation: rotate 10s infinite linear;
 }
