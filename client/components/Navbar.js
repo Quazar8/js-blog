@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import DefaultNavLinks from './DefaultNavLinks'
 import LoggedNavLinks from './LoggedNavLinks'
+import Logo from './Logo'
 
 import { logoutUser } from '../store/userActions'
 
@@ -12,7 +12,7 @@ const NavbarView = ({ username, online,
     return (
         <nav className="main-navbar">
             <div className="logo-holder">
-                <Link to="/">Logo</Link>
+                <Logo />
             </div>
             {   
                 online
