@@ -47,4 +47,8 @@
     max-width: 6rem;
     margin: 0 0 0 2%;
     animation: rotate 10s infinite linear;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
