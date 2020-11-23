@@ -11,7 +11,7 @@ const NavbarView = ({ username, online,
                         tryLogoutUser }) => {
     return (
         <nav className="main-navbar">
-            <div className="logo-holder">
+            <div className="logo-container">
                 <Logo />
             </div>
             {   
