@@ -1,37 +1,37 @@
 import { types } from './globalActions'
 
 const globalState = {
-    error: "",
-    success: ""
+    errors: [],
+    successes: []
 }
 
 const setErrorState = (state, errorMsg) => {
+    const aux = [...state.errors]
+    aux.push(errorMsg)
     return {
         ...state,
-        error: errorMsg,
-        success: ""
+        errors: aux
     }
 }
 
 const clearErrorState = (state) => {
     return {
-        ...state,
-        error: ""
+        ...state
     }
 }
 
 const setSuccessState = (state, msg) => {
+    const aux = [...state.successes]
+    aux.push(msg)
     return {
         ...state,
-        success: msg,
-        error: ""
+        successes: aux
     }
 }
 
 const clearSuccess = (state) => {
     return {
-        ...state,
-        success: ""
+        ...state
     }
 }
 

@@ -27,17 +27,21 @@ const Error = ( { msg }) => {
     )
 }
 
-const NotificationView = ({errorMsg, successMsg}) => {
+const NotificationView = ({errors, successes}) => {
     return (
         <section className = "notification-container">
             {   
-                successMsg 
-                ? <Success msg = { successMsg } />
+                successes.length > 0 
+                ? successes.map(msg => (
+                    <Success msg = { msg } />
+                ))
                 : null 
             }
             {
-                errorMsg
-                ? <Error msg = { errorMsg } /> 
+                errors.length > 0
+                ? errors.map(err => (
+                     <Error msg = { err }/>
+                ))
                 : null
             }
         </section>
@@ -46,8 +50,8 @@ const NotificationView = ({errorMsg, successMsg}) => {
 
 const mapState = state => {
     return {
-        errorMsg: state.global.error,
-        successMsg: state.global.success
+        errors: state.global.errors,
+        successes: state.global.successes
     }
 }
 
