@@ -1,9 +1,20 @@
 .main-navbar {
     background-color: #3d3b38;
     width:100%;
+    min-height: 4rem;
+    max-height: 6rem;
+    height: 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .links-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30%;
+        height: 100%;
+    }
 }
 
 .nav-links, h3 {
@@ -17,26 +28,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+        
+    &:hover {
+        background-color: white;
+        color: #3d3b38;
+        cursor: pointer;
+    }
 }
 
-.nav-links:hover, h3:hover {
-    background-color: white;
-    color: #3d3b38;
-    cursor: pointer;
-}
 
-.main-navbar > .links-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 30%;
-    height: 100%;
-}
 
 .logo-container {
-    width: 5%;
-    max-width: 7rem;
+    width: 4%;
     min-width: 3rem;
-    margin-left: 2%;
-    padding: 0.5% 0;
+    max-width: 6rem;
+    margin: 0 0 0 2%;
 }
