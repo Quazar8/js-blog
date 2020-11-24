@@ -14,9 +14,9 @@ const Success = ( { msg }) => {
     )
 }
 
-const Error = ( { msg }) => {
+const Error = ( { msg, appendClass }) => {
     return (
-        <div className = "error-notification">
+        <div className = {"error-notification " + appendClass}>
             <div className = "message">
                 { msg }
             </div>
@@ -41,7 +41,11 @@ const NotificationView = ({errors, successes}) => {
             {
                 errors.length > 0
                 ? errors.map((err, i) => (
-                    <Error key = { i } msg = { err } />
+                    <Error key = { Math.random() } msg = { err + i } 
+                    appendClass = { i === errors.length - 1 
+                                    ? "appear" 
+                                    : "moveDown" }
+                    />
                 )).reverse()
                 : null
             }
