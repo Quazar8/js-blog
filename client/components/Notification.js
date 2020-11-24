@@ -35,7 +35,7 @@ const NotificationView = ({errors, successes}) => {
                 successes.length > 0 
                 ? successes.map( msg => (
                     <Success msg = { msg } />
-                ))
+                )).reverse()
                 : null 
             }
             {
