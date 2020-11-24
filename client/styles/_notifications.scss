@@ -1,8 +1,11 @@
 .notification-container {
     width: 20%;
     position: fixed;
+    height: 100%;
     top: 12%;
     left: 70%;
+    overflow: scroll;
+    scrollbar-width: none;
 
     .message {
         width: 80%;
