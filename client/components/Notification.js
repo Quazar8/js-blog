@@ -27,31 +27,29 @@ const Error = ( { msg, appendClass }) => {
     )
 }
 
-const NotificationView = ({errors, successes}) => {
-   
-    return (
-        <section className = "notification-container">
-            {   
-                successes.length > 0 
-                ? successes.map( (msg, i) => (
-                    <Success key = { Math.random() } msg = { msg } 
-                    appendClass = { i === successes.length - 1
+const NotificationView = ({ notifications }) => {
+    const mapNotifications = (el, i) => {
+        if (el.error) {
+            return  <Error key = { Math.random() } msg = { el.msg } 
+                    appendClass = { i === notifications.length - 1
                                     ? "appear"
                                     : "moveDown" }
                     />
-                )).reverse()
-                : null 
-            }
-            {
-                errors.length > 0
-                ? errors.map((err, i) => (
-                    <Error key = { Math.random() } msg = { err } 
-                    appendClass = { i === errors.length - 1 
-                                    ? "appear" 
+        }
+        
+        return  <Success key = { Math.random() } msg = { el.msg } 
+                    appendClass = { i === notifications.length - 1
+                                    ? "appear"
                                     : "moveDown" }
-                    />
-                )).reverse()
-                : null
+                />
+    }
+    return (
+        <section className = "notification-container">
+            {   
+                notifications.length > 0 
+                ? notifications.map(mapNotifications)
+                  .reverse()
+                : null 
             }
         </section>
     )
@@ -59,8 +57,7 @@ const NotificationView = ({errors, successes}) => {
 
 const mapState = state => {
     return {
-        errors: state.global.errors,
-        successes: state.global.successes
+        notifications: state.global.notifications
     }
 }
 
