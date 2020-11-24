@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Success = ( { msg }) => {
+const Success = ( { msg, appendClass }) => {
     return (
-        <div className = "success-notification">
+        <div className = { "success-notification " + appendClass }>
             <div className = "message">
                 { msg }
             </div>
@@ -34,14 +34,18 @@ const NotificationView = ({errors, successes}) => {
             {   
                 successes.length > 0 
                 ? successes.map( (msg, i) => (
-                    <Success key = { i } msg = { msg } />
+                    <Success key = { Math.random() } msg = { msg } 
+                    appendClass = { i === successes.length - 1
+                                    ? "appear"
+                                    : "moveDown" }
+                    />
                 )).reverse()
                 : null 
             }
             {
                 errors.length > 0
                 ? errors.map((err, i) => (
-                    <Error key = { Math.random() } msg = { err + i } 
+                    <Error key = { Math.random() } msg = { err } 
                     appendClass = { i === errors.length - 1 
                                     ? "appear" 
                                     : "moveDown" }
