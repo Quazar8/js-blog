@@ -28,20 +28,21 @@ const Error = ( { msg }) => {
 }
 
 const NotificationView = ({errors, successes}) => {
+    
     return (
         <section className = "notification-container">
             {   
                 successes.length > 0 
-                ? successes.map(msg => (
+                ? successes.map( msg => (
                     <Success msg = { msg } />
                 ))
                 : null 
             }
             {
                 errors.length > 0
-                ? errors.map(err => (
+                ? errors.map( err => (
                      <Error msg = { err }/>
-                ))
+                )).reverse()
                 : null
             }
         </section>
