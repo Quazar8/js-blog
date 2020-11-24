@@ -2,7 +2,8 @@ import { registerUserServer,
          loginUserServer,
          logoutUserServer } from '../api'
 import { showErrorAction, 
-         successAction } from './globalActions'
+         successAction,
+         clearError } from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -54,8 +55,10 @@ const loginUser = (data) => {
     return dispatch => {
         loginUserServer(data).then(resp => {
             
-            if(resp.error)
+            if(resp.error){
                 dispatch(showErrorAction(resp.errorMsg))
+                clearError(dispatch)
+            }
             else {
                 dispatch(loggedInUserAction(resp.username))
                 dispatch(successAction("You have logged in"))

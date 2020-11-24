@@ -1,3 +1,5 @@
+const clearTime = 3000 //in ms
+
 const types = {
     ERROR: "ERROR",
     CLEAR_ERROR: "CLEAR_ERROR",
@@ -19,6 +21,12 @@ const clearErrorAction = () => {
     }
 }
 
+const clearError = dispatch => {
+    setTimeout(() => {
+        dispatch(clearErrorAction())
+    }, clearTime)
+}
+
 const successAction = (msg) => {
     return {
         type: types.SUCCESS_NOTIFICATION,
@@ -38,5 +46,6 @@ export {
     showErrorAction,
     clearErrorAction,
     successAction,
-    clearSuccessAction
+    clearSuccessAction,
+    clearError
 }

@@ -30,7 +30,7 @@ const Error = ( { msg, appendClass }) => {
 const NotificationView = ({ notifications }) => {
     const mapNotifications = (el, i) => {
         if (el.error) {
-            return  <Error key = { Math.random() } msg = { el.msg } 
+            return  <Error key = { Math.random() } msg = { el.msg + i } 
                     appendClass = { i === notifications.length - 1
                                     ? "appear"
                                     : "moveDown" }

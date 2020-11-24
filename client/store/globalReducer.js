@@ -14,8 +14,11 @@ const setErrorState = (state, errorMsg) => {
 }
 
 const clearErrorState = (state) => {
+    const aux = [...state.notifications]
+    aux.shift()
     return {
-        ...state
+        ...state,
+        notifications: aux
     }
 }
 
