@@ -45,7 +45,7 @@ const NotificationView = ({ notifications }) => {
         }
 
         if (el.error) {
-            return  <Error key = { key } msg = { el.msg + i } 
+            return  <Error key = { key } msg = { el.msg } 
                     appendClass = { appendClass }
                     />
         }

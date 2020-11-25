@@ -1,3 +1,5 @@
+@use 'variables' as v;
+
 .notification-container {
     width: 20%;
     position: fixed;
@@ -28,6 +30,7 @@
     border-radius: 5%;
     margin: 5% 0;
     font-family: sans-serif;
+    opacity: v.$notification-opacity;
 }
 
 .success-notification {
