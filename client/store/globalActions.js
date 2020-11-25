@@ -41,11 +41,18 @@ const clearSuccessAction = () => {
     }
 }
 
+const clearSuccess = dispatch => {
+    setTimeout(() => {
+        dispatch(clearSuccessAction())
+    }, clearTime)
+}
+
 export {
     types,
     showErrorAction,
     clearErrorAction,
     successAction,
     clearSuccessAction,
-    clearError
+    clearError,
+    clearSuccess
 }
