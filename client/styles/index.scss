@@ -2,6 +2,7 @@
 @use 'nav';
 @use 'notifications';
 @use 'user-forms';
+@use 'variables' as v;
 
 * {
     margin: 0;
@@ -10,7 +11,7 @@
 }
 
 html {
-    background-color: black;
+    background-color: v.$background-color;
     color: white;
     font-family: sans-serif;
 }

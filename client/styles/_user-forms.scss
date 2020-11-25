@@ -1,3 +1,6 @@
+@use 'variables' as v;
+$button-text-color: white;
+
 .user-forms {
     width: 30%;
     background-color: #0d3149;
@@ -23,6 +26,24 @@
             font-size: 1.2rem;
             padding: 2% 0 2% 2%;
             margin: 4% 0;
+        }
+    }
+
+    input[type="submit"] {
+        background-color: v.$background-color;
+        color: $button-text-color;
+        padding: 2%;
+        font-size: 1.2rem;
+        font-weight: 700;
+        width: 30%;
+        border: 0.2vw solid $button-text-color;
+        border-radius: 5%;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #5cdd5c;
+            color: v.$background-color;
         }
     }
 }

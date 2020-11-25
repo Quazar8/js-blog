@@ -54,7 +54,7 @@ const LoginView = ({ tryLogIn }) => {
                     value = { inputs.password }
                 />
             </div>
-            <input type="submit" value="Log In" />
+            <input type="submit" value="Sign In" />
         </form>
     )
 }
