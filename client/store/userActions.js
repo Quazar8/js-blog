@@ -4,7 +4,8 @@ import { registerUserServer,
 import { showErrorAction, 
          successAction,
          clearError,
-         clearSuccess } from './globalActions'
+         clearSuccess, 
+         clearErrorAction} from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -38,11 +39,14 @@ const loggedInUserAction = (data) => {
 const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
-            if(resp.error)
+            if(resp.error) {
                 dispatch(showErrorAction(resp.errorMsg))
+                clearError(dispatch)
+            }
             else {
                 dispatch(registeredUserAction(resp.username))
                 dispatch(successAction("You have succesfully registered"))
+                clearSuccess(dispatch)
             }
         })
         .catch(err => {
@@ -83,11 +87,14 @@ const logoutUserAction = () => {
 const logoutUser = () => {
     return dispatch => {
         logoutUserServer().then(resp => {
-            if (resp.error) 
+            if (resp.error) {
                 dispatch(showErrorAction(resp.errorMsg))
+                clearError(dispatch)
+            }
             else {
                 dispatch(logoutUserAction())
                 dispatch(successAction('You have logged out'))
+                clearSuccess(dispatch)
             }
         })
     }
