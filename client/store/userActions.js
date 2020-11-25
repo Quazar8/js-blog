@@ -3,7 +3,8 @@ import { registerUserServer,
          logoutUserServer } from '../api'
 import { showErrorAction, 
          successAction,
-         clearError } from './globalActions'
+         clearError,
+         clearSuccess } from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -62,6 +63,7 @@ const loginUser = (data) => {
             else {
                 dispatch(loggedInUserAction(resp.username))
                 dispatch(successAction("You have logged in"))
+                clearSuccess(dispatch)
             }
         })
         .catch(err => {
