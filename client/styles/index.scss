@@ -1,6 +1,7 @@
 @use 'animations';
 @use 'nav';
 @use 'notifications';
+@use 'user-forms';
 
 * {
     margin: 0;
@@ -11,4 +12,10 @@
 html {
     background-color: black;
     color: white;
+    font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
 }

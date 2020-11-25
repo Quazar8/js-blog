@@ -38,9 +38,10 @@ const LoginView = ({ tryLogIn }) => {
     }    
 
     return (
-        <form onSubmit={ handleSubmit }>
+        <form className = "user-forms" onSubmit={ handleSubmit }>
+            <h2>Login:</h2>
             <div className="field-container">
-                <label for="username">Usernamae:</label>
+                <label for="username">Username:</label>
                 <input id="username" type="text"
                     onChange = { handleChange } 
                     value = { inputs.username }

@@ -43,7 +43,8 @@ const RegisterView = ({ dispatchRegister }) => {
     }
 
     return (
-        <form onSubmit={ handleSubmit }>
+        <form className = "user-forms" onSubmit={ handleSubmit }>
+            <h2>Register:</h2>
             <div className="field-container">
                 <label for="username">Username:</label>
                 <input type="text" id="username" 
