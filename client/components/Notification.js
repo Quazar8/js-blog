@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 const Success = ( { msg, appendClass }) => {
@@ -15,6 +15,7 @@ const Success = ( { msg, appendClass }) => {
 }
 
 const Error = ( { msg, appendClass }) => {
+    
     return (
         <div className = {"error-notification " + appendClass}>
             <div className = "message">
@@ -28,19 +29,29 @@ const Error = ( { msg, appendClass }) => {
 }
 
 const NotificationView = ({ notifications }) => {
+    const prevLengthRef = useRef(notifications.length)
+    useEffect(() => {
+        prevLengthRef.current = notifications.length
+    })
+    const prevLength = prevLengthRef.current
+
     const mapNotifications = (el, i) => {
+        let key = Math.random()
+        let appendClass = ""
+        if (prevLength < notifications.length) {
+            appendClass = i === notifications.length - 1
+                                ? "appear"
+                                : "moveDown"
+        }
+
         if (el.error) {
-            return  <Error key = { Math.random() } msg = { el.msg + i } 
-                    appendClass = { i === notifications.length - 1
-                                    ? "appear"
-                                    : "moveDown" }
+            return  <Error key = { key } msg = { el.msg + i } 
+                    appendClass = { appendClass }
                     />
         }
         
-        return  <Success key = { Math.random() } msg = { el.msg } 
-                    appendClass = { i === notifications.length - 1
-                                    ? "appear"
-                                    : "moveDown" }
+        return  <Success key = { key } msg = { el.msg } 
+                    appendClass = { appendClass }
                 />
     }
     return (
