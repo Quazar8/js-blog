@@ -31,9 +31,12 @@ const setSuccessState = (state, msg) => {
     }
 }
 
-const clearSuccess = (state) => {
+const clearSuccessState = (state) => {
+    let aux = [...state.notifications]
+    aux.shift()
     return {
-        ...state
+        ...state,
+        notifications: aux
     }
 }
 
@@ -46,7 +49,7 @@ const globalReducer = (state = globalState, action) => {
         case types.SUCCESS_NOTIFICATION:
             return setSuccessState(state, action.payload)
         case types.CLEAR_SUCCESS_NOTIFICATION:
-            return clearSuccess(state)
+            return clearSuccessState(state)
         default: return state
     }
 }
