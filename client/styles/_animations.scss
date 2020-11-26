@@ -4,8 +4,21 @@
     animation: appear 0.5s linear;
 }
 
+.disappear {
+    animation: disappear 0.5s linear;
+}
+
 .moveDown {
     animation: moveDown 0.5s linear;
+}
+
+@keyframes disappear {
+    from {
+        opacity: v.$notification-opacity;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes appear {
