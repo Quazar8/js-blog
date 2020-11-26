@@ -1,5 +1,11 @@
+const { genId } = require('./utils')
+
 const postArticle = (req, res) => {
-    res.status(200).send({ error: false, msg: 'Posted' })
+   const { title, content } = req.body
+   if(!title || !content) {
+       return res.status(403).send( { error: true, 
+                            errorMsg: 'No title or article body' })
+   } 
 }
 
 module.exports = {
