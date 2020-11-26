@@ -1,6 +1,5 @@
 const { genId, getDate } = require('./utils')
 const { writeDb } = require('./db');
-const { json } = require('express');
 const idBytes = 8;
 
 const postArticle = (req, res) => {
