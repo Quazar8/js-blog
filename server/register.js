@@ -5,7 +5,7 @@ const registerUserDb = async ({ username, password}) => {
     if(jsonDb.Users[username]) 
         return { error: true, errorMsg: 'User already exists!'}
 
-    jsonDb.Users[username] =  { password, posts: {} }
+    jsonDb.Users[username] =  { password, posts: [] }
 
     const str = JSON.stringify(jsonDb)
     let result = await writeDb(str)
