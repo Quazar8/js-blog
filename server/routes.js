@@ -1,3 +1,4 @@
+const { CheckIfLogged } = require('./middlewares')
 const registerUser = require('./register')
 const loginUser = require('./login')
 const logoutUser = require('./logout')
@@ -14,7 +15,7 @@ const routes = (app) => {
 
    app.get('/user/logout', logoutUser)
 
-   app.post('/publish', postArticle)
+   app.post('/publish', CheckIfLogged, postArticle)
 }
 
 module.exports = routes
