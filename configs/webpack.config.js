@@ -22,6 +22,10 @@ module.exports = {
                     "sass-loader"
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.(jpg|png|svg|jpeg|gif)$/,
+                use: "file-loader"
             }
         ]
     },
