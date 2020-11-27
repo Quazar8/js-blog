@@ -45,6 +45,8 @@ const LoginView = ({ tryLogIn }) => {
                 <input id="username" type="text"
                     onChange = { handleChange } 
                     value = { inputs.username }
+                    autoFocus
+                    autoComplete = "off"
                  />
             </div>
             <div className="field-container">

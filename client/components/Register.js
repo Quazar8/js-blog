@@ -48,8 +48,11 @@ const RegisterView = ({ dispatchRegister }) => {
             <div className="field-container">
                 <label for="username">Username:</label>
                 <input type="text" id="username" 
-                onChange = { handleChange }
-                value = { inputs.username }/>
+                    onChange = { handleChange }
+                    value = { inputs.username }
+                    autoFocus
+                    autoComplete = "off"
+                />
             </div>
             <div className="field-container">
                 <label for="password">Password:</label>
