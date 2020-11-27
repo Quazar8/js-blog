@@ -31,7 +31,8 @@ module.exports = {
     },
     plugins: [
         new HtmlPlugin({
-            template: "./client/index.html"
+            template: "./client/index.html",
+            favicon: "./client/favicon.png"
         })
     ],
     devServer: {
