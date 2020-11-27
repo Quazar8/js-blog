@@ -1,13 +1,21 @@
 import { publishPostServer } from '../api'
-import { showErrorAction } from './globalActions'
+import { clearError, 
+         clearSuccess,
+         showErrorAction,
+         successAction } from './globalActions'
 
 const publishPostAction = data => {
     return dispatch => {
         publishPostServer(data).then(resp => {
-            if (resp.error)
+            if (resp.error) {
                 dispatch(showErrorAction(resp.errorMsg))
-            else
-                console.log('Success posting', resp)
+                clearError(dispatch)
+            }
+            else {
+                dispatch(successAction('Post published!'))
+                clearSuccess(dispatch)
+            }
+                
         })
     }
 }
