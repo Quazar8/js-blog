@@ -2,6 +2,8 @@
 $button-text-color: white;
 
 .user-forms {
+    position: relative;
+    z-index: 1;
     width: 30%;
     background-color: #0d3149;
     border: 0.2vw solid white;
@@ -14,6 +16,7 @@ $button-text-color: white;
     margin: 3% 0;
     font-size: 1.3rem;
     box-sizing: border-box;
+    animation: appear 1s ease-out;
 
     input[type="submit"] {
         background-color: v.$background-color;
