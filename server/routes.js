@@ -2,7 +2,7 @@ const { CheckIfLogged } = require('./middlewares')
 const registerUser = require('./register')
 const loginUser = require('./login')
 const logoutUser = require('./logout')
-const { postArticle } = require('./posts')
+const { postArticle, getPosts } = require('./posts')
 
 const routes = (app) => {
     app.get('/', (req, res) => {
@@ -16,6 +16,8 @@ const routes = (app) => {
    app.get('/user/logout', logoutUser)
 
    app.post('/publish', CheckIfLogged, postArticle)
+
+   app.get('/posts', getPosts)
 }
 
 module.exports = routes
