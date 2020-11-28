@@ -38,7 +38,9 @@ const postArticle = (req, res) => {
 }
 
 const getPosts = (req, res) => {
-    res.status(200).send({error: false, msg: 'Got Posts'})
+    const { Posts } = require('./db.json')
+
+    res.status(200).send({ error: false, posts: Posts })
 }
 
 module.exports = {
