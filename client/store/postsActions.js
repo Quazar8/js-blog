@@ -5,6 +5,10 @@ import { clearError,
          showErrorAction,
          successAction } from './globalActions'
 
+const types = {
+    GOT_ALL_POSTS: 'GOT_ALL_POSTS'
+}
+
 const publishPostAction = data => {
     return dispatch => {
         publishPostServer(data).then(resp => {
@@ -30,6 +34,7 @@ const getAllPosts = () => {
 }
 
 export {
+    types,
     publishPostAction,
     getAllPosts
 }
