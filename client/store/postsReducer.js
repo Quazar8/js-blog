@@ -12,7 +12,7 @@ const allPostsState = (state, posts) => {
 }
 
 const postReducer = (state = initial, action) => {
-    switch (action.payload) {
+    switch (action.type) {
         case types.GOT_ALL_POSTS:
             return allPostsState(state, action.payload)
         default: return state

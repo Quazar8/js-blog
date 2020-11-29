@@ -12,7 +12,7 @@ const types = {
 const gotAllPostsAction = (posts) => {
     return {
         type: types.GOT_ALL_POSTS,
-        payload: Array.from(posts)
+        payload: posts
     }
 }
 
@@ -35,8 +35,8 @@ const publishPostAction = data => {
 const getAllPosts = () => {
     return dispatch => {
         getAllPostsServer().then(resp => {
-           dispatch(gotAllPostsAction(resp.posts))
-           console.log('posts ', resp.posts)
+           dispatch(gotAllPostsAction(Object.values(resp.posts)))
+           console.log('posts', Object.values(resp.posts))
         }).catch(err => {
             dispatch(showErrorAction("An error has occured"))
             console.error(err)
