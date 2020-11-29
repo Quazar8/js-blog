@@ -36,7 +36,6 @@ const getAllPosts = () => {
     return dispatch => {
         getAllPostsServer().then(resp => {
            dispatch(gotAllPostsAction(Object.values(resp.posts)))
-           console.log('posts', Object.values(resp.posts))
         }).catch(err => {
             dispatch(showErrorAction("An error has occured"))
             console.error(err)
