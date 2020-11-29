@@ -9,6 +9,13 @@ const types = {
     GOT_ALL_POSTS: 'GOT_ALL_POSTS'
 }
 
+const gotAllPostsAction = (posts) => {
+    return {
+        type: types.GOT_ALL_POSTS,
+        payload: posts
+    }
+}
+
 const publishPostAction = data => {
     return dispatch => {
         publishPostServer(data).then(resp => {
@@ -28,7 +35,7 @@ const publishPostAction = data => {
 const getAllPosts = () => {
     return dispatch => {
         getAllPostsServer().then(resp => {
-            console.log(resp)
+           
         })
     }
 }
