@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import { getAllPosts } from '../store/postsActions'
 
 const PostsContainerView = ( { getPosts, posts }) => {
+   window.onload = () => {
+        getPosts()
+    }
+    console.log('posts ', posts)
     return (
         <section className = "posts-container">
             <h1>Post container</h1>
