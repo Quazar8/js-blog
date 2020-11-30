@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { getAllPosts } from '../store/postsActions'
 
-const PostsContainerView = ( { getPosts, posts }) => {
-   window.onload = () => {
-        getPosts()
+class PostsContainerView extends Component {
+    constructor(props) {
+        super(props)
+        console.log('posts', props.posts)
     }
-    console.log('posts ', posts)
-    return (
-        <section className = "posts-container">
-            <h1>Post container</h1>
-        </section>
-    )
+    
+    render() {
+        return (
+            <section className = "posts-container">
+                <h1>Post container</h1>
+            </section>
+        )
+    }
 }
 
 const mapState = state => {
