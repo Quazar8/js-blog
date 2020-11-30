@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import { getAllPosts } from '../store/postsActions'
 
+import Post from './Post'
+
 const PostsContainerView = ({ getPosts, posts }) => {
     useEffect(() => {
         getPosts()
@@ -10,7 +12,11 @@ const PostsContainerView = ({ getPosts, posts }) => {
 
     return (
         <section className = "posts-container">
-            <h1>Post container</h1>
+            { posts.map((post, i) => {
+                return <Post key = {i} 
+                             post = { post }
+                       />
+            })}
         </section>
     )
 }

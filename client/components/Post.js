@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Post = (props) => {
-    const { title, content, author } = props.post
+const Post = ({ post }) => {
+    const { title, content, author } = post
     return (
         <article className = "single-post">
             <h2>{ title }</h2>
