@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { getAllPosts } from '../store/postsActions'
 
 const PostsContainerView = ({ getPosts, posts }) => {
-    console.log('posts ', posts)
+    useEffect(() => {
+        getPosts()
+    }, [])
+
     return (
         <section className = "posts-container">
             <h1>Post container</h1>
