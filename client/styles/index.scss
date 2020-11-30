@@ -1,8 +1,9 @@
+@use 'variables' as v;
 @use 'animations';
 @use 'nav';
 @use 'notifications';
 @use 'user-forms';
-@use 'variables' as v;
+@use 'posts';
 
 * {
     margin: 0;
