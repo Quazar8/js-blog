@@ -5,6 +5,8 @@
 @use 'user-forms';
 @use 'posts';
 
+$background-blur: 3px;
+
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +30,8 @@ html {
         background-image: url('../../static/pics/coding.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        filter: blur($background-blur);
+        -webkit-filter: blur($background-blur);
     }
 }
 
