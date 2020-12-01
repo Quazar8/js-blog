@@ -1,7 +1,9 @@
+$nav-color: #222222;
+
 .main-navbar {
     position: relative;
     z-index: 2;
-    background-color: #3d3b38;
+    background-color: $nav-color;
     width:100%;
     min-height: 4rem;
     max-height: 6rem;
@@ -32,15 +34,11 @@
         
         &:hover {
             background-color: white;
-            color: #3d3b38;
+            color: $nav-color;
             cursor: pointer;
         }
     }
 }
-
-
-
-
 
 .logo-container {
     display: flex;
