@@ -21,6 +21,7 @@ const NavbarView = ({ username, online,
             <div className="logo-container"
             onClick = { homeRedirect }>
                 <Logo />
+                <h1>{ "<Blog />" }</h1>
             </div>
             {   
                 online

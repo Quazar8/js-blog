@@ -45,13 +45,22 @@
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 4%;
+    width: 40%;
     min-width: 3rem;
-    max-width: 6rem;
-    margin: 0 0 0 2%;
-    animation: rotate 10s infinite linear;
+    max-width: 20rem;
     position: relative;
+
+    svg {
+        margin: 0 7%;
+        width:20%;
+        animation: rotate 10s infinite linear;
+    }
+
+    h1 {
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        font-size: 2rem;
+    }
     
     &:hover {
         cursor: pointer;
