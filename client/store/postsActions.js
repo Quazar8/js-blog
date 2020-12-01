@@ -35,7 +35,7 @@ const publishPostAction = data => {
 const getAllPosts = () => {
     return dispatch => {
         getAllPostsServer().then(resp => {
-           dispatch(gotAllPostsAction(Object.values(resp.posts)))
+           dispatch(gotAllPostsAction(Object.values(resp.posts).reverse()))
         }).catch(err => {
             dispatch(showErrorAction("An error has occured"))
             console.error(err)
