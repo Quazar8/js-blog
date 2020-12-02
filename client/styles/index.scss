@@ -4,6 +4,7 @@
 @use 'notifications';
 @use 'user-forms';
 @use 'posts';
+@use 'home';
 
 $background-blur: 3px;
 
@@ -41,4 +42,5 @@ main {
     position: relative;
     z-index: 0;
     margin: 3% 0 0 0;
+    height: 100%;
 }
