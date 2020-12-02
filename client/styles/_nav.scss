@@ -1,9 +1,9 @@
-$nav-color: #222222;
+@use 'variables' as v;
 
 .main-navbar {
     position: relative;
     z-index: 2;
-    background-color: $nav-color;
+    background-color: v.$nav-color;
     width:100%;
     min-height: 4rem;
     max-height: 6rem;
@@ -34,7 +34,7 @@ $nav-color: #222222;
         
         &:hover {
             background-color: white;
-            color: $nav-color;
+            color: v.$nav-color;
             cursor: pointer;
         }
     }
