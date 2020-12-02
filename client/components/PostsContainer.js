@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { getAllPosts } from '../store/postsActions'
 
-import Post from './Post'
+import PostRow from './PostRow'
 
 const PostsContainerView = ({ getPosts, posts }) => {
     useEffect(() => {
@@ -13,7 +13,7 @@ const PostsContainerView = ({ getPosts, posts }) => {
     return (
         <section className = "posts-container">
             { posts.map((post, i) => {
-                return <Post key = {i} 
+                return <PostRow key = {i} 
                              post = { post }
                        />
             })}

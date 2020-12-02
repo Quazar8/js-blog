@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post = ({ post }) => {
+const PostRow = ({ post }) => {
     const { title, content, authorId } = post
     return (
         <article className = "single-post">
@@ -11,4 +11,4 @@ const Post = ({ post }) => {
     )
 }
 
-export default Post
+export default PostRow
