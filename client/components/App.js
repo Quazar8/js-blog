@@ -24,7 +24,7 @@ const App = () => {
                     <Route path="/login">
                         <Login />
                     </Route>
-                    <Route path="/post">
+                    <Route path="/create/post">
                         <PostForm />
                     </Route>
                 </Switch>
