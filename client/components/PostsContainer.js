@@ -15,7 +15,6 @@ const PostsContainerView = ({ getPosts, posts }) => {
             { posts.map((post, i) => {
                 return <PostRow key = { i } 
                              post = { post }
-                             id = { i }
                        />
             })}
         </section>
