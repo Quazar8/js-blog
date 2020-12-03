@@ -7,6 +7,7 @@ import Register from './Register'
 import Login from './Login'
 import Notification from './Notification'
 import PostForm from './PostForm'
+import Post from './Post'
 
 const App = () => {
     return (
@@ -27,6 +28,11 @@ const App = () => {
                     <Route path="/create/post">
                         <PostForm />
                     </Route>
+                    <Route path="/post/:title"
+                     render={
+                         () => <Post post = { post } />
+                     }
+                    />
                 </Switch>
             </main>
         </div>
