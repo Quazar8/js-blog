@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostRow = ({ post, i }) => {
+const PostRow = ({ post, id }) => {
     const { title, content, authorId } = post
 
     const linkQuery =  {
-        pathname: '/post/' + i,
+        pathname: '/post/' + (id + 1),
         post 
     }
 
