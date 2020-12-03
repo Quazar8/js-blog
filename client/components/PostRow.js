@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 
 const PostRow = ({ post, i }) => {
     const { title, content, authorId } = post
+
+    const linkQuery =  {
+        pathname: '/post/' + i,
+        post 
+    }
+
     return (
-        <Link to = {
-            {
-                pathname: '/post/' + i,
-                post 
-            }
-        }>
+        <Link to = { linkQuery }>
             <article className = "post-row">
                 <h2>{ title }</h2>
                 <h3>by { authorId }</h3>
