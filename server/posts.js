@@ -53,8 +53,9 @@ const getSinglePost = (req, res) => {
             errorMsg: 'Missing post\'s id'})
         return;
     }
-    
-    res.status(200).send({error: false})
+
+    const post = Posts[id];
+    res.status(200).send({ error: false, post })
 }
 
 module.exports = {
