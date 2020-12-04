@@ -51,7 +51,7 @@ const getSinglePost = (req, res) => {
     {
         res.status(406).send({error: true,
             errorMsg: 'Missing post\'s id'})
-        return;
+        return
     }
 
     const post = Posts[id];
