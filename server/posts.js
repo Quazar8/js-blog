@@ -43,7 +43,12 @@ const getPosts = (req, res) => {
     res.status(200).send({ error: false, posts: Posts })
 }
 
+const getSinglePost = (req, res) => {
+    res.status(200).send({error: false})
+}
+
 module.exports = {
     postArticle,
-    getPosts
+    getPosts,
+    getSinglePost
 }
