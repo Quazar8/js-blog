@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Post = ({ postId }) => {
-    console.log('postId', postId)
-    return null
+    const [post, setPost] = useState({}) 
+
     const {title, authorId, content} = post
     return (
         <article className = "post-view">
