@@ -55,6 +55,13 @@ const getSinglePost = (req, res) => {
     }
 
     const post = Posts[id];
+    if (!post)
+    {
+        res.status(406).send({ error: true,
+            errorMsg: 'No such post exists' })
+        return
+    }
+
     res.status(200).send({ error: false, post })
 }
 
