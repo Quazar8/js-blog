@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Post = ({ post }) => {
+const Post = ({ postId }) => {
+    console.log('postId', postId)
+    return null
     const {title, authorId, content} = post
     return (
         <article className = "post-view">

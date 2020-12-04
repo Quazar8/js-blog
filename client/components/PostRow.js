@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const PostRow = ({ post }) => {
-    const { title, content, authorId } = post
+    const { title, content, authorId, postId } = post
     
     const urlTitle = title.replace(' ', '-') 
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
-        post 
+        postId
     }
 
     return (

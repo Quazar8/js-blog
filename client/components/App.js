@@ -30,7 +30,7 @@ const App = () => {
                     </Route>
                     <Route path="/post/:title"
                      render={
-                         (props) => <Post post = { props.location.post } />
+                         (props) => <Post postId = { props.location.postId } />
                      }
                     />
                 </Switch>
