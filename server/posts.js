@@ -44,6 +44,16 @@ const getPosts = (req, res) => {
 }
 
 const getSinglePost = (req, res) => {
+    const { Posts } = require('./db.json')
+
+    const id = req.params.id
+    if (!id)
+    {
+        res.status(406).send({error: true,
+            errorMsg: 'Missing post\'s id'})
+        return;
+    }
+    
     res.status(200).send({error: false})
 }
 
