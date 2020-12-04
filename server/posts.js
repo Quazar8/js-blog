@@ -46,7 +46,7 @@ const getPosts = (req, res) => {
 const getSinglePost = (req, res) => {
     const { Posts } = require('./db.json')
 
-    const id = req.params.id
+    const id = req.params.postId
     if (!id)
     {
         res.status(406).send({error: true,

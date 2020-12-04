@@ -19,7 +19,7 @@ const routes = (app) => {
 
    app.get('/posts', getPosts)
 
-   app.get('/post/:id', getSinglePost)
+   app.get('/post/:postId', getSinglePost)
 }
 
 module.exports = routes
