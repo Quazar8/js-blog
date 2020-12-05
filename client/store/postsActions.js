@@ -1,5 +1,6 @@
 import { publishPostServer,
-         getAllPostsServer } from '../api'
+         getAllPostsServer,
+         getSinglePostServer } from '../api'
 import { clearError, 
          clearSuccess,
          showErrorAction,
@@ -52,9 +53,18 @@ const getAllPosts = () => {
     }
 }
 
+const getPost = postId => {
+    return dispatch => {
+        getSinglePostServer(postId).then(resp => {
+            console.log(resp)
+        })
+    }
+}
+
 export {
     types,
     publishPostAction,
     getAllPosts,
-    gotPostAction
+    gotPostAction,
+    getPost
 }
