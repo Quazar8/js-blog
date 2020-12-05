@@ -1,7 +1,8 @@
 import { types } from './postsActions'
 
 const initial = {
-    allPosts: []
+    allPosts: [],
+    singlePost: {}
 }
 
 const allPostsState = (state, posts) => {
