@@ -17,6 +17,13 @@ const gotAllPostsAction = (posts) => {
     }
 }
 
+const gotPostAction = data => {
+    return {
+        type: types.GOT_POST,
+        payload: data
+    }
+}
+
 const publishPostAction = data => {
     return dispatch => {
         publishPostServer(data).then(resp => {
@@ -48,5 +55,6 @@ const getAllPosts = () => {
 export {
     types,
     publishPostAction,
-    getAllPosts
+    getAllPosts,
+    gotPostAction
 }
