@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const Post = ({ postId }) => {
-    const [post, setPost] = useState({}) 
-
-    const {title, authorId, content} = post
+    const {title, authorId, content} = {}
     return (
         <article className = "post-view">
             <h2>{ title }</h2>
