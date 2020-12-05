@@ -6,7 +6,8 @@ import { clearError,
          successAction } from './globalActions'
 
 const types = {
-    GOT_ALL_POSTS: 'GOT_ALL_POSTS'
+    GOT_ALL_POSTS: 'GOT_ALL_POSTS',
+    GOT_POST: 'GOT_POST'
 }
 
 const gotAllPostsAction = (posts) => {
