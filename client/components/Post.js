@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 
-const Post = ({ postId }) => {
+const PostView = ({ postId, post }) => {
     const {title, authorId, content} = {}
     return (
         <article className = "post-view">
@@ -10,5 +11,13 @@ const Post = ({ postId }) => {
         </article>
     )
 }
+
+const mapState = store => {
+    return {
+        post: store.posts.singlePost
+    }
+}
+
+const Post = connect(mapState)(PostView)
 
 export default Post
