@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { retrievePostAction } from '../store/postsActions'
 
 const PostView = ({ post, tryGetPost }) => {
+    useEffect(() => {
+        const postId = localStorage.getItem('postId')
+        if(postId) {
+            tryGetPost(postId)
+        }
+    }, [])
     const {title, authorId, content} = {}
     return (
         <article className = "post-view">
