@@ -7,7 +7,6 @@ const PostRow = ({ post }) => {
     const urlTitle = title.replace(' ', '-') 
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
-        postId
     }
 
     return (

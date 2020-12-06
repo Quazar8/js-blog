@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const PostView = ({ postId, post }) => {
+const PostView = ({ post }) => {
     const {title, authorId, content} = {}
     return (
         <article className = "post-view">

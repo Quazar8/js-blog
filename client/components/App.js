@@ -28,11 +28,9 @@ const App = () => {
                     <Route path="/create/post">
                         <PostForm />
                     </Route>
-                    <Route path="/post/:title"
-                     render={
-                         (props) => <Post postId = { props.location.postId } />
-                     }
-                    />
+                    <Route path="/post/:title">
+                        <Post />
+                    </Route>
                 </Switch>
             </main>
         </div>
