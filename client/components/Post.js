@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { retrievePostAction } from '../store/postsActions'
 
-const PostView = ({ post }) => {
+const PostView = ({ post, tryGetPost }) => {
     const {title, authorId, content} = {}
     return (
         <article className = "post-view">
@@ -18,6 +19,14 @@ const mapState = store => {
     }
 }
 
-const Post = connect(mapState)(PostView)
+const mapDisptach = dispatch => {
+    return {
+        tryGetPost: postId => {
+            dispatch(retrievePostAction(postId))
+        }
+    }
+}
+
+const Post = connect(mapState, mapDisptach)(PostView)
 
 export default Post
