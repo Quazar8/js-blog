@@ -9,8 +9,12 @@ const PostRow = ({ post }) => {
         pathname: '/post/' + urlTitle,
     }
 
+    const savePostToLocal = () => {
+        localStorage.setItem('postId', postId)
+    }
+
     return (
-        <Link to = { linkQuery }>
+        <Link onClick = { savePostToLocal } to = { linkQuery }>
             <article className = "post-row">
                 <h2>{ title }</h2>
                 <h3>by { authorId }</h3>
