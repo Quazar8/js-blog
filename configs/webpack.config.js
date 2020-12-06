@@ -5,7 +5,8 @@ module.exports = {
     entry: ["react-hot-loader/patch", "./client/client.js"],
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, "../static")
+        path: path.resolve(__dirname, "../static"),
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -45,7 +46,7 @@ module.exports = {
     devServer: {
         port: 3000,
         open: true,
-        historyApiFallback: true
+        historyApiFallback: true,
     },
     devtool: "source-map",
     optimization: {
