@@ -53,7 +53,7 @@ const getAllPosts = () => {
     }
 }
 
-const getPost = postId => {
+const retrievePostAction = postId => {
     return dispatch => {
         getSinglePostServer(postId).then(resp => {
             console.log(resp)
@@ -66,5 +66,5 @@ export {
     publishPostAction,
     getAllPosts,
     gotPostAction,
-    getPost
+    retrievePostAction
 }
