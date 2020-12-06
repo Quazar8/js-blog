@@ -9,7 +9,7 @@ const PostView = ({ post, tryGetPost }) => {
             tryGetPost(postId)
         }
     }, [])
-    const {title, authorId, content} = {}
+    const {title, authorId, content} = post
     return (
         <article className = "post-view">
             <h2>{ title }</h2>

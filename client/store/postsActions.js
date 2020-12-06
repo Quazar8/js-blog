@@ -56,7 +56,15 @@ const getAllPosts = () => {
 const retrievePostAction = postId => {
     return dispatch => {
         getSinglePostServer(postId).then(resp => {
-            console.log(resp)
+            if(resp.error) {
+                dispatch(showErrorAction(resp.errorMsg))
+            } else {
+                dispatch(gotPostAction(resp.post))
+            }
+        })
+        .catch(err => {
+            dispatch(showErrorAction('An error has occured retrieving the article'))
+            console.error(err)
         })
     }
 }
