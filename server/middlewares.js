@@ -1,4 +1,4 @@
-const CheckIfLogged = (req, res, next) => {
+const IsLoggedMiddle = (req, res, next) => {
     if (req.user) {
         next()
     } else {
@@ -8,5 +8,5 @@ const CheckIfLogged = (req, res, next) => {
 }
 
 module.exports = {
-    CheckIfLogged
+    IsLoggedMiddle
 }

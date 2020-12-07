@@ -1,4 +1,4 @@
-const { CheckIfLogged } = require('./middlewares')
+const { IsLoggedMiddle } = require('./middlewares')
 const registerUser = require('./register')
 const { loginUser, logoutUser } = require('./login')
 const { postArticle, getPosts, getSinglePost } = require('./posts')
@@ -14,7 +14,7 @@ const routes = (app) => {
 
    app.get('/user/logout', logoutUser)
 
-   app.post('/publish', CheckIfLogged, postArticle)
+   app.post('/publish', IsLoggedMiddle, postArticle)
 
    app.get('/posts', getPosts)
 
