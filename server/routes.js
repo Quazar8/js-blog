@@ -1,7 +1,6 @@
 const { CheckIfLogged } = require('./middlewares')
 const registerUser = require('./register')
-const loginUser = require('./login')
-const logoutUser = require('./logout')
+const { loginUser, logoutUser } = require('./login')
 const { postArticle, getPosts, getSinglePost } = require('./posts')
 
 const routes = (app) => {
