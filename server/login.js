@@ -46,7 +46,12 @@ const logoutUser = (req, res) => {
                     msg: 'User logged out'})
 }
 
+const getLoggedUser = (req, res) => {
+    res.status(200).send({ error: false, user: req.user})
+}
+
 module.exports = {
     loginUser,
-    logoutUser
+    logoutUser, 
+    getLoggedUser
 }

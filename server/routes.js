@@ -1,6 +1,6 @@
 const { IsLoggedMiddle } = require('./middlewares')
 const registerUser = require('./register')
-const { loginUser, logoutUser } = require('./login')
+const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts, getSinglePost } = require('./posts')
 
 const routes = (app) => {
@@ -13,6 +13,8 @@ const routes = (app) => {
    app.post('/user/login', loginUser)
 
    app.get('/user/logout', logoutUser)
+
+   app.get('/user/logged', getLoggedUser)
 
    app.post('/publish', IsLoggedMiddle, postArticle)
 
