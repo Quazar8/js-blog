@@ -5,6 +5,7 @@ const logoutUrl = baseUrl + '/user/logout'
 const publishPostUrl = baseUrl + '/publish'
 const getAllPostsUrl = baseUrl + '/posts'
 const getSinglePostUrl = baseUrl + '/post/'
+const getLoggedUserUrl = baseUrl + '/user/logged'
 
 const postQueryOptions = (data) => {
     return {
@@ -50,7 +51,13 @@ const loginUserServer = (data) => {
 }
 
 const logoutUserServer = () => {
-    return fetch(logoutUrl, getQueryOptions()).then(resp => resp.json())
+    return fetch(logoutUrl, getQueryOptions())
+            .then(resp => resp.json())
+}
+
+const getLoggedUserServer = () => {
+    return fetch(getLoggedUserUrl, getQueryOptions())
+            .then(resp => resp.json())
 }
 
 const publishPostServer = (data) => {
@@ -74,5 +81,6 @@ export {
     logoutUserServer,
     publishPostServer,
     getAllPostsServer,
-    getSinglePostServer
+    getSinglePostServer,
+    getLoggedUserServer
 }
