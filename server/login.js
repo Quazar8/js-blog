@@ -47,7 +47,15 @@ const logoutUser = (req, res) => {
 }
 
 const getLoggedUser = (req, res) => {
-    res.status(200).send({ error: false, user: req.user})
+    if (!req.user) {
+        res.status(200).send({ error: false, 
+            isLogged: false})
+        return
+    }
+    
+    res.status(200).send({ error: false,
+         isLogged: true,
+         username: req.user})
 }
 
 module.exports = {
