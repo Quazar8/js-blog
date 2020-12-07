@@ -4,7 +4,7 @@ import { retrievePostAction } from '../store/postsActions'
 
 const PostView = ({ post, tryGetPost }) => {
     useEffect(() => {
-        const postId = localStorage.getItem('postId')
+        const postId = sessionStorage.getItem('postId')
         if(postId) {
             tryGetPost(postId)
         }

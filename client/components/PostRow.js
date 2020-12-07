@@ -10,7 +10,7 @@ const PostRow = ({ post }) => {
     }
 
     const savePostToLocal = () => {
-        localStorage.setItem('postId', postId)
+        sessionStorage.setItem('postId', postId)
     }
 
     return (
