@@ -1,11 +1,11 @@
 import { registerUserServer,
          loginUserServer,
-         logoutUserServer } from '../api'
+         logoutUserServer,
+         getLoggedUserServer } from '../api'
 import { showErrorAction, 
          successAction,
          clearError,
-         clearSuccess, 
-         clearErrorAction} from './globalActions'
+         clearSuccess } from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -99,11 +99,26 @@ const logoutUser = () => {
         })
     }
 }
+
+const getLoggedUser = () => {
+    return dispatch => {
+        getLoggedUserServer().then(resp => {
+            if (resp.error) {
+                console.error(resp.errorMsg)
+            }
+            dispatch(getLoggedUser())
+        }).catch(err => {
+            console.error(err);
+        })
+    }
+}
+
 export {
     actionTypes,
     registerUserAction,
     registeredUserAction,
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    getLoggedUser
 }
