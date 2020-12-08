@@ -19,17 +19,17 @@ const registerUserAction = (data) => {
     }
 }
 
-const registeredUserAction = (data) => {
+const registeredUserAction = (username) => {
     return {
         type: actionTypes.REGISTERED_USER,
-        payload: data
+        payload: username
     }
 }
 
-const loggedInUserAction = (data) => {
+const loggedInUserAction = (username) => {
     return {
         type: actionTypes.LOGGEDIN_USER,
-        payload: data
+        payload: username
     }
 }
 
