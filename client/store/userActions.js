@@ -97,7 +97,7 @@ const getLoggedUser = () => {
             if (resp.error) {
                 console.error(resp.errorMsg)
             }
-            dispatch(getLoggedUser())
+            dispatch(loggedInUserAction(resp.username))
         }).catch(err => {
             console.error(err);
         })
