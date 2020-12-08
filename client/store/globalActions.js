@@ -21,13 +21,16 @@ const clearErrorAction = () => {
     }
 }
 
-const clearError = dispatch => {
-    setTimeout(() => {
-        dispatch(clearErrorAction())
-    }, clearTime)
+const showError = (msg) => {
+    return dispatch => {
+        dispatch(showErrorAction(msg))
+        setTimeout(() => {
+            dispatch(clearErrorAction())
+        }, clearTime)
+    }
 }
 
-const successAction = (msg) => {
+const showSuccessAction = (msg) => {
     return {
         type: types.SUCCESS_NOTIFICATION,
         payload: msg
@@ -41,18 +44,17 @@ const clearSuccessAction = () => {
     }
 }
 
-const clearSuccess = dispatch => {
-    setTimeout(() => {
-        dispatch(clearSuccessAction())
-    }, clearTime)
+const showSuccess = (msg) => {
+    return dispatch => {
+        dispatch(showSuccessAction(msg))
+        setTimeout(() => {
+            dispatch(clearSuccessAction())
+        }, clearTime)
+    }
 }
 
 export {
     types,
-    showErrorAction,
-    clearErrorAction,
-    successAction,
-    clearSuccessAction,
-    clearError,
-    clearSuccess
+    showError,
+    showSuccess,
 }

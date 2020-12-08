@@ -1,11 +1,8 @@
-import { registerUserServer,
-         loginUserServer,
-         logoutUserServer,
-         getLoggedUserServer } from '../api'
-import { showErrorAction, 
-         successAction,
-         clearError,
-         clearSuccess } from './globalActions'
+import {  registerUserServer,
+          loginUserServer,
+          logoutUserServer,
+          getLoggedUserServer } from '../api'
+import { showError, showSuccess } from './globalActions'
 
 const actionTypes = {
     LOGIN_USER: 'LOGIN_USER',
@@ -40,18 +37,16 @@ const registerUser = (data) => {
     return dispatch => {
         registerUserServer(data).then(resp => {
             if(resp.error) {
-                dispatch(showErrorAction(resp.errorMsg))
-                clearError(dispatch)
+                dispatch(showError(resp.errorMsg))
             }
             else {
                 dispatch(registeredUserAction(resp.username))
-                dispatch(successAction("You have succesfully registered"))
-                clearSuccess(dispatch)
+                dispatch(showSuccess("You have succesfully registered"))
             }
         })
         .catch(err => {
             console.log('Error', err)
-            dispatch(showErrorAction("Error has occured"))
+            dispatch(showError("Error has occured"))
         })
     }
 }
@@ -61,18 +56,16 @@ const loginUser = (data) => {
         loginUserServer(data).then(resp => {
             
             if(resp.error){
-                dispatch(showErrorAction(resp.errorMsg))
-                clearError(dispatch)
+                dispatch(showError(resp.errorMsg))
             }
             else {
                 dispatch(loggedInUserAction(resp.username))
-                dispatch(successAction("You have logged in"))
-                clearSuccess(dispatch)
+                dispatch(showSuccess("You have logged in"))
             }
         })
         .catch(err => {
             console.log('Error', err)
-            dispatch(showErrorAction("Error has occured"))
+            dispatch(showError("Error has occured"))
         })
     }
 }
@@ -88,13 +81,11 @@ const logoutUser = () => {
     return dispatch => {
         logoutUserServer().then(resp => {
             if (resp.error) {
-                dispatch(showErrorAction(resp.errorMsg))
-                clearError(dispatch)
+                dispatch(showError(resp.errorMsg))
             }
             else {
                 dispatch(logoutUserAction())
-                dispatch(successAction('You have logged out'))
-                clearSuccess(dispatch)
+                dispatch(showSuccess('You have logged out'))
             }
         })
     }

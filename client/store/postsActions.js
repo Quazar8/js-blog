@@ -1,10 +1,7 @@
 import { publishPostServer,
          getAllPostsServer,
          getSinglePostServer } from '../api'
-import { clearError, 
-         clearSuccess,
-         showErrorAction,
-         successAction } from './globalActions'
+import { showSuccess, showError } from './globalActions'
 
 const types = {
     GOT_ALL_POSTS: 'GOT_ALL_POSTS',
@@ -29,14 +26,11 @@ const publishPostAction = data => {
     return dispatch => {
         publishPostServer(data).then(resp => {
             if (resp.error) {
-                dispatch(showErrorAction(resp.errorMsg))
-                clearError(dispatch)
+                dispatch(showError(resp.errorMsg))
             }
             else {
-                dispatch(successAction('Post published!'))
-                clearSuccess(dispatch)
+                dispatch(showSuccess('Post published!'))
             }
-                
         })
     }
 }
@@ -46,7 +40,7 @@ const getAllPosts = () => {
         getAllPostsServer().then(resp => {
            dispatch(gotAllPostsAction(Object.values(resp.posts).reverse()))
         }).catch(err => {
-            dispatch(showErrorAction("An error has occured"))
+            dispatch(showError("An error has occured"))
             console.error(err)
             clearError(dispatch)
         })
@@ -57,13 +51,13 @@ const retrievePostAction = postId => {
     return dispatch => {
         getSinglePostServer(postId).then(resp => {
             if(resp.error) {
-                dispatch(showErrorAction(resp.errorMsg))
+                dispatch(showError(resp.errorMsg))
             } else {
                 dispatch(gotPostAction(resp.post))
             }
         })
         .catch(err => {
-            dispatch(showErrorAction('An error has occured retrieving the article'))
+            dispatch(showError('An error has occured retrieving the article'))
             console.error(err)
         })
     }
