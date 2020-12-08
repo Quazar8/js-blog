@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Navbar from './Navbar'
 import Home from './Home'
@@ -9,7 +10,9 @@ import Notification from './Notification'
 import PostForm from './PostForm'
 import Post from './Post'
 
-const App = () => {
+import { getLoggedUser } from '../store/userActions'
+
+const AppView = () => {
     return (
         <div className="app-container">
             <Navbar />
@@ -36,5 +39,15 @@ const App = () => {
         </div>
     )
 }
+
+const mapDispatch = dispatch => {
+    return {
+        checkUserLogged = () => {
+            dispatch(getLoggedUser())
+        }
+    }
+}
+
+const App = connect(null, mapDispatch)(AppView)
 
 export default App
