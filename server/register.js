@@ -22,13 +22,24 @@ const registerUser = async (req, res) => {
     }
         
     let result = await registerUserDb(data)
-    if(result.error)
-        res.status(403).send({error: true, 
-                    errorMsg: result.errorMsg})
-    else 
+    if(result.error) {
+        res.status(403).send(
+            {error: true, errorMsg: result.errorMsg
+        })
+        return
+    } 
+
+    req.login(data.username, err => {
+        if (err) {
+            res.status(500).send({ error: true, 
+                            errorMsg: 'Something went wrong on logging you in'})
+        }
+
         res.status(200).send({error: false,
-                username: data.username,
-                msg: "User registered"})
+            username: data.username,
+            msg: 'User registered'
+        })
+    })
 }
 
 module.exports = registerUser
