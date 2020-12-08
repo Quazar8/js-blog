@@ -6,7 +6,7 @@ const dbScheme = {
     Posts: {},
 }
 
-const db = (callback) => {
+const initializeDb = (callback) => {
     try {
         fs.statSync(dbURL)
         return callback({ msg: 'DB is online' })
@@ -32,6 +32,6 @@ const writeDb = async (data) => {
 }
 
 module.exports = {
-    db,
+    initializeDb,
     writeDb
 }

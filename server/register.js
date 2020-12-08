@@ -31,11 +31,11 @@ const registerUser = async (req, res) => {
 
     req.login(data.username, err => {
         if (err) {
-            res.status(500).send({ error: true, 
+            return res.status(500).send({ error: true, 
                             errorMsg: 'Something went wrong on logging you in'})
         }
-
-        res.status(200).send({error: false,
+        
+        return res.status(200).send({error: false,
             username: data.username,
             msg: 'User registered'
         })
