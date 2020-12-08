@@ -96,8 +96,12 @@ const getLoggedUser = () => {
         getLoggedUserServer().then(resp => {
             if (resp.error) {
                 console.error(resp.errorMsg)
+                return
             }
-            dispatch(loggedInUserAction(resp.username))
+
+            if (resp.isLogged) {
+                dispatch(loggedInUserAction(resp.username))
+            }
         }).catch(err => {
             console.error(err);
         })
