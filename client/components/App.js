@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -12,7 +12,11 @@ import Post from './Post'
 
 import { getLoggedUser } from '../store/userActions'
 
-const AppView = () => {
+const AppView = ({ checkUserLogged }) => {
+    useEffect(() => {
+        checkUserLogged()
+    }, [])
+
     return (
         <div className="app-container">
             <Navbar />
@@ -42,7 +46,7 @@ const AppView = () => {
 
 const mapDispatch = dispatch => {
     return {
-        checkUserLogged = () => {
+        checkUserLogged: () => {
             dispatch(getLoggedUser())
         }
     }
