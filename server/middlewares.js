@@ -10,7 +10,7 @@ const IsLoggedMiddle = (req, res, next) => {
 }
 
 const upload = multer({
-    dest: 'uploads/'
+    dest: './static/uploads/'
 })
 
 module.exports = {
