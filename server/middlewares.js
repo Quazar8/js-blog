@@ -9,11 +9,15 @@ const IsLoggedMiddle = (req, res, next) => {
     }
 }
 
-const upload = multer({
-    dest: './static/uploads/'
-})
+const uploadMiddleware = () => {
+    const upload = multer({
+            dest: './static/uploads/'
+    })
+
+    return upload
+}
 
 module.exports = {
     IsLoggedMiddle,
-    upload
+    uploadMiddleware
 }
