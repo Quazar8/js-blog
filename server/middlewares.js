@@ -10,8 +10,11 @@ const IsLoggedMiddle = (req, res, next) => {
 }
 
 const uploadMiddleware = () => {
+    const storage = multer.diskStorage({
+        destination: './static/uploads/'
+    })
     const upload = multer({
-            dest: './static/uploads/'
+            storage
     })
 
     return upload
