@@ -43,6 +43,9 @@ const PostFormView = ({ tryPublishPost }) => {
                 <textarea cols = "20" rows = "10"
                 onChange = { handleContentCHange }></textarea>
             </div>
+            <div>
+                <input type="file" id="tumbnail" />
+            </div>
             <input type = "submit" value = "Publish" />
         </form>
     )
