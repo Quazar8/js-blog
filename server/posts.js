@@ -4,6 +4,10 @@ const idBytes = 8;
 
 const postArticle = (req, res) => {
    const { title, content } = req.body
+   console.log('file', req.file)
+   
+   res.status(200).send({error: false, title, content})
+   return
    if(!title || !content) {
        return res.status(403).send( { error: true, 
                             errorMsg: 'No title or article body' })

@@ -1,3 +1,5 @@
+const multer = require('multer')
+
 const IsLoggedMiddle = (req, res, next) => {
     if (req.user) {
         next()
@@ -7,6 +9,11 @@ const IsLoggedMiddle = (req, res, next) => {
     }
 }
 
+const upload = multer({
+    dest: 'uploads/'
+})
+
 module.exports = {
-    IsLoggedMiddle
+    IsLoggedMiddle,
+    upload
 }
