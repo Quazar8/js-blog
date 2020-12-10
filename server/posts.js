@@ -16,41 +16,38 @@ const postArticle = (req, res) => {
     function handlePostPublishing() {
         const { title, content } = req.body
         console.log('file', req.file)
-        return res.status(200).send({error: false, title, content})
+        if(!title || !content) {
+            return res.status(403).send( { error: true, 
+                                    errorMsg: 'No title or article body' })
+        } 
+
+        const db = require('./db.json')
+        
+        const userId = req.user
+        const postId = genId(idBytes)
+
+        const post = {
+            postId,
+            title,
+            content,
+            authorId: userId,
+            date: getDate()
+        }
+
+        db.Users[userId].posts.push(postId)
+        db.Posts[postId] = post
+
+        const newDb = JSON.stringify(db);
+        writeDb(newDb).then(result => {
+            if (result.err) {
+                    return res.status(500).send( {error: true,
+                                        errorMsg: result.errorMsg })
+            }
+
+            return res.status(200).send( { error: false,
+                                        msg: 'Successfully published' })
+        })
     }
-
-   return
-   if(!title || !content) {
-       return res.status(403).send( { error: true, 
-                            errorMsg: 'No title or article body' })
-   } 
-
-   const db = require('./db.json')
-   
-   const userId = req.user
-   const postId = genId(idBytes)
-
-   const post = {
-       postId,
-       title,
-       content,
-       authorId: userId,
-       date: getDate()
-   }
-
-   db.Users[userId].posts.push(postId)
-   db.Posts[postId] = post
-
-   const newDb = JSON.stringify(db);
-   writeDb(newDb).then(result => {
-       if (result.err) {
-            return res.status(500).send( {error: true,
-                                  errorMsg: result.errorMsg })
-       }
-
-       return res.status(200).send( { error: false,
-                                msg: 'Successfully published' })
-   })
 }
 
 const getPosts = (req, res) => {
