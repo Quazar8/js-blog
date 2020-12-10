@@ -12,6 +12,20 @@ const IsLoggedMiddle = (req, res, next) => {
 }
 
 const uploadMiddleware = () => {
+    const checkFileType = (file, cb) => {
+        const permitted = /jpeg|jpg|png/
+
+        const ext = path.extname(file.originalname).toLowerCase()
+        const checkExt = permitted.test(ext)
+        const checkMime = permitted.test(file.mimetype)
+
+        if (checkExt && checkMime) {
+            return cb(null, true)
+        }
+
+        return cb('File is not a permitted type')
+    }
+
     const storage = multer.diskStorage({
         destination: './static/uploads/',
         filename: (req, file, cb) => {
@@ -22,7 +36,10 @@ const uploadMiddleware = () => {
     })
 
     const upload = multer({
-            storage
+            storage,
+            fileFilter: (req, file, cb) => {
+                checkFileType(file, cb)
+            }
     })
 
     return upload
