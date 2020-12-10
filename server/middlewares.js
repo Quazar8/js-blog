@@ -1,5 +1,6 @@
 const multer = require('multer')
 const path = require('path')
+const { genId } = require('./utils')
 
 const IsLoggedMiddle = (req, res, next) => {
     if (req.user) {
@@ -14,7 +15,7 @@ const uploadMiddleware = () => {
     const storage = multer.diskStorage({
         destination: './static/uploads/',
         filename: (req, file, cb) => {
-            const name = Date.now() + 
+            const name = genId(16) + 
                          path.extname(file.originalname)
             cb(null, name)
         }
