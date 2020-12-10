@@ -23,7 +23,7 @@ const uploadMiddleware = (req, res, next) => {
             return cb(null, true)
         }
 
-        return cb('File is not an allowed type')
+        return cb('File is not of an allowed type')
     }
 
     const storage = multer.diskStorage({
