@@ -42,7 +42,7 @@ const uploadMiddleware = () => {
             }
     })
 
-    return upload
+    return upload.single('thumbnail')
 }
 
 module.exports = {

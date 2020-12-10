@@ -16,7 +16,7 @@ const routes = (app) => {
 
    app.get('/user/logged', getLoggedUser)
 
-   app.post('/publish', uploadMiddleware().single('thumbnail'), postArticle)
+   app.post('/publish', uploadMiddleware(), postArticle)
 
    app.get('/posts', getPosts)
 
