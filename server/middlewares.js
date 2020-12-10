@@ -11,7 +11,7 @@ const IsLoggedMiddle = (req, res, next) => {
     }
 }
 
-const uploadMiddleware = () => {
+const uploadMiddleware = (req, res, next) => {
     const checkFileType = (file, cb) => {
         const permitted = /jpeg|jpg|png/
 
@@ -42,7 +42,16 @@ const uploadMiddleware = () => {
             }
     })
 
-    return upload.single('thumbnail')
+    const middleware = upload.single('thumbnail')
+
+    middleware(req, res, (err) => {
+        if (err) {
+            console.error('Error', err)
+            return res.status(500).send({error: true, errorMsg: err})
+        }
+
+        next()
+    })
 }
 
 module.exports = {
