@@ -5,9 +5,9 @@ const idBytes = 8;
 const postArticle = (req, res) => {
     const { title, content } = req.body
     console.log('file', req.file)
-    if(!title || !content) {
+    if (!title || !content || !req.file) {
         return res.status(403).send( { error: true, 
-                                errorMsg: 'No title or article body' })
+                                errorMsg: 'Missing form field' })
     } 
 
     const db = require('./db.json')
@@ -20,6 +20,7 @@ const postArticle = (req, res) => {
         title,
         content,
         authorId: userId,
+        thumbnail: req.file.path,
         date: getDate()
     }
 
@@ -32,7 +33,7 @@ const postArticle = (req, res) => {
                 return res.status(500).send( {error: true,
                                     errorMsg: result.errorMsg })
         }
-
+        console.log('post published', post)
         return res.status(200).send( { error: false,
                                     msg: 'Successfully published' })
     })
