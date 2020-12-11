@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const PostRow = ({ post }) => {
-    const { title, content, authorId, postId } = post
+    const { title, content, 
+            authorId, postId,
+            thumbnail } = post
     
     const urlTitle = title.replace(' ', '-') 
     const linkQuery =  {
@@ -16,6 +18,7 @@ const PostRow = ({ post }) => {
     return (
         <Link onClick = { savePostToLocal } to = { linkQuery }>
             <article className = "post-row">
+                <img src={ thumbnail } alt="post's thumbnail" />
                 <h2>{ title }</h2>
                 <h3>by { authorId }</h3>
                 <p>{ content }</p>
