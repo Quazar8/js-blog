@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../store/postsActions'
@@ -6,8 +6,10 @@ import { publishPostAction } from '../store/postsActions'
 const PostFormView = ({ tryPublishPost }) => {
     const [inputs, setInputs] = useState({
         title: '',
-        content: ''
+        content: '',
     })
+
+    const imageInput = createRef()
 
     const handleTitleCHange = (e) => {
        setInputs({
@@ -27,7 +29,8 @@ const PostFormView = ({ tryPublishPost }) => {
         e.preventDefault()
 
         const data = {
-            ...inputs
+            ...inputs,
+            thumbnail: imageInput.current.files[0]
         }
         tryPublishPost(data)
     }
@@ -48,8 +51,9 @@ const PostFormView = ({ tryPublishPost }) => {
                 ></textarea>
             </div>
             <div>
-                <input type="file" id="tumbnail" 
+                <input type="file" id="thumbnail" 
                 name="thumbnail"
+                ref = { imageInput }
                 />
             </div>
             <input type = "submit" value = "Publish" />
