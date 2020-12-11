@@ -18,12 +18,14 @@ const PostRow = ({ post }) => {
     return (
         <Link onClick = { savePostToLocal } to = { linkQuery }>
             <article className = "post-row">
-                <div className= "thumbnail-container">
-                    <img src={ thumbnail } alt="post's thumbnail" />
+                <div className = "thumbnail-container">
+                    <img src = { thumbnail } alt = "post's thumbnail" />
                 </div>
-                <h2>{ title }</h2>
-                <h3>by { authorId }</h3>
-                <p>{ content }</p>
+                <div className = "post-info">
+                    <h2>{ title }</h2>
+                    <h3>by { authorId }</h3>
+                    <p>{ content }</p>
+                </div>
             </article>
         </Link>
     )
