@@ -6,6 +6,7 @@ const PostRow = ({ post }) => {
             authorId, postId,
             thumbnail } = post
     
+    const contentPreview = content.substring(0, 156) + '...'
     const urlTitle = title.replace(' ', '-') 
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
@@ -24,7 +25,7 @@ const PostRow = ({ post }) => {
                 <div className = "post-info">
                     <h2>{ title }</h2>
                     <h3>by { authorId }</h3>
-                    <p>{ content }</p>
+                    <p>{ contentPreview }</p>
                 </div>
             </article>
         </Link>
