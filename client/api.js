@@ -20,6 +20,22 @@ const postQueryOptions = (data) => {
     }
 }
 
+const filePostQueryOptions = (data) => {
+    const formData = new FormData();
+
+    for (let name in data) {
+        formData.append(name, data[name])
+    }
+
+    return {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+        withCredentials: true,
+        body: formData
+    }
+}
+
 const getQueryOptions = () => {
     return {
         method: 'GET',
@@ -61,7 +77,7 @@ const getLoggedUserServer = () => {
 }
 
 const publishPostServer = (data) => {
-    return fetch(publishPostUrl, postQueryOptions(data))
+    return fetch(publishPostUrl, filePostQueryOptions(data))
             .then(resp => resp.json())
 }
 
