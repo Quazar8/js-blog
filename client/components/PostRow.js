@@ -6,7 +6,7 @@ const PostRow = ({ post }) => {
             authorId, postId,
             thumbnail } = post
     
-    const contentPreview = content.substring(0, 156) + '...'
+    const contentPreview = content.substring(0, 163) + '...'
     const urlTitle = title.replace(' ', '-') 
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
