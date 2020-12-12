@@ -1,9 +1,9 @@
 @use 'variables' as v;
 
 .post-row {
-    margin: 0 0 3% 0;
+    margin: 0 0 7% 0;
     background-color: v.$post-background;
-    width: 40%;
+    width: 100%;
     position: relative;
     border-radius: 5%;
     border: 0.2rem solid white;
@@ -63,5 +63,6 @@
 .posts-container {
     overflow: scroll;
     height: 80vh;
+    width: 40%;
     scrollbar-width: none;
 }
