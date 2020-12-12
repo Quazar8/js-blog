@@ -8,6 +8,7 @@
     border-radius: 5%;
     border: 0.2rem solid white;
     overflow: hidden;
+    box-sizing: border-box;
 
     .post-info {
         position: absolute;
@@ -15,6 +16,7 @@
         left: 0;
         background-color: v.$post-background;
         width: 100%;
+        padding: 4% 0 4% 4%;
 
         &::after {
             content: "";
@@ -54,6 +56,7 @@
 
     h3 {
         font-size: 1.5vw;
+        padding: 1% 0;
     }
 }
 
