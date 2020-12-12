@@ -5,6 +5,9 @@
     background-color: v.$post-background;
     width: 40%;
     position: relative;
+    border-radius: 5%;
+    border: 0.2rem solid white;
+    overflow:hidden;
 
     .post-info {
         position: absolute;
