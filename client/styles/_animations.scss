@@ -1,7 +1,7 @@
 @use 'variables' as v;
 
-.appear {
-    animation: appear 0.5s linear;
+.appearMoveDown {
+    animation: appearMoveDown 0.5s linear;
 }
 
 .disappear {
@@ -21,7 +21,7 @@
     }
 }
 
-@keyframes appear {
+@keyframes appearMoveDown {
     from {
         opacity: 0;
         transform: translateY(-100%);

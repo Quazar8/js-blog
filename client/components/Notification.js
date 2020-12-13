@@ -40,7 +40,7 @@ const NotificationView = ({ notifications }) => {
         let appendClass = ""
         if (prevLength < notifications.length) {
             appendClass = i === notifications.length - 1
-                                ? "appear"
+                                ? "appearMoveDown"
                                 : "moveDown"
         }
 
