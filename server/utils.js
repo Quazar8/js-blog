@@ -18,7 +18,12 @@ const getDate = () => {
     return `${timezone} ${hours}:${minutes}:${seconds} ${day}-${month}-${year}`
 }
 
+const getRandom = (lower, upper) => {
+    return Math.round(lower + upper * Math.random())
+}
+
 module.exports = {
     genId,
-    getDate
+    getDate,
+    getRandom
 }
