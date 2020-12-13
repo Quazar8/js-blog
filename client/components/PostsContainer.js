@@ -16,6 +16,7 @@ const PostsContainerView = ({ getPosts, posts }) => {
                 return <PostRow key = { i } 
                              post = { post }
                              index = { i }
+                             postsLength = { posts.length }
                        />
             })}
         </section>

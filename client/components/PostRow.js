@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostRow = ({ post, index }) => {
+const PostRow = ({ post, index, postsLength }) => {
     const { title, content, 
             authorId, postId,
             thumbnail } = post
@@ -17,7 +17,9 @@ const PostRow = ({ post, index }) => {
     }
 
     const animationStyle = {
-        animationDelay: `${index * 0.5}s`
+        animationDelay: `${index * 0.90}s`,
+        animationDuration: '0.90s',
+        zIndex: postsLength - index
     }
 
     return (
