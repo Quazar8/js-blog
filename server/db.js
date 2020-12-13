@@ -1,10 +1,6 @@
 const fs = require('fs')
+const genDummyDb = require('./dummyDb')
 const dbURL = './server/db.json'
-
-const dbScheme = {
-    Users: {},
-    Posts: {},
-}
 
 const initializeDb = (callback) => {
     try {
@@ -13,8 +9,8 @@ const initializeDb = (callback) => {
 
     } catch (err) {
         if(err.code === "ENOENT"){
-            let scheme = JSON.stringify(dbScheme)
-            fs.writeFileSync(dbURL, scheme)
+            let dummyDB = JSON.stringify(genDummyDb())
+            fs.writeFileSync(dbURL, dummyDB)
             return callback({msg: 'DB created'})
         }
     }
