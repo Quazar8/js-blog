@@ -17,8 +17,8 @@ const PostRow = ({ post, index, postsLength }) => {
     }
 
     const animationStyle = {
-        animationDelay: `${index * 0.90}s`,
-        animationDuration: '0.90s',
+        animationDelay: `${index * 0.75}s`,
+        animationDuration: '0.75s',
         zIndex: postsLength - index
     }
 
