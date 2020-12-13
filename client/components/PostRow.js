@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostRow = ({ post }) => {
+const PostRow = ({ post, index }) => {
     const { title, content, 
             authorId, postId,
             thumbnail } = post
@@ -16,9 +16,13 @@ const PostRow = ({ post }) => {
         sessionStorage.setItem('postId', postId)
     }
 
+    const animationStyle = {
+        animationDelay: `${index * 0.5}s`
+    }
+
     return (
         <Link onClick = { savePostToLocal } to = { linkQuery }>
-            <article className = "post-row">
+            <article className = "post-row" style = { animationStyle }>
                 <div className = "thumbnail-container">
                     <img src = { thumbnail } alt = "post's thumbnail" />
                 </div>

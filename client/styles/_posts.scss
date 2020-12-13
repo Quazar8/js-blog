@@ -9,7 +9,11 @@
     border: 0.2rem solid white;
     overflow: hidden;
     box-sizing: border-box;
-    animation: appearMoveDown 1s ease-out;
+    opacity: 0;
+    animation-name: appear;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
     .post-info {
         position: absolute;
