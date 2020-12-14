@@ -1,5 +1,4 @@
 const { genId, getDate, getRandom } = require('./utils')
-const path = require('path')
 
 const genUsers = () => {
     const users = ['nick2', 'Carlos', 'Revenge',
@@ -11,7 +10,7 @@ const genUsers = () => {
         result[user] = {
             password,
             posts: [],
-            profilePic: ''
+            profilePic: 'server/images/user_default.png'
         }
     }
 
