@@ -9,7 +9,7 @@ const registerUserDb = async ({ username, password }) => {
     const user = {
         password,
         posts: [],
-        profilePic: ''
+        profilePic: 'server/images/user_default.png'
     }
     jsonDb.Users[username] = user
 
