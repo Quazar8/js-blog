@@ -40,7 +40,7 @@ const registerUser = (data) => {
                 dispatch(showError(resp.errorMsg))
             }
             else {
-                dispatch(registeredUserAction(resp.username))
+                dispatch(registeredUserAction(resp.user))
                 dispatch(showSuccess("You have succesfully registered"))
             }
         })
@@ -59,7 +59,7 @@ const loginUser = (data) => {
                 dispatch(showError(resp.errorMsg))
             }
             else {
-                dispatch(loggedInUserAction(resp.username))
+                dispatch(loggedInUserAction(resp.user))
                 dispatch(showSuccess("You have logged in"))
             }
         })
@@ -100,7 +100,7 @@ const getLoggedUser = () => {
             }
 
             if (resp.isLogged) {
-                dispatch(loggedInUserAction(resp.username))
+                dispatch(loggedInUserAction(resp.user))
             }
         }).catch(err => {
             console.error(err);
