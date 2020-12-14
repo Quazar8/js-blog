@@ -8,8 +8,9 @@ import Logo from './Logo'
 
 import { logoutUser } from '../store/userActions'
 
-const NavbarView = ({ username, online,
+const NavbarView = ({ user, online,
                         tryLogoutUser }) => {
+    const { username } = user
 
     const history = useHistory()
     const homeRedirect = () => {
@@ -37,7 +38,7 @@ const NavbarView = ({ username, online,
 
 const mapState = state => {
     return {
-        username: state.user.username,
+        user: state.user.user,
         online: state.user.online
     }
 }
