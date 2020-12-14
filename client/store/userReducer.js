@@ -1,14 +1,14 @@
 import { actionTypes } from './userActions'
 
 const initialUserState = {
-    username: "",
+    user: {},
     online: false
 }
 
-const loggedInState = (state, username) => {
+const loggedInState = (state, user) => {
     return {
         ...state,
-        username,
+        user,
         online: true
     }
 }
@@ -16,7 +16,7 @@ const loggedInState = (state, username) => {
 const logoutUser = (state) => {
     return {
         ...state,
-        username: "",
+        user: {},
         online: false
     }
 }
