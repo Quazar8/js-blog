@@ -9,7 +9,13 @@ const loginUser = (req, res, next) => {
 
         req.login(user, (err) => {
             if(err) return next(err)
-            return res.status(200).send({error: false, username: user})
+
+            const { Users } = require('./db.json')
+            const { profilePic } = Users[user]
+            return res.status(200).send({error: false, user: {
+                username: user,
+                profilePic
+            }})
         })
         
     })(req, res, next)
