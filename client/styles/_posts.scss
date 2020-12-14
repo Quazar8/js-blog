@@ -3,7 +3,7 @@
 .post-row {
     margin: 0 0 7% 0;
     background-color: v.$post-background;
-    width: 100%;
+    width: 40%;
     height: 27vw;
     position: relative;
     border-radius: 5%;
@@ -68,6 +68,11 @@
 .posts-container {
     overflow: scroll;
     height: 80vh;
-    width: 40%;
+    width: 100%;
     scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
+

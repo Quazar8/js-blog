@@ -18,6 +18,10 @@
         width: 15%;
         font-size: 2rem;
     }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .success-notification, .error-notification {
