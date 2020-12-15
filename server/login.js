@@ -36,9 +36,14 @@ const getLoggedUser = (req, res) => {
         return
     }
     
+    const { profilePic } = require('./db.json').Users[req.user]
     res.status(200).send({ error: false,
          isLogged: true,
-         username: req.user})
+         user: {
+            username: req.user,
+            profilePic
+         }
+    })
 }
 
 module.exports = {
