@@ -12,7 +12,7 @@
     box-sizing: border-box;
     opacity: 0;
     animation-name: appearMoveDown;
-    animation-timing-function: linear;
+    animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 
     .post-info {

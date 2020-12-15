@@ -16,12 +16,11 @@ const PostRow = ({ post, index, postsLength }) => {
         sessionStorage.setItem('postId', postId)
     }
 
-    const animationDuration = 0.45
-    const animationDelay = animationDuration - 
-        (20 * animationDuration) / 100
-        
+    const animationDuration = 0.6 //s
+    const animationDelay = index * 0.4 //s
+
     const animationStyle = {
-        animationDelay: `${index * animationDelay}s`,
+        animationDelay: `${animationDelay}s`,
         animationDuration: `${animationDuration}s`,
         zIndex: postsLength - index
     }
