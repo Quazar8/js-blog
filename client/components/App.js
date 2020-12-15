@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Navbar from './Navbar'
+import Navbar from './navbar/Navbar'
 import Home from './Home'
 import Register from './Register'
 import Login from './Login'

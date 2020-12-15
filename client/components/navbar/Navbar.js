@@ -6,7 +6,7 @@ import DefaultNavLinks from './DefaultNavLinks'
 import LoggedNavLinks from './LoggedNavLinks'
 import Logo from './Logo'
 
-import { logoutUser } from '../store/userActions'
+import { logoutUser } from '../../store/userActions'
 
 const NavbarView = ({ user, online,
                         tryLogoutUser }) => {

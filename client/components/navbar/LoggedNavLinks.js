@@ -7,7 +7,7 @@ const LoggedNavLinks = ( { username,
         <div className="links-container">
             <Link to = "/create/post"
              className = "nav-links">
-                 New Post
+                 +
              </Link>
             <h3>Hi, { username }</h3>
             <h3 onClick= { tryLogoutUser }>Log out</h3>
