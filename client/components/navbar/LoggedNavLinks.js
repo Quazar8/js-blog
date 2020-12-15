@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import CreatePostLink from './CreatePostLink'
 import UserLink from './UserLink'
 
 const LoggedNavLinks = 
-        ({ username, tryLogoutUser }) => {
+    ({ username, tryLogoutUser, profilePic }) => {
     return (
         <div className="links-container">
             <CreatePostLink />
-            <UserLink username = { username } />
+            <UserLink username = { username } 
+                profilePic = { profilePic }
+            />
             <h3 onClick= { tryLogoutUser }>Log out</h3>
         </div>
     )

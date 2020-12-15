@@ -8,9 +8,10 @@ import Logo from './Logo'
 
 import { logoutUser } from '../../store/userActions'
 
-const NavbarView = ({ user, online,
-                        tryLogoutUser }) => {
-    const { username } = user
+const NavbarView = 
+        ({ user, online, tryLogoutUser }) => {
+
+    const { username, profilePic } = user
 
     const history = useHistory()
     const homeRedirect = () => {
@@ -28,6 +29,7 @@ const NavbarView = ({ user, online,
                 online
                 ? <LoggedNavLinks
                     username = { username }
+                    profilePic = { profilePic }
                     tryLogoutUser = { tryLogoutUser }
                    />
                 : <DefaultNavLinks />
