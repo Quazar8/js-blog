@@ -118,16 +118,17 @@
 
 .user-block {
     $block-color: #5f3c3c;
-    $triangle-size: 0.8vw;
+    $triangle-size: 0.8rem;
 
     position: absolute;
     width: 100%;
     background: $block-color;
     color: white;
-    bottom: -60%;
+    bottom: -70%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    border: 0.1rem solid white;
     
     ul {
         list-style-type: none;
@@ -148,9 +149,20 @@
         content: "";
         display: block;
         position: absolute;
-        top: -50%;
+        top: -70%;
         border-left: $triangle-size solid transparent;
         border-right: $triangle-size solid transparent;
         border-bottom: $triangle-size solid $block-color;
     }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -80%;
+        border-left: 0.9rem solid transparent;
+        border-right: 0.9rem solid transparent;
+        border-bottom: 0.9rem solid white;
+    }
+
 }
