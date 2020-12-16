@@ -1,9 +1,10 @@
 import React from "react"
 
 const UserBlock = 
-    ({ tryLogoutUser }) => {
+    ({ username, tryLogoutUser }) => {
     return (
         <div className="user-block">
+            <h4>{ username }</h4>
             <ul>
                 <li onClick = { tryLogoutUser }>
                     Log out

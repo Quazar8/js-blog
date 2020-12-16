@@ -11,7 +11,10 @@ const UserLink =
                     <img src= { profilePic } alt="user picture" />
                 </div>
             </div>
-                <UserBlock tryLogoutUser = { tryLogoutUser } />
+                <UserBlock 
+                    tryLogoutUser = { tryLogoutUser }
+                    username = { username }
+                />
         </div>
     )
 }
