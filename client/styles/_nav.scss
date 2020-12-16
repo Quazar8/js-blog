@@ -117,11 +117,14 @@
 }
 
 .user-block {
+    $block-color: #5f3c3c;
+    $triangle-size: 0.8vw;
+
     position: absolute;
     width: 100%;
-    background: #5f3c3c;
+    background: $block-color;
     color: white;
-    bottom: -80%;
+    bottom: -60%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -139,5 +142,15 @@
     li:hover {
         background: white;
         color: v.$nav-color;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -50%;
+        border-left: $triangle-size solid transparent;
+        border-right: $triangle-size solid transparent;
+        border-bottom: $triangle-size solid $block-color;
     }
 }
