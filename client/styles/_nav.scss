@@ -77,6 +77,8 @@
 }
 
 .user-nav-link {
+    position: relative;
+
     .image-container {
         width: 40%;
         height: 80%;
@@ -93,4 +95,11 @@
         max-width: 100%;
         max-height: 100%;
     }
+}
+
+.user-block {
+    position: absolute;
+    background: v.$nav-color;
+    color: white;
+    bottom: -80%;
 }
