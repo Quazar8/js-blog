@@ -2,7 +2,8 @@ import React from 'react'
 
 import UserBlock from './UserBlock'
 
-const UserLink = ({ username, profilePic }) => {
+const UserLink = 
+    ({ username, profilePic, tryLogoutUser }) => {
     return (
         <div className = "user-link-container">
             <div className = "user-nav-link">
@@ -10,7 +11,7 @@ const UserLink = ({ username, profilePic }) => {
                     <img src= { profilePic } alt="user picture" />
                 </div>
             </div>
-                <UserBlock />
+                <UserBlock tryLogoutUser = { tryLogoutUser } />
         </div>
     )
 }

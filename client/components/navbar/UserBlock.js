@@ -1,9 +1,14 @@
 import React from "react"
 
-const UserBlock = () => {
+const UserBlock = 
+    ({ tryLogoutUser }) => {
     return (
         <div className="user-block">
-            User block
+            <ul>
+                <li onClick = { tryLogoutUser }>
+                    Log out
+                </li>
+            </ul>
         </div>
     )
 }

@@ -8,10 +8,11 @@ const LoggedNavLinks =
     return (
         <div className="links-container">
             <CreatePostLink />
-            <UserLink username = { username } 
+            <UserLink 
+                tryLogoutUser = { tryLogoutUser }
+                username = { username } 
                 profilePic = { profilePic }
             />
-            <h3 onClick= { tryLogoutUser }>Log out</h3>
         </div>
     )
 }
