@@ -35,7 +35,7 @@ const AppView = ({ checkUserLogged }) => {
                         <Login />
                     </Route>
                     <Route path = "/create/post">
-                        <PostForm />
+                        <PrivateRoute child = { PostForm } />
                     </Route>
                     <Route path = "/post/:title">
                         <Post />
