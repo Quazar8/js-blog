@@ -9,6 +9,7 @@ import Login from './Login'
 import Notification from './Notification'
 import PostForm from './PostForm'
 import Post from './Post'
+import Profile from './Profile'
 
 import { getLoggedUser } from '../store/userActions'
 
@@ -23,20 +24,23 @@ const AppView = ({ checkUserLogged }) => {
             <Notification />
             <main>
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path = "/">
                         <Home />
                     </Route>
                     <Route path="/register">
                         <Register />
                     </Route>
-                    <Route path="/login">
+                    <Route path = "/login">
                         <Login />
                     </Route>
-                    <Route path="/create/post">
+                    <Route path = "/create/post">
                         <PostForm />
                     </Route>
-                    <Route path="/post/:title">
+                    <Route path = "/post/:title">
                         <Post />
+                    </Route>
+                    <Route path = "/profile">
+                        <Profile />
                     </Route>
                 </Switch>
             </main>

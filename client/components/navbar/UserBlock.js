@@ -8,7 +8,7 @@ const UserBlock =
             <h4>{ username }</h4>
             <ul>
                 <li>
-                    <Link>Profile</Link>
+                    <Link to = "/profile">Profile</Link>
                 </li>
                 <li onClick = { tryLogoutUser }>
                     Log out
