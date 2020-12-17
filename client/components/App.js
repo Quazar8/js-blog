@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import PrivateRoute from './PrivateRoute'
 import Navbar from './navbar/Navbar'
 import Home from './Home'
 import Register from './Register'
@@ -40,7 +41,7 @@ const AppView = ({ checkUserLogged }) => {
                         <Post />
                     </Route>
                     <Route path = "/profile">
-                        <Profile />
+                        <PrivateRoute child = { Profile } />
                     </Route>
                 </Switch>
             </main>
