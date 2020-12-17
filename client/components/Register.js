@@ -4,9 +4,9 @@ import { registerUser } from '../store/userActions'
 
 const RegisterView = ({ dispatchRegister }) => {
     const [inputs, setInputs] = useState({
-        username:"",
-        password:"",
-        confirmPass:""
+        username: '',
+        password: '',
+        confirmPass: ''
     })
 
     const handleChange = (e) => {
@@ -43,30 +43,30 @@ const RegisterView = ({ dispatchRegister }) => {
     }
 
     return (
-        <form className = "user-forms" onSubmit={ handleSubmit }>
+        <form className = "user-forms" onSubmit = { handleSubmit }>
             <h2>Register:</h2>
-            <div className="field-container">
-                <label for="username">Username:</label>
-                <input type="text" id="username" 
+            <div className = "field-container">
+                <label htmlFor = "username">Username:</label>
+                <input type = "text" id = "username" 
                     onChange = { handleChange }
                     value = { inputs.username }
                     autoFocus
                     autoComplete = "off"
                 />
             </div>
-            <div className="field-container">
-                <label for="password">Password:</label>
-                <input type="password" id="password" 
+            <div className = "field-container">
+                <label htmlFor = "password">Password:</label>
+                <input type = "password" id = "password" 
                 onChange = { handleChange }
                 value = { inputs.password }/> 
             </div>
-            <div className="field-container">
-                <label for="confirm-pass">Confirm Password:</label>
-                <input type="password" id="confirm-pass" 
+            <div className = "field-container">
+                <label htmlFor = "confirm-pass">Confirm Password:</label>
+                <input type = "password" id = "confirm-pass" 
                 onChange = { handleChange }
                 value = { inputs.confirmPass }/> 
             </div>
-            <input type="submit" value="Register"/>
+            <input type = "submit" value = "Register"/>
         </form>
     )
 }

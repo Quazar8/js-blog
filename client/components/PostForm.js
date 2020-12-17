@@ -38,7 +38,7 @@ const PostFormView = ({ tryPublishPost }) => {
     return (
         <form onSubmit = { handleSubmit }>
             <div className = "field-container">
-                <label for = "title">Title</label>
+                <label htmlFor = "title">Title</label>
                 <input id = "title" value = { inputs.title } 
                 onChange = { handleTitleCHange }
                 name = "title"
@@ -51,8 +51,8 @@ const PostFormView = ({ tryPublishPost }) => {
                 ></textarea>
             </div>
             <div>
-                <input type="file" id="thumbnail" 
-                name="thumbnail"
+                <input type = "file" id = "thumbnail" 
+                name = "thumbnail"
                 ref = { imageInput }
                 />
             </div>
