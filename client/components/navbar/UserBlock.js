@@ -7,9 +7,11 @@ const UserBlock =
         <div className="user-block">
             <h4>{ username }</h4>
             <ul>
-                <li>
-                    <Link to = "/profile">Profile</Link>
-                </li>
+                <Link to = "/profile">
+                    <li>
+                        Profile
+                    </li>
+                </Link>
                 <li onClick = { tryLogoutUser }>
                     Log out
                 </li>
