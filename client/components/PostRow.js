@@ -21,10 +21,6 @@ const PostRow = ({ post, index, postsLength }) => {
         pathname: '/post/' + urlTitle,
     }
 
-    const savePostToLocal = () => {
-        sessionStorage.setItem('postId', postId)
-    }
-
     const animationDuration = 0.6 //s
     const animationDelay = index * 0.4 //s
 
@@ -36,7 +32,7 @@ const PostRow = ({ post, index, postsLength }) => {
 
     return (
         <article className = "post-row" style = { animationStyle }>
-            <Link onClick = { savePostToLocal } to = { linkQuery }>
+            <Link to = { linkQuery }>
                     <div className = "thumbnail-container">
                         <img src = { thumbnail } alt = "post's thumbnail" />
                     </div>

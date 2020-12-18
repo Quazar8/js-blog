@@ -4,7 +4,8 @@ import { retrievePostAction } from '../store/postsActions'
 
 const PostView = ({ post, tryGetPost }) => {
     useEffect(() => {
-        const postId = sessionStorage.getItem('postId')
+        const address = window.location.pathname.split('-')
+        const postId = address[address.length - 1]
         if(postId) {
             tryGetPost(postId)
         }
