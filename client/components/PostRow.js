@@ -5,9 +5,18 @@ const PostRow = ({ post, index, postsLength }) => {
     const { title, content, 
             authorId, postId,
             thumbnail } = post
+
+    const getUrlTitle = () => {
+        const urlTitle = title.replace(' ', '-')
+        if (urlTitle[urlTitle.length - 1] == '-') {
+            return urlTitle + postId
+        }
+
+        return urlTitle + '-' + postId
+    }
     
     const contentPreview = content.substring(0, 163) + '...'
-    const urlTitle = title.replace(' ', '-') 
+    const urlTitle = getUrlTitle()
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
     }
