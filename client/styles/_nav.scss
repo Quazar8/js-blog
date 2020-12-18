@@ -55,13 +55,14 @@
     svg {
         margin: 0 7%;
         width: 20%;
+        min-width: 3rem;
         animation: rotate 10s infinite linear;
     }
 
     h1 {
         font-weight: bold;
         letter-spacing: 0.1rem;
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     
     &:hover {
