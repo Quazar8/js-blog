@@ -11,6 +11,7 @@ import Notification from './Notification'
 import PostForm from './PostForm'
 import Post from './Post'
 import Profile from './Profile'
+import NotFound from './NotFound'
 
 import { getLoggedUser } from '../store/userActions'
 
@@ -42,6 +43,9 @@ const AppView = ({ checkUserLogged }) => {
                     </Route>
                     <Route path = "/profile">
                         <PrivateRoute child = { Profile } />
+                    </Route>
+                    <Route>
+                        <NotFound />
                     </Route>
                 </Switch>
             </main>
