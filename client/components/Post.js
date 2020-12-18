@@ -10,6 +10,11 @@ const PostView = ({ post, tryGetPost }) => {
             tryGetPost(postId)
         }
     }, [])
+
+    if (!post.title) {
+        return <h1>No such post exists</h1>
+    }
+
     const { title, authorId, content } = post
     return (
         <article className = "post-view">
