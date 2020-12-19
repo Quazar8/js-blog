@@ -205,6 +205,11 @@
     .main-navbar {
         height: 3vw;
         min-height: 2rem;
+
+        .create-post-svg {
+            stroke-width: 6;
+            width: 100%;
+        }
         
         .user-block {
             border: none;
