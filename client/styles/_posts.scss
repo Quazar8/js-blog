@@ -75,3 +75,10 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 680px) {
+    .post-row {
+        width: 80%;
+        height: 20vh;
+    }
+}
