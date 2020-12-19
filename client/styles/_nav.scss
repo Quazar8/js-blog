@@ -143,13 +143,13 @@
     margin: 0;
     background: $block-color;
     color: white;
-    bottom: -140%;
+    bottom: -7vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 0.1vw solid white;
+    border: 0.11vw solid white;
     font-size: 1vw;
 
     h4 {
@@ -207,7 +207,6 @@
         min-height: 2rem;
         
         .user-block {
-            bottom: -80%;
             border: none;
 
             &:before {
