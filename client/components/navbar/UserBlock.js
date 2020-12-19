@@ -2,7 +2,11 @@ import React from "react"
 import { Link } from "react-router-dom";
 
 const UserBlock = 
-    ({ username, tryLogoutUser }) => {
+    ({ username, tryLogoutUser, show }) => {
+    if (!show) {
+        return null
+    }
+    
     return (
         <div className="user-block">
             <h4>{ username }</h4>

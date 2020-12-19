@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import UserBlock from './UserBlock'
 
 const UserLink = 
     ({ username, profilePic, tryLogoutUser }) => {
+
+    const [showBlock, setShowBlock] = useState(false)
+    
+    const displayBlock = () => {
+        setShowBlock(!showBlock)
+    }
+
     return (
         <div className = "user-link-container">
-            <div className = "user-nav-link">
+            <div onClick = { displayBlock } className = "user-nav-link">
                 <div className = "image-container">
                     <img src= { profilePic } alt="user picture" />
                 </div>
@@ -14,6 +21,7 @@ const UserLink =
                 <UserBlock 
                     tryLogoutUser = { tryLogoutUser }
                     username = { username }
+                    show = { showBlock }
                 />
         </div>
     )
