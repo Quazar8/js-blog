@@ -1,5 +1,6 @@
 @use 'variables' as v;
 
+$block-color: #5f3c3c;
 .main-navbar {
     position: relative;
     z-index: 2;
@@ -133,7 +134,6 @@
 }
 
 .user-block {
-    $block-color: #5f3c3c;
     $triangle-size: 0.9vw;
     $bigger-triangle-size: $triangle-size + 0.1;
     $triangle-position: -9%;
@@ -213,12 +213,29 @@
         .create-post-link {
             display: none;
         }
+
+        .user-link-container {
+            width: 50%;
+        }
         
         .user-block {
+            $triangle-size: 5vw;
             border: none;
+            width: 50vw;
+            font-size: 4vw;
+            bottom: -45vw;
+            right: 0;
 
-            &:before {
+            &::before {
                  display: none;
+            }
+
+            &::after {
+                top: -7%;
+                right: 5%;
+                border-left: $triangle-size solid transparent;
+                border-right: $triangle-size solid transparent;
+                border-bottom: $triangle-size solid $block-color;
             }
         }
 
