@@ -79,6 +79,14 @@
 @media only screen and (max-width: 680px) {
     .post-row {
         width: 80vw;
-        height: 40vw;
+        height: 52vw;
+        
+        h2, h3 {
+            font-size: 4.5vw;
+        }
+
+        p {
+            font-size: 3vw;
+        }
     }
 }
