@@ -135,25 +135,25 @@
 .user-block {
     $block-color: #5f3c3c;
     $triangle-size: 0.9vw;
-    $bigger-triangle-size: $triangle-size + 0.01;
-    $triangle-position: -13%;
+    $bigger-triangle-size: $triangle-size + 0.1;
+    $triangle-position: -9%;
 
     position: absolute;
     width: 100%;
     margin: 0;
     background: $block-color;
     color: white;
-    bottom: -7vw;
+    bottom: -10vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 0.11vw solid white;
-    font-size: 1vw;
+    font-size: 1.5vw;
 
     h4 {
-        padding: 5% 0 5% 0;
+        padding: 5% 0 15% 0;
     }
 
     ul {
@@ -193,7 +193,7 @@
         content: "";
         display: block;
         position: absolute;
-        top: $triangle-position - 2.5;
+        top: $triangle-position - 1.5;
         border-left:  $bigger-triangle-size solid transparent;
         border-right: $bigger-triangle-size solid transparent;
         border-bottom: $bigger-triangle-size solid white;
