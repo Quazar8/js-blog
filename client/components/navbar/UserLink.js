@@ -7,18 +7,19 @@ const UserLink =
 
     const [showBlock, setShowBlock] = useState(false)
     
-    const displayBlock = () => {
+    const toggleBlock = () => {
         setShowBlock(!showBlock)
     }
 
     return (
-        <div className = "user-link-container">
-            <div onClick = { displayBlock } className = "user-nav-link">
+        <div
+        className = "user-link-container">
+            <div onClick = { toggleBlock } className = "user-nav-link">
                 <div className = "image-container">
                     <img src= { profilePic } alt="user picture" />
                 </div>
             </div>
-                <UserBlock 
+                <UserBlock
                     tryLogoutUser = { tryLogoutUser }
                     username = { username }
                     show = { showBlock }
