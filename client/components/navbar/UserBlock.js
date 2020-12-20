@@ -11,6 +11,12 @@ const UserBlock =
         <div className="user-block">
             <h4>{ username }</h4>
             <ul>
+                <Link className = "user-block-create-post" 
+                to = "/create/post">
+                    <li>
+                        Create Post
+                    </li>
+                </Link>
                 <Link to = "/profile">
                     <li>
                         Profile

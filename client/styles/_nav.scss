@@ -152,6 +152,10 @@
     border: 0.11vw solid white;
     font-size: 1.5vw;
 
+    .user-block-create-post {
+        display: none;
+    }
+
     h4 {
         padding: 5% 0 15% 0;
     }
@@ -206,9 +210,8 @@
         height: 3vw;
         min-height: 3rem;
 
-        .create-post-svg {
-            stroke-width: 6;
-            width: 100%;
+        .create-post-link {
+            display: none;
         }
         
         .user-block {
@@ -217,6 +220,10 @@
             &:before {
                  display: none;
             }
+        }
+
+        .user-block-create-post {
+            display: block;
         }
     }
 
