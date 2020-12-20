@@ -10,7 +10,7 @@ const genUsers = () => {
         result[user] = {
             password,
             posts: [],
-            profilePic: 'server/images/user_default.png'
+            profilePic: '/server/images/user_default.png'
         }
     }
 
