@@ -57,3 +57,10 @@ $button-text-color: white;
     }
    
 }
+
+@media only screen and (max-width: 680px) {
+    .user-forms {
+        width: 80%;
+        margin: 20% 0;
+    }
+}
