@@ -144,7 +144,8 @@ $block-color: #5f3c3c;
     margin: 0;
     background: $block-color;
     color: white;
-    bottom: -12.5vw;
+    //bottom: -12.5vw;
+    top: 120%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -159,6 +160,11 @@ $block-color: #5f3c3c;
 
     h4 {
         padding: 10% 0 15% 0;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        word-break: break-all;
+        text-align: center;
     }
 
     ul {
