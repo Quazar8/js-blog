@@ -8,9 +8,9 @@ const UserBlock =
     }
     
     return (
-        <div onMouseDown = {() => { changeBlur(false) }} className="user-block">
+        <div  className="user-block">
             <h4>{ username }</h4>
-            <ul>
+            <ul onMouseDown = {() => { changeBlur(false) }}>
                 <Link className = "user-block-create-post" 
                 to = "/create/post">
                     <li>
