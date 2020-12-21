@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "react-router-dom";
 
 const UserBlock = 
-    ({ username, tryLogoutUser, show }) => {
+    ({ username, tryLogoutUser, show, changeBlur }) => {
     if (!show) {
         return null
     }
     
     return (
-        <div className="user-block">
+        <div onMouseDown = {() => { changeBlur(false) }} className="user-block">
             <h4>{ username }</h4>
             <ul>
                 <Link className = "user-block-create-post" 
