@@ -70,20 +70,20 @@ $block-color: #5f3c3c;
 }
 
 .create-post-link {
-        height: 100%;
-        width: 20%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-         &:hover {
-            background-color: white;
-            color: v.$nav-color;
-            cursor: pointer;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+        &:hover {
+        background-color: white;
+        color: v.$nav-color;
+        cursor: pointer;
 
-            .create-post-svg {
-                stroke: v.$nav-color;
-            }
+        .create-post-svg {
+            stroke: v.$nav-color;
+        }
     }
 }
 
@@ -222,6 +222,10 @@ $block-color: #5f3c3c;
 
         .user-link-container {
             width: 50%;
+
+            .image-container {
+                width: 55%;
+            }
         }
         
         .user-block {

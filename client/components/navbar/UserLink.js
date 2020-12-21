@@ -6,7 +6,7 @@ const UserLink =
     ({ username, profilePic, tryLogoutUser }) => {
 
     const [showBlock, setShowBlock] = useState({
-        show: true,
+        show: false,
         blur: true
     })
     
