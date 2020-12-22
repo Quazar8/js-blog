@@ -2,17 +2,23 @@ import React from 'react'
 
 const DefaultUserMenu = () => {
     return (
-        <div className = "default-user-menu">
-            <svg viewBox = "0 0 50 50">
-                <path d = {
-                   `M 10 45
-                    c0,0 0,-20 15,-20
-                    M 40 45
-                    c0,0 0,-20 -15,-20` 
-                }/>
-                <polygon points = "11,44 25,26 39,44"/>
-                <circle cx="25" cy="13" r="7"/>
-            </svg>
+        <div className = "default-user-menu-container">
+            <div className = "default-user-menu">
+                <svg viewBox = "0 0 50 50">
+                    <path d = {
+                        `M 10 45
+                        c0,0 0,-20 15,-20
+                        M 40 45
+                        c0,0 0,-20 -15,-20` 
+                    }/>
+                    <polygon points = "11,44 25,26 39,44"/>
+                    <circle cx="25" cy="13" r="7"/>
+                </svg>
+                <ul>
+                    <li>Login</li>
+                    <li>Register</li>
+                </ul>
+            </div>
         </div>
     )
 }

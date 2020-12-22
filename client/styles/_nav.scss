@@ -214,8 +214,27 @@ $block-color: #5f3c3c;
 
 }
 
+.default-user-menu-container {
+    display: flex;
+    justify-content: center ;
+}
+
 .default-user-menu {
     display: none;
+    position: relative;
+    width: 40%;
+
+    svg {
+        fill: white;
+        stroke: white;
+        stroke-width: 3;
+        width: 60%;
+    }
+
+    ul {
+        position: absolute;
+        top: 140%;
+    }
 }
 
 
@@ -276,14 +295,6 @@ $block-color: #5f3c3c;
 
     .default-user-menu {
         display: flex;
-        width: 40%;
-
-        svg {
-            fill: white;
-            stroke: white;
-            stroke-width: 3;
-            width: 60%;
-        }
     }
 
     .default-user-links {
@@ -347,14 +358,7 @@ $block-color: #5f3c3c;
 
     .default-user-menu {
         display: flex;
-        width: 40%;
 
-        svg {
-            fill: white;
-            stroke: white;
-            stroke-width: 3;
-            width: 60%;
-        }
     }
 
     .default-user-links {
