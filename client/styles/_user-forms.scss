@@ -4,9 +4,8 @@ $button-text-color: white;
 .user-forms {
     position: relative;
     z-index: 1;
-    width: 30%;
+    width: 45%;
     background-color: #0d3149;
-    border: 0.2vw solid white;
     border-radius: 5%;
     display: flex;
     flex-direction: column;
@@ -16,6 +15,11 @@ $button-text-color: white;
     font-size: 1.3rem;
     box-sizing: border-box;
     animation: appearMoveDown 1s ease-out;
+
+    input {
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     input[type="submit"] {
         background-color: v.$background-color;
