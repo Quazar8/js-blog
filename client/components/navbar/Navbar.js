@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import DefaultNavLinks from './DefaultNavLinks'
 import LoggedNavLinks from './LoggedNavLinks'
-import Logo from './Logo'
+import Logo from '../svgs/Logo'
 
 import { logoutUser } from '../../store/userActions'
 
