@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const DefaultUserMenu = () => {
     return (
@@ -15,8 +16,12 @@ const DefaultUserMenu = () => {
                     <circle cx="25" cy="13" r="7"/>
                 </svg>
                 <ul>
-                    <li>Login</li>
-                    <li>Register</li>
+                    <Link to = "/login">
+                        <li>Login</li>
+                    </Link>
+                    <Link to = "/register">
+                        <li>Register</li>
+                    </Link>
                 </ul>
             </div>
         </div>
