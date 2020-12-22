@@ -216,13 +216,13 @@ $block-color: #5f3c3c;
 
 .default-user-menu-container {
     display: flex;
-    justify-content: center ;
+    justify-content: center;
+    width: 40%;
 }
 
 .default-user-menu {
     display: none;
     position: relative;
-    width: 40%;
 
     svg {
         fill: white;
@@ -232,12 +232,13 @@ $block-color: #5f3c3c;
     }
 
     ul {
+        list-style: none;
+        background-color: $block-color;
         position: absolute;
         top: 140%;
+        right: 20%;
     }
 }
-
-
 
 @media only screen and (max-width: 680px) and (min-width: 361px){
     .main-navbar {
