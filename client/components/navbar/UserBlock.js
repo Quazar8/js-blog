@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom";
 
+import Triangle from '../svgs/Triangle'
+
 const UserBlock = 
     ({ username, tryLogoutUser, show, changeBlur }) => {
     if (!show) {
@@ -9,10 +11,7 @@ const UserBlock =
     
     return (
         <div className="user-block">
-            <svg className = "triangle" viewBox = "0 0 50 50">
-                <polygon className = "outer-triangle" points = "25,10 0,40 50,40" />
-                <polygon className = "inner-triangle" points = "25,13 3,40 48,40" />
-            </svg>
+            <Triangle />
             <h4>{ username }</h4>
             <ul onMouseDown = {() => { changeBlur(false) }}>
                 <Link className = "user-block-create-post" 
