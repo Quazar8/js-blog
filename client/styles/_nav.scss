@@ -211,14 +211,13 @@ $block-color: #5f3c3c;
             fill: white;
         }
     }
-
-
 }
 
 .default-user-menu-container {
     display: flex;
     justify-content: center;
     width: 40%;
+    font-size: 1.1rem;
 }
 
 .default-user-menu {
@@ -236,8 +235,14 @@ $block-color: #5f3c3c;
         list-style: none;
         background-color: $block-color;
         position: absolute;
-        top: 140%;
+        top: 160%;
         right: 20%;
+        width: 30vw;
+
+        li {
+            text-align: center;
+            padding: 10%;
+        }
     }
 }
 
