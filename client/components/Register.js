@@ -1,42 +1,17 @@
-import React, { useState } from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { registerUser } from '../store/userActions'
 
 const RegisterView = ({ dispatchRegister }) => {
-    const [inputs, setInputs] = useState({
-        username: '',
-        password: '',
-        confirmPass: ''
-    })
-
-    const handleChange = (e) => {
-        const el = e.target
-        
-        switch(el.id) {
-            case "username":
-                setInputs({
-                    ...inputs,
-                    username: el.value
-                }); break;
-            case "password":
-                setInputs({
-                    ...inputs,
-                    password: el.value
-                }); break;
-            case "confirm-pass":
-                setInputs({
-                    ...inputs,
-                    confirmPass: el.value
-                }); break;
-            default: break;
-        }
-    }
+    let usernameRef = createRef('')
+    let passwordRef = createRef('')
+    let confirmPassRef = createRef('')
 
     const handleSubmit =  (e) => {
         e.preventDefault()
         const data = {
-            username: inputs.username,
-            password: inputs.password
+            username: usernameRef.current.value,
+            password: passwordRef.current.value
         }
 
         dispatchRegister(data)
@@ -48,23 +23,22 @@ const RegisterView = ({ dispatchRegister }) => {
             <div className = "field-container">
                 <label htmlFor = "username">Username:</label>
                 <input type = "text" id = "username" 
-                    onChange = { handleChange }
-                    value = { inputs.username }
+                    ref = { usernameRef }
                     autoFocus
                     autoComplete = "off"
                 />
             </div>
             <div className = "field-container">
                 <label htmlFor = "password">Password:</label>
-                <input type = "password" id = "password" 
-                onChange = { handleChange }
-                value = { inputs.password }/> 
+                <input type = "password" id = "password"
+                    ref = { passwordRef }
+                />
             </div>
             <div className = "field-container">
                 <label htmlFor = "confirm-pass">Confirm Password:</label>
                 <input type = "password" id = "confirm-pass" 
-                onChange = { handleChange }
-                value = { inputs.confirmPass }/> 
+                    ref = { confirmPassRef }
+                />
             </div>
             <input type = "submit" value = "Register"/>
         </form>
