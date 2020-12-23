@@ -5,21 +5,18 @@ const PostRow = ({ post, index, postsLength }) => {
     const { title, content, 
             authorId, postId,
             thumbnail } = post
+    
+    let titlePreview = title
+    if (title.length > 34) {
+        titlePreview = title.substring(0, 34) + '...'
+    }
+    const contentPreviewShort = content.substring(0, 168) + '...'
+    const contentPreviewLong = content.substring(0, 454) + '...'
 
     const [postInfo, setPostInfo] = useState({
-        titlePreview: '',
-        contentPreview: ''
+        titlePreview,
+        contentPreview: contentPreviewShort
     })
-
-    useEffect(() => {
-        let titlePreview = title
-        if (title.length > 34) {
-            titlePreview = title.substring(0, 34) + '...'
-        }
-
-        const contentPreview = content.substring(0, 168) + '...'
-        setPostInfo({ titlePreview, contentPreview })
-    }, [])
 
     const getUrlTitle = () => {
         const urlTitle = title.replace(' ', '-')
@@ -45,11 +42,23 @@ const PostRow = ({ post, index, postsLength }) => {
     }
 
     const changePostInfo = () => {
+        setPostInfo({
+            titlePreview: title,
+            contentPreview: contentPreviewLong
+        })
+    }
 
+    const revertPostInfo = () => {
+        setPostInfo({
+            titlePreview,
+            contentPreview: contentPreviewShort
+        })
     }
 
     return (
-        <article onMouseEnter = { changePostInfo } className = "post-row" style = { animationStyle }>
+        <article onMouseEnter = { changePostInfo } 
+            onMouseLeave = { revertPostInfo }
+        className = "post-row" style = { animationStyle }>
             <Link to = { linkQuery }>
                     <div className = "thumbnail-container">
                         <img src = { thumbnail } alt = "post's thumbnail" />
