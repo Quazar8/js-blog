@@ -1,1 +1,3 @@
-# A Blog using JS
+# A Blog using React and Node.js    
+
+## Still under construction
