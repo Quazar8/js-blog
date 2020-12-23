@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 import UserSvg from '../svgs/UserSvg'
+import Triangle from '../svgs/Triangle'
 
 const DefaultUserMenu = () => {
     return (
@@ -9,6 +10,7 @@ const DefaultUserMenu = () => {
             <div className = "default-user-menu">
                 <UserSvg />
                 <ul>
+                    <Triangle />
                     <Link to = "/login">
                         <li>Login</li>
                     </Link>
