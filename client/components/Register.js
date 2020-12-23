@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { registerUser } from '../store/userActions'
 
 const RegisterView = ({ dispatchRegister }) => {
-    let usernameRef = createRef('')
-    let passwordRef = createRef('')
-    let confirmPassRef = createRef('')
+    let usernameRef = createRef()
+    let passwordRef = createRef()
+    let confirmPassRef = createRef()
 
     const handleSubmit =  (e) => {
         e.preventDefault()

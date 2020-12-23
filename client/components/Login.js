@@ -1,37 +1,17 @@
-import React, { useState } from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../store/userActions'
 
 const LoginView = ({ tryLogIn }) => {
-    const [inputs, setInputs] = useState({
-        username: "",
-        password: ""
-    })
-
-    const handleChange = (e) => {
-        const el = e.target
-        
-        switch(el.id) {
-            case "username":
-                setInputs({
-                    ...inputs,
-                    username: el.value
-                }); break;
-            case "password":
-                setInputs({
-                    ...inputs,
-                    password: el.value
-                }); break;
-            default: break;
-        }
-    }
+    let usernameRef = createRef()
+    let passwordRef = createRef()
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const data = {
-            username: inputs.username,
-            password: inputs.password
+            username: usernameRef.current.value,
+            password: passwordRef.current.value
         }
 
         tryLogIn(data)
@@ -43,8 +23,7 @@ const LoginView = ({ tryLogIn }) => {
             <div className="field-container">
                 <label htmlFor="username">Username:</label>
                 <input id="username" type="text"
-                    onChange = { handleChange } 
-                    value = { inputs.username }
+                    ref = { usernameRef }
                     autoFocus
                     autoComplete = "off"
                  />
@@ -52,8 +31,7 @@ const LoginView = ({ tryLogIn }) => {
             <div className="field-container">
                 <label htmlFor="password">Password:</label>
                 <input id="password" type="password" 
-                    onChange = { handleChange }
-                    value = { inputs.password }
+                    ref = { passwordRef }
                 />
             </div>
             <input type="submit" value="Sign In" />
