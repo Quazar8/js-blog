@@ -15,7 +15,12 @@ const PostRow = ({ post, index, postsLength }) => {
         return urlTitle + '-' + postId
     }
     
-    const contentPreview = content.substring(0, 163) + '...'
+    let titlePreview = title
+    if (title.length > 34) {
+        titlePreview = title.substring(0, 34) + '...'
+    }
+
+    const contentPreview = content.substring(0, 168) + '...'
     const urlTitle = getUrlTitle()
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
@@ -37,7 +42,7 @@ const PostRow = ({ post, index, postsLength }) => {
                         <img src = { thumbnail } alt = "post's thumbnail" />
                     </div>
                     <div className = "post-info">
-                        <h2>{ title }</h2>
+                        <h2>{ titlePreview }</h2>
                         <h3>by { authorId }</h3>
                         <p>{ contentPreview }</p>
                     </div>
