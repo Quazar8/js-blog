@@ -19,6 +19,10 @@
         .post-info {
             top: 20%;
         }
+
+        p {
+            animation: appear 0.5s ease-in;
+        }
     }
 
     .post-info {
