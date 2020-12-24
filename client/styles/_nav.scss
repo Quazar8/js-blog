@@ -198,10 +198,10 @@ $block-color: #5f3c3c;
 
     .triangle {
         position: absolute;
-        width: 17%;
+        width: 12%;
         min-width: 1.7rem;
         bottom: 96%;
-        right: 10%;
+        right: 11%;
 
         .inner-triangle {
             fill: $block-color;  
@@ -315,10 +315,6 @@ $block-color: #5f3c3c;
 
     .default-user-menu {
         display: flex;
-
-        .triangle {
-            right: 100%;
-        }
     }
 
     .default-user-links {
@@ -347,7 +343,7 @@ $block-color: #5f3c3c;
             border: 0.05rem solid white;
             font-size: 3vw;
             right: 15%;
-            top: 100%;
+            top: 110%;
 
             h4 {
                 padding: 5% 0 10% 0;
@@ -359,7 +355,8 @@ $block-color: #5f3c3c;
 
             .triangle {
                 bottom: 95%;
-                right: 3%;
+                right: 6%;
+                width: 15%;
                 min-width: 0;
             }
         }
