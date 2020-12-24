@@ -97,6 +97,16 @@
     }
 }
 
+.post-form {
+    width: 80%;
+
+    #title {
+        width: 100%;
+        height: 20%;
+        margin-bottom: 3%;
+    }
+}
+
 @media only screen and (max-width: 680px) {
     .post-row {
         width: 80vw;

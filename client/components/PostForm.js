@@ -20,14 +20,13 @@ const PostFormView = ({ tryPublishPost }) => {
     }
 
     return (
-        <form onSubmit = { handleSubmit }>
-            <div className = "field-container">
-                <label htmlFor = "title">Title</label>
-                <input id = "title" 
-                    ref = { titleRef }
-                    name = "title"
-                />
-            </div>
+        <form className = "post-form" onSubmit = { handleSubmit }>
+            <input id = "title"
+                placeholder = "Title"
+                ref = { titleRef }
+                name = "title"
+                autoComplete = "off"
+            />
             <div>
                 <textarea cols = "20" rows = "10"
                     ref = { contentRef }
