@@ -11,7 +11,7 @@ const PostRow = ({ post, index, postsLength }) => {
         titlePreview = title.substring(0, 34) + '...'
     }
     const contentPreviewShort = content.substring(0, 168) + '...'
-    const contentPreviewLong = content.substring(0, 454) + '...'
+    const contentPreviewLong = content.substring(0, 398) + '...'
 
     const [postInfo, setPostInfo] = useState({
         titlePreview,
