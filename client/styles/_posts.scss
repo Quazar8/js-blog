@@ -98,15 +98,36 @@
 }
 
 .post-form {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 83vh;
+    overflow: hidden;
+    scrollbar-width: none;
+    box-sizing: border-box;
 
     #title {
-        width: 100%;
-        height: 20%;
-        margin-bottom: 3%;
+        width: 80%;
+        height: 10%;
+        margin-bottom: 1%;
         font-size: 2vw;
         box-sizing: border-box;
         padding: 2% 0 2% 2%;
+    }
+
+    textarea {
+        box-sizing: border-box;
+        widtH: 80%;
+        height: 85vh;
+    }
+
+    #thumbnail {
+        padding: 1% 0;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 

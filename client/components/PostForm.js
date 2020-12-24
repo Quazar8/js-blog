@@ -27,18 +27,14 @@ const PostFormView = ({ tryPublishPost }) => {
                 name = "title"
                 autoComplete = "off"
             />
-            <div>
-                <textarea cols = "20" rows = "10"
-                    ref = { contentRef }
-                    name = "content"
-                ></textarea>
-            </div>
-            <div>
-                <input type = "file" id = "thumbnail" 
+            <textarea 
+                ref = { contentRef }
+                name = "content"
+            ></textarea>
+            <input type = "file" id = "thumbnail" 
                 name = "thumbnail"
                 ref = { imageInput }
-                />
-            </div>
+            />
             <input type = "submit" value = "Publish" />
         </form>
     )
