@@ -1,35 +1,19 @@
-import React, { useState, createRef } from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../store/postsActions'
 
 const PostFormView = ({ tryPublishPost }) => {
-    const [inputs, setInputs] = useState({
-        title: '',
-        content: '',
-    })
-
+    const titleRef = createRef()
+    const contentRef = createRef()
     const imageInput = createRef()
-
-    const handleTitleCHange = (e) => {
-       setInputs({
-           ...inputs,
-           title: e.target.value
-       })
-    }
-    
-    const handleContentCHange = (e) => {
-       setInputs({
-           ...inputs,
-           content: e.target.value
-       })
-    }
 
     const handleSubmit = e => {
         e.preventDefault()
 
         const data = {
-            ...inputs,
+            title: titleRef.current.value,
+            content: contentRef.current.value,
             thumbnail: imageInput.current.files[0]
         }
         tryPublishPost(data)
@@ -39,15 +23,15 @@ const PostFormView = ({ tryPublishPost }) => {
         <form onSubmit = { handleSubmit }>
             <div className = "field-container">
                 <label htmlFor = "title">Title</label>
-                <input id = "title" value = { inputs.title } 
-                onChange = { handleTitleCHange }
-                name = "title"
+                <input id = "title" 
+                    ref = { titleRef }
+                    name = "title"
                 />
             </div>
             <div>
                 <textarea cols = "20" rows = "10"
-                onChange = { handleContentCHange }
-                name = "content"
+                    ref = { contentRef }
+                    name = "content"
                 ></textarea>
             </div>
             <div>
