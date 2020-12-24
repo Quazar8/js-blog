@@ -1,6 +1,6 @@
 @use 'variables' as v;
 
-$block-color: #5f3c3c;
+$block-color: v.$block-color;
 .main-navbar {
     position: relative;
     z-index: 2;
