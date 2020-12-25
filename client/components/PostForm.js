@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react'
+import React, { createRef, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../store/postsActions'
@@ -9,7 +9,7 @@ const PostFormView = ({ tryPublishPost }) => {
 
     const titleRef = createRef()
     const contentRef = createRef()
-    const imageInput = createRef()
+    const imageInput = useRef()
 
     const handleDragOver = (e) => {
         e.preventDefault()
@@ -25,17 +25,20 @@ const PostFormView = ({ tryPublishPost }) => {
             file = e.target.files[0]
         }
 
-        console.log(file)
+        if (file.name) {
+            imageInput.current = file
+            setLabelTitle(file.name)
+        }
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-
         const data = {
             title: titleRef.current.value,
             content: contentRef.current.value,
-            thumbnail: imageInput.current.files[0]
+            thumbnail: imageInput.current
         }
+        
         tryPublishPost(data)
     }
 
@@ -54,9 +57,8 @@ const PostFormView = ({ tryPublishPost }) => {
             ></textarea>
             <label onDragOver = { handleDragOver}
                 onDrop = { handleDrop } id = "thumbnail">
-                <input type = "file"  
+                <input onChange = { handleDrop } type = "file"  
                     name = "thumbnail"
-                    ref = { imageInput }
                 />
                 { labelTitle }
             </label>
