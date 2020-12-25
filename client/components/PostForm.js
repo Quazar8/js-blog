@@ -1,9 +1,12 @@
-import React, { createRef } from 'react'
+import React, { createRef, useState } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../store/postsActions'
 
 const PostFormView = ({ tryPublishPost }) => {
+    const [labelTitle, setLabelTitle] 
+        = useState('Choose image for thumbnail')
+
     const titleRef = createRef()
     const contentRef = createRef()
     const imageInput = createRef()
@@ -11,11 +14,18 @@ const PostFormView = ({ tryPublishPost }) => {
     const handleDragOver = (e) => {
         e.preventDefault()
     }
-    
+
     const handleDrop = (e) => {
-        e.stopPropagation()
         e.preventDefault()
-        console.log('dropped')
+
+        let file
+        if (e.dataTransfer) {
+            file = e.dataTransfer.files[0]
+        } else if (e.target) {
+            file = e.target.files[0]
+        }
+
+        console.log(file)
     }
 
     const handleSubmit = e => {
@@ -48,7 +58,7 @@ const PostFormView = ({ tryPublishPost }) => {
                     name = "thumbnail"
                     ref = { imageInput }
                 />
-                Choose thumbnail
+                { labelTitle }
             </label>
             <input type = "submit" value = "Publish" />
         </form>
