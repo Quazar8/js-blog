@@ -32,10 +32,13 @@ const PostFormView = ({ tryPublishPost }) => {
                 ref = { contentRef }
                 name = "content"
             ></textarea>
-            <input type = "file" id = "thumbnail" 
-                name = "thumbnail"
-                ref = { imageInput }
-            />
+            <label id = "thumbnail">
+                <input type = "file"  
+                    name = "thumbnail"
+                    ref = { imageInput }
+                />
+                Choose thumbnail
+            </label>
             <input type = "submit" value = "Publish" />
         </form>
     )

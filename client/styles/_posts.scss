@@ -109,7 +109,6 @@
     box-sizing: border-box;
 
     #title, textarea {
-        overflow: hidden;
         border-radius: 2%;
         border: none;
         outline: none;
@@ -144,6 +143,13 @@
 
     #thumbnail {
         padding: 1% 0;
+        font-size: 1.5vw;
+        width: 80%;
+        position: relative;
+    }
+
+    input[type="file"] {
+        display: none;
     }
 
     &::-webkit-scrollbar {
