@@ -8,6 +8,16 @@ const PostFormView = ({ tryPublishPost }) => {
     const contentRef = createRef()
     const imageInput = createRef()
 
+    const handleDragOver = (e) => {
+        e.preventDefault()
+    }
+    
+    const handleDrop = (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        console.log('dropped')
+    }
+
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -32,7 +42,8 @@ const PostFormView = ({ tryPublishPost }) => {
                 ref = { contentRef }
                 name = "content"
             ></textarea>
-            <label id = "thumbnail">
+            <label onDragOver = { handleDragOver}
+                onDrop = { handleDrop } id = "thumbnail">
                 <input type = "file"  
                     name = "thumbnail"
                     ref = { imageInput }
