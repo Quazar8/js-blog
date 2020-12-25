@@ -26,6 +26,7 @@ const PostFormView = ({ tryPublishPost }) => {
                 ref = { titleRef }
                 name = "title"
                 autoComplete = "off"
+                autoFocus
             />
             <textarea 
                 ref = { contentRef }
