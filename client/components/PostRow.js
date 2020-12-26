@@ -10,7 +10,7 @@ const PostRow = ({ post, index, postsLength }) => {
     if (title.length > 34) {
         titlePreview = title.substring(0, 34) + '...'
     }
-    const contentPreviewShort = content.substring(0, 168) + '...'
+    const contentPreviewShort = content.substring(0, 167) + '...'
     const contentPreviewLong = content.substring(0, 398) + '...'
 
     const [postInfo, setPostInfo] = useState({
