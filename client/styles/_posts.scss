@@ -114,6 +114,7 @@
         border-radius: 2%;
         border: none;
         outline: none;
+        transition: background-color 0.5s linear;
 
         &:focus {
             background-color: v.$block-color;
