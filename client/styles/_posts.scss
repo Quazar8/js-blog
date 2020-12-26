@@ -146,6 +146,11 @@
         font-size: 1.5vw;
         width: 80%;
         position: relative;
+        border: 0.2vw dotted transparent;
+    }
+
+    .thumbnail-dragover {
+        border: 0.2vw dotted white !important;
     }
 
     input[type="file"] {

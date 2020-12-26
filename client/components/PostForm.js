@@ -6,17 +6,25 @@ import { publishPostAction } from '../store/postsActions'
 const PostFormView = ({ tryPublishPost }) => {
     const [labelTitle, setLabelTitle] 
         = useState('Choose image for thumbnail')
+    
+    const [appendClass, setAppendClass] = useState('')
 
     const titleRef = createRef()
     const contentRef = createRef()
     const imageInput = useRef()
 
+    const clearAppendClass = () => {
+        setAppendClass('')
+    }
+
     const handleDragOver = (e) => {
         e.preventDefault()
+        setAppendClass('thumbnail-dragover')
     }
 
     const handleDrop = (e) => {
         e.preventDefault()
+        setAppendClass('')
 
         let file
         if (e.dataTransfer) {
@@ -55,8 +63,11 @@ const PostFormView = ({ tryPublishPost }) => {
                 ref = { contentRef }
                 name = "content"
             ></textarea>
-            <label onDragOver = { handleDragOver}
-                onDrop = { handleDrop } id = "thumbnail">
+            <label class = { appendClass }
+                onDragExit = { clearAppendClass}
+                onDragOver = { handleDragOver}
+                onDrop = { handleDrop } id = "thumbnail"
+            >
                 <input onChange = { handleDrop } type = "file"  
                     name = "thumbnail"
                 />
