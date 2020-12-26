@@ -34,7 +34,7 @@ $button-text-color: white;
 
         &:hover {
             cursor: pointer;
-            background-color: #5cdd5c;
+            background-color: v.$button-hover-background;
             color: v.$background-color;
         }
     }
