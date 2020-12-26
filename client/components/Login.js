@@ -34,7 +34,13 @@ const LoginView = ({ tryLogIn }) => {
                     ref = { passwordRef }
                 />
             </div>
-            <input type="submit" value="Sign In" />
+            {/* <input type="submit" value="Sign In" /> */}
+            <div className = "button-container">
+                <div className = "shifting-container">
+                    <div className = "first">Sign In</div>
+                    <div className = "second">--&gt;</div>
+                </div>
+            </div>
         </form>
     )
 }
