@@ -98,6 +98,7 @@
 }
 
 .post-form {
+    $button-background: #deff23;
     $input-background: #08020e;
     display: flex;
     flex-direction: column;
@@ -144,13 +145,19 @@
     #thumbnail {
         padding: 1% 0;
         font-size: 1.5vw;
-        width: 80%;
+        width: calc(80% - 0.2vw);
         position: relative;
         border: 0.2vw dotted transparent;
+        box-sizing: border-box;
+
+        &:hover {
+            cursor: pointer;
+            border: 0.2vw solid $button-background;
+        }
     }
 
     .thumbnail-dragover {
-        border: 0.2vw dotted white !important;
+        border: 0.2vw dotted $button-background !important;
     }
 
     input[type="file"] {
