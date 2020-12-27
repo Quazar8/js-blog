@@ -2,6 +2,8 @@ import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../store/userActions'
 
+import Arrow from './svgs/Arrow'
+
 const LoginView = ({ tryLogIn }) => {
     let usernameRef = createRef()
     let passwordRef = createRef()
@@ -38,7 +40,9 @@ const LoginView = ({ tryLogIn }) => {
             <div className = "button-container">
                 <div className = "shifting-container">
                     <div className = "first">Sign In</div>
-                    <div className = "second">--&gt;</div>
+                    <div className = "second">
+                        <Arrow />
+                    </div>
                 </div>
             </div>
         </form>
