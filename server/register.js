@@ -21,7 +21,8 @@ const registerUserDb = async ({ username, password }) => {
 const registerUser = async (req, res) => {
     console.log('register', req.body)
     const data = req.body
-    if (!data && !data.username && !data.password){
+    console.log('username', data.username)
+    if (!data || !data.username || !data.password){
         res.status(403).send({ error: true, 
             errorMsg: 'User fields missing' })
         return;
