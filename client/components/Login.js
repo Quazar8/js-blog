@@ -8,19 +8,28 @@ const LoginView = ({ tryLogIn }) => {
     let usernameRef = createRef()
     let passwordRef = createRef()
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
+    const submitForm = () => {
         const data = {
             username: usernameRef.current.value,
             password: passwordRef.current.value
         }
 
         tryLogIn(data)
-    }    
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        submitForm()
+    }
+
+    const checkKeyNSubmit = ({ key }) => {
+        if (key === 'Enter') {
+            submitForm()
+        }
+    }
 
     return (
-        <form className = "user-forms" onSubmit={ handleSubmit }>
+        <form className = "user-forms" onKeyPress = { checkKeyNSubmit }>
             <h2>Login:</h2>
             <div className="field-container">
                 <label htmlFor="username">Username:</label>
