@@ -7,8 +7,7 @@ const RegisterView = ({ dispatchRegister }) => {
     let passwordRef = createRef()
     let confirmPassRef = createRef()
 
-    const handleSubmit =  (e) => {
-        e.preventDefault()
+    const submitForm = () => {
         const data = {
             username: usernameRef.current.value,
             password: passwordRef.current.value
@@ -17,8 +16,14 @@ const RegisterView = ({ dispatchRegister }) => {
         dispatchRegister(data)
     }
 
+    const submitIfEnter = ({ key }) => {
+        if (key === 'Enter') {
+            submitForm()
+        }
+    }
+
     return (
-        <form className = "user-forms" onSubmit = { handleSubmit }>
+        <form className = "user-forms" onKeyPress = { submitIfEnter }>
             <h2>Register:</h2>
             <div className = "field-container">
                 <label htmlFor = "username">Username:</label>
@@ -40,7 +45,14 @@ const RegisterView = ({ dispatchRegister }) => {
                     ref = { confirmPassRef }
                 />
             </div>
-            <input type = "submit" value = "Register"/>
+            <div onClick = { submitForm } className = "button-container">
+                <div className = "shifting-container">
+                    <div className = "first">Sign Up</div>
+                    <div className = "second">
+                        Go!
+                    </div>
+                </div>
+            </div>
         </form>
     )
 }

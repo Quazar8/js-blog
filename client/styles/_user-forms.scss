@@ -21,24 +21,6 @@ $button-text-color: white;
         box-sizing: border-box;
     }
 
-    input[type="submit"] {
-        background-color: v.$background-color;
-        color: $button-text-color;
-        padding: 2%;
-        font-size: 1.2rem;
-        font-weight: 700;
-        width: 30%;
-        border: 0.2vw solid $button-text-color;
-        border-radius: 5%;
-        outline: none;
-
-        &:hover {
-            cursor: pointer;
-            background-color: v.$button-hover-background;
-            color: v.$background-color;
-        }
-    }
-
     .button-container {
         font-size: 1.5vw;
         overflow: hidden;
@@ -84,6 +66,8 @@ $button-text-color: white;
             transform: translate3d(-50%, 0, -5vw) rotate3d(0, 1, 0, -90deg);
             background-color: v.$button-hover-background;
             color: black;
+            font-size: 2vw;
+            font-weight: bolder;
         }            
     }
 }
