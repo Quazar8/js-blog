@@ -59,8 +59,8 @@ $button-text-color: white;
 
         .arrow {
             height: 80%;
-            stroke-width: 10;
-            stroke: black;
+            stroke-width: 8;
+            stroke: v.$button-background;
             stroke-linecap: round;
         }
 
