@@ -37,7 +37,7 @@ const LoginView = ({ tryLogIn }) => {
                 />
             </div>
             {/* <input type="submit" value="Sign In" /> */}
-            <div className = "button-container">
+            <div onClick = { handleSubmit } className = "button-container">
                 <div className = "shifting-container">
                     <div className = "first">Sign In</div>
                     <div className = "second">
