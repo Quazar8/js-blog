@@ -17,11 +17,6 @@ const LoginView = ({ tryLogIn }) => {
         tryLogIn(data)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        submitForm()
-    }
-
     const checkKeyNSubmit = ({ key }) => {
         if (key === 'Enter') {
             submitForm()
@@ -45,8 +40,7 @@ const LoginView = ({ tryLogIn }) => {
                     ref = { passwordRef }
                 />
             </div>
-            {/* <input type="submit" value="Sign In" /> */}
-            <div onClick = { handleSubmit } className = "button-container">
+            <div onClick = { submitForm } className = "button-container">
                 <div className = "shifting-container">
                     <div className = "first">Sign In</div>
                     <div className = "second">
