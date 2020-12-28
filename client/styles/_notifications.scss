@@ -3,6 +3,7 @@
 .notification-container {
     width: 20%;
     position: fixed;
+    z-index: v.$notifications-z-index;
     height: 100%;
     top: 12%;
     left: 70%;
