@@ -2,6 +2,7 @@
 
 $block-color: v.$block-color;
 .main-navbar {
+    font-family: 'Jura', sans-serif;
     position: relative;
     z-index: 2;
     background-color: v.$nav-color;
@@ -27,7 +28,6 @@ $block-color: v.$block-color;
         height: 100%;
         font-weight: bold;
         font-size: 1.7vw;
-        font-family: sans-serif;
         width: 50%;
         display: flex;
         align-items: center;
