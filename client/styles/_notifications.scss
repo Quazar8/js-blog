@@ -1,6 +1,7 @@
 @use 'variables' as v;
 
 .notification-container {
+    display: none;
     width: 20%;
     position: fixed;
     z-index: v.$notifications-z-index;

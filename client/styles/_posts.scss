@@ -1,5 +1,16 @@
 @use 'variables' as v;
 
+.posts-container {
+    overflow: scroll;
+    height: 80vh;
+    width: 100%;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .post-row {
     margin: 0 auto 3% auto;
     background-color: v.$post-background;
@@ -83,17 +94,6 @@
     h3 {
         font-size: 1.5vw;
         padding: 1% 0;
-    }
-}
-
-.posts-container {
-    overflow: scroll;
-    height: 80vh;
-    width: 100%;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-        display: none;
     }
 }
 
