@@ -264,12 +264,17 @@ $block-color: v.$block-color;
         height: 3vw;
         min-height: 3rem;
 
+        .logo-container {
+            height: 100%;
+        }
+
         .create-post-link {
             display: none;
         }
 
         .user-link-container {
             width: 50%;
+            height: 100%;
 
             .image-container {
                 width: 55%;
