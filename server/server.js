@@ -20,9 +20,11 @@ webpack(webpackConfig(process.env, { mode: 'production'}),
             (err, stats) => {
     if (err || stats.hasErrors()) {
         console.error(err)
+    } else {
+        console.log(stats.toString({
+            colors: true
+        }))
     }
-
-    console.log('webpack compiled without errors')
 })
 
 const corsOptions = {
