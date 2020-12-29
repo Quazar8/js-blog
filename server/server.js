@@ -2,7 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const passport = require('passport')
 const expressSession = require('express-session')
+const webpack = require('webpack')
 
+const webpackConfig = require('../configs/webpack.config')
 const configurePassport = require('./passport.config')
 const { initializeDb } =  require('./db')
 const routes = require('./routes')
@@ -12,6 +14,14 @@ const app = express()
 
 initializeDb(({ msg }) => {
     console.log(msg)
+})
+
+webpack(webpackConfig, (err, stats) => {
+    if (err || stats.hasErrors()) {
+        console.error(err)
+    }
+
+    console.log('webpack compiled without errors')
 })
 
 const corsOptions = {
@@ -26,6 +36,7 @@ const expressSessionOptions = {
 }
 
 //middlewares
+app.use(express.static('static'))
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({

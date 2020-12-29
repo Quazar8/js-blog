@@ -4,10 +4,6 @@ const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts, getSinglePost } = require('./posts')
 
 const routes = (app) => {
-    app.get('/', (req, res) => {
-        res.send('Hello from Express!')
-    }) 
-   
    app.post('/user/register', registerUser)
 
    app.post('/user/login', loginUser)
