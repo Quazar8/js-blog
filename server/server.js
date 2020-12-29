@@ -36,6 +36,7 @@ const expressSessionOptions = {
 }
 
 //middlewares
+app.use('/server/images', express.static('./server/images'))
 app.use(express.static('static'))
 app.use(cors(corsOptions))
 app.use(express.json())
