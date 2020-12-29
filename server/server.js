@@ -16,7 +16,8 @@ initializeDb(({ msg }) => {
     console.log(msg)
 })
 
-webpack(webpackConfig, (err, stats) => {
+webpack(webpackConfig(process.env, { mode: 'production'}),
+            (err, stats) => {
     if (err || stats.hasErrors()) {
         console.error(err)
     }

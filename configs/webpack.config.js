@@ -1,7 +1,7 @@
 const path = require("path")
 const HtmlPlugin = require("html-webpack-plugin")
 
-module.exports = {
+const config = {
     entry: ["react-hot-loader/patch", "./client/client.js"],
     output: {
         filename: "[name].js",
@@ -48,11 +48,20 @@ module.exports = {
         open: true,
         historyApiFallback: true,
     },
-    devtool: "source-map",
     optimization: {
         splitChunks: {
             chunks: 'all'
         }
     },
-    mode: 'development'
+}
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'production') {
+        config.mode = 'production'
+    } else {
+        config.devtool = 'source-map'
+        config.mode = 'development'
+    }
+
+    return config
 }
