@@ -53,6 +53,7 @@ const NotificationView = ({ notifications }) => {
                     appendClass = { appendClass }
                 />
     }
+    
     return (
         <section className = "notification-container">
             {   

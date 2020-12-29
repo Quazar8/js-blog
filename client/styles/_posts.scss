@@ -196,12 +196,22 @@
         width: 80vw;
         height: 52vw;
         
-        h2, h3 {
-            font-size: 4.5vw;
+        h2 {
+            font-size: 3.7vw;
+        }
+
+        h3 {
+            font-size: 3vw;
         }
 
         p {
             font-size: 3vw;
+        }
+
+        &:hover {
+            h2 {
+                font-size: 3.5vw;
+            }
         }
     }
 }
