@@ -28,11 +28,6 @@ const Error = ( { msg, appendClass }) => {
 }
 
 const NotificationView = ({ notifications }) => {
-    let appendClass = ''
-    if (notifications.length > 0) {
-        appendClass = ' show'
-    }
-
     const prevLengthRef = useRef(notifications.length)
     useEffect(() => {
         prevLengthRef.current = notifications.length
@@ -59,7 +54,7 @@ const NotificationView = ({ notifications }) => {
                 />
     }
     return (
-        <section className = { "notification-container" + appendClass }>
+        <section className = "notification-container">
             {   
                 notifications.map(mapNotifications)
                   .reverse()
