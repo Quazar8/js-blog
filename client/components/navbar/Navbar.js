@@ -29,7 +29,7 @@ const NavbarView =
                     <span>l</span>
                     <span>o</span>
                     <span>g</span>
-                    <span> </span>
+                    <span>{" "}</span>
                     <span>{"/"}</span>
                     <span>{">"}</span>
                 </h1>
