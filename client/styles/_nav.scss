@@ -4,6 +4,10 @@
     transform: translateX(-1 * $distance);
 }
 
+@mixin textLogoAnimation {
+    animation: moveRight 1.2s ease-out;
+}
+
 $block-color: v.$block-color;
 .main-navbar {
     font-family: 'Jura', sans-serif;
@@ -92,9 +96,9 @@ $block-color: v.$block-color;
         @for $i from 2 to 9 {
             span:nth-child(#{$i}) {
                 @include translateLeft(($i - 1) * 1.3vw);
-                z-index: 9 - $i;
-                animation: moveRight 2s linear;
+                @include textLogoAnimation();
                 animation-fill-mode: forwards;
+                z-index: 9 - $i;
             }
         }
     }
@@ -319,7 +323,8 @@ $block-color: v.$block-color;
                 @for $i from 2 to 9 {
                     span:nth-child(#{$i}) {
                         @include translateLeft(($i - 1) * 2.5vw);
-                        animation: moveRight 2s linear;
+                        @include textLogoAnimation();
+                        z-index: 9 - $i;
                         animation-fill-mode: forwards;
                     }
                 }
@@ -429,6 +434,7 @@ $block-color: v.$block-color;
             span {
                 width: 3vw;
             }
+            
             span:nth-child(1) {
                 text-align: right;
             }
@@ -444,8 +450,9 @@ $block-color: v.$block-color;
             @for $i from 2 to 9 {
                 span:nth-child(#{$i}) {
                     @include translateLeft(($i - 1) * 2.7vw);
-                    animation: moveRight 2s linear;
+                    @include textLogoAnimation();
                     animation-fill-mode: forwards;
+                    z-index: 9 - $i;
                 }
             }
         }
