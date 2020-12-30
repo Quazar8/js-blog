@@ -422,10 +422,29 @@ $block-color: v.$block-color;
 
     .logo-container {
         h1 {
-            font-size: 4vw;
+            font-size: 5vw;
 
             span {
                 width: 3vw;
+            }
+            span:nth-child(1) {
+                text-align: right;
+            }
+
+            span:nth-child(3) {
+                width: 2vw;
+            }
+
+            span:nth-child(7) {
+                width: 2vw;
+            }
+
+            @for $i from 2 to 9 {
+                span:nth-child(#{$i}) {
+                    @include translateLeft(($i - 1) * 2.7vw);
+                    animation: moveRight 2s linear;
+                    animation-fill-mode: forwards;
+                }
             }
         }
 
