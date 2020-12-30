@@ -63,14 +63,15 @@ $block-color: v.$block-color;
         animation: rotate 10s infinite linear;
     }
 
- 
-
     h1 {
         font-weight: bold;
         font-size: 2.15vw;
+        overflow: hidden;
 
         span {
+            position: relative;
             display: inline-block;
+            background-color: v.$nav-color;
             width: 1.3vw;
             text-align: center;
         }
@@ -91,6 +92,7 @@ $block-color: v.$block-color;
         @for $i from 2 to 9 {
             span:nth-child(#{$i}) {
                 @include translateLeft(($i - 1) * 1.3vw);
+                z-index: 9 - $i;
                 animation: moveRight 2s linear;
                 animation-fill-mode: forwards;
             }
