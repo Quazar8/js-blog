@@ -1,5 +1,9 @@
 @use 'variables' as v;
 
+@mixin translateLeft($distance) {
+    transform: translateX(-1 * $distance);
+}
+
 $block-color: v.$block-color;
 .main-navbar {
     font-family: 'Jura', sans-serif;
@@ -59,9 +63,7 @@ $block-color: v.$block-color;
         animation: rotate 10s infinite linear;
     }
 
-    @mixin translateLeft($percent) {
-        transform: translateX(-1 * $percent);
-    }
+ 
 
     h1 {
         font-weight: bold;
@@ -78,9 +80,17 @@ $block-color: v.$block-color;
             width: 0.9vw;
         }
 
+        span:nth-child(6) {
+            width: 0.6vw;
+        }
+
+        span:nth-child(7) {
+            width: 0.6vw;
+        }
+
         @for $i from 2 to 9 {
             span:nth-child(#{$i}) {
-                @include translateLeft(($i - 1) * 100%);
+                @include translateLeft(($i - 1) * 1.3vw);
                 animation: moveRight 2s linear;
                 animation-fill-mode: forwards;
             }
@@ -407,8 +417,11 @@ $block-color: v.$block-color;
 
     .logo-container {
         h1 {
-            font-size: 1.1rem;
-            letter-spacing: 0.02rem;
+            font-size: 4vw;
+
+            span {
+                width: 3vw;
+            }
         }
 
         svg {
