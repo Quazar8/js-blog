@@ -23,7 +23,16 @@ const NavbarView =
             <div className="logo-container"
             onClick = { homeRedirect }>
                 <Logo />
-                <h1>{ "<Blog />" }</h1>
+                <h1>
+                    <span>{"<"}</span>
+                    <span>B</span>
+                    <span>l</span>
+                    <span>o</span>
+                    <span>g</span>
+                    <span> </span>
+                    <span>{"/"}</span>
+                    <span>{">"}</span>
+                </h1>
             </div>
             {   
                 online
