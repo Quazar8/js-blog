@@ -309,6 +309,18 @@ $block-color: v.$block-color;
                 span:nth-child(3) {
                     width: 1.6vw;
                 }
+
+                span:nth-child(6), span:nth-child(7) {
+                    width: 1vw;
+                }
+
+                @for $i from 2 to 9 {
+                    span:nth-child(#{$i}) {
+                        @include translateLeft(($i - 1) * 2.5vw);
+                        animation: moveRight 2s linear;
+                        animation-fill-mode: forwards;
+                    }
+                }
             }
         }
 
@@ -351,15 +363,8 @@ $block-color: v.$block-color;
         }
     }
 
-    .logo-container {
-        h1 {
-            font-size: 1.1rem;
-            letter-spacing: 0.02rem;
-        }
-
-        svg {
-            min-width: 2.2rem;;
-        }
+    svg {
+        min-width: 2.2rem;;
     }
 
     .default-user-menu {
