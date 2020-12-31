@@ -4,7 +4,7 @@
 @use 'nav';
 @use 'notifications';
 @use 'user-forms';
-@use 'posts';
+@use 'posts/posts';
 @use 'home';
 
 $background-blur: 5px;
