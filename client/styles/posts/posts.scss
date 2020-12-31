@@ -1,4 +1,5 @@
 @use '../variables' as v;
+@use 'post-view';
 
 .posts-container {
     overflow: scroll;
