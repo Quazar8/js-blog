@@ -60,7 +60,7 @@
     }
 }
 
-@keyframes moveRight {
+@keyframes translateToZero {
     to {
         transform: translateX(0);
     }
