@@ -1,11 +1,14 @@
 @use 'variables' as v;
 
-@mixin translateLeft($distance) {
-    transform: translateX(-1 * $distance);
-}
-
-@mixin textLogoAnimation {
-    animation: moveRight 1.2s ease-out;
+@mixin textLogoAnimation($span-width) {
+    @for $i from 2 to 9 {
+        span:nth-child(#{$i}) {
+            transform: translateX(-($i - 1) * $span-width);
+            animation: moveRight 1.2s ease-out;
+            animation-fill-mode: forwards;
+            z-index: 9 - $i;
+        }
+    }
 }
 
 $block-color: v.$block-color;
@@ -93,14 +96,7 @@ $block-color: v.$block-color;
             width: 0.6vw;
         }
 
-        @for $i from 2 to 9 {
-            span:nth-child(#{$i}) {
-                @include translateLeft(($i - 1) * 1.3vw);
-                @include textLogoAnimation();
-                animation-fill-mode: forwards;
-                z-index: 9 - $i;
-            }
-        }
+        @include textLogoAnimation(1.3vw);
     }
     
     &:hover {
@@ -320,14 +316,8 @@ $block-color: v.$block-color;
                     width: 1vw;
                 }
 
-                @for $i from 2 to 9 {
-                    span:nth-child(#{$i}) {
-                        @include translateLeft(($i - 1) * 2.5vw);
-                        @include textLogoAnimation();
-                        z-index: 9 - $i;
-                        animation-fill-mode: forwards;
-                    }
-                }
+                @include textLogoAnimation(2.5vw);
+                
             }
         }
 
@@ -447,14 +437,7 @@ $block-color: v.$block-color;
                 width: 2vw;
             }
 
-            @for $i from 2 to 9 {
-                span:nth-child(#{$i}) {
-                    @include translateLeft(($i - 1) * 2.7vw);
-                    @include textLogoAnimation();
-                    animation-fill-mode: forwards;
-                    z-index: 9 - $i;
-                }
-            }
+            @include textLogoAnimation(2.7vw);
         }
 
         svg {
