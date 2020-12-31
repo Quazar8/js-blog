@@ -17,11 +17,13 @@ const PostView = ({ post, tryGetPost }) => {
 
     const { title, authorId, content } = post
     return (
-        <article className = "post-view">
-            <h2>{ title }</h2>
-            <h3>by { authorId }</h3>
-            <p>{ content }</p>
-        </article>
+        <section className = "post-container">
+            <article className = "post-view">
+                <h2>{ title }</h2>
+                <h3>by { authorId }</h3>
+                <p>{ content }</p>
+            </article>
+        </section>
     )
 }
 
