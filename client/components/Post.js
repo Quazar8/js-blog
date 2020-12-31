@@ -20,7 +20,7 @@ const PostView = ({ post, tryGetPost }) => {
         <section className = "post-container">
             <article className = "post-view">
                 <h2>{ title }</h2>
-                <h3>by { authorId }</h3>
+                <h3>Author: { authorId }</h3>
                 <p>{ content }</p>
             </article>
         </section>

@@ -36,6 +36,13 @@ html {
         -webkit-filter: blur($background-blur);
     }
 }
+body {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
 
 main {
     display: flex;
