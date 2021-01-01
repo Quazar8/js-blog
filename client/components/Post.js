@@ -15,10 +15,13 @@ const PostView = ({ post, tryGetPost }) => {
         return <h1>No such post exists</h1>
     }
 
-    const { title, authorId, content } = post
+    const { title, authorId, content, thumbnail } = post
     return (
         <section className = "post-container">
             <article className = "post-view">
+                <div className = "thumbnail-container">
+                    <img src = { thumbnail } alt = "thumbnail picture" />
+                </div>
                 <h2>{ title }</h2>
                 <h3>Author: { authorId }</h3>
                 <p>{ content }</p>
