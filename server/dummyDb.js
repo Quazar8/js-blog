@@ -82,7 +82,7 @@ const genPost = ( usersDb, idBytes ) => {
         title,
         content,
         authorId,
-        thumbnail: defaultPic,
+        thumbnail: "\\" + defaultPic,
         date: getDate()
     }
 
