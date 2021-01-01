@@ -27,7 +27,9 @@ const registerUser = async (req, res) => {
             errorMsg: 'User fields missing' })
         return;
     }
-        
+
+    data.username = data.username.trim()
+    data.password = data.password.trim()
     let result = await registerUserDb(data)
     if (result.error) {
         res.status(403).send(
