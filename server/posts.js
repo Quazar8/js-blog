@@ -20,7 +20,7 @@ const postArticle = (req, res) => {
         title,
         content,
         authorId: userId,
-        thumbnail: req.file.path,
+        thumbnail: "\\" + req.file.path,
         date: getDate()
     }
 
