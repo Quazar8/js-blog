@@ -21,6 +21,9 @@ const PostView = ({ post, tryGetPost }) => {
             <article className = "post-view">
                 <div className = "thumbnail-container">
                     <img src = { thumbnail } alt = "thumbnail picture" />
+                    <div className = "shader-left"></div>
+                    <div className = "shader-bottom"></div>
+                    <div className = "shader-right"></div>
                 </div>
                 <h2>{ title }</h2>
                 <h3>Author: { authorId }</h3>

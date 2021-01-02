@@ -24,15 +24,32 @@
             width: 100%;
         }
 
-        &::after {
-            content: "";
-            display: block;
+        .shader-left, .shader-right {
+            height: 100%;
+            width: 10%;
             position: absolute;
+            top: 0;
+        }
+
+        .shader-left {
+            background: linear-gradient(to left,
+                transparent, pv.$post-background);
+            left: 0;
+        }
+
+        .shader-right {
+            background: linear-gradient(to right,
+                transparent, pv.$post-background);
+            right: 0;
+        }
+
+        .shader-bottom {
             width: 100%;
             height: 30%;
+            position: absolute;
+            bottom: 0;
             background: linear-gradient(to bottom,
                 transparent, pv.$post-background);
-            bottom: 0;
         }
     }
 
