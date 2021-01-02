@@ -1,12 +1,19 @@
-import React, { createRef } from 'react'
+import React, { createRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../store/userActions'
 
 import Arrow from './svgs/Arrow'
 
-const LoginView = ({ tryLogIn }) => {
+const LoginView = ({ tryLogIn, isOnline }) => {
     let usernameRef = createRef()
     let passwordRef = createRef()
+    
+    useEffect(() => {
+        if (isOnline) {
+            usernameRef.current.value = ''
+            passwordRef.current.value = ''
+        }
+    }, [isOnline])
 
     const submitForm = () => {
         const data = {
@@ -15,9 +22,6 @@ const LoginView = ({ tryLogIn }) => {
         }
 
         tryLogIn(data)
-
-        usernameRef.current.value = ''
-        passwordRef.current.value = ''
     }
 
     const checkKeyNSubmit = ({ key }) => {
@@ -55,12 +59,16 @@ const LoginView = ({ tryLogIn }) => {
     )
 }
 
+const mapState = store => ({
+    isOnline: store.user.online
+})
+
 const mapDispatch = dispatch => ({
     tryLogIn: (data) => {
         dispatch(loginUser(data))
     }
 })
 
-const Login = connect(null, mapDispatch)(LoginView)
+const Login = connect(mapState, mapDispatch)(LoginView)
 
 export default Login
