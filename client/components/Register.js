@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { registerUser } from '../store/userActions'
 
@@ -6,12 +7,14 @@ const RegisterView = ({ dispatchRegister, isOnline }) => {
     let usernameRef = useRef()
     let passwordRef = useRef()
     let confirmPassRef = useRef()
+    let history = useHistory()
 
     useEffect(() => {
         if (isOnline) {
             usernameRef.current.value = ''
             passwordRef.current.value = ''
             confirmPassRef.current.value = ''
+            history.push('/')
         }
     }, [isOnline])
 
