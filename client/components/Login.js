@@ -15,6 +15,9 @@ const LoginView = ({ tryLogIn }) => {
         }
 
         tryLogIn(data)
+
+        usernameRef.current.value = ''
+        passwordRef.current.value = ''
     }
 
     const checkKeyNSubmit = ({ key }) => {

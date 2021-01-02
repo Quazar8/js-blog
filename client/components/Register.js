@@ -14,6 +14,9 @@ const RegisterView = ({ dispatchRegister }) => {
         }
 
         dispatchRegister(data)
+        usernameRef.current.value = ''
+        passwordRef.current.value = ''
+        confirmPassRef.current.value = ''
     }
 
     const submitIfEnter = ({ key }) => {
