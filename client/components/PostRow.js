@@ -19,7 +19,7 @@ const PostRow = ({ post, index, postsLength }) => {
     })
 
     const getUrlTitle = () => {
-        const urlTitle = title.replace(' ', '-')
+        const urlTitle = title.replace(/[\W|_]+/g, '-')
         if (urlTitle[urlTitle.length - 1] == '-') {
             return urlTitle + postId
         }
