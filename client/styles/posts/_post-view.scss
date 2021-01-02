@@ -55,11 +55,19 @@
 
     h2 {
         padding: 3% 0;
+        font-size: 2.8vw;
     }
 
     h3 {
         font-style: italic;
         opacity: 0.8;
         padding-bottom: 2%;
+        text-align: left;
+    }
+
+    p {
+        color: rgba($color: #b8ffa9, $alpha: 0.9);
+        font-size: 2vw;
+        text-align: justify;
     }
 }
