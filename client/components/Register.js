@@ -1,11 +1,19 @@
-import React, { createRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { registerUser } from '../store/userActions'
 
-const RegisterView = ({ dispatchRegister }) => {
-    let usernameRef = createRef()
-    let passwordRef = createRef()
-    let confirmPassRef = createRef()
+const RegisterView = ({ dispatchRegister, isOnline }) => {
+    let usernameRef = useRef()
+    let passwordRef = useRef()
+    let confirmPassRef = useRef()
+
+    useEffect(() => {
+        if (isOnline) {
+            usernameRef.current.value = ''
+            passwordRef.current.value = ''
+            confirmPassRef.current.value = ''
+        }
+    }, [isOnline])
 
     const submitForm = () => {
         const data = {
@@ -14,9 +22,6 @@ const RegisterView = ({ dispatchRegister }) => {
         }
 
         dispatchRegister(data)
-        usernameRef.current.value = ''
-        passwordRef.current.value = ''
-        confirmPassRef.current.value = ''
     }
 
     const submitIfEnter = ({ key }) => {
@@ -60,12 +65,16 @@ const RegisterView = ({ dispatchRegister }) => {
     )
 }
 
+const mapState = store => ({
+    isOnline: store.user.online
+})
+
 const mapDispatch = dispatch => ({
     dispatchRegister: data => {
         dispatch(registerUser(data))
     }
 })
 
-const Register = connect(null, mapDispatch)(RegisterView)
+const Register = connect(mapState, mapDispatch)(RegisterView)
 
 export default Register

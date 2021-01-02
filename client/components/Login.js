@@ -1,13 +1,13 @@
-import React, { createRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../store/userActions'
 
 import Arrow from './svgs/Arrow'
 
 const LoginView = ({ tryLogIn, isOnline }) => {
-    let usernameRef = createRef()
-    let passwordRef = createRef()
-    
+    let usernameRef = useRef()
+    let passwordRef = useRef()
+
     useEffect(() => {
         if (isOnline) {
             usernameRef.current.value = ''
