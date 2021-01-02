@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { loginUser } from '../store/userActions'
 
 import Arrow from './svgs/Arrow'
@@ -7,11 +8,13 @@ import Arrow from './svgs/Arrow'
 const LoginView = ({ tryLogIn, isOnline }) => {
     let usernameRef = useRef()
     let passwordRef = useRef()
+    let history = useHistory()
 
     useEffect(() => {
         if (isOnline) {
             usernameRef.current.value = ''
             passwordRef.current.value = ''
+            history.push('/')
         }
     }, [isOnline])
 
