@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const Profile = ({ user }) => {
+const ProfileView = ({ user }) => {
     if (!user) {
         return <h1>Can not display profile page</h1>
     }
@@ -15,5 +16,11 @@ const Profile = ({ user }) => {
         </section>
     )
 }
+
+const mapState = store => ({
+    user: store.user.user
+})
+
+const Profile = connect(mapState)(ProfileView)
 
 export default Profile
