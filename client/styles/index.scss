@@ -6,13 +6,13 @@
 @use 'user-forms';
 @use 'posts/posts';
 @use 'home';
+@use 'profile_page';
 
 $background-blur: 5px;
 
 * {
     margin: 0;
     padding: 0;
-    // border: 1px solid red !important;
 }
 
 html {
