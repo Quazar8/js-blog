@@ -15,9 +15,11 @@
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     flex-shrink: 0;
-    flex-grow: 0;
-   
+    transition: transform 2s ease-out;
+
     &:hover {
+        transform: scale(1.2);
+
         h2 {
             display: flex;
             align-items: center;

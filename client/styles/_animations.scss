@@ -32,11 +32,11 @@
 }
 
 @keyframes appearMoveDown {
-    from {
+    0% {
         opacity: 0;
         transform: translateY(-100%);
     }
-    to {
+    100% {
         opacity: v.$notification-opacity;
         transform: translateY(0);
     }
