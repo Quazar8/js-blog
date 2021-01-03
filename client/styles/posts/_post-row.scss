@@ -10,15 +10,14 @@
     border: 0.2rem solid white;
     overflow: hidden;
     box-sizing: border-box;
-    opacity: 0;
-    animation-name: appearMoveDown;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    opacity: 1;
+    transition: transform 0.3s ease-out;
+    // animation-name: appearMoveDown;
+    // animation-timing-function: ease-out;
     flex-shrink: 0;
-    transition: transform 2s ease-out;
 
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
 
         h2 {
             display: flex;
