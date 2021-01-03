@@ -1,7 +1,7 @@
 @use '../variables' as v;
 
 .post-row {
-    margin: 0 auto 3% auto;
+    margin: 0 0 3% 0;
     background-color: v.$post-preview-background;
     width: 40%;
     height: 27vw;
@@ -14,7 +14,9 @@
     animation-name: appearMoveDown;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-
+    flex-shrink: 0;
+    flex-grow: 0;
+   
     &:hover {
         h2 {
             display: flex;

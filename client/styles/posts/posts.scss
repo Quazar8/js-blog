@@ -9,6 +9,9 @@
     width: 100%;
     scrollbar-width: none;
     padding: 3% 0 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
     &::-webkit-scrollbar {
         display: none;
