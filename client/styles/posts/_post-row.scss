@@ -10,10 +10,10 @@
     border: 0.2rem solid white;
     overflow: hidden;
     box-sizing: border-box;
-    opacity: 1;
+    opacity: 0;
+    animation-name: appearMoveDown;
+    animation-timing-function: ease-out;
     transition: transform 0.3s ease-out;
-    // animation-name: appearMoveDown;
-    // animation-timing-function: ease-out;
     flex-shrink: 0;
 
     &:hover {

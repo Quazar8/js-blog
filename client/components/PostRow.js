@@ -35,7 +35,7 @@ const PostRow = ({ post, index, postsLength }) => {
     const animationDuration = 0.6 //s
     const animationDelay = index * 0.4 //s
 
-    const animationStyle = {
+    let animationStyle = {
         animationDelay: `${animationDelay}s`,
         animationDuration: `${animationDuration}s`,
         zIndex: postsLength - index
@@ -55,10 +55,16 @@ const PostRow = ({ post, index, postsLength }) => {
         })
     }
 
+    const changeStyle = (e) => {
+        e.target.style.opacity = 0.8
+    }
+    
     return (
         <article onMouseEnter = { changePostInfo } 
             onMouseLeave = { revertPostInfo }
-        className = "post-row" style = { animationStyle }>
+            className = "post-row" style = { animationStyle }
+            onAnimationEnd = { changeStyle }
+        >
             <Link to = { linkQuery }>
                     <div className = "thumbnail-container">
                         <img src = { thumbnail } alt = "post's thumbnail" />
