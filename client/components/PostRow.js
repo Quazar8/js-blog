@@ -69,21 +69,21 @@ const PostRow = ({ post, index, postsLength }) => {
             onMouseEnter = { changePostInfo }
             onMouseLeave = { revertPostInfo }
         >
-        <article
-            className = "post-row" style = { animationStyle }
-            onAnimationEnd = { changeStyle }
-        >
-            <Link to = { linkQuery }>
-                    <div className = "thumbnail-container">
-                        <img src = { thumbnail } alt = "post's thumbnail" />
-                    </div>
-                    <div className = "post-info">
-                        <h2>{ postInfo.titlePreview }</h2>
-                        <h3>by { authorId }</h3>
-                        <p>{ postInfo.contentPreview }</p>
-                    </div>
-            </Link>
-        </article>
+            <article
+                className = "post-row" style = { animationStyle }
+                onAnimationEnd = { changeStyle }
+            >
+                <Link to = { linkQuery }>
+                        <div className = "thumbnail-container">
+                            <img src = { thumbnail } alt = "post's thumbnail" />
+                        </div>
+                        <div className = "post-info">
+                            <h2>{ postInfo.titlePreview }</h2>
+                            <h3>by { authorId }</h3>
+                            <p>{ postInfo.contentPreview }</p>
+                        </div>
+                </Link>
+            </article>
             <div className = "rotating-element first" style = { rotatingElStyle }></div>
             <div className = "rotating-element second" style = { rotatingElStyle }></div>
         </article>

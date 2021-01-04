@@ -34,11 +34,11 @@
         }
 
         .first {
-            transform: rotateX(180deg);
+            transform: rotateZ(180deg);
         }
 
         .second {
-            transform: rotateY(-180deg);
+            transform: rotateZ(-180deg);
         }
 
         h2 {
