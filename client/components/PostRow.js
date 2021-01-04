@@ -18,6 +18,8 @@ const PostRow = ({ post, index, postsLength }) => {
         contentPreview: contentPreviewShort
     })
 
+    const [animationEnd, setAnimationEnd] = useState(false)
+
     const getUrlTitle = () => {
         const urlTitle = title.replace(/[\W|_]+/g, '-')
         if (urlTitle[urlTitle.length - 1] == '-') {
@@ -59,7 +61,7 @@ const PostRow = ({ post, index, postsLength }) => {
         })
     }
 
-    const changeStyle = (e) => {
+    const animationHasEnded = (e) => {
         e.target.style.opacity = 1
     }
 
@@ -71,7 +73,7 @@ const PostRow = ({ post, index, postsLength }) => {
         >
             <article
                 className = "post-row" style = { animationStyle }
-                onAnimationEnd = { changeStyle }
+                onAnimationEnd = { animationHasEnded }
             >
                 <Link to = { linkQuery }>
                         <div className = "thumbnail-container">
@@ -84,7 +86,7 @@ const PostRow = ({ post, index, postsLength }) => {
                         </div>
                 </Link>
             </article>
-            <div className = "rotating-element first" style = { rotatingElStyle }></div>
+            <div className = "rotating-element first" style = { rotatingElStyle }></div>,
             <div className = "rotating-element second" style = { rotatingElStyle }></div>
         </article>
     )
