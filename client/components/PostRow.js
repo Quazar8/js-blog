@@ -60,7 +60,7 @@ const PostRow = ({ post, index, postsLength }) => {
     }
 
     const changeStyle = (e) => {
-        e.target.style.opacity = 0.8
+        e.target.style.opacity = 1
     }
 
     return (
