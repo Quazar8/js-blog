@@ -64,9 +64,12 @@ const PostRow = ({ post, index, postsLength }) => {
     }
 
     return (
-        <article className = "post-row-container">
-        <article onMouseEnter = { changePostInfo } 
+        <article 
+            className = "post-row-container"
+            onMouseEnter = { changePostInfo }
             onMouseLeave = { revertPostInfo }
+        >
+        <article
             className = "post-row" style = { animationStyle }
             onAnimationEnd = { changeStyle }
         >
