@@ -41,6 +41,10 @@ const PostRow = ({ post, index, postsLength }) => {
         zIndex: postsLength - index
     }
 
+    let rotatingElStyle = {
+        zIndex: postsLength + 1
+    }
+
     const changePostInfo = () => {
         setPostInfo({
             titlePreview: title,
@@ -58,8 +62,9 @@ const PostRow = ({ post, index, postsLength }) => {
     const changeStyle = (e) => {
         e.target.style.opacity = 0.8
     }
-    
+
     return (
+        <article className = "post-row-container">
         <article onMouseEnter = { changePostInfo } 
             onMouseLeave = { revertPostInfo }
             className = "post-row" style = { animationStyle }
@@ -75,6 +80,9 @@ const PostRow = ({ post, index, postsLength }) => {
                         <p>{ postInfo.contentPreview }</p>
                     </div>
             </Link>
+        </article>
+        <div className = "rotating-element first" style = { rotatingElStyle }></div>
+        <div className = "rotating-element second" style = { rotatingElStyle }></div>
         </article>
     )
 }
