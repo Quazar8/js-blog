@@ -11,6 +11,7 @@
 
     .rotating-element {
         background: transparent;
+        opacity: 0;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -26,6 +27,10 @@
         .rotating-element {        
             border: 0.2rem solid white;
             border-radius: 5%;
+        }
+
+        .first, .second {
+            animation: appearingPostHover 0.7s linear;
         }
 
         .first {

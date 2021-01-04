@@ -81,8 +81,8 @@ const PostRow = ({ post, index, postsLength }) => {
                     </div>
             </Link>
         </article>
-        <div className = "rotating-element first" style = { rotatingElStyle }></div>
-        <div className = "rotating-element second" style = { rotatingElStyle }></div>
+            <div className = "rotating-element first" style = { rotatingElStyle }></div>
+            <div className = "rotating-element second" style = { rotatingElStyle }></div>
         </article>
     )
 }
