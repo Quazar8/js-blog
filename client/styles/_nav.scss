@@ -325,6 +325,15 @@ $block-color: v.$block-color;
             display: none;
         }
 
+        .default-user-menu {
+            display: flex;
+            align-items: center;
+
+            svg {
+                height: 70%;
+            }
+        }
+
         .user-link-container {
             width: 50%;
             height: 100%;
