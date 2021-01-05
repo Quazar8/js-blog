@@ -18,8 +18,6 @@ const PostRow = ({ post, index, postsLength }) => {
         contentPreview: contentPreviewShort
     })
 
-    const [animationEnd, setAnimationEnd] = useState(false)
-
     const getUrlTitle = () => {
         const urlTitle = title.replace(/[\W|_]+/g, '-')
         if (urlTitle[urlTitle.length - 1] == '-') {
