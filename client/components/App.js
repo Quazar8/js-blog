@@ -10,6 +10,7 @@ import Login from './Login'
 import Notification from './Notification'
 import PostForm from './post/PostForm'
 import Post from './post/Post'
+import InputPost from './post/InputPost'
 import Profile from './Profile'
 import NotFound from './NotFound'
 
@@ -37,6 +38,9 @@ const AppView = ({ checkUserLogged }) => {
                     </Route>
                     <Route path = "/create/post">
                         <PrivateRoute child = { PostForm } />
+                    </Route>
+                    <Route path = "/post/experimental">
+                        <InputPost />
                     </Route>
                     <Route path = "/post/:title">
                         <Post />
