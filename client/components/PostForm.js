@@ -5,7 +5,7 @@ import { publishPostAction } from '../store/postsActions'
 
 const PostFormView = ({ tryPublishPost }) => {
     const [labelTitle, setLabelTitle] 
-        = useState('Choose image for thumbnail')
+        = useState('Choose a thumbnail image')
     
     const [appendClass, setAppendClass] = useState('')
 
