@@ -124,6 +124,12 @@
     .post-row-container {
         width: 80vw;
         height: 52vw;
+
+        &:hover {
+            h2 {
+                font-size: 3.5vw;
+            }
+        }
     }
 
     .post-row {
@@ -137,12 +143,6 @@
 
         p {
             font-size: 3vw;
-        }
-
-        &:hover {
-            h2 {
-                font-size: 3.5vw;
-            }
         }
     }
 }
