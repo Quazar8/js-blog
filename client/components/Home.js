@@ -1,5 +1,5 @@
 import React from 'react'
-import PostsContainer from './PostsContainer'
+import PostsContainer from './post/PostsContainer'
 
 const Home = () => {
     return (

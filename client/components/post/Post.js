@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { retrievePostAction } from '../store/postsActions'
+import { retrievePostAction } from '../../store/postsActions'
 
 const PostView = ({ post, tryGetPost }) => {
     useEffect(() => {

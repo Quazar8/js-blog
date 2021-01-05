@@ -1,7 +1,7 @@
 import React, { createRef, useState, useRef } from 'react'
 import { connect } from 'react-redux'
 
-import { publishPostAction } from '../store/postsActions'
+import { publishPostAction } from '../../store/postsActions'
 
 const PostFormView = ({ tryPublishPost }) => {
     const [labelTitle, setLabelTitle] 

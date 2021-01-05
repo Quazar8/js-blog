@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { getAllPosts } from '../store/postsActions'
+import { getAllPosts } from '../../store/postsActions'
 
 import PostRow from './PostRow'
 
