@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserSvg = () => {
     return (
-        <svg viewBox = "0 0 50 50">
+        <svg className = "user-svg" viewBox = "0 0 50 50">
             <path d = {
                 `M 10 45
                 c0,0 0,-20 15,-20

@@ -329,8 +329,14 @@ $block-color: v.$block-color;
             display: flex;
             align-items: center;
 
-            svg {
+            .user-svg {
                 height: 70%;
+            }
+
+            .triangle {
+                top: -12%;
+                right: 11%;
+                min-width: 1rem;
             }
         }
 
@@ -358,8 +364,8 @@ $block-color: v.$block-color;
             }
 
             .triangle {
-                bottom: 96.5%;
-                right: 7%;
+                top: -9%;
+                right: 10%;
                 min-width: 1rem;
             }
         }
@@ -371,10 +377,6 @@ $block-color: v.$block-color;
 
     svg {
         min-width: 2.2rem;;
-    }
-
-    .default-user-menu {
-        display: flex;
     }
 
     .default-user-links {
