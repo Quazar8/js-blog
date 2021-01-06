@@ -9,7 +9,7 @@ const InputPost = () => {
     }
 
     return (
-        <section className = "post-container">
+        <section className = "post-container input-post">
             <article className = "post-view">
                 <div className = "thumbnail-container">
                     <img src = { thumbnail } alt = "thumbnail picture" />
@@ -17,9 +17,13 @@ const InputPost = () => {
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
                 </div>
-                <h2>{ title }</h2>
+                <h2>
+                    <input placeholder = "Title" type = "text" />
+                </h2>
                 <h3>Author: { authorId }</h3>
-                <p>{ content }</p>
+                <p>
+                    <textarea></textarea>
+                </p>
             </article>
         </section>
     )

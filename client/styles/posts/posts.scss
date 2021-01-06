@@ -2,6 +2,7 @@
 @use 'post-variables' as pv;
 @use 'post-view';
 @use 'post-row';
+@use 'input-post';
 
 .posts-container {
     overflow: scroll;
