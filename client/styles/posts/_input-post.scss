@@ -1,6 +1,18 @@
 .input-post {
+    h2 {
+        padding: 0;
+        height: 10%;
+        margin: 3% 0;
+    }
+
     input[type="text"] {
+        border: inherit;
+        outline: inherit;
+        font-size: inherit;
         width: 100%;
         height: 100%;
+        background-color: inherit;
+        color: inherit;
+        font-weight: inherit;
     }
 }
