@@ -18,11 +18,11 @@ const InputPost = () => {
                     <div className = "shader-right"></div>
                 </div>
                 <h2>
-                    <input placeholder = "Title" type = "text" />
+                    <textarea placeholder = "Title" />
                 </h2>
                 <h3>Author: { authorId }</h3>
                 <p>
-                    <textarea placeholder = "Post Content"></textarea>
+                    <textarea placeholder = "Post Content" />
                 </p>
             </article>
         </section>
