@@ -22,7 +22,7 @@ const InputPost = () => {
                 </h2>
                 <h3>Author: { authorId }</h3>
                 <p>
-                    <textarea></textarea>
+                    <textarea placeholder = "Post Content"></textarea>
                 </p>
             </article>
         </section>

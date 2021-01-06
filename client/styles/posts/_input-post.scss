@@ -1,7 +1,6 @@
 .input-post {
     h2 {
         padding: 0;
-        height: 10%;
         margin: 3% 0;
     }
 
@@ -10,9 +9,22 @@
         outline: inherit;
         font-size: inherit;
         width: 100%;
-        height: 100%;
+        min-height: 5vw;
         background-color: inherit;
         color: inherit;
         font-weight: inherit;
+    }
+
+    p {
+        min-height: 90%;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 50vw;
+        background-color: inherit;
+        border: inherit;
+        color: inherit;
+        font-size: inherit;
     }
 }
