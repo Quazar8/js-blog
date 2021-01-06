@@ -16,6 +16,10 @@ const InputPost = () => {
                     <div className = "shader-left"></div>
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
+                    <label id = "thumbnail-label">
+                        <input type = "file" />
+                        Choose a thumbnail for this post
+                    </label>
                 </div>
                 <h2>
                     <textarea placeholder = "Title" />
