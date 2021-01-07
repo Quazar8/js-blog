@@ -6,18 +6,11 @@
     h2 {
         padding: 0;
         margin: 3% 0;
-
-        textarea {
-            border: inherit;
-            outline: inherit;
-            font-size: inherit;
-            font-family: inherit;
-            font-weight: inherit;
-            font-style: inherit;
-            width: 100%;
-            min-height: 5vw;
-            background-color: inherit;
-            color: inherit;
+        word-wrap: break-word;
+        
+        &[placeholder]:empty::before {
+            content: attr(placeholder);
+            color: gray;
         }
     }
 

@@ -63,8 +63,7 @@ const InputPost = () => {
                         { labelText }
                     </label>
                 </div>
-                <h2>
-                    <textarea placeholder = "Title" />
+                <h2 placeholder = "Title" contentEditable>
                 </h2>
                 <h3>Author: { authorId }</h3>
                 <p>
