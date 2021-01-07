@@ -1,15 +1,7 @@
 import React, { useRef, useState } from 'react'
+import { connect } from 'react-redux'
 
-const InputPost = () => {
-     const post = {
-        title: '',
-        content: '',
-        authorId: '',
-        thumbnail: ''
-    }
-
-    const { title, content, authorId, thumbnail } = post
-
+const InputPostView = ({ user }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -65,7 +57,7 @@ const InputPost = () => {
                 </div>
                 <h2 placeholder = "Title" contentEditable>
                 </h2>
-                <h3>Author: { authorId }</h3>
+                <h3>Author: { user.username }</h3>
                 <p>
                     <textarea placeholder = "Post Content" />
                 </p>
@@ -73,5 +65,11 @@ const InputPost = () => {
         </section>
     )
 }
+
+const mapState = store => ({
+    user: store.user.user
+})
+
+const InputPost = connect(mapState)(InputPostView)
 
 export default InputPost
