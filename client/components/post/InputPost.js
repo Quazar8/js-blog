@@ -6,6 +6,9 @@ const InputPostView = ({ user }) => {
     const [labelClass, setLabelClass] = useState('')
 
     const imageRef = useRef()
+    const titleRef = useRef()
+    const contentRef = useRef()
+
     const draggedOver = (e) => {
         e.preventDefault()
         setLabelClass(' thumbnail-dragover')
@@ -55,12 +58,17 @@ const InputPostView = ({ user }) => {
                         { labelText }
                     </label>
                 </div>
-                <h2 placeholder = "Title" contentEditable>
+                <h2 
+                    placeholder = "Title" 
+                    contentEditable
+                    ref = { titleRef }
+                >
                 </h2>
                 <h3>Author: { user.username }</h3>
                 <p>
-                    <textarea placeholder = "Post Content" />
+                    <textarea ref = { contentRef } placeholder = "Post Content" />
                 </p>
+                <button>Publish!</button>
             </article>
         </section>
     )
