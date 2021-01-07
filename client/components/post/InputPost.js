@@ -17,11 +17,18 @@ const InputPost = () => {
         imageRef.current.src = URL.createObjectURL(file)
     }
 
+    const clearUrlObject = () => {
+        URL.revokeObjectURL(imageRef.current.src)
+    }
+
     return (
         <section className = "post-container input-post">
             <article className = "post-view">
                 <div className = "thumbnail-container">
-                    <img ref = { imageRef } src = "" alt = "thumbnail picture" />
+                    <img ref = { imageRef } 
+                        src = "" alt = "thumbnail picture"
+                        onLoad = { clearUrlObject } 
+                    />
                     <div className = "shader-left"></div>
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
