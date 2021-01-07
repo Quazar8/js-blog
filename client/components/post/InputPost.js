@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const InputPost = () => {
      const post = {
@@ -10,11 +10,14 @@ const InputPost = () => {
 
     const { title, content, authorId, thumbnail } = post
 
+    const [labelText, setLabelText] = useState('Choose a thumbnail image')
+
     const imageRef = useRef()
     const handleImageInput = (e) => {
         const file = e.target.files[0]
 
         imageRef.current.src = URL.createObjectURL(file)
+        setLabelText('')
     }
 
     const clearUrlObject = () => {
@@ -34,7 +37,7 @@ const InputPost = () => {
                     <div className = "shader-right"></div>
                     <label id = "thumbnail-label">
                         <input onChange = { handleImageInput } type = "file" />
-                        Choose a thumbnail for this post
+                        { labelText }
                     </label>
                 </div>
                 <h2>
