@@ -11,17 +11,35 @@ const InputPost = () => {
     const { title, content, authorId, thumbnail } = post
 
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
+    const [labelClass, setLabelClass] = useState('')
 
     const imageRef = useRef()
+    const draggedOver = (e) => {
+        e.preventDefault()
+        setLabelClass(' thumbnail-dragover')
+    }
+
     const handleImageInput = (e) => {
-        const file = e.target.files[0]
+        e.preventDefault()
+
+        let file
+        if (e.dataTransfer) {
+            file = e.dataTransfer.files[0]
+        } else if (e.target) {
+            file = e.target.files[0]
+        }
 
         imageRef.current.src = URL.createObjectURL(file)
+        clearLabelClass()
         setLabelText('')
     }
 
     const clearUrlObject = () => {
         URL.revokeObjectURL(imageRef.current.src)
+    }
+
+    const clearLabelClass = () => {
+        setLabelClass('')
     }
 
     return (
@@ -35,7 +53,12 @@ const InputPost = () => {
                     <div className = "shader-left"></div>
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
-                    <label id = "thumbnail-label">
+                    <label 
+                        onDragOver = { draggedOver }
+                        onDrop = { handleImageInput }
+                        onDragLeave = { clearLabelClass } 
+                        className = {"thumbnail-label" + labelClass }
+                    >
                         <input onChange = { handleImageInput } type = "file" />
                         { labelText }
                     </label>

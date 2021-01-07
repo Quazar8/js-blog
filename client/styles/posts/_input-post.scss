@@ -40,7 +40,7 @@
         }
     }
 
-    #thumbnail-label {
+    .thumbnail-label {
         $border-width: 0.2vw;
         position: absolute;
         top: 0;
@@ -62,5 +62,9 @@
             cursor: pointer;
             border: $border-width solid skyblue;
         }
+    }
+
+   .thumbnail-dragover {
+        border: $border-width dotted #deff23;
     }
 }
