@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { connect } from 'react-redux'
 
-const InputPostView = ({ user }) => {
+import { publishPostAction } from '../../store/postsActions'
+
+const InputPostView = ({ user, tryToPublish }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -46,7 +48,7 @@ const InputPostView = ({ user }) => {
             thumbnail: thumbnailRef.current
         }
 
-        console.log(data)
+        tryToPublish(data)
     }
 
     return (
@@ -94,6 +96,12 @@ const mapState = store => ({
     user: store.user.user
 })
 
-const InputPost = connect(mapState)(InputPostView)
+const mapDispatch = dispatch => ({
+    tryToPublish: data => {
+        dispatch(publishPostAction(data))
+    }
+})
+
+const InputPost = connect(mapState, mapDispatch)(InputPostView)
 
 export default InputPost
