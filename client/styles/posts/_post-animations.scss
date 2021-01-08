@@ -3,10 +3,32 @@
 @keyframes changeBackground {
     0% {
         background-color: pv.$post-background;
-        color: pv.$label-border-color
+        color: pv.$label-border-color;
     }
 
-    50% {
+    33% {
+        background-color: pv.$label-border-color;
+        color: pv.$post-background;
+    }
+
+    66% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+}
+
+@keyframes changeBackground2 {
+    0% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+
+    33% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+
+    66% {
         background-color: pv.$label-border-color;
         color: pv.$post-background;
     }
@@ -14,5 +36,22 @@
     100% {
         background-color: pv.$post-background;
         color: pv.$label-border-color;
+    }
+}
+
+@keyframes changeBackground3 {
+    0% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+       
+    66% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+
+    99% {
+        background-color: pv.$label-border-color;
+        color: pv.$post-background;
     }
 }

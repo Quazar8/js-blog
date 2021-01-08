@@ -68,7 +68,6 @@ $label-border-color: pv.$label-border-color;
 
     .button-container {
         $animation-duration: 2s;
-        $animation-delay: $animation-duration / 2;
         display: flex;
         justify-content: space-evenly;
         padding-bottom: 2%;
@@ -96,11 +95,11 @@ $label-border-color: pv.$label-border-color;
         }
 
         button:nth-child(2) {
-            animation: changeBackground $animation-duration $animation-delay ease-out infinite;
+            animation: changeBackground2 $animation-duration ease-out infinite;
         }
 
         button:nth-child(3) {
-            animation: changeBackground $animation-duration 2 * $animation-delay ease-out infinite;
+            animation: changeBackground3 $animation-duration ease-out infinite;
         }
     }
 }
