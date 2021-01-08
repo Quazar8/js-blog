@@ -67,7 +67,7 @@ $label-border-color: pv.$label-border-color;
     }
 
     .button-container {
-        $animation-duration: 2s;
+        $animation-duration: 3s;
         display: flex;
         justify-content: space-evenly;
         padding-bottom: 2%;
@@ -81,6 +81,7 @@ $label-border-color: pv.$label-border-color;
             color: $label-border-color;
             border: 0.2vw solid $label-border-color;
             transition: transform 0.4s ease-out;
+            transform: skewX(-20deg);
 
             &:hover {
                 cursor: pointer;
