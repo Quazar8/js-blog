@@ -1,4 +1,7 @@
+@use 'post-variables' as pv;
+
 $label-border-width: 0.2vw;
+$label-border-color: #deff23;
 .input-post {
     textarea {
         resize: none;
@@ -60,15 +63,29 @@ $label-border-width: 0.2vw;
     }
 
     .thumbnail-dragover {
-        border: $label-border-width dashed #deff23 !important;
+        border: $label-border-width dashed $label-border-color;
     }
 
     .button-container {
         display: flex;
         justify-content: center;
+        padding-bottom: 2%;
 
         button {
             padding: 1% 5%;
+            font-weight: bold;
+            font-family: 'Jura', sans-serif;
+            font-size: 1.6vw;
+            background-color: transparent;
+            color: $label-border-color;
+            border: 0.2vw solid $label-border-color;
+            transition: transform 0.4s ease-out;
+
+            &:hover {
+                transform: scale(1.1);
+                color: pv.$post-background;
+                background-color: $label-border-color;
+            }
         }
     }
 }
