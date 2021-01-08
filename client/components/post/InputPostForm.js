@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { publishPostAction } from '../../store/postsActions'
 
-const InputPostView = ({ user, tryToPublish }) => {
+const InputPostFormView = ({ user, tryToPublish }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -102,6 +102,6 @@ const mapDispatch = dispatch => ({
     }
 })
 
-const InputPost = connect(mapState, mapDispatch)(InputPostView)
+const InputPostForm = connect(mapState, mapDispatch)(InputPostFormView)
 
-export default InputPost
+export default InputPostForm
