@@ -8,6 +8,7 @@ const InputPostView = ({ user }) => {
     const imageRef = useRef()
     const titleRef = useRef()
     const contentRef = useRef()
+    const thumbnailRef = useRef()
 
     const draggedOver = (e) => {
         e.preventDefault()
@@ -25,6 +26,7 @@ const InputPostView = ({ user }) => {
         }
 
         imageRef.current.src = URL.createObjectURL(file)
+        thumbnailRef.current = file;
         clearLabelClass()
         setLabelText('')
     }
@@ -35,6 +37,16 @@ const InputPostView = ({ user }) => {
 
     const clearLabelClass = () => {
         setLabelClass('')
+    }
+
+    const submitPost = () => {
+        const data = {
+            title: titleRef.current.textContent,
+            content: contentRef.current.value,
+            thumbnail: thumbnailRef.current
+        }
+
+        console.log(data)
     }
 
     return (
@@ -69,9 +81,9 @@ const InputPostView = ({ user }) => {
                     <textarea ref = { contentRef } placeholder = "Post Content" />
                 </p>
                 <div className = "button-container">
-                    <button>Publish!</button>
-                    <button>Publish!</button>
-                    <button>Publish!</button>
+                    <button onClick = { submitPost }>Publish!</button>
+                    <button onClick = { submitPost }>Publish!</button>
+                    <button onClick = { submitPost }>Publish!</button>
                 </div>
             </article>
         </section>

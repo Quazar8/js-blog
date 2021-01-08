@@ -26,7 +26,9 @@ const PostView = ({ post, tryGetPost }) => {
                     <div className = "shader-right"></div>
                 </div>
                 <h2>{ title }</h2>
-                <h3>Author: { authorId }</h3>
+                <h3>
+                    Author: { authorId }
+                </h3>
                 <p>{ content }</p>
             </article>
         </section>
