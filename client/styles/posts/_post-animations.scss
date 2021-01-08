@@ -1,0 +1,18 @@
+@use 'post-variables' as pv;
+
+@keyframes changeBackground {
+    0% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color
+    }
+
+    50% {
+        background-color: pv.$label-border-color;
+        color: pv.$post-background;
+    }
+
+    100% {
+        background-color: pv.$post-background;
+        color: pv.$label-border-color;
+    }
+}

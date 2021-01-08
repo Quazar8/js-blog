@@ -70,6 +70,8 @@ const InputPostView = ({ user }) => {
                 </p>
                 <div className = "button-container">
                     <button>Publish!</button>
+                    <button>Publish!</button>
+                    <button>Publish!</button>
                 </div>
             </article>
         </section>

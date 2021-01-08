@@ -1,7 +1,7 @@
 @use 'post-variables' as pv;
 
 $label-border-width: 0.2vw;
-$label-border-color: #deff23;
+$label-border-color: pv.$label-border-color;
 .input-post {
     textarea {
         resize: none;
@@ -67,8 +67,10 @@ $label-border-color: #deff23;
     }
 
     .button-container {
+        $animation-duration: 2s;
+        $animation-delay: $animation-duration / 2;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         padding-bottom: 2%;
 
         button {
@@ -76,16 +78,29 @@ $label-border-color: #deff23;
             font-weight: bold;
             font-family: 'Jura', sans-serif;
             font-size: 1.6vw;
-            background-color: transparent;
+            background-color: pv.$post-background;
             color: $label-border-color;
             border: 0.2vw solid $label-border-color;
             transition: transform 0.4s ease-out;
 
             &:hover {
+                cursor: pointer;
                 transform: scale(1.1);
                 color: pv.$post-background;
                 background-color: $label-border-color;
             }
+        }
+
+        button:nth-child(1) {
+            animation: changeBackground $animation-duration ease-out infinite;
+        }
+
+        button:nth-child(2) {
+            animation: changeBackground $animation-duration $animation-delay ease-out infinite;
+        }
+
+        button:nth-child(3) {
+            animation: changeBackground $animation-duration 2 * $animation-delay ease-out infinite;
         }
     }
 }
