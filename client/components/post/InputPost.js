@@ -68,7 +68,9 @@ const InputPostView = ({ user }) => {
                 <p>
                     <textarea ref = { contentRef } placeholder = "Post Content" />
                 </p>
-                <button>Publish!</button>
+                <div className = "button-container">
+                    <button>Publish!</button>
+                </div>
             </article>
         </section>
     )

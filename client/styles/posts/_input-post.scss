@@ -1,3 +1,4 @@
+$label-border-width: 0.2vw;
 .input-post {
     textarea {
         resize: none;
@@ -34,7 +35,6 @@
     }
 
     .thumbnail-label {
-        $border-width: 0.2vw;
         position: absolute;
         top: 0;
         left: 0;
@@ -45,7 +45,7 @@
         justify-content: center;
         font-size: 3vw;
         box-sizing: border-box;
-        border: $border-width solid transparent;
+        border: $label-border-width solid transparent;
 
         input {
             display: none;
@@ -53,11 +53,22 @@
 
         &:hover {
             cursor: pointer;
-            border: $border-width solid skyblue;
+            border: $label-border-width solid skyblue;
         }
 
-        .thumbnail-dragover {
-            border: $border-width dotted #deff23;
+
+    }
+
+    .thumbnail-dragover {
+        border: $label-border-width dashed #deff23 !important;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+
+        button {
+            padding: 1% 5%;
         }
     }
 }
