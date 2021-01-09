@@ -78,7 +78,13 @@ const InputPostFormView = ({ user, tryToPublish }) => {
                     ref = { titleRef }
                 >
                 </h2>
-                <h3>Author: { user.username }</h3>
+                <h3>
+                    Author: 
+                    <div className = "author">
+                        <span>{ user.username }</span>
+                        <img src = { user.profilePic } alt = "author picture" />
+                    </div>
+                </h3>
                 <p>
                     <textarea ref = { contentRef } placeholder = "Post Content" />
                 </p>
