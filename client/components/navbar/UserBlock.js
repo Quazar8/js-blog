@@ -20,7 +20,7 @@ const UserBlock =
                         Create Post
                     </li>
                 </Link>
-                <Link to = "/profile">
+                <Link to = { "/profile/" + username }>
                     <li>
                         Profile
                     </li>
