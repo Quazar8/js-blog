@@ -27,8 +27,11 @@ const PostView = ({ post, tryGetPost }) => {
                 </div>
                 <h2>{ title }</h2>
                 <h3>
-                    Author: { author.username }
-                    <img src = { author.profilePic } alt = "author picture" />
+                    Author: 
+                    <div className = "author">
+                        <span>{ author.username }</span>
+                        <img src = { author.profilePic } alt = "author picture" />
+                    </div>
                 </h3>
                 <p>{ content }</p>
             </article>
