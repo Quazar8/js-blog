@@ -46,7 +46,7 @@ const getPosts = (req, res) => {
 }
 
 const getSinglePost = (req, res) => {
-    const { Posts } = require('./db.json')
+    const { Posts, Users} = require('./db.json')
 
     const id = req.params.postId
     if (!id)
@@ -64,6 +64,11 @@ const getSinglePost = (req, res) => {
         return
     }
 
+    const user = Users[post.authorId]
+    post.author = {
+        username: post.authorId,
+        profilePic: user.profilePic
+    }
     res.status(200).send({ error: false, post })
 }
 
