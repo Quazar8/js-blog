@@ -15,7 +15,7 @@ const PostView = ({ post, tryGetPost }) => {
         return <h1>No such post exists</h1>
     }
 
-    const { title, authorId, content, thumbnail } = post
+    const { title, authorId, content, thumbnail, author } = post
     return (
         <section className = "post-container">
             <article className = "post-view">
@@ -27,7 +27,8 @@ const PostView = ({ post, tryGetPost }) => {
                 </div>
                 <h2>{ title }</h2>
                 <h3>
-                    Author: { authorId }
+                    Author: { author.username }
+                    <img src = { author.profilePic } alt = "author picture" />
                 </h3>
                 <p>{ content }</p>
             </article>
