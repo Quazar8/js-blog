@@ -7,7 +7,7 @@
     "start": "node index.js",
     "build": "webpack --config ./configs/webpack.config.js",
     "client-dev": "webpack serve --config ./configs/webpack.config.js",
-    "server-dev": "nodemon index.js"
+    "server-dev": "nodemon index.js --ignore client/ --ignore static/"
   },
   "repository": {
     "type": "git",
