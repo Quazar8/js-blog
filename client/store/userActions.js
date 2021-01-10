@@ -9,7 +9,8 @@ const actionTypes = {
     LOGGEDIN_USER: 'LOGGEDIN_USER',
     REGISTER_USER: 'REGISTER_USER',
     REGISTERED_USER: 'REGISTERED_USER',
-    LOGOUT_USER: 'LOGOUT_USER'
+    LOGOUT_USER: 'LOGOUT_USER',
+    GOT_PROFILE: 'GOT_PROFILE'
 }
 
 const registerUserAction = (data) => {
@@ -108,6 +109,13 @@ const getLoggedUser = () => {
     }
 }
 
+const gotProfileAction = user => {
+    return {
+        type: actionTypes.GOT_PROFILE,
+        payload: user
+    }
+}
+
 export {
     actionTypes,
     registerUserAction,
@@ -115,5 +123,6 @@ export {
     registerUser,
     loginUser,
     logoutUser,
-    getLoggedUser
+    getLoggedUser,
+    gotProfileAction
 }
