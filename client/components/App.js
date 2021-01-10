@@ -42,7 +42,7 @@ const AppView = ({ checkUserLogged }) => {
                         <Post />
                     </Route>
                     <Route path = "/profile/:id">
-                        <PrivateRoute child = { Profile } />
+                        <Profile />
                     </Route>
                     <Route>
                         <NotFound />
