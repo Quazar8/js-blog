@@ -1,7 +1,7 @@
 const getUserProfile = (req, res) => {
     const user = require('./db.json').Users[req.params.userId]
     if (!user) {
-        res.status(400).send({ error: true, errorMsg: 'No such user registered'})
+        res.status(400).send({ error: true, errorMsg: 'No such user exists!'})
         return 
     }
 
