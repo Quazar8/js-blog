@@ -1,10 +1,10 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 
-const ProfileView = ({ user }) => {
-    if (!user) {
-        return <h1>Can not display profile page</h1>
-    }
+const Profile = () => {
+    const [user, setUser] = useState({
+        username: '',
+        profilePic: ''
+    })
 
     const { profilePic, username } = user
     return (
@@ -16,11 +16,5 @@ const ProfileView = ({ user }) => {
         </section>
     )
 }
-
-const mapState = store => ({
-    user: store.user.user
-})
-
-const Profile = connect(mapState)(ProfileView)
 
 export default Profile
