@@ -109,13 +109,6 @@ const getLoggedUser = () => {
     }
 }
 
-const gotProfileAction = user => {
-    return {
-        type: actionTypes.GOT_PROFILE,
-        payload: user
-    }
-}
-
 export {
     actionTypes,
     registerUserAction,
@@ -124,5 +117,4 @@ export {
     loginUser,
     logoutUser,
     getLoggedUser,
-    gotProfileAction
 }
