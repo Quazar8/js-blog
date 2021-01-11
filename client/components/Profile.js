@@ -9,7 +9,10 @@ const Profile = ({ match }) => {
     })
 
     useEffect(() => {
-        console.log(match.params.id)
+        const userId = match.params.id
+        getUserProfileServer(userId).then(resp => {
+            console.log(resp)
+        })
     }, [])
 
     const { profilePic, username } = user
