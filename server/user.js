@@ -5,11 +5,24 @@ const getUserProfile = (req, res) => {
         return 
     }
 
+    const retrievePosts = (ids) => {
+        const posts = require('./db.json').Posts
+        const result = []
+
+        for (let postId of ids) {
+            if (posts[postId]) {
+                result.push(posts[postId])
+            }
+        }
+
+        return result
+    }
+    const userPosts = retrievePosts(user.posts.slice(0, 10))
     const userToSend = {
         username: req.params.userId,
         profilePic: user.profilePic,
         totalPosts: user.posts.length,
-        posts: user.posts.slice(0, 10)
+        posts: userPosts
     }
 
     res.status(200).send({ 
