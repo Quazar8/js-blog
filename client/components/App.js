@@ -41,9 +41,7 @@ const AppView = ({ checkUserLogged }) => {
                     <Route path = "/post/:title">
                         <Post />
                     </Route>
-                    <Route path = "/profile/:id">
-                        <Profile />
-                    </Route>
+                    <Route path = "/profile/:id" component = { Profile } />
                     <Route>
                         <NotFound />
                     </Route>

@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { getUserProfileServer } from '../api'
 
-const Profile = () => {
+
+const Profile = ({ match }) => {
     const [user, setUser] = useState({
         username: '',
         profilePic: ''
     })
+
+    useEffect(() => {
+        console.log(match.params.id)
+    }, [])
 
     const { profilePic, username } = user
     return (
