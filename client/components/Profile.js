@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { getUserProfileServer } from '../api'
 
+import PostSnippet from './user/PostSnippet'
+
 const Profile = ({ match }) => {
     const [user, setUser] = useState({
         username: '',
@@ -16,7 +18,6 @@ const Profile = ({ match }) => {
                 return
             }
 
-            console.log(resp.user)
             setUser(resp.user)
         })
     }, [])
@@ -31,7 +32,9 @@ const Profile = ({ match }) => {
             <h3>Author of { totalPosts } articles.</h3>
             <div>
             {
-                posts.map((p, i) => <h4 key = { i }>{ p.title }</h4>)
+                posts.map((p, i) => (
+                    <PostSnippet post = { p }/>
+                ))
                     .reverse()
             }
             </div>
