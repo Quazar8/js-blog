@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { getUserProfileServer } from '../api'
 
-
 const Profile = ({ match }) => {
     const [user, setUser] = useState({
         username: '',
-        profilePic: ''
+        profilePic: '',
+        totalPosts: 0,
+        posts: []
     })
 
     useEffect(() => {
         const userId = match.params.id
         getUserProfileServer(userId).then(resp => {
             if (resp.error) {
-                console.log(resp.errorMsg)
                 return
             }
 
