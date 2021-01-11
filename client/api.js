@@ -6,7 +6,7 @@ const publishPostUrl = baseUrl + '/publish'
 const getAllPostsUrl = baseUrl + '/posts'
 const getSinglePostUrl = baseUrl + '/post/'
 const getLoggedUserUrl = baseUrl + '/user/logged'
-const getUserProfileUrl = baseUrl + '/profile/'
+const getUserProfileUrl = baseUrl + '/user/profile/'
 
 const postQueryOptions = (data) => {
     return {
