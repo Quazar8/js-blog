@@ -11,7 +11,12 @@ const Profile = ({ match }) => {
     useEffect(() => {
         const userId = match.params.id
         getUserProfileServer(userId).then(resp => {
-            console.log(resp)
+            if (resp.error) {
+                console.log(resp.errorMsg)
+                return
+            }
+
+            setUser(resp.user)
         })
     }, [])
 
