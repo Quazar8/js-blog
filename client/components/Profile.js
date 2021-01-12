@@ -25,17 +25,18 @@ const Profile = ({ match }) => {
     const { profilePic, username, totalPosts, posts } = user
     return (
         <section className = "profile-page">
-            <div className = "image-container">
-                <img src = { profilePic } alt = "profile picture" />
+            <div className = "left-section">
+                <div className = "image-container">
+                    <img src = { profilePic } alt = "profile picture" />
+                </div>
+                <h2>{ username }</h2>
+                <h3>Author of { totalPosts } articles.</h3>
             </div>
-            <h2>{ username }</h2>
-            <h3>Author of { totalPosts } articles.</h3>
-            <div>
+            <div className = "right-section">
             {
-                posts.map((p, i) => (
-                    <PostSnippet post = { p }/>
-                ))
-                    .reverse()
+                posts.map(p => (
+                    <PostSnippet post = { p } />
+                )).reverse()
             }
             </div>
         </section>
