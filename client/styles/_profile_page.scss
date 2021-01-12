@@ -51,7 +51,8 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        background-color: v.$post-preview-background;
+        background: linear-gradient(110deg,
+            v.$post-preview-background 75%, rgba(83, 54, 54, 0.863) 85%, v.$post-preview-background 90%);
         transition: transform 0.2s ease-out;
 
         h3 {
