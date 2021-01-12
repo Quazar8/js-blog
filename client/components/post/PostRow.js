@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { getUrlTitle } from '../../utils'
+
 const PostRow = ({ post, index, postsLength }) => {
     const { title, content, 
             authorId, postId,
@@ -18,16 +20,7 @@ const PostRow = ({ post, index, postsLength }) => {
         contentPreview: contentPreviewShort
     })
 
-    const getUrlTitle = () => {
-        const urlTitle = title.replace(/[\W|_]+/g, '-')
-        if (urlTitle[urlTitle.length - 1] == '-') {
-            return urlTitle + postId
-        }
-
-        return urlTitle + '-' + postId
-    }
-    
-    const urlTitle = getUrlTitle()
+    const urlTitle = getUrlTitle(title, postId)
     const linkQuery =  {
         pathname: '/post/' + urlTitle,
     }
