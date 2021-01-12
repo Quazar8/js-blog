@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { getUrlTitle } from '../../utils'
+
 const PostSnippet = ({ post }) => {
     return (
-        <Link>
+        <Link to = { "/post/" + getUrlTitle(post.title, post.postId) }>
             <div className = "post-snippet">
                 <div className = "image-container">
                     <img src = { post.thumbnail } alt = "post thumbnail" />
