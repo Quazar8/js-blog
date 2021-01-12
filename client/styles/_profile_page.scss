@@ -4,6 +4,7 @@
     width: 90%;
     margin: 3% 0 0 0;
     display: flex;
+    height: 80vh;
 
     .left-section, .right-section {
         width: 50%;
@@ -25,6 +26,16 @@
             img {
                 width: 70%;
             }
+        }
+    }
+
+    .right-section {
+        height: 100%;
+        overflow: scroll;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 
