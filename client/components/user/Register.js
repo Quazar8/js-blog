@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { registerUser } from '../store/userActions'
+import { registerUser } from '../../store/userActions'
 
 const RegisterView = ({ dispatchRegister, isOnline }) => {
     let usernameRef = useRef()
