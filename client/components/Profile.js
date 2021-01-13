@@ -34,8 +34,8 @@ const Profile = ({ match }) => {
             </div>
             <div className = "right-section">
             {
-                posts.map(p => (
-                    <PostSnippet post = { p } />
+                posts.map((p, i) => (
+                    <PostSnippet key = { i } post = { p } />
                 )).reverse()
             }
             </div>
