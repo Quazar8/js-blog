@@ -10,7 +10,7 @@ import Login from './Login'
 import Notification from './Notification'
 import Post from './post/Post'
 import InputPostForm from './post/InputPostForm'
-import Profile from './Profile'
+import Profile from './user/Profile'
 import NotFound from './NotFound'
 
 import { getLoggedUser } from '../store/userActions'

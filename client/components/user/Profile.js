@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { getUserProfileServer } from '../api'
+import { getUserProfileServer } from '../../api'
 
-import PostSnippet from './user/PostSnippet'
+import PostSnippet from './PostSnippet'
 
 const Profile = ({ match }) => {
     const [user, setUser] = useState({
