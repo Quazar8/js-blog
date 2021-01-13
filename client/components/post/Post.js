@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { retrievePostAction } from '../../store/postsActions'
 
 const PostView = ({ post, tryGetPost }) => {
@@ -28,10 +29,12 @@ const PostView = ({ post, tryGetPost }) => {
                 <h2>{ title }</h2>
                 <h3>
                     Author: 
-                    <div className = "author">
-                        <span>{ author.username }</span>
-                        <img src = { author.profilePic } alt = "author picture" />
-                    </div>
+                    <Link to = {"/profile/" + author.username}>
+                        <div className = "author">
+                            <span>{ author.username }</span>
+                            <img src = { author.profilePic } alt = "author picture" />
+                        </div>
+                    </Link>
                 </h3>
                 <p>{ content }</p>
             </article>
