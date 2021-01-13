@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { loginUser } from '../store/userActions'
+import { loginUser } from '../../store/userActions'
 
-import Arrow from './svgs/Arrow'
+import Arrow from '../svgs/Arrow'
 
 const LoginView = ({ tryLogIn, isOnline }) => {
     let usernameRef = useRef()
