@@ -1,14 +1,30 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { retrievePostAction } from '../../store/postsActions'
+import { getSinglePostServer } from '../../api'
 
-const PostView = ({ post, tryGetPost }) => {
+const Post = () => {
+    const [post, setPost] = useState({
+        title: '',
+        content: '',
+        thumbnail: '',
+        author: {
+            username: '',
+            profilePic: ''
+        }
+    })
+
     useEffect(() => {
         const address = window.location.pathname.split('-')
         const postId = address[address.length - 1]
         if(postId) {
-            tryGetPost(postId)
+            getSinglePostServer(postId).then(resp => {
+                if (resp.error) {
+                    console.log('Error retrieeving post')
+                    return
+                }
+
+                setPost(resp.post)
+            })
         }
     }, [])
 
@@ -41,21 +57,5 @@ const PostView = ({ post, tryGetPost }) => {
         </section>
     )
 }
-
-const mapState = store => {
-    return {
-        post: store.posts.singlePost
-    }
-}
-
-const mapDisptach = dispatch => {
-    return {
-        tryGetPost: postId => {
-            dispatch(retrievePostAction(postId))
-        }
-    }
-}
-
-const Post = connect(mapState, mapDisptach)(PostView)
 
 export default Post
