@@ -16,7 +16,7 @@ $block-color: v.$block-color;
     font-family: 'Jura', sans-serif;
     position: relative;
     z-index: 2;
-    background-color: v.$nav-color;
+    background: radial-gradient(ellipse at center, #474747 5%, v.$nav-color);
     width:100%;
     min-height: 4rem;
     height: 5vw;
