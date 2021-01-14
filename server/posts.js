@@ -21,7 +21,8 @@ const postArticle = (req, res) => {
         content,
         authorId: userId,
         thumbnail: "\\" + req.file.path,
-        date: getDate()
+        date: getDate(),
+        comments: []
     }
 
     db.Users[userId].posts.push(postId)
