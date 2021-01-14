@@ -74,7 +74,14 @@ const getSinglePost = (req, res) => {
 }
 
 const deletePost = (req, res) => {
-    res.send({error: false, params: req.params.postId})
+    const postId = req.params.postId
+    if (!postId) {
+        res.status(400).send({ error: true, errorMsg: 'No post id presented'})
+        return
+    }
+
+
+    res.send({ error: false })
 }
 
 module.exports = {
