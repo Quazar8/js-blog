@@ -1,6 +1,6 @@
 const { genId, getDate } = require('./utils')
-const { writeDb } = require('./db');
-const idBytes = 8;
+const { writeDb, deletePostFromDb } = require('./db')
+const idBytes = 8
 
 const postArticle = (req, res) => {
     const { title, content } = req.body
@@ -88,10 +88,11 @@ const deletePost = (req, res) => {
     }
 
     if (post.authorId !== req.user) {
-        res.status(400).send({ error: true, errorMsg: 'No rights to do that'})
+        res.status(400).send({ error: true, errorMsg: 'No rights to do that`'})
         return
     }
 
+    deletePostFromDb(postId)
     res.send({ error: false })
 }
 

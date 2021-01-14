@@ -24,10 +24,14 @@ const writeDb = async (data) => {
         console.error(err)
         return { error: true, errorMsg: "Problem with server" }
     }
-    
+}
+
+const deletePostFromDb = postId => {
+
 }
 
 module.exports = {
     initializeDb,
-    writeDb
+    writeDb,
+    deletePostFromDb
 }
