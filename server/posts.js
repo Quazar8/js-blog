@@ -73,8 +73,13 @@ const getSinglePost = (req, res) => {
     res.status(200).send({ error: false, post })
 }
 
+const deletePost = (req, res) => {
+    res.send({error: false, params: req.params.postId})
+}
+
 module.exports = {
     postArticle,
     getPosts,
-    getSinglePost
+    getSinglePost,
+    deletePost
 }

@@ -1,7 +1,8 @@
 const { isLoggedMiddle, uploadMiddleware } = require('./middlewares')
 const registerUser = require('./register')
 const { loginUser, logoutUser, getLoggedUser } = require('./login')
-const { postArticle, getPosts, getSinglePost } = require('./posts')
+const { postArticle, getPosts,
+        getSinglePost, deletePost } = require('./posts')
 const { getUserProfile } = require('./user')
 
 const routes = (app) => {
@@ -20,6 +21,8 @@ const routes = (app) => {
    app.get('/posts', getPosts)
 
    app.get('/post/:postId', getSinglePost)
+
+   app.delete('/post/delete/:postId', deletePost)
 }
 
 module.exports = routes
