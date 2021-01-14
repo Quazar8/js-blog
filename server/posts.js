@@ -85,7 +85,12 @@ const deletePost = (req, res) => {
     if (!post) {
         res.status(400).send({ error: true, errorMsg: 'No such post exists'})
         return
-    } 
+    }
+
+    if (post.authorId !== req.user) {
+        res.status(400).send({ error: true, errorMsg: 'No rights to do that'})
+        return
+    }
 
     res.send({ error: false })
 }
