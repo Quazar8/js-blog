@@ -22,7 +22,7 @@ const routes = (app) => {
 
    app.get('/post/:postId', getSinglePost)
 
-   app.delete('/post/delete/:postId', deletePost)
+   app.delete('/post/delete/:postId', isLoggedMiddle, deletePost)
 }
 
 module.exports = routes
