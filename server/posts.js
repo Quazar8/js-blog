@@ -80,6 +80,12 @@ const deletePost = (req, res) => {
         return
     }
 
+    const Posts = require('./db.json').Posts
+    const post = Posts[postId]
+    if (!post) {
+        res.status(400).send({ error: true, errorMsg: 'No such post exists'})
+        return
+    } 
 
     res.send({ error: false })
 }
