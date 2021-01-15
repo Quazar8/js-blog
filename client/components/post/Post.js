@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getSinglePostServer } from '../../api'
 
+import PostAuthorButtons from './PostAuthorButtons'
+
 const Post = () => {
     const [post, setPost] = useState({
         title: '',
@@ -54,6 +56,7 @@ const Post = () => {
                 </h3>
                 <p>{ content }</p>
             </article>
+            <PostAuthorButtons />
         </section>
     )
 }
