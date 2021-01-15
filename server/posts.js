@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const { genId, getDate } = require('./utils')
 const { writeDb } = require('./db')
 const idBytes = 8
@@ -108,6 +110,13 @@ const deletePost = (req, res) => {
             res.status(500).send({ error: true, errorMsg: resp.errorMsg })
             return
         }
+
+        fs.unlink(path.join('./', post.thumbnail), (err) => {
+            if (err) {
+                console.error('Unable to remove post thumbnail')
+                console.error(err)
+            }
+        })
 
         res.send({ error: false, msg: `${ post.title } successfully deleted`})
     })
