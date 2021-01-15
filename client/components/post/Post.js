@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { getSinglePostServer } from '../../api'
 
 import PostAuthorButtons from './PostAuthorButtons'
 
-const Post = () => {
+const PostView = ({ username }) => {
     const [post, setPost] = useState({
         title: '',
         content: '',
@@ -60,5 +61,11 @@ const Post = () => {
         </section>
     )
 }
+
+const mapState = store => ({
+    username: store.user.user.username
+})
+
+const Post = connect(mapState)(PostView)
 
 export default Post
