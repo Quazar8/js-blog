@@ -97,6 +97,13 @@ const getSinglePostServer = (postId) => {
                 .then(resp => resp.json())
 }
 
+const deletePostServer = (postId) => {
+    const queryOptions = getQueryOptions()
+    queryOptions.method = 'DELETE'
+    return fetch(baseUrl + '/post/delete/' + postId, getQueryOptions)
+            .then(resp => resp.json())
+}
+
 export {
     registerUserServer,
     loginUserServer,
@@ -105,5 +112,6 @@ export {
     getAllPostsServer,
     getSinglePostServer,
     getLoggedUserServer,
-    getUserProfileServer
+    getUserProfileServer,
+    deletePostServer
 }
