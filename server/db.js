@@ -26,12 +26,8 @@ const writeDb = async (data) => {
     }
 }
 
-const deletePostFromDb = postId => {
-
-}
 
 module.exports = {
     initializeDb,
     writeDb,
-    deletePostFromDb
 }

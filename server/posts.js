@@ -1,5 +1,5 @@
 const { genId, getDate } = require('./utils')
-const { writeDb, deletePostFromDb } = require('./db')
+const { writeDb } = require('./db')
 const idBytes = 8
 
 const postArticle = (req, res) => {
@@ -80,7 +80,8 @@ const deletePost = (req, res) => {
         return
     }
 
-    const Posts = require('./db.json').Posts
+    const jsonDb = require('./db.json')
+    const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
         res.status(400).send({ error: true, errorMsg: 'No such post exists'})
@@ -92,8 +93,24 @@ const deletePost = (req, res) => {
         return
     }
 
-    deletePostFromDb(postId)
-    res.send({ error: false })
+    //post deletion logic
+    delete jsonDb.Posts[postId]
+    const userPosts = jsonDb.Users[post.authorId].posts
+    for (let index in userPosts) {
+        if (userPosts[index] === postId) {
+            userPosts.splice(index)
+            break
+        }
+    }
+
+    writeDb(JSON.stringify(jsonDb)).then(resp => {
+        if (resp.error) {
+            res.status(500).send({ error: true, errorMsg: resp.errorMsg })
+            return
+        }
+
+        res.send({ error: false, msg: `${ post.title } successfully deleted`})
+    })
 }
 
 module.exports = {
