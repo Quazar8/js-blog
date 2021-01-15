@@ -5,9 +5,40 @@
     height: 89vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     background-color: pv.$post-background;
     overflow: scroll;
+
+    .button-container {
+        width: 90%;
+        padding: 3% 0;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            font-family: 'Jura', sans-serif;
+            font-weight: bold;
+            font-size: 2vw;
+            padding: 1% 4%;
+            border: 0.3vw solid pv.$label-border-color;
+            border-radius: 5%;
+            background-color: pv.$post-background;
+            color: pv.$label-border-color;
+            margin-left: 2%;
+            transition: background-color 0.3s linear,
+            border-radius 0.3s linear,
+            transform 0.3s linear;
+
+            &:hover {
+                background-color: pv.$label-border-color;
+                color: pv.$post-background;
+                cursor: pointer;
+                border-radius: 0;
+                transform: scale(1.1);
+            }
+        }
+    }
 }
 
 .post-view {

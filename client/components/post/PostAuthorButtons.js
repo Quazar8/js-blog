@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostAuthorButtons = () => {
     return (
-        <div>
+        <div className = "button-container">
             <button>Edit</button>
             <button>Delete</button>
         </div>
