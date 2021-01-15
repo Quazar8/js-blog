@@ -1,10 +1,10 @@
 import React from 'react'
 
-const PostAuthorButtons = () => {
+const PostAuthorButtons = ({ deletePost }) => {
     return (
         <div className = "button-container">
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick = { deletePost } >Delete</button>
         </div>
     )
 }

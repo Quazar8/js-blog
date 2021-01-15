@@ -100,7 +100,7 @@ const getSinglePostServer = (postId) => {
 const deletePostServer = (postId) => {
     const queryOptions = getQueryOptions()
     queryOptions.method = 'DELETE'
-    return fetch(baseUrl + '/post/delete/' + postId, getQueryOptions)
+    return fetch(baseUrl + '/post/delete/' + postId, queryOptions)
             .then(resp => resp.json())
 }
 

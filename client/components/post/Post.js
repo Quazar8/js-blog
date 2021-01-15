@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getSinglePostServer } from '../../api'
+import { getSinglePostServer, deletePostServer } from '../../api'
 
 import PostAuthorButtons from './PostAuthorButtons'
 
@@ -16,9 +16,13 @@ const PostView = ({ username }) => {
         }
     })
 
-    useEffect(() => {
+    const getPostIdFromUrl = () => {
         const address = window.location.pathname.split('-')
-        const postId = address[address.length - 1]
+        return address[address.length - 1]
+    }
+
+    useEffect(() => {
+        const postId = getPostIdFromUrl()
         if(postId) {
             getSinglePostServer(postId).then(resp => {
                 if (resp.error) {
@@ -33,6 +37,12 @@ const PostView = ({ username }) => {
 
     if (!post.title) {
         return <h1>No such post exists</h1>
+    }
+
+    const deletePost = () => {
+        deletePostServer(getPostIdFromUrl()).then(resp => {
+            console.log(resp)
+        })
     }
 
     const { title, content, thumbnail, author } = post
@@ -57,7 +67,7 @@ const PostView = ({ username }) => {
                 </h3>
                 <p>{ content }</p>
             </article>
-            <PostAuthorButtons />
+            <PostAuthorButtons deletePost = { deletePost } />
         </section>
     )
 }
