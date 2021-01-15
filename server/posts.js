@@ -122,9 +122,14 @@ const deletePost = (req, res) => {
     })
 }
 
+const editPost = (req, res) => {
+    res.send({ error: false })
+}
+
 module.exports = {
     postArticle,
     getPosts,
     getSinglePost,
-    deletePost
+    deletePost,
+    editPost
 }

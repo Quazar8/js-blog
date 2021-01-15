@@ -2,7 +2,8 @@ const { isLoggedMiddle, uploadMiddleware } = require('./middlewares')
 const registerUser = require('./register')
 const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts,
-        getSinglePost, deletePost } = require('./posts')
+        getSinglePost, deletePost,
+        editPost } = require('./posts')
 const { getUserProfile } = require('./user')
 
 const routes = (app) => {
@@ -23,6 +24,8 @@ const routes = (app) => {
    app.get('/post/:postId', getSinglePost)
 
    app.delete('/post/delete/:postId', isLoggedMiddle, deletePost)
+
+   app.put('/post/edit/:postId', isLoggedMiddle, editPost)
 }
 
 module.exports = routes
