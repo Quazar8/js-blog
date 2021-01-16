@@ -44,7 +44,7 @@ const InputPostFormView = ({ user, tryToPublish }) => {
     const submitPost = () => {
         const data = {
             title: titleRef.current.textContent,
-            content: contentRef.current.value,
+            content: contentRef.current.textContent,
             thumbnail: thumbnailRef.current
         }
 
@@ -85,8 +85,11 @@ const InputPostFormView = ({ user, tryToPublish }) => {
                         <img src = { user.profilePic } alt = "author picture" />
                     </div>
                 </h3>
-                <p>
-                    <textarea ref = { contentRef } placeholder = "Post Content" />
+                <p 
+                    ref = { contentRef }
+                    contentEditable
+                    placeholder = "Article Content"
+                >
                 </p>
                 <div className = "button-container">
                     <button onClick = { submitPost }>Publish!</button>

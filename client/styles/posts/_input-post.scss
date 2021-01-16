@@ -3,10 +3,6 @@
 $label-border-width: 0.2vw;
 $label-border-color: pv.$label-border-color;
 .input-post {
-    textarea {
-        resize: none;
-    }
-
     h2 {
         padding: 0;
         margin: 3% 0;
@@ -19,21 +15,15 @@ $label-border-color: pv.$label-border-color;
     }
 
     p {
-        min-height: 90%;
+        min-height: 50vw;
+        width: 100%;
+        word-break: break-word;
 
-        textarea {
-            width: 100%;
-            min-height: 50vw;
-            background-color: inherit;
-            border: inherit;
-            color: inherit;
-            font-family: inherit;
-            font-size: inherit;
-
-            &::placeholder {
-                font-weight: bolder;
-                font-size: 3vw;
-            }
+        &[placeholder]:empty::before {
+            content: attr(placeholder);
+            color: gray;
+            font-weight: bolder;
+            font-size: 3vw;
         }
     }
 
