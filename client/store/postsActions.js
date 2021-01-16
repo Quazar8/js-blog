@@ -33,7 +33,6 @@ const getAllPosts = () => {
         }).catch(err => {
             dispatch(showError("An error has occured"))
             console.error(err)
-            clearError(dispatch)
         })
     }
 }
