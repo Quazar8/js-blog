@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getSinglePostServer, deletePostServer } from '../../api'
 import { showError, showSuccess } from '../../store/globalActions'
@@ -16,6 +16,8 @@ const PostView = ({ username, dispatch }) => {
             profilePic: ''
         }
     })
+
+    const history = useHistory()
 
     const getPostIdFromUrl = () => {
         const address = window.location.pathname.split('-')
@@ -49,6 +51,7 @@ const PostView = ({ username, dispatch }) => {
             }
 
             dispatch(showSuccess(resp.msg))
+            history.push('/')
         })
     }
 
