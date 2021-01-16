@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getSinglePostServer, deletePostServer } from '../../api'
+import { showError, showSuccess } from '../../store/globalActions'
 
 import PostAuthorButtons from './PostAuthorButtons'
 
-const PostView = ({ username }) => {
+const PostView = ({ username, dispatch }) => {
     const [post, setPost] = useState({
         title: '',
         content: '',
@@ -22,6 +23,7 @@ const PostView = ({ username }) => {
     }
 
     useEffect(() => {
+        console.log(dispatch)
         const postId = getPostIdFromUrl()
         if(postId) {
             getSinglePostServer(postId).then(resp => {
@@ -41,7 +43,12 @@ const PostView = ({ username }) => {
 
     const deletePost = () => {
         deletePostServer(getPostIdFromUrl()).then(resp => {
-            console.log(resp)
+            if (resp.error) {
+                dispatch(showError(resp.errorMsg))
+                return
+            }
+
+            dispatch(showSuccess(resp.msg))
         })
     }
 
