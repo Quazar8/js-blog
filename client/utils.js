@@ -7,6 +7,16 @@ const getUrlTitle = (title, postId) => {
     return urlTitle + '-' + postId
 }
 
+const getDate = (dateString) => {
+    const [, time, date] = dateString.split(" ")
+    let [hours, minutes, seconds] = time.split(":")
+    let [day, month, year] = date.split("-")
+    
+    month -= 1
+    return new Date(year, month, day, hours, minutes, seconds, 0)
+}
+
 export {
-    getUrlTitle
+    getUrlTitle,
+    getDate
 }

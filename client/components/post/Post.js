@@ -25,7 +25,6 @@ const PostView = ({ username, dispatch }) => {
     }
 
     useEffect(() => {
-        console.log(dispatch)
         const postId = getPostIdFromUrl()
         if(postId) {
             getSinglePostServer(postId).then(resp => {
