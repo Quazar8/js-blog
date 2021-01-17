@@ -33,19 +33,19 @@ const logoutUser = (req, res) => {
 
 const getLoggedUser = (req, res) => {
     if (!req.user) {
-        res.status(200).send({ error: false, 
-            isLogged: false})
+        res.status(200).send(successResponse('', { isLogged: false }))
         return
     }
     
     const { profilePic } = require('./db.json').Users[req.user]
-    res.status(200).send({ error: false,
-         isLogged: true,
-         user: {
+    
+    res.status(200).send(successResponse('', {
+        isLogged: true,
+        user: {
             username: req.user,
             profilePic
-         }
-    })
+        }
+    }))
 }
 
 module.exports = {
