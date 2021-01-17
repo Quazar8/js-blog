@@ -18,5 +18,5 @@ const getDate = (dateString) => {
 
 export {
     getUrlTitle,
-    getDate
+    getDate,
 }

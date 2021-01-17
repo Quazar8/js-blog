@@ -22,8 +22,15 @@ const getRandom = (lower, upper) => {
     return Math.round(lower + upper * Math.random())
 }
 
+const successResponse = (msg, data) => ({
+    ...data,
+    error: false,
+    msg
+})
+
 module.exports = {
     genId,
     getDate,
-    getRandom
+    getRandom,
+    successResponse
 }
