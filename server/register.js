@@ -38,17 +38,19 @@ const registerUser = async (req, res) => {
 
     req.login(data.username, err => {
         if (err) {
+            console.error('Login after register error', err)
             return res.status(500).send(errorResonse('Something went wrong when logging you in'))
         }
         
         const { profilePic } = require('./db.json').Users[data.username]
-        return res.status(200).send({error: false,
-            user: {
-                username: data.username,
-                profilePic
-            },
-            msg: 'User registered'
-        })
+        const userInfo = {
+            username: data.username,
+            profilePic
+        }   
+
+        return res.status(200).send(successResponse('You have registered', {
+            user: userInfo
+        }))     
     })
 }
 
