@@ -28,9 +28,16 @@ const successResponse = (msg, data) => ({
     msg
 })
 
+const errorResonse = (errorMsg, data) => ({
+    ...data,
+    error: true,
+    errorMsg
+})
+
 module.exports = {
     genId,
     getDate,
     getRandom,
-    successResponse
+    successResponse,
+    errorResonse
 }
