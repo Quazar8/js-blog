@@ -1,4 +1,5 @@
 const { writeDb } = require('./db')
+const { successResponse, errorResonse } = require('./utils')
 
 const registerUserDb = async ({ username, password }) => {
     const jsonDb = require('./db.json')
@@ -23,8 +24,7 @@ const registerUser = async (req, res) => {
     const data = req.body
     console.log('username', data.username)
     if (!data || !data.username || !data.password){
-        res.status(403).send({ error: true, 
-            errorMsg: 'User fields missing' })
+        res.status(400).send(errorResonse('User fields missing'))
         return;
     }
 
@@ -32,9 +32,7 @@ const registerUser = async (req, res) => {
     data.password = data.password.trim()
     let result = await registerUserDb(data)
     if (result.error) {
-        res.status(403).send(
-            {error: true, errorMsg: result.errorMsg
-        })
+        res.status(400).send(errorResonse(result.errorMsg))
         return
     } 
 
