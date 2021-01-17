@@ -1,4 +1,5 @@
 const passport = require('passport')
+const { successResponse, errorResonse } = require('./utils')
 
 const loginUser = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
@@ -12,10 +13,16 @@ const loginUser = (req, res, next) => {
 
             const { Users } = require('./db.json')
             const { profilePic } = Users[user]
-            return res.status(200).send({error: false, user: {
+            // return res.status(200).send({error: false, user: {
+            //     username: user,
+            //     profilePic
+            // }})
+            const userInfo = {
                 username: user,
                 profilePic
-            }})
+            }
+            return res.status(200)
+                      .send(successResponse('', { user: userInfo }))
         })
         
     })(req, res, next)
