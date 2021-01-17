@@ -5,18 +5,14 @@ const loginUser = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if(err) return next(err)
         if(!user) 
-            return res.status(403).send({ error: true, 
-                errorMsg: 'Username or Password incorrect' })
+            return res.status(403).send(errorResonse('Username or password are incorrect'))
 
         req.login(user, (err) => {
             if(err) return next(err)
 
             const { Users } = require('./db.json')
             const { profilePic } = Users[user]
-            // return res.status(200).send({error: false, user: {
-            //     username: user,
-            //     profilePic
-            // }})
+
             const userInfo = {
                 username: user,
                 profilePic
