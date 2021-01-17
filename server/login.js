@@ -28,8 +28,7 @@ const logoutUser = (req, res) => {
     req.logout()
     res.status(200)
     .clearCookie('connect.sid')
-    .send({ error: false, 
-                    msg: 'User logged out'})
+    .send(successResponse('Logged out successfully'))
 }
 
 const getLoggedUser = (req, res) => {
