@@ -133,7 +133,7 @@ const editPost = (req, res) => {
     }
 
     const { title, content } = req.body 
-    
+
     if (!title || !content || !req.file) {
         res.status(403).send(errorResponse({}, 'Missing input fields'))
         return
@@ -144,7 +144,21 @@ const editPost = (req, res) => {
         return
     }
 
-    res.send({ error: false })
+    fs.unlink(path.join('./', post.thumbnail), () => {})
+    post.title = title
+    post.content = content
+    post.thumbnail = '\\' + req.file.path
+    post.date = getDate()
+    
+    writeDb(JSON.stringify(jsonDb)).then(resp => {
+        if (resp.error) {
+            res.status(500).send(errorResponse({}, resp.errorMsg))
+            return
+        }
+        
+        res.send(successResponse({}, `The article has been edited`))
+    })
+
 }
 
 module.exports = {
