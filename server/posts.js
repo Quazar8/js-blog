@@ -120,7 +120,7 @@ const deletePost = (req, res) => {
 const editPost = (req, res) => {
     const postId = req.params.postId
     if (!postId) {
-        res.status(400).send({ error: true, errorMsg: 'No post id presented'})
+        res.status(400).send(errorResponse({}, 'No post id presented'))
         return
     }
 
@@ -128,12 +128,12 @@ const editPost = (req, res) => {
     const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
-        res.status(400).send({ error: true, errorMsg: 'No such post exists'})
+        res.status(400).send(errorResponse({}, 'No such post exists'))
         return
     }
 
     if (post.authorId !== req.user) {
-        res.status(400).send({ error: true, errorMsg: 'No rights to do that`'})
+        res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
 
