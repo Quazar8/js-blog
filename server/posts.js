@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { genId, getDate } = require('./utils')
+const { genId, getDate, successResponse, errorResponse } = require('./utils')
 const { writeDb } = require('./db')
 const idBytes = 8
 
@@ -8,8 +8,7 @@ const postArticle = (req, res) => {
     const { title, content } = req.body
     console.log('file', req.file)
     if (!title || !content || !req.file) {
-        return res.status(403).send( { error: true, 
-                                errorMsg: 'Missing form field' })
+        return res.status(403).send(errorResponse({}, 'Missing form field'))
     } 
 
     const db = require('./db.json')
@@ -33,12 +32,10 @@ const postArticle = (req, res) => {
     const newDb = JSON.stringify(db);
     writeDb(newDb).then(result => {
         if (result.err) {
-                return res.status(500).send( {error: true,
-                                    errorMsg: result.errorMsg })
+                return res.status(500).send(errorResponse({}, result.errorMsg))
         }
         console.log('post published', post)
-        return res.status(200).send( { error: false,
-                                    msg: 'Successfully published' })
+        return res.status(200).send(successResponse({}, 'Successfully published'))
     })
 }
 
