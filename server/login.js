@@ -1,11 +1,11 @@
 const passport = require('passport')
-const { successResponse, errorResonse } = require('./utils')
+const { successResponse, errorResponse } = require('./utils')
 
 const loginUser = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if(err) return next(err)
         if(!user) 
-            return res.status(403).send(errorResonse({}, 'Username or password are incorrect'))
+            return res.status(403).send(errorResponse({}, 'Username or password are incorrect'))
 
         req.login(user, (err) => {
             if(err) return next(err)

@@ -1,5 +1,5 @@
 const { writeDb } = require('./db')
-const { successResponse, errorResonse } = require('./utils')
+const { successResponse, errorResponse } = require('./utils')
 
 const registerUserDb = async ({ username, password }) => {
     const jsonDb = require('./db.json')
@@ -24,7 +24,7 @@ const registerUser = async (req, res) => {
     const data = req.body
     console.log('username', data.username)
     if (!data || !data.username || !data.password){
-        res.status(400).send(errorResonse({}, 'User fields missing'))
+        res.status(400).send(errorResponse({}, 'User fields missing'))
         return;
     }
 
@@ -32,14 +32,14 @@ const registerUser = async (req, res) => {
     data.password = data.password.trim()
     let result = await registerUserDb(data)
     if (result.error) {
-        res.status(400).send(errorResonse({}, result.errorMsg))
+        res.status(400).send(errorResponse({}, result.errorMsg))
         return
     } 
 
     req.login(data.username, err => {
         if (err) {
             console.error('Login after register error', err)
-            return res.status(500).send(errorResonse({}, 'Something went wrong when logging you in'))
+            return res.status(500).send(errorResponse({}, 'Something went wrong when logging you in'))
         }
         
         const { profilePic } = require('./db.json').Users[data.username]

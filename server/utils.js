@@ -28,7 +28,7 @@ const successResponse = (dataObject, msg) => ({
     msg
 })
 
-const errorResonse = (dataObject, errorMsg) => ({
+const errorResponse = (dataObject, errorMsg) => ({
     ...dataObject,
     error: true,
     errorMsg
@@ -39,5 +39,5 @@ module.exports = {
     getDate,
     getRandom,
     successResponse,
-    errorResonse
+    errorResponse
 }
