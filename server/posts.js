@@ -42,7 +42,7 @@ const postArticle = (req, res) => {
 const getPosts = (req, res) => {
     const { Posts } = require('./db.json')
 
-    res.status(200).send({ error: false, posts: Posts })
+    res.status(200).send(successResponse({ posts: Posts }, ''))
 }
 
 const getSinglePost = (req, res) => {
@@ -51,16 +51,14 @@ const getSinglePost = (req, res) => {
     const id = req.params.postId
     if (!id)
     {
-        res.status(406).send({error: true,
-            errorMsg: 'Missing post\'s id'})
+        res.status(406).send(errorResponse({}, 'Missing post\'s id'))
         return
     }
 
     const post = Posts[id];
     if (!post)
     {
-        res.status(406).send({ error: true,
-            errorMsg: 'No such post exists' })
+        res.status(406).send(errorResponse({}, 'No such post exists'))
         return
     }
 
@@ -69,7 +67,7 @@ const getSinglePost = (req, res) => {
         username: post.authorId,
         profilePic: user.profilePic
     }
-    res.status(200).send({ error: false, post })
+    res.status(200).send(successResponse({ post }, ''))
 }
 
 const deletePost = (req, res) => {
