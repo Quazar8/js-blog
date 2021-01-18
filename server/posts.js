@@ -132,6 +132,13 @@ const editPost = (req, res) => {
         return
     }
 
+    const { title, content } = req.body 
+    
+    if (!title || !content || !req.file) {
+        res.status(403).send(errorResponse({}, 'Missing input fields'))
+        return
+    }
+
     if (post.authorId !== req.user) {
         res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
