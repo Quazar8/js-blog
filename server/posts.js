@@ -73,7 +73,7 @@ const getSinglePost = (req, res) => {
 const deletePost = (req, res) => {
     const postId = req.params.postId
     if (!postId) {
-        res.status(400).send({ error: true, errorMsg: 'No post id presented'})
+        res.status(400).send(errorResponse({}, 'No post id provided'))
         return
     }
 
@@ -81,12 +81,12 @@ const deletePost = (req, res) => {
     const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
-        res.status(400).send({ error: true, errorMsg: 'No such post exists'})
+        res.status(400).send(errorResponse({}, 'No such post exists'))
         return
     }
 
     if (post.authorId !== req.user) {
-        res.status(400).send({ error: true, errorMsg: 'No rights to do that`'})
+        res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
 
@@ -102,7 +102,7 @@ const deletePost = (req, res) => {
 
     writeDb(JSON.stringify(jsonDb)).then(resp => {
         if (resp.error) {
-            res.status(500).send({ error: true, errorMsg: resp.errorMsg })
+            res.status(500).send(errorResponse({}, resp.errorMsg))
             return
         }
 
@@ -113,7 +113,7 @@ const deletePost = (req, res) => {
             }
         })
 
-        res.send({ error: false, msg: `${ post.title } successfully deleted`})
+        res.send(successResponse({}, `${ post.title } successfully deleted`))
     })
 }
 
