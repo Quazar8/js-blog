@@ -5,7 +5,7 @@ const loginUser = (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
         if(err) return next(err)
         if(!user) 
-            return res.status(403).send(errorResonse('Username or password are incorrect'))
+            return res.status(403).send(errorResonse({}, 'Username or password are incorrect'))
 
         req.login(user, (err) => {
             if(err) return next(err)
@@ -18,7 +18,7 @@ const loginUser = (req, res, next) => {
                 profilePic
             }
             return res.status(200)
-                      .send(successResponse('', { user: userInfo }))
+                      .send(successResponse({ user: userInfo }, ''))
         })
         
     })(req, res, next)
@@ -33,19 +33,19 @@ const logoutUser = (req, res) => {
 
 const getLoggedUser = (req, res) => {
     if (!req.user) {
-        res.status(200).send(successResponse('', { isLogged: false }))
+        res.status(200).send(successResponse({ isLogged: false }, ''))
         return
     }
     
     const { profilePic } = require('./db.json').Users[req.user]
     
-    res.status(200).send(successResponse('', {
+    res.status(200).send(successResponse({
         isLogged: true,
         user: {
             username: req.user,
             profilePic
         }
-    }))
+    }, ''))
 }
 
 module.exports = {

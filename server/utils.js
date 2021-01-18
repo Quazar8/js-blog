@@ -22,14 +22,14 @@ const getRandom = (lower, upper) => {
     return Math.round(lower + upper * Math.random())
 }
 
-const successResponse = (msg, data) => ({
-    ...data,
+const successResponse = (dataObject, msg) => ({
+    ...dataObject,
     error: false,
     msg
 })
 
-const errorResonse = (errorMsg, data) => ({
-    ...data,
+const errorResonse = (dataObject, errorMsg) => ({
+    ...dataObject,
     error: true,
     errorMsg
 })
