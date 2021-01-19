@@ -120,3 +120,11 @@
         text-align: justify;
     }
 }
+
+@media only screen and (max-width: 680px) {
+    .post-view {
+        h2 {
+            font-size: 5vw;
+        }
+    }
+}
