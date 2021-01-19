@@ -76,10 +76,14 @@ const PostView = ({ username, dispatch }) => {
                 </h3>
                 <p>{ content }</p>
             </article>
-            <PostAuthorButtons
-                deletePost = { deletePost }
-                postId = { getPostIdFromUrl() }
-            />
+            {
+                post.author.username === username ?
+                <PostAuthorButtons
+                    deletePost = { deletePost }
+                    postId = { getPostIdFromUrl() }
+                />
+                : null
+            }
         </section>
     )
 }
