@@ -11,6 +11,14 @@
     }
 }
 
+@mixin links-transition {
+    $transition-time: 0.5s;
+    $timing-function: ease-out;
+    transition: background-color $transition-time $timing-function,
+    color $transition-time $timing-function,
+    stroke $transition-time $timing-function;
+}
+
 $block-color: v.$block-color;
 .main-navbar {
     font-family: 'Jura', sans-serif;
@@ -43,6 +51,7 @@ $block-color: v.$block-color;
         display: flex;
         align-items: center;
         justify-content: center;
+        @include links-transition();
         
         &:hover {
             background-color: white;
@@ -117,6 +126,7 @@ $block-color: v.$block-color;
     display: flex;
     align-items: center;
     justify-content: center;
+    @include links-transition();
     
         &:hover {
         background-color: white;
@@ -150,6 +160,7 @@ $block-color: v.$block-color;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include links-transition();
 
     .image-container {
         width: 40%;
@@ -218,6 +229,7 @@ $block-color: v.$block-color;
     li {
         width: 100%;
         padding: 10% 0;
+        @include links-transition();
     }
 
     li:hover {
@@ -277,6 +289,7 @@ $block-color: v.$block-color;
         li {
             text-align: center;
             padding: 10%;
+            @include links-transition();
         }
 
         .triangle {
