@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostAuthorButtons = ({ deletePost }) => {
+const PostAuthorButtons = ({ deletePost, postId }) => {
     return (
         <div className = "button-container">
-            <Link className = "edit-link">
+            <Link to = "" className = "edit-link">
                 Edit
             </Link>
             <button onClick = { deletePost } >Delete</button>
