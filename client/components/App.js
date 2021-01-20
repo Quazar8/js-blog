@@ -38,9 +38,9 @@ const AppView = ({ checkUserLogged }) => {
                     <Route path = "/create/post">
                         <PrivateRoute child = { InputPostForm } />
                     </Route>
-                    <Route path = "/post/edit/:postId">
-                        <InputPostForm />
-                    </Route>
+                    <Route path = "/post/edit/:postId"
+                        render = { (props) => <InputPostForm {...props} />}
+                    />
                     <Route path = "/post/:title">
                         <Post />
                     </Route>

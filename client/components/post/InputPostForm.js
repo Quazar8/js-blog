@@ -101,9 +101,11 @@ const InputPostFormView = ({ user, tryToPublish }) => {
     )
 }
 
-const mapState = store => ({
-    user: store.user.user
-})
+const mapState = (store, customProps) => {
+    return {
+        user: store.user.user
+    }
+}
 
 const mapDispatch = dispatch => ({
     tryToPublish: data => {
