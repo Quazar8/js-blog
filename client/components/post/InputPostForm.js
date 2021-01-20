@@ -27,6 +27,7 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
                 titleRef.current.innerText = title
                 contentRef.current.innerText = content
                 imageRef.current.src = thumbnail
+                setLabelText('')
             })
         }
     }, [])
