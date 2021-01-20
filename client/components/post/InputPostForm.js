@@ -124,7 +124,7 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
 const mapState = (store, customProps) => {
     return {
         user: store.user.user,
-        postId: customProps.match.params.postId
+        postId: customProps?.match?.params?.postId
     }
 }
 
