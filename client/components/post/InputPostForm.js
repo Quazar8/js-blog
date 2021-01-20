@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../../store/postsActions'
 
-const InputPostFormView = ({ user, tryToPublish }) => {
+const InputPostFormView = ({ user, tryToPublish, postId }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -11,6 +11,10 @@ const InputPostFormView = ({ user, tryToPublish }) => {
     const titleRef = useRef()
     const contentRef = useRef()
     const thumbnailRef = useRef()
+
+    useEffect(() => {
+        console.log('postId', postId)
+    }, [])
 
     const draggedOver = (e) => {
         e.preventDefault()
@@ -103,7 +107,8 @@ const InputPostFormView = ({ user, tryToPublish }) => {
 
 const mapState = (store, customProps) => {
     return {
-        user: store.user.user
+        user: store.user.user,
+        postId: customProps.match.params.postId
     }
 }
 
