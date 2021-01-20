@@ -104,8 +104,8 @@ const deletePostServer = postId => {
             .then(resp => resp.json())
 }
 
-const editPostServer = postId => {
-    const queryOptions = filePostQueryOptions()
+const editPostServer = (postId, data) => {
+    const queryOptions = filePostQueryOptions(data)
     queryOptions.method = 'PUT'
     return fetch(baseUrl + '/post/edit/' + postId, queryOptions)
                 .then(resp => resp.json())

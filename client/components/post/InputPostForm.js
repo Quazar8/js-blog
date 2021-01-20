@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { publishPostAction } from '../../store/postsActions'
 import { showError } from '../../store/globalActions'
-import { getSinglePostServer } from '../../api'
+import { getSinglePostServer, editPostServer } from '../../api'
 
 const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
@@ -61,14 +61,25 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
         setLabelClass('')
     }
 
-    const submitPost = () => {
-        const data = {
+    const getFormData = () => {
+        return {
             title: titleRef.current.textContent,
             content: contentRef.current.textContent,
             thumbnail: thumbnailRef.current
         }
+    }
 
-        tryToPublish(data)
+    const sendEditedPost = (postId, data) => {
+        editPostServer(postId, data)
+    }
+
+    const submitPost = () => {
+        const data = getFormData()
+        if (postId) {
+            sendEditedPost(postId, data)
+        } else {
+            tryToPublish(getFormData())
+        }
     }
 
     return (
