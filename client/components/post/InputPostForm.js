@@ -2,8 +2,10 @@ import React, { useRef, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../../store/postsActions'
+import { showError } from '../../store/globalActions'
+import { getSinglePostServer } from '../../api'
 
-const InputPostFormView = ({ user, tryToPublish, postId }) => {
+const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -13,7 +15,20 @@ const InputPostFormView = ({ user, tryToPublish, postId }) => {
     const thumbnailRef = useRef()
 
     useEffect(() => {
-        console.log('postId', postId)
+        if (postId) {
+            getSinglePostServer(postId).then(resp => {
+                if (resp.error) {
+                    dispatch(showError(resp.errorMsg))
+                    console.error('Error retrieving post', resp.errorMsg)
+                    return
+                }
+
+                const { title, content, thumbnail } = resp.post
+                titleRef.current.innerText = title
+                contentRef.current.innerText = content
+                imageRef.current.src = thumbnail
+            })
+        }
     }, [])
 
     const draggedOver = (e) => {
