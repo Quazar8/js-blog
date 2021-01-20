@@ -97,13 +97,19 @@ const getSinglePostServer = (postId) => {
                 .then(resp => resp.json())
 }
 
-const deletePostServer = (postId) => {
+const deletePostServer = postId => {
     const queryOptions = getQueryOptions()
     queryOptions.method = 'DELETE'
     return fetch(baseUrl + '/post/delete/' + postId, queryOptions)
             .then(resp => resp.json())
 }
 
+const editPostServer = postId => {
+    const queryOptions = filePostQueryOptions()
+    queryOptions.method = 'PUT'
+    return fetch(baseUrl + '/post/edit/' + postId, queryOptions)
+                .then(resp => resp.json())
+}
 export {
     registerUserServer,
     loginUserServer,
@@ -113,5 +119,6 @@ export {
     getSinglePostServer,
     getLoggedUserServer,
     getUserProfileServer,
-    deletePostServer
+    deletePostServer,
+    editPostServer
 }
