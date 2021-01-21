@@ -134,7 +134,7 @@ const editPost = (req, res) => {
 
     const { title, content } = req.body 
 
-    if (!title || !content || !req.file) {
+    if (!title || !content) {
         res.status(403).send(errorResponse({}, 'Missing input fields'))
         return
     }
@@ -144,11 +144,14 @@ const editPost = (req, res) => {
         return
     }
 
-    fs.unlink(path.join('./', post.thumbnail), () => {})
     post.title = title
     post.content = content
-    post.thumbnail = '\\' + req.file.path
     post.date = getDate()
+
+    if (req.file) {
+        fs.unlink(path.join('./', post.thumbnail), () => {})
+        post.thumbnail = '\\' + req.file.path
+    }
     
     writeDb(JSON.stringify(jsonDb)).then(resp => {
         if (resp.error) {
