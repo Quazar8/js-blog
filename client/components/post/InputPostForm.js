@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { getUrlTitle } from '../../utils'
 
 import { publishPostAction } from '../../store/postsActions'
 import { showError, showSuccess } from '../../store/globalActions'
@@ -8,6 +10,7 @@ import { getSinglePostServer, editPostServer } from '../../api'
 const InputPostFormView = ({ user, tryToPublish, postId, dispatchToStore }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
+    const history = useHistory()
 
     const imageRef = useRef()
     const titleRef = useRef()
@@ -77,6 +80,8 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatchToStore }) => {
             }
 
             dispatchToStore(showSuccess('Post edited successfully!'))
+            const title = titleRef.current.textContent
+            history.push('/post/' + getUrlTitle(title, postId))
         })
     }
 
