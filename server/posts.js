@@ -4,14 +4,19 @@ const { genId, getDate, successResponse, errorResponse } = require('./utils')
 const { writeDb } = require('./db')
 const idBytes = 8
 
+const deleteFile = (file) => {
+    if (file) {
+        fs.unlink(path.join('./', file.path), () => {
+            console.log(file.name + 'deleted')
+        })
+    }
+}
+
 const postArticle = (req, res) => {
     const { title, content } = req.body
     console.log('file', req.file)
     if (!title || !content || !req.file) {
-        if (req.file) {
-            fs.unlink(path.join('./', req.file.path), () => {})
-        }
-
+        deleteFile(req.file)
         return res.status(403).send(errorResponse({}, 'Missing form field'))
     } 
 
@@ -124,6 +129,7 @@ const deletePost = (req, res) => {
 const editPost = (req, res) => {
     const postId = req.params.postId
     if (!postId) {
+        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No post id presented'))
         return
     }
@@ -132,6 +138,7 @@ const editPost = (req, res) => {
     const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
+        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No such post exists'))
         return
     }
@@ -139,11 +146,13 @@ const editPost = (req, res) => {
     const { title, content } = req.body 
 
     if (!title || !content) {
+        deleteFile(req.file)
         res.status(403).send(errorResponse({}, 'Missing input fields'))
         return
     }
 
     if (post.authorId !== req.user) {
+        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
