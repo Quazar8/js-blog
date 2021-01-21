@@ -143,17 +143,17 @@ const editPost = (req, res) => {
         return
     }
 
-    const { title, content } = req.body 
+    if (post.authorId !== req.user) {
+        deleteFile(req.file)
+        res.status(400).send(errorResponse({}, 'No rights to do that'))
+        return
+    }
+
+    const { title, content } = req.body
 
     if (!title || !content) {
         deleteFile(req.file)
         res.status(403).send(errorResponse({}, 'Missing input fields'))
-        return
-    }
-
-    if (post.authorId !== req.user) {
-        deleteFile(req.file)
-        res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
 

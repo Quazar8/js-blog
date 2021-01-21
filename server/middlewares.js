@@ -1,6 +1,6 @@
 const multer = require('multer')
 const path = require('path')
-const { genId } = require('./utils')
+const { genId, errorResponse } = require('./utils')
 
 const isLoggedMiddle = (req, res, next) => {
     if (req.user) {
@@ -56,5 +56,5 @@ const uploadMiddleware = (req, res, next) => {
 
 module.exports = {
     isLoggedMiddle,
-    uploadMiddleware
+    uploadMiddleware,
 }
