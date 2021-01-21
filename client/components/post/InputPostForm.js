@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { publishPostAction } from '../../store/postsActions'
-import { showError } from '../../store/globalActions'
+import { showError, showSuccess } from '../../store/globalActions'
 import { getSinglePostServer, editPostServer } from '../../api'
 
-const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
+const InputPostFormView = ({ user, tryToPublish, postId, dispatchToStore }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
 
@@ -18,7 +18,7 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
         if (postId) {
             getSinglePostServer(postId).then(resp => {
                 if (resp.error) {
-                    dispatch(showError(resp.errorMsg))
+                    dispatchToStore(showError(resp.errorMsg))
                     console.error('Error retrieving post', resp.errorMsg)
                     return
                 }
@@ -70,7 +70,14 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
     }
 
     const sendEditedPost = (postId, data) => {
-        editPostServer(postId, data)
+        editPostServer(postId, data).then(resp => {
+            if (resp.error) {
+                dispatchToStore(showError(resp.errorMsg))
+                return
+            }
+
+            dispatchToStore(showSuccess('Post edited successfully!'))
+        })
     }
 
     const submitPost = () => {
@@ -78,7 +85,7 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatch }) => {
         if (postId) {
             sendEditedPost(postId, data)
         } else {
-            tryToPublish(getFormData())
+            tryToPublish(data)
         }
     }
 
@@ -142,6 +149,9 @@ const mapState = (store, customProps) => {
 const mapDispatch = dispatch => ({
     tryToPublish: data => {
         dispatch(publishPostAction(data))
+    },
+    dispatchToStore: action => {
+        dispatch(action)
     }
 })
 
