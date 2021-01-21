@@ -8,6 +8,10 @@ const postArticle = (req, res) => {
     const { title, content } = req.body
     console.log('file', req.file)
     if (!title || !content || !req.file) {
+        if (req.file) {
+            fs.unlink(path.join('./', req.file.path), () => {})
+        }
+
         return res.status(403).send(errorResponse({}, 'Missing form field'))
     } 
 
