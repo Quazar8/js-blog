@@ -39,7 +39,9 @@ const AppView = ({ checkUserLogged }) => {
                         <PrivateRoute child = { InputPostForm } />
                     </Route>
                     <Route path = "/post/edit/:postId"
-                        render = { (props) => <InputPostForm {...props} />}
+                        render = { (props) => (
+                            <PrivateRoute child = { InputPostForm } {...props} />
+                        )}
                     />
                     <Route path = "/post/:title">
                         <Post />

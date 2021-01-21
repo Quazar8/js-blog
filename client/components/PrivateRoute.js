@@ -7,9 +7,9 @@ const PrivateRouteView = ({ online, Child, otherProps }) => {
     if (!online) {
         return <NotFound />
     }
-    console.log('otherProps', otherProps)
+
     return (
-        <Child />
+        <Child  { ...otherProps }/>
     )
 }
 
