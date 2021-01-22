@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { genId, getDate, successResponse, errorResponse } = require('./utils')
 const { writeDb } = require('./db')
+const uploadImage = require('./upload')
 const idBytes = 8
 
 const deleteFile = (file) => {
@@ -126,10 +127,9 @@ const deletePost = (req, res) => {
     })
 }
 
-const editPostOld = (req, res) => {
+const editPost = (req, res) => {
     const postId = req.params.postId
     if (!postId) {
-        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No post id presented'))
         return
     }
@@ -138,46 +138,52 @@ const editPostOld = (req, res) => {
     const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
-        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No such post exists'))
         return
     }
 
     if (post.authorId !== req.user) {
-        deleteFile(req.file)
         res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
-
-    const { title, content } = req.body
-
-    if (!title || !content) {
-        deleteFile(req.file)
-        res.status(403).send(errorResponse({}, 'Missing input fields'))
-        return
-    }
-
-    post.title = title
-    post.content = content
-    post.date = getDate()
-
-    if (req.file) {
-        fs.unlink(path.join('./', post.thumbnail), () => {})
-        post.thumbnail = '\\' + req.file.path
-    }
     
-    writeDb(JSON.stringify(jsonDb)).then(resp => {
-        if (resp.error) {
-            res.status(500).send(errorResponse({}, resp.errorMsg))
+    const applyChangesToPost = (req, res) => {
+        const { title, content } = req.body
+
+        if (!title || !content) {
+            deleteFile(req.file)
+            res.status(403).send(errorResponse({}, 'Missing input fields'))
             return
         }
-        
-        res.send(successResponse({}, `The article has been edited`))
-    })
-}
 
-const editPost = (req, res) => {
-    res.status(500).send(errorResponse({}, 'Editing temporary unavailable'))
+        post.title = title
+        post.content = content
+        post.date = getDate()
+
+        if (req.file) {
+            fs.unlink(path.join('./', post.thumbnail), () => {})
+            post.thumbnail = '\\' + req.file.path
+        }
+        
+        writeDb(JSON.stringify(jsonDb)).then(resp => {
+            if (resp.error) {
+                res.status(500).send(errorResponse({}, resp.errorMsg))
+                return
+            }
+            
+            res.send(successResponse({}, `The article has been edited`))
+        })
+    }
+
+    uploadImage.single('thumbnail')(req, res, (err) => {
+        if (err) {
+            console.error('Error uploading post thumbnail', err)
+            res.status(500).send(errorResponse({}, 'There has been an error processing the image'))
+            return
+        }
+
+        applyChangesToPost(req, res)
+    })
 }
 
 module.exports = {

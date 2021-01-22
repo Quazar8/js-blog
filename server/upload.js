@@ -1,3 +1,7 @@
+const multer = require('multer')
+const path = require('path')
+const { genId } = require('./utils')
+
 const checkFileType = (file, cb) => {
     const permitted = /jpeg|jpg|png/
 
