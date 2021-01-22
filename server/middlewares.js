@@ -47,7 +47,7 @@ const uploadMiddleware = (req, res, next) => {
     middleware(req, res, (err) => {
         if (err) {
             console.error('Error', err)
-            return res.status(500).send({error: true, errorMsg: err})
+            return res.status(500).send(errorResponse({}, err))
         }
 
         next()
