@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { getUrlTitle } from '../../utils'
 
 const PostRow = ({ post, index, postsLength }) => {
-    const { title, content, 
-            authorId, postId,
-            thumbnail } = post
+    const { title = "", content = "", 
+            authorId = "", postId = "",
+            thumbnail = "" } = post
     
     let titlePreview = title
     if (title.length > 34) {
