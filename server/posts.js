@@ -187,6 +187,24 @@ const editPost = (req, res) => {
 }
 
 const getUserPosts = (req, res) => {
+    const { userId, page } = req.params
+    const pageNum = parseInt(page)
+
+    if (isNaN(pageNum) || pageNum < 1) {
+        return res.status(400).send(errorResponse({}, 'Page number is invalid'))
+    }
+
+    const db = require('./db.json')
+    if (!db.Users.hasOwnProperty(userId)) {
+        return res.status(400).send(errorResponse({}, 'No such user exists'))
+    }
+
+    const user = db.Users[userId]
+    const totalPages = Math.ceil(user.posts.length / 10)
+    if (pageNum > totalPages) {
+        return res.status(400).send(errorResponse({}, 'Page number exceeds the user\'s amount'))
+    }
+
     res.status(200).send(successResponse({}, 'Route under contrusction'))
 }
 

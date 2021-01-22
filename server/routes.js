@@ -27,7 +27,7 @@ const routes = (app) => {
 
    app.put('/post/edit/:postId', isLoggedMiddle, editPost)
 
-   app.get('/user/:userId/posts/:pageNum', getUserPosts)
+   app.get('/user/:userId/posts/:page', getUserPosts)
 }
 
 module.exports = routes
