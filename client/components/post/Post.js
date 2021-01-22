@@ -26,7 +26,7 @@ const PostView = ({ username, dispatch }) => {
 
     useEffect(() => {
         const postId = getPostIdFromUrl()
-        if(postId) {
+        if (postId) {
             getSinglePostServer(postId).then(resp => {
                 if (resp.error) {
                     console.log('Error retrieeving post')
@@ -38,7 +38,7 @@ const PostView = ({ username, dispatch }) => {
         }
     }, [])
 
-    if (!post.title) {
+    if (!post) {
         return <h1>No such post exists</h1>
     }
 
