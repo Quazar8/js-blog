@@ -126,7 +126,7 @@ const deletePost = (req, res) => {
     })
 }
 
-const editPost = (req, res) => {
+const editPostOld = (req, res) => {
     const postId = req.params.postId
     if (!postId) {
         deleteFile(req.file)
@@ -174,7 +174,10 @@ const editPost = (req, res) => {
         
         res.send(successResponse({}, `The article has been edited`))
     })
+}
 
+const editPost = (req, res) => {
+    res.status(500).send(errorResponse({}, 'Editing temporary unavailable'))
 }
 
 module.exports = {

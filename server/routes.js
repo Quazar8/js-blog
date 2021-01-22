@@ -25,7 +25,7 @@ const routes = (app) => {
 
    app.delete('/post/delete/:postId', isLoggedMiddle, deletePost)
 
-   app.put('/post/edit/:postId', isLoggedMiddle, uploadMiddleware, editPost)
+   app.put('/post/edit/:postId', isLoggedMiddle, editPost)
 }
 
 module.exports = routes
