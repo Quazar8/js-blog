@@ -146,7 +146,7 @@ const editPost = (req, res) => {
         res.status(400).send(errorResponse({}, 'No rights to do that'))
         return
     }
-    
+
     const applyChangesToPost = (req, res) => {
         const { title, content } = req.body
 
@@ -186,10 +186,15 @@ const editPost = (req, res) => {
     })
 }
 
+const getUserPosts = (req, res) => {
+    res.status(200).send(successResponse({}, 'Route under contrusction'))
+}
+
 module.exports = {
     postArticle,
     getPosts,
     getSinglePost,
     deletePost,
-    editPost
+    editPost,
+    getUserPosts
 }
