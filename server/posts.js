@@ -205,7 +205,19 @@ const getUserPosts = (req, res) => {
         return res.status(400).send(errorResponse({}, 'Page number exceeds the user\'s amount'))
     }
 
-    res.status(200).send(successResponse({}, 'Route under contrusction'))
+    const startIndex = (pageNum - 1) * 10
+    const endIndex = startIndex + 10
+    const postsIdsInPage = user.posts.slice(startIndex, endIndex)
+
+    let userPosts = []
+    for (let postId of postsIdsInPage) {
+        userPosts.push(db.Posts[postId])
+    }
+
+    res.status(200).send(successResponse({
+        userPosts,
+        totalPages
+    }, 'Retrieved user posts'))
 }
 
 module.exports = {
