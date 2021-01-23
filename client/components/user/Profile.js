@@ -34,9 +34,11 @@ const Profile = ({ match }) => {
             </div>
             <div className = "right-section">
             {
-                posts.map((p, i) => (
+                posts.length
+                ? posts.map((p, i) => (
                     <PostSnippet key = { i } post = { p } />
                 )).reverse()
+                : <h2 className = "no-posts">User hasn't created any articles yet</h2>
             }
             </div>
         </section>
