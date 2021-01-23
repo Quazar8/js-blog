@@ -11,8 +11,9 @@ const Profile = ({ match }) => {
         posts: []
     })
 
+
+    const userId = match.params.id
     useEffect(() => {
-        const userId = match.params.id
         getUserProfileServer(userId).then(resp => {
             if (resp.error) {
                 return
@@ -20,7 +21,7 @@ const Profile = ({ match }) => {
 
             setUser(resp.user)
         })
-    }, [])
+    }, [userId])
 
     const { profilePic, username, totalPosts, posts } = user
     return (
