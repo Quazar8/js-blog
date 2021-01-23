@@ -6,7 +6,7 @@
 @use 'user-forms';
 @use 'posts/posts';
 @use 'home';
-@use 'profile_page';
+@use 'profile-page/profile_page.scss';
 
 $background-blur: 5px;
 
