@@ -30,7 +30,7 @@ const Profile = ({ match }) => {
                     <img src = { profilePic } alt = "profile picture" />
                 </div>
                 <h2>{ username }</h2>
-                <h3>Author of { totalPosts } articles.</h3>
+                <h3>Author of <span>{ totalPosts }</span> articles.</h3>
             </div>
             <div className = "right-section">
             {

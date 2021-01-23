@@ -15,20 +15,36 @@
     .left-section{
         width: 50%;
         display: flex;
-        justify-content: center;
         align-items: center;
 
         h2, h3 {
             padding-top: 3%;
         }
 
+        h2 {
+            font-family: 'Jura', sans-serif;
+            font-size: 3vw;
+            font-weight: bold;
+            color: #e4fa22;
+            letter-spacing: 1vw;
+        }
+
+        h3 {
+            span {
+                color: lightgreen;
+            }
+        }
+
         .image-container {
+            border: 0.8vw solid skyblue;
+            border-radius: 50%;
             width: 40%;
             display: flex;
-            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 5%;
 
             img {
-                width: 70%;
+                width: 100%;
             }
         }
     }
