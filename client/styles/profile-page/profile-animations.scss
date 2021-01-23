@@ -1,0 +1,8 @@
+@keyframes profile-rotation {
+    from {
+        transform: rotataY(-40deg); 
+    }
+    to {
+        transform: rotateY(40deg);
+    }
+}

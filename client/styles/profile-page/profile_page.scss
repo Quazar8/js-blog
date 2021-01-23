@@ -1,4 +1,5 @@
 @use '../variables' as v;
+@use 'profile-animations';
 
 .profile-page {
     width: 90%;
@@ -35,13 +36,39 @@
             }
         }
 
+        .profile-pic-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5% 0;
+            width: 100%;
+            position: relative;
+
+            #square {
+                display: none;
+                width: 40%;
+                height: 120%;
+                position: absolute;
+                z-index: 0;
+                top: -10%;
+                left: 30%;
+                border-radius: 2%;
+                background: skyblue;
+                transform: rotateZ(45deg);
+                // animation: profile-rotation 4s linear infinite;
+            }
+        }
+
         .image-container {
+            position: relative;
+            z-index: 1;
             border: 0.8vw solid skyblue;
             border-radius: 50%;
-            width: 40%;
+            width: 30%;
             display: flex;
             overflow: hidden;
-            margin-bottom: 5%;
+            perspective: 1000px;
+            animation: profile-rotation 2s ease-out infinite alternate;
 
             img {
                 width: 100%;
