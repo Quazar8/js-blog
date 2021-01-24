@@ -1,8 +1,13 @@
-@keyframes profile-rotation {
-    from {
-        transform: rotataY(-40deg); 
+@keyframes square-animation {
+    0% {
+        transform: rotataZ(45deg);
     }
-    to {
-        transform: rotateY(40deg);
+
+    10% {
+        transform: rotataZ(120deg);
+    }
+
+    100% {
+        transform: rotateZ(45deg);
     }
 }

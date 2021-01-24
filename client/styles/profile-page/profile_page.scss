@@ -45,30 +45,28 @@
             position: relative;
 
             #square {
-                display: none;
-                width: 40%;
-                height: 120%;
+                width: 15vw;
+                height: 15vw;
                 position: absolute;
                 z-index: 0;
-                top: -10%;
-                left: 30%;
+                top: -4%;
+                left: calc(50% - 7.5vw);
                 border-radius: 2%;
                 background: skyblue;
                 transform: rotateZ(45deg);
-                // animation: profile-rotation 4s linear infinite;
+                animation: square-animation 10s linear;
             }
         }
 
         .image-container {
             position: relative;
             z-index: 1;
-            border: 0.8vw solid skyblue;
+            border: 0.4vw solid skyblue;
+            box-sizing: border-box;
             border-radius: 50%;
             width: 30%;
             display: flex;
             overflow: hidden;
-            perspective: 1000px;
-            animation: profile-rotation 2s ease-out infinite alternate;
 
             img {
                 width: 100%;
