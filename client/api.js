@@ -110,6 +110,12 @@ const editPostServer = (postId, data) => {
     return fetch(baseUrl + '/post/edit/' + postId, queryOptions)
                 .then(resp => resp.json())
 }
+
+const getUserPostsServer = (userId, page) => {
+    return fetch(baseUrl + `/user/${userId}/posts/${page}`, getQueryOptions())
+                .then(resp => resp.json())
+}
+
 export {
     registerUserServer,
     loginUserServer,
@@ -120,5 +126,6 @@ export {
     getLoggedUserServer,
     getUserProfileServer,
     deletePostServer,
-    editPostServer
+    editPostServer,
+    getUserPostsServer
 }
