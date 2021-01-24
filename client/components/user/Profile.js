@@ -39,7 +39,7 @@ const Profile = ({ match }) => {
             </div>
             <div className = "right-section">
             <div className = "see-all-container">
-                <Link className="see-all-link" to="">
+                <Link className = "see-all-link" to = {`/profile/${userId}/posts/1`}>
                     See all
                 </Link>
             </div>

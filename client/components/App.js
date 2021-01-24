@@ -11,6 +11,7 @@ import Notification from './Notification'
 import Post from './post/Post'
 import InputPostForm from './post/InputPostForm'
 import Profile from './user/Profile'
+import UserPosts from './user/UserPosts'
 import NotFound from './NotFound'
 
 import { getLoggedUser } from '../store/userActions'
@@ -45,6 +46,9 @@ const AppView = ({ checkUserLogged }) => {
                     />
                     <Route path = "/post/:title">
                         <Post />
+                    </Route>
+                    <Route path = "/profile/:id/posts/:pageNum">
+                        <UserPosts />
                     </Route>
                     <Route path = "/profile/:id" component = { Profile } />
                     <Route>
