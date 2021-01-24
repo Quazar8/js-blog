@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { getUserProfileServer } from '../../api'
 
 import PostSnippet from './PostSnippet'
@@ -37,6 +38,11 @@ const Profile = ({ match }) => {
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>
             </div>
             <div className = "right-section">
+            <div className = "see-all-container">
+                <Link className="see-all-link" to="">
+                    See all
+                </Link>
+            </div>
             {
                 posts.length
                 ? posts.map((p, i) => (
