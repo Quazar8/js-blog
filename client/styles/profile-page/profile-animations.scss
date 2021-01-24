@@ -1,13 +1,9 @@
 @keyframes square-animation {
-    0% {
+    10% {
         transform: rotataZ(45deg);
     }
 
-    10% {
-        transform: rotataZ(120deg);
-    }
-
     100% {
-        transform: rotateZ(45deg);
+        transform: rotateZ(360deg);
     }
 }
