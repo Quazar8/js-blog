@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getUserProfileServer } from '../../api'
+import { showError } from '../../store/globalActions'
 
 import PostSnippet from './PostSnippet'
 
-const Profile = ({ match }) => {
+const ProfileView = ({ match, dispatchToServer }) => {
     const [user, setUser] = useState({
         username: '',
         profilePic: '',
@@ -17,6 +19,7 @@ const Profile = ({ match }) => {
     useEffect(() => {
         getUserProfileServer(userId).then(resp => {
             if (resp.error) {
+                dispatchToServer(showError(resp.errorMsg))
                 return
             }
 
@@ -54,5 +57,15 @@ const Profile = ({ match }) => {
         </section>
     )
 }
+
+const mapDispatch = dispatch => {
+    return {
+        dispatchToServer: action => {
+            dispatch(action)
+        }
+    }
+}
+
+const Profile = connect(null, mapDispatch)(ProfileView)
 
 export default Profile
