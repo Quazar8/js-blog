@@ -8,8 +8,8 @@ import { getUserPostsServer } from '../../api'
 const UserPostsView = ({ match, dispatchToStore }) => {
     const [posts, setPosts] = useState([])
 
+    const { userId, pageNum } = match.params
     useEffect(() => {
-        const { userId, pageNum } = match.params
         getUserPostsServer(userId, pageNum).then(resp => {
             if (resp.error) {
                 dispatchToStore(showError(resp.errorMsg))
@@ -19,7 +19,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
 
             setPosts(resp.userPosts)
         })
-    }, [])
+    }, [userId, pageNum])
 
     return (
         <div className = "user-posts-container">
