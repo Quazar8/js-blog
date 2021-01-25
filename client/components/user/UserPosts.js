@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import UserPostPreview from './UserPostPreview'
 import { getUserPostsServer } from '../../api'
 
-const UserPosts = ({ match }) => {
+const UserPostsView = ({ match, dispatchToStore }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
         const { userId, pageNum } = match.params
         getUserPostsServer(userId, pageNum).then(resp => {
-            console.log(resp)
             if (resp.error) {
                 console.error(resp.errorMsg)
                 return
@@ -28,5 +28,15 @@ const UserPosts = ({ match }) => {
         </div>
     )
 }
+
+const mapDispatch = dispatch => {
+    return {
+        dispatchToStore: (action) => {
+            dispatch(action)
+        }
+    }
+}
+
+const UserPosts = connect(null, mapDispatch)(UserPostsView)
 
 export default UserPosts
