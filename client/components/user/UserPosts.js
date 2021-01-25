@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import UserPostPreview from './UserPostPreview'
 import { getUserPostsServer } from '../../api'
 
 const UserPosts = ({ match }) => {
@@ -20,9 +21,9 @@ const UserPosts = ({ match }) => {
     return (
         <div className = "user-posts-container">
             {
-                posts.map((post, i) => {
-                    return <h3 key = { i }>{ post.title }</h3>
-                }).reverse()
+                posts.map((post, i) => (
+                    <UserPostPreview key = { i } post = { post } />
+                )).reverse()
             }
         </div>
     )
