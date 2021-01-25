@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { getUserPostsServer } from '../../api'
 
-const UserPosts = () => {
+const UserPosts = ({ match }) => {
     useEffect(() => {
-        const userId = 'nick2'
-        const page = 1
-        getUserPostsServer(userId, page).then(resp => {
+        const { userId, pageNum } = match.params
+        getUserPostsServer(userId, pageNum).then(resp => {
             console.log(resp)
         })
     }, [])
