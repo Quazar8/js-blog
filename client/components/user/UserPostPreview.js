@@ -2,7 +2,8 @@ import React from 'react'
 
 const UserPostPreview = ({ post }) => {
     const { title, content, thumbnail } = post
-    const shortContent = content.substring(0, 250)
+    const shortContent = content.substring(0, 640)
+
     return (
         <div className = "user-post-preview">
             <div className = "image-container">
