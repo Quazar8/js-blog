@@ -8,8 +8,10 @@ const UserPostPreview = ({ post }) => {
             <div className = "image-container">
                 <img src = { thumbnail } alt = "post thumbnail" />
             </div>
-            <h3>{ title }</h3>
-            <p>{ shortContent }</p>
+            <div className = "text-section">
+                <h3>{ title }</h3>
+                <p>{ shortContent }</p>
+            </div>
         </div>
     )
 }
