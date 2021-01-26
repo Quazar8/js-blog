@@ -1,0 +1,13 @@
+.user-post-preview {
+    height: 10%;
+
+    .image-container {
+        width: 50%;
+        height: 40%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+}
