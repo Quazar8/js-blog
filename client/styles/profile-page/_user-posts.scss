@@ -1,5 +1,6 @@
 .user-posts-container {
     height: 85vh;
+    width: 90%;
     overflow: scroll;
     scrollbar-width: none;
 
@@ -9,11 +10,11 @@
 }
 
 .user-post-preview {
-    height: 10%;
+    height: 20vw;
 
     .image-container {
-        width: 50%;
-        height: 40%;
+        width: 100%;
+        height: 70%;
         overflow: hidden;
 
         img {
