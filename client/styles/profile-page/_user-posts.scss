@@ -23,6 +23,7 @@
     position: relative;
     z-index: 1;
     transition: transform 0.4s ease-out;
+    overflow: hidden;
 
     .image-container {
         width: 100%;
@@ -77,5 +78,6 @@
         rgba(255, 255, 255, 0.671) 11%, transparent 13%);
         z-index: 3;
         transition: transform 0.3s linear;
+        transform: translateX(-15%);
     }
 }
