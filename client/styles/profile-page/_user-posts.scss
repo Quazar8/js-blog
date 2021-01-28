@@ -41,7 +41,7 @@
         top: 0;
         left: 0;
         font-size: 1.7vw;
-        padding: 1%;
+        padding: 1% 1% 2% 1%;
 
         h3 {
             font-size: 3vw;
@@ -58,5 +58,6 @@
     &:hover {
         transform: scale(1.1);
         z-index: 2;
+        overflow: hidden;
     }
 }
