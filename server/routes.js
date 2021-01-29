@@ -3,7 +3,7 @@ const registerUser = require('./register')
 const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts,
         getSinglePost, deletePost,
-        editPost, getUserPosts } = require('./posts')
+        editPost, getUserPosts, postComment } = require('./posts')
 const { getUserProfile } = require('./user')
 
 const routes = (app) => {
@@ -28,6 +28,8 @@ const routes = (app) => {
    app.put('/post/edit/:postId', isLoggedMiddle, editPost)
 
    app.get('/user/:userId/posts/:page', getUserPosts)
+
+   app.post('/post/:postId/comment', postComment)
 }
 
 module.exports = routes
