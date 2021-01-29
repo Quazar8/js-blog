@@ -29,7 +29,7 @@ const routes = (app) => {
 
    app.get('/user/:userId/posts/:page', getUserPosts)
 
-   app.post('/post/:postId/comment', postComment)
+   app.post('/post/:postId/comment', isLoggedMiddle, postComment)
 }
 
 module.exports = routes
