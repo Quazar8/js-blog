@@ -1,4 +1,6 @@
 .post-row-container {
+    $translate-x-distance: 120%;
+    $translate-y-distance: -50%;
     .left-element, .right-element {
         position: absolute;
         width: 100%;
@@ -9,11 +11,13 @@
 
     .left-element {
         left: 0;
-        transform: translateX(-100%);
+        transform: translateX(-$translate-x-distance)
+            translateY($translate-y-distance);
     }    
 
     .right-element {
         right: 0;
-        transform: translateX(100%);
+        transform: translateX($translate-x-distance)
+        translateY($translate-y-distance);
     }
 }
