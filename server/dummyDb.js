@@ -83,7 +83,8 @@ const genPost = ( usersDb, idBytes ) => {
         content,
         authorId,
         thumbnail: "\\" + defaultPic,
-        date: getDate()
+        date: getDate(),
+        comments: []
     }
 
     return post
@@ -103,9 +104,12 @@ const genDummyDb = () => {
         Posts[postId] = post
     }
 
+    const Comments = {}
+
     return {
         Users,
-        Posts
+        Posts,
+        Comments
     }
 }
 
