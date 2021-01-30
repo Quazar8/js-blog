@@ -17,29 +17,6 @@
         top: 0;
         left: 0;
     }
-    
-    
-
-    &:hover {
-       
-
-        h2 {
-            display: flex;
-            align-items: center;
-            height: 18%;
-            font-size: 1.7vw;
-        }
-
-        .post-info {
-            top: 20%;
-        }
-
-        p {
-            height: 50%;
-            overflow: hidden;
-            animation: appear 0.8s ease-in;
-        }
-    }
 }
 
 .post-row {
@@ -81,6 +58,23 @@
 
         .second {
             transform: rotateZ(-180deg);
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            height: 18%;
+            font-size: 1.7vw;
+        }
+
+        .post-info {
+            top: 20%;
+        }
+
+        p {
+            height: 50%;
+            overflow: hidden;
+            animation: appear 0.8s ease-in;
         }
     }
 
