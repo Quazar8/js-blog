@@ -67,20 +67,18 @@ const PostRow = ({ post, index, postsLength }) => {
                 onAnimationEnd = { animationHasEnded }
             >
                 <Link to = { linkQuery }>
-                        <div className = "thumbnail-container">
-                            <img src = { thumbnail } alt = "post's thumbnail" />
-                        </div>
-                        <div className = "post-info">
-                            <h2>{ postInfo.titlePreview }</h2>
-                            <h3>by { authorId }</h3>
-                            <p>{ postInfo.contentPreview }</p>
-                        </div>
+                    <div className = "thumbnail-container">
+                        <img src = { thumbnail } alt = "post's thumbnail" />
+                    </div>
+                    <div className = "post-info">
+                        <h2>{ postInfo.titlePreview }</h2>
+                        <h3>by { authorId }</h3>
+                        <p>{ postInfo.contentPreview }</p>
+                    </div>
+                    <div className = "rotating-element first" style = { rotatingElStyle }></div>,
+                    <div className = "rotating-element second" style = { rotatingElStyle }></div>
                 </Link>
             </article>
-            <Link to = { linkQuery }>
-                <div className = "rotating-element first" style = { rotatingElStyle }></div>,
-                <div className = "rotating-element second" style = { rotatingElStyle }></div>
-            </Link>
             <div className = "left-element"></div>
             <div className = "right-element"></div>
         </article>
