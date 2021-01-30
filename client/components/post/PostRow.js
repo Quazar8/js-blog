@@ -57,14 +57,12 @@ const PostRow = ({ post, index, postsLength }) => {
     }
 
     return (
-        <article 
-            className = "post-row-container"
-            onMouseEnter = { changePostInfo }
-            onMouseLeave = { revertPostInfo }
-        >
+        <article className = "post-row-container">
             <article
                 className = "post-row" style = { animationStyle }
                 onAnimationEnd = { animationHasEnded }
+                onMouseEnter = { changePostInfo }
+                onMouseLeave = { revertPostInfo }
             >
                 <Link to = { linkQuery }>
                     <div className = "thumbnail-container">
