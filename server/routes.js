@@ -3,8 +3,9 @@ const registerUser = require('./register')
 const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts,
         getSinglePost, deletePost,
-        editPost, getUserPosts, postComment } = require('./posts')
+        editPost, getUserPosts } = require('./posts')
 const { getUserProfile } = require('./user')
+const { postComment } = require('./comments')
 
 const routes = (app) => {
    app.post('/user/register', registerUser)

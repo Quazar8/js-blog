@@ -220,10 +220,6 @@ const getUserPosts = (req, res) => {
     }, 'Retrieved user posts'))
 }
 
-const postComment = (req, res) => {
-    res.status(200).send(successResponse({}, 'Comment route under construction'))
-}
-
 module.exports = {
     postArticle,
     getPosts,
@@ -231,5 +227,4 @@ module.exports = {
     deletePost,
     editPost,
     getUserPosts,
-    postComment
 }
