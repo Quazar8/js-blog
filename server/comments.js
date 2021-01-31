@@ -1,5 +1,6 @@
 const { successResponse, errorResponse,
         getDate, genId } = require('./utils')
+const { writeDb } = require('./db')
 
 const postComment = (req, res) => {
     const { postId } = req.params
@@ -18,8 +19,9 @@ const postComment = (req, res) => {
         res.status(400).send(errorResponse({ postId }, 'Invalid post id'))
     }
 
+    const commentId = `${postId}_${genId(8)}`
     const comment = {
-        commentId: `${postId}_${genId(8)}`,
+        commentId,
         content,
         postId,
         authorId: req.user,
@@ -27,7 +29,17 @@ const postComment = (req, res) => {
         upvotedBy: []
     }
 
-    res.status(200).send(successResponse({ comment }, 'Comment route under construction'))
+    post.comments.push(commentId)
+    db.Comments[commentId] = comment
+    
+    writeDb(JSON.stringify(db)).then((result) => {
+        if (result.error) {
+            return
+        }
+
+        res.status(200).send(successResponse({}, 'Successfully commented'))
+    })
+
 }
 
 module.exports = {
