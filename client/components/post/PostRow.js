@@ -25,19 +25,6 @@ const PostRow = ({ post, index, postsLength }) => {
         pathname: '/post/' + urlTitle,
     }
 
-    const animationDuration = 0.6 //s
-    const animationDelay = index * 0.4 //s
-
-    let animationStyle = {
-        animationDelay: `${animationDelay}s`,
-        animationDuration: `${animationDuration}s`,
-        zIndex: postsLength - index
-    }
-
-    let rotatingElStyle = {
-        zIndex: postsLength + 1
-    }
-
     const changePostInfo = () => {
         setPostInfo({
             titlePreview: title,
@@ -52,15 +39,10 @@ const PostRow = ({ post, index, postsLength }) => {
         })
     }
 
-    const animationHasEnded = (e) => {
-        e.target.style.opacity = 1
-    }
-
     return (
         <article className = "post-row-container">
             <article
-                className = "post-row" style = { animationStyle }
-                onAnimationEnd = { animationHasEnded }
+                className = "post-row" 
                 onMouseEnter = { changePostInfo }
                 onMouseLeave = { revertPostInfo }
             >
@@ -73,8 +55,8 @@ const PostRow = ({ post, index, postsLength }) => {
                         <h3>by { authorId }</h3>
                         <p>{ postInfo.contentPreview }</p>
                     </div>
-                    <div className = "rotating-element first" style = { rotatingElStyle }></div>,
-                    <div className = "rotating-element second" style = { rotatingElStyle }></div>
+                    <div className = "rotating-element first"></div>,
+                    <div className = "rotating-element second"></div>
                 </Link>
             </article>
             <div className = "left-element"></div>
