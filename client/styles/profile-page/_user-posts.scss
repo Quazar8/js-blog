@@ -42,7 +42,8 @@
         top: 0;
         left: 0;
         font-size: 1.7vw;
-        padding: 1% 1% 2% 1%;
+        padding: 1% 1% 1% 1%;
+        box-sizing: border-box;
 
         h3 {
             font-size: 3vw;
@@ -53,6 +54,8 @@
         p {
             color: #E5E5E5;
             text-align: justify;
+            height: 54%;
+            overflow: hidden;
         }
     }
 
