@@ -1,4 +1,5 @@
-const { successResponse, errorResponse } = require('./utils')
+const { successResponse, errorResponse,
+        getDate, genId } = require('./utils')
 
 const postComment = (req, res) => {
     const { postId } = req.params
@@ -17,7 +18,16 @@ const postComment = (req, res) => {
         res.status(400).send(errorResponse({ postId }, 'Invalid post id'))
     }
 
-    res.status(200).send(successResponse({}, 'Comment route under construction'))
+    const comment = {
+        commentId: `${postId}_${genId(8)}`,
+        content,
+        postId,
+        authorId: req.user,
+        date: getDate(),
+        upvotedBy: []
+    }
+
+    res.status(200).send(successResponse({ comment }, 'Comment route under construction'))
 }
 
 module.exports = {
