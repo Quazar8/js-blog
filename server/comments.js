@@ -34,6 +34,7 @@ const postComment = (req, res) => {
     
     writeDb(JSON.stringify(db)).then((result) => {
         if (result.error) {
+            res.status(500).send(errorResponse({}, 'Error on trying to create your comment'))
             return
         }
 
