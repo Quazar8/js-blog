@@ -28,6 +28,11 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                     <UserPostPreview key = { i } post = { post } />
                 )).reverse()
             }
+            <div className = "buttons-container">
+                <button>&lt;</button>
+                <div>{ pageNum }</div>
+                <button>&gt;</button>
+            </div>
         </div>
     )
 }
