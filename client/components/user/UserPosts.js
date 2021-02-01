@@ -25,7 +25,11 @@ const UserPostsView = ({ match, dispatchToStore }) => {
     useEffect(() => {
         retrieveNSetPosts(userId, pageNum)
     }, [userId, pageNum])
-
+    
+    const incPage = (by) => {
+        return parseInt(pageNum) + by
+    }
+    
     return (
         <div className = "user-posts-container">
             {
@@ -36,7 +40,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
             <div className = "buttons-container">
                 <Link to = "">&lt;</Link>
                 <div>{ pageNum }</div>
-                <Link to = "">&gt;</Link>
+                <Link to = { `/profile/${userId}/posts/${incPage(1)}` }>&gt;</Link>
             </div>
         </div>
     )
