@@ -19,6 +19,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
             }
 
             setPosts(resp.userPosts)
+            setTotalPage(resp.totalPages)
         })
     }
 
