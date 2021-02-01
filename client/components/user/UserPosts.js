@@ -40,7 +40,10 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                 )).reverse()
             }
             <div className = "buttons-container">
-                <Link to = { `/profile/${userId}/posts/${incPage(-1)}` }>&lt;</Link>
+                {   incPage(-1) > 0
+                    ? <Link to = { `/profile/${userId}/posts/${incPage(-1)}` }>&lt;</Link>
+                    : null
+                }
                 <div>{ pageNum }</div>
                 <Link to = { `/profile/${userId}/posts/${incPage(1)}` }>&gt;</Link>
             </div>
