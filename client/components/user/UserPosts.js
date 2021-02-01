@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import UserPostPreview from './UserPostPreview'
 
 import { showError } from '../../store/globalActions'
@@ -25,8 +26,6 @@ const UserPostsView = ({ match, dispatchToStore }) => {
         retrieveNSetPosts(userId, pageNum)
     }, [userId, pageNum])
 
-    const getPrevPage = () => {
-    }    
     return (
         <div className = "user-posts-container">
             {
@@ -35,9 +34,9 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                 )).reverse()
             }
             <div className = "buttons-container">
-                <button onClick = { getPrevPage }>&lt;</button>
+                <Link to = "">&lt;</Link>
                 <div>{ pageNum }</div>
-                <button>&gt;</button>
+                <Link to = "">&gt;</Link>
             </div>
         </div>
     )
