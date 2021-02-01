@@ -8,8 +8,7 @@ import { getUserPostsServer } from '../../api'
 const UserPostsView = ({ match, dispatchToStore }) => {
     const [posts, setPosts] = useState([])
 
-    const { userId, pageNum } = match.params
-    useEffect(() => {
+    const retrieveNSetPosts = (userId, pageNum) => {
         getUserPostsServer(userId, pageNum).then(resp => {
             if (resp.error) {
                 dispatchToStore(showError(resp.errorMsg))
@@ -19,8 +18,15 @@ const UserPostsView = ({ match, dispatchToStore }) => {
 
             setPosts(resp.userPosts)
         })
+    }
+
+    const { userId, pageNum } = match.params
+    useEffect(() => {
+        retrieveNSetPosts(userId, pageNum)
     }, [userId, pageNum])
 
+    const getPrevPage = () => {
+    }    
     return (
         <div className = "user-posts-container">
             {
@@ -29,7 +35,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                 )).reverse()
             }
             <div className = "buttons-container">
-                <button>&lt;</button>
+                <button onClick = { getPrevPage }>&lt;</button>
                 <div>{ pageNum }</div>
                 <button>&gt;</button>
             </div>
