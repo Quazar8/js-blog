@@ -8,6 +8,7 @@ import { getUserPostsServer } from '../../api'
 
 const UserPostsView = ({ match, dispatchToStore }) => {
     const [posts, setPosts] = useState([])
+    const [totalPages, setTotalPage] = useState(0)
 
     const retrieveNSetPosts = (userId, pageNum) => {
         getUserPostsServer(userId, pageNum).then(resp => {
