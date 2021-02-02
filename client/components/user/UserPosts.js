@@ -45,7 +45,10 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                     : null
                 }
                 <div>{ pageNum }</div>
-                <Link to = { `/profile/${userId}/posts/${incPage(1)}` }>&gt;</Link>
+                {   incPage(1) <= totalPages
+                    ? <Link to = { `/profile/${userId}/posts/${incPage(1)}` }>&gt;</Link>
+                    : null
+                }
             </div>
         </div>
     )
