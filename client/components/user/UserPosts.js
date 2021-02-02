@@ -41,12 +41,18 @@ const UserPostsView = ({ match, dispatchToStore }) => {
             }
             <div className = "buttons-container">
                 {   incPage(-1) > 0
-                    ? <Link to = { `/profile/${userId}/posts/${incPage(-1)}` }>&lt;</Link>
+                    ? <Link to = { `/profile/${userId}/posts/${incPage(-1)}` }
+                        className = "page-link">
+                            &lt;
+                      </Link>
                     : null
                 }
-                <div>{ pageNum }</div>
+                <div className = "page-num">{ pageNum }</div>
                 {   incPage(1) <= totalPages
-                    ? <Link to = { `/profile/${userId}/posts/${incPage(1)}` }>&gt;</Link>
+                    ? <Link to = { `/profile/${userId}/posts/${incPage(1)}` }
+                        className = "page-link">
+                            &gt;
+                      </Link>
                     : null
                 }
             </div>
