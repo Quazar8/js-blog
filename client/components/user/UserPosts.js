@@ -45,7 +45,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                         className = "page-link">
                             &lt;
                       </Link>
-                    : null
+                    : <div className = "page-link"></div>
                 }
                 <div className = "page-num">{ pageNum }</div>
                 {   incPage(1) <= totalPages
@@ -53,7 +53,7 @@ const UserPostsView = ({ match, dispatchToStore }) => {
                         className = "page-link">
                             &gt;
                       </Link>
-                    : null
+                    : <div className = "page-link"></div>
                 }
             </div>
         </div>
