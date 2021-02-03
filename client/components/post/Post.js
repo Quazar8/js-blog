@@ -85,7 +85,11 @@ const PostView = ({ username, dispatch }) => {
                 />
                 : null
             }
-            <CommentForm />
+            {
+                username 
+                ? <CommentForm />
+                : null
+            }
         </section>
     )
 }
