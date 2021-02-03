@@ -18,7 +18,7 @@ const PostView = ({ user, dispatch }) => {
         }
     })
 
-    const { username } = user
+    const { username, profilePic } = user
     const history = useHistory()
 
     const getPostIdFromUrl = () => {
@@ -88,7 +88,7 @@ const PostView = ({ user, dispatch }) => {
             }
             {
                 username 
-                ? <CommentForm />
+                ? <CommentForm profilePic = { profilePic } />
                 : null
             }
         </section>

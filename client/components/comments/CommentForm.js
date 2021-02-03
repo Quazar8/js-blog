@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CommentForm = () => {
+const CommentForm = ({ profilePic }) => {
     return (
         <form className = "comment-form">
             <div className = "image-container">
