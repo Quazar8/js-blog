@@ -4,7 +4,7 @@ const CommentForm = ({ profilePic }) => {
     return (
         <form className = "comment-form">
             <div className = "image-container">
-                <img src = "" alt = "profile-pic" />
+                <img src = { profilePic } alt = "profile-pic" />
             </div>
             <p contentEditable></p>
             <input type = "submit" value = "comment" />
