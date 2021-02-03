@@ -7,6 +7,7 @@ const CommentForm = () => {
                 <img src = "" alt = "profile-pic" />
             </div>
             <p contentEditable></p>
+            <input type = "submit" value = "comment" />
         </form>
     )
 }
