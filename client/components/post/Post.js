@@ -7,7 +7,7 @@ import { showError, showSuccess } from '../../store/globalActions'
 import PostAuthorButtons from './PostAuthorButtons'
 import CommentForm from '../comments/CommentForm'
 
-const PostView = ({ username, dispatch }) => {
+const PostView = ({ user, dispatch }) => {
     const [post, setPost] = useState({
         title: '',
         content: '',
@@ -18,6 +18,7 @@ const PostView = ({ username, dispatch }) => {
         }
     })
 
+    const { username } = user
     const history = useHistory()
 
     const getPostIdFromUrl = () => {
@@ -95,7 +96,7 @@ const PostView = ({ username, dispatch }) => {
 }
 
 const mapState = store => ({
-    username: store.user.user.username
+    user: store.user.user
 })
 
 const Post = connect(mapState)(PostView)
