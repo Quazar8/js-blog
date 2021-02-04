@@ -5,7 +5,7 @@ import { getSinglePostServer, deletePostServer } from '../../api'
 import { showError, showSuccess } from '../../store/globalActions'
 
 import PostAuthorButtons from './PostAuthorButtons'
-import CommentForm from '../comments/CommentForm'
+import CommentSection from '../comments/CommentSection'
 
 const PostView = ({ user, dispatch }) => {
     const [post, setPost] = useState({
@@ -86,11 +86,7 @@ const PostView = ({ user, dispatch }) => {
                 />
                 : null
             }
-            {
-                username 
-                ? <CommentForm profilePic = { profilePic } />
-                : null
-            }
+            <CommentSection />
         </section>
     )
 }
