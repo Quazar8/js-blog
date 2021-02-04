@@ -1,9 +1,11 @@
 import React from 'react'
 
+import CommentForm from './CommentForm'
+
 const CommentSection = ({ user }) => {
     return (
         <section className = "comment-section">
-            CommentSection
+            <CommentForm profilePic = { user.profilePic } />
         </section>
     )
 }
