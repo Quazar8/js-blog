@@ -86,7 +86,7 @@ const PostView = ({ user, dispatch }) => {
                 />
                 : null
             }
-            <CommentSection />
+            <CommentSection user = { user } />
         </section>
     )
 }

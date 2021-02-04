@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CommentSection = () => {
+const CommentSection = ({ user }) => {
     return (
         <section className = "comment-section">
             CommentSection
