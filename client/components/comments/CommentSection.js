@@ -5,7 +5,11 @@ import CommentForm from './CommentForm'
 const CommentSection = ({ user }) => {
     return (
         <section className = "comment-section">
-            <CommentForm profilePic = { user.profilePic } />
+            {
+                user.username
+                ? <CommentForm profilePic = { user.profilePic } />
+                : null
+            }
         </section>
     )
 }
