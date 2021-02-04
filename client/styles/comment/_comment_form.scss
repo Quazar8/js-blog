@@ -17,5 +17,12 @@
         width: 79%;
         margin-left: 2%;
         font-size: 1.6vw;
+
+        &[placeholder]:empty::before {
+            content: attr(placeholder);
+            color: gray;
+            font-weight: bolder;
+            font-size: 3vw;
+        }
     }
 }
