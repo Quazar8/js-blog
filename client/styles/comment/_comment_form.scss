@@ -1,5 +1,7 @@
 .comment-form {
     width: 60%;
+    display: flex;
+    flex-direction: column;
 
     .image-container {
         width: 14%;
@@ -24,5 +26,17 @@
             font-weight: bolder;
             font-size: 3vw;
         }
+    }
+
+    input[type="submit"] {
+        background-color: inherit;
+        border: 0.2vw solid gold;
+        border-radius: 2%;
+        color: skyblue;
+        outline: none;
+        padding: 2% 5%;
+        font-family: 'Jura', sans-serif;
+        font-size: 1.5vw;
+        font-weight: bolder;
     }
 }
