@@ -95,6 +95,12 @@ const mapState = store => ({
     user: store.user.user
 })
 
+const mapDispatch = dispatch => ({
+    dispatchError: (errorMsg) => {
+        dispatch(showError(errorMsg))
+    }
+})
+
 const Post = connect(mapState)(PostView)
 
 export default Post
