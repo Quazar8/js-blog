@@ -39,6 +39,8 @@
         font-family: 'Jura', sans-serif;
         font-size: 1.5vw;
         font-weight: bolder;
+        transition: 0.4s background-color,
+            0.4s color;
 
         &:hover {
             background-color: gold;
