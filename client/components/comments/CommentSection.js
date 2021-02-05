@@ -1,8 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import CommentForm from './CommentForm'
 
-const CommentSection = ({ user }) => {
+const CommentSectionView = ({ dispatchToStore, user }) => {
     return (
         <section className = "comment-section">
             {
@@ -13,5 +14,13 @@ const CommentSection = ({ user }) => {
         </section>
     )
 }
+
+const mapDispatch = dispatch => ({
+    dispatchToStore: (action) => {
+        dispatch(action)
+    }
+})
+
+const CommentSection = connect(null, mapDispatch)(CommentSectionView)
 
 export default CommentSection
