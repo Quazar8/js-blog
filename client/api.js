@@ -116,6 +116,11 @@ const getUserPostsServer = (userId, page) => {
                 .then(resp => resp.json())
 }
 
+const postComment = (postId, commentObject) => {
+    return fetch(baseUrl + `/post/${postId}/comment`,
+        postQueryOptions(commentObject)).then(resp => resp.error)
+}
+
 export {
     registerUserServer,
     loginUserServer,
@@ -127,5 +132,6 @@ export {
     getUserProfileServer,
     deletePostServer,
     editPostServer,
-    getUserPostsServer
+    getUserPostsServer,
+    postComment
 }
