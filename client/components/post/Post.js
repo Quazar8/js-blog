@@ -98,6 +98,10 @@ const mapState = store => ({
 const mapDispatch = dispatch => ({
     dispatchError: (errorMsg) => {
         dispatch(showError(errorMsg))
+    },
+
+    dispatchSuccess: (msg) => {
+        dispatch(showSuccess(msg))
     }
 })
 
