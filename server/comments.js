@@ -43,6 +43,11 @@ const postComment = (req, res) => {
 
 }
 
+const getPostComments = (req, res) => {
+    res.send({ postId: req.params.postId })
+}
+
 module.exports = {
-    postComment
+    postComment,
+    getPostComments
 }
