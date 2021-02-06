@@ -23,7 +23,6 @@ const postComment = (req, res) => {
     const comment = {
         commentId,
         content,
-        postId,
         authorId: req.user,
         date: getDate(),
         upvotedBy: []
