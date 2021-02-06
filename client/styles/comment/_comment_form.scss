@@ -1,5 +1,5 @@
 .comment-form {
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 
@@ -16,7 +16,7 @@
     }
 
     p {
-        width: 79%;
+        width: 90%;
         margin-left: 2%;
         font-size: 1.6vw;
 
@@ -29,6 +29,7 @@
     }
 
     input[type="submit"] {
+        margin-top: 3%;
         align-self: flex-end;
         background-color: inherit;
         border: 0.2vw solid gold;
