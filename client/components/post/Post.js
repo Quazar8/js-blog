@@ -18,7 +18,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
         }
     })
 
-    const { username, profilePic } = user
+    const { username } = user
     const history = useHistory()
 
     const getPostIdFromUrl = () => {
