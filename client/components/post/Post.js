@@ -7,7 +7,7 @@ import { showError, showSuccess } from '../../store/globalActions'
 import PostAuthorButtons from './PostAuthorButtons'
 import CommentSection from '../comments/CommentSection'
 
-const PostView = ({ user, dispatch }) => {
+const PostView = ({ user, dispatchError, dispatchSuccess }) => {
     const [post, setPost] = useState({
         title: '',
         content: '',
@@ -31,7 +31,7 @@ const PostView = ({ user, dispatch }) => {
         if (postId) {
             getSinglePostServer(postId).then(resp => {
                 if (resp.error) {
-                    console.log('Error retrieeving post')
+                    dispatchError(resp.errorMsg)
                     return
                 }
 
@@ -47,11 +47,11 @@ const PostView = ({ user, dispatch }) => {
     const deletePost = () => {
         deletePostServer(getPostIdFromUrl()).then(resp => {
             if (resp.error) {
-                dispatch(showError(resp.errorMsg))
+                dispatchError(resp.errorMsg)
                 return
             }
 
-            dispatch(showSuccess(resp.msg))
+            dispatchSuccess(resp.msg)
             history.push('/')
         })
     }
@@ -105,6 +105,6 @@ const mapDispatch = dispatch => ({
     }
 })
 
-const Post = connect(mapState)(PostView)
+const Post = connect(mapState, mapDispatch)(PostView)
 
 export default Post
