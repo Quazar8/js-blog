@@ -44,6 +44,19 @@ const postComment = (req, res) => {
 }
 
 const getPostComments = (req, res) => {
+    const postId = req.params.postId
+    if (!postId) {
+        res.status(400).send(errorResponse({}, 'No post id provided'))
+        return
+    }
+
+    const post = require('./db.json').Posts[postId]
+
+    if (!post) {
+        res.status(400).send(errorResponse({}, 'Post doesn\'t exist'))
+        return
+    }
+
     res.send({ postId: req.params.postId })
 }
 
