@@ -57,7 +57,14 @@ const getPostComments = (req, res) => {
         return
     }
 
-    res.send({ postId: req.params.postId })
+    const serverComments = require('./db.json').Comments
+    const comments = []
+
+    for(let id of post.comments) {
+        comments.push(serverComments[id])
+    }
+
+    res.status(200).send({ comments })
 }
 
 module.exports = {
