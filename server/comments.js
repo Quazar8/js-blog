@@ -59,9 +59,16 @@ const getPostComments = (req, res) => {
     const serverComments = require('./db.json').Comments
     const comments = []
 
-    for(let id of post.comments) {
-        comments.push(serverComments[id])
+    const Users = require('./db.json').Users
+    for (let id of post.comments) {
+        const comment = serverComments[id]
+        const user = Users[comment.authorId]
+        const author = { username: comment.authorId, profilePic: user.profilePic}
+
+        comment.author = author
+        comments.push(comment)
     }
+
 
     res.status(200).send({ comments })
 }
