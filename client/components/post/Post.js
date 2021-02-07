@@ -69,7 +69,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                 <h2>{ title }</h2>
                 <h3>
                     Author: 
-                    <Link to = {"/profile/" + author.username}>
+                    <Link className = "author-link" to = {"/profile/" + author.username}>
                         <div className = "author">
                             <span>{ author.username }</span>
                             <img src = { author.profilePic } alt = "author picture" />
