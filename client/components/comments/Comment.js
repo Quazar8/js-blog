@@ -6,8 +6,8 @@ const Comment = () => {
             <div className = "image-container">
                 <img src = "" alt = "profile-pic" />
             </div>
-            <p contentEditable placeholder = "Comment here"></p>
-        </div>>
+            <p>Comment body</p>
+        </div>
     )
 }
 
