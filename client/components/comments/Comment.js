@@ -2,10 +2,12 @@ import React from 'react'
 
 const Comment = () => {
     return (
-        <div>
-            <h4>Comment</h4>
-            <p>Contnent</p>
-        </div>
+        <div className = "comment">
+            <div className = "image-container">
+                <img src = "" alt = "profile-pic" />
+            </div>
+            <p contentEditable placeholder = "Comment here"></p>
+        </div>>
     )
 }
 
