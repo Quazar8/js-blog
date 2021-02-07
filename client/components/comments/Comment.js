@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Comment = () => {
+const Comment = ({ comment }) => {
     return (
         <div className = "comment">
             <div className = "image-container">
