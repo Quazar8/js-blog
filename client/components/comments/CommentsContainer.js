@@ -3,7 +3,7 @@ import React from 'react'
 const CommentsContainer = () => {
     return (
         <div>
-            Comments Container
+            Comments container
         </div>
     )
 }
