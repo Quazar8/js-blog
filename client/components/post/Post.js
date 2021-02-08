@@ -18,6 +18,8 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
         }
     })
 
+    const [comments, setComments] = useState([])
+
     const { username } = user
     const history = useHistory()
 
