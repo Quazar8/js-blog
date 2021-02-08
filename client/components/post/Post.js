@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getSinglePostServer, deletePostServer } from '../../api'
+import { getSinglePostServer, deletePostServer,
+         getPostCommentsServer } from '../../api'
 import { showError, showSuccess } from '../../store/globalActions'
 
 import PostAuthorButtons from './PostAuthorButtons'
@@ -39,7 +40,18 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
 
                 setPost(resp.post)
             })
+         
+            getPostCommentsServer(postId).then(resp => {
+                if (resp.error) {
+                    dispatchError(resp.errorMsg)
+                    return
+                }
+
+                setComments(resp.comments)
+                console.log(resp.comments)
+            })
         }
+
     }, [])
 
     if (!post) {
