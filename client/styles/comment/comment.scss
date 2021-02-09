@@ -9,12 +9,20 @@
 .comment {
     width: 40%;
     display: flex;
-    font-weight: 2vw;
     border-bottom: 0.2vw solid white;
+    margin-bottom: 2%;
+
+    p {
+        font-size: 1.6vw;
+        margin-left: 3%;
+    }
 
     .image-container {
         width: 20%;
-        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
         img {
             width: 100%;
         }
