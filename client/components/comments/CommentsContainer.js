@@ -1,9 +1,18 @@
 import React from 'react'
 
-const CommentsContainer = () => {
+import Comment from './Comment'
+
+const CommentsContainer = ({ comments }) => {
     return (
-        <div>
-            Comments container
+        <div className = "comments-container">
+            {
+                comments.map((c, i) => (
+                    <Comment 
+                        comment = { c } 
+                        key = { i }
+                    />
+                ))
+            }
         </div>
     )
 }
