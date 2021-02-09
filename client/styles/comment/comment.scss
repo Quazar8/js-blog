@@ -7,8 +7,13 @@
 }
 
 .comment {
+    width: 40%;
+    display: flex;
+    font-weight: 2vw;
+    border-bottom: 0.2vw solid white;
+
     .image-container {
-        width: 7%;
+        width: 20%;
         
         img {
             width: 100%;
