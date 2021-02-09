@@ -11,7 +11,7 @@ const CommentsContainer = ({ comments }) => {
                         comment = { c } 
                         key = { i }
                     />
-                ))
+                )).reverse()
             }
         </div>
     )
