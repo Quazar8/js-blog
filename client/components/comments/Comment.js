@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Comment = ({ comment }) => {
-    const { content, authorId: { username, profilePic}} = comment
+    const { content, author: { username, profilePic}} = comment
     return (
         <div className = "comment">
             <div className = "image-container">
