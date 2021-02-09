@@ -13,7 +13,9 @@ const CommentSection= ({ user, comments }) => {
             }
             {
                 comments?.length > 0
-                ? <CommentsContainer />
+                ? <CommentsContainer 
+                    comments = { comments }
+                />
                 : <h2>No comments yet</h2>
             }
         </section>

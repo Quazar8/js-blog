@@ -48,7 +48,6 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                 }
 
                 setComments(resp.comments)
-                console.log(resp.comments)
             })
         }
 
@@ -100,7 +99,10 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                 />
                 : null
             }
-            <CommentSection user = { user } />
+            <CommentSection 
+                user = { user } 
+                comments = { comments }
+            />
         </section>
     )
 }
