@@ -7,7 +7,10 @@ const Comment = ({ comment }) => {
             <div className = "image-container">
                 <img src = { profilePic } alt = "profile-pic" />
             </div>
-            <p>{ content }</p>
+            <div className = "comment-right">
+                <h3>{ username }</h3>
+                <p>{ content }</p>
+            </div>
         </div>
     )
 }
