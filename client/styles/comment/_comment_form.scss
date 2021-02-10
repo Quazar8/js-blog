@@ -2,6 +2,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 3%;
 
     .image-container {
         width: 14%;
@@ -37,7 +38,7 @@
         border-radius: 2%;
         color: skyblue;
         outline: none;
-        padding: 2% 5%;
+        padding: 1% 2%;
         font-family: 'Jura', sans-serif;
         font-size: 1.5vw;
         font-weight: bolder;
