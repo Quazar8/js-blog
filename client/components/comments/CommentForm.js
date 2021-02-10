@@ -8,7 +8,16 @@ const CommentForm = ({ profilePic, authorId,
 
     const commentSubmit = (e) => {
         e.preventDefault()
-        console.log(contentRef.current.innerText)
+        if (!authorId) {
+            dispatchError('Author of the comment missing')
+            return
+        }
+
+        const commentBody = contentRef.current.innerText
+        if (!commentBody) {
+            dispatchError('Can not submit an empty comment')
+            return
+        }
     }
 
 
