@@ -2,7 +2,8 @@ import React, { useRef } from 'react'
 
 import { postComment } from '../../api'
 
-const CommentForm = ({ profilePic }) => {
+const CommentForm = ({ profilePic, authorId,
+        dispatchError, dispatchSuccess }) => {
     const contentRef = useRef()
 
     const commentSubmit = (e) => {

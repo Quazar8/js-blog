@@ -102,6 +102,8 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
             <CommentSection 
                 user = { user } 
                 comments = { comments }
+                dispatchError = { dispatchError }
+                dispatchSuccess = { dispatchSuccess }
             />
         </section>
     )
