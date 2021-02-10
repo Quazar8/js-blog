@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { postComment } from '../../api'
 
 const CommentForm = ({ profilePic }) => {
+    const contentRef = useRef()
+
     const commentSubmit = (e) => {
         e.preventDefault()
+        console.log(contentRef.current.innerText)
     }
 
 
@@ -14,7 +17,7 @@ const CommentForm = ({ profilePic }) => {
                 <div className = "image-container">
                     <img src = { profilePic } alt = "profile-pic" />
                 </div>
-                <p contentEditable placeholder = "Comment here"></p>
+                <p ref = { contentRef } contentEditable placeholder = "Comment here"></p>
             </div>
             <input type = "submit" value = "comment" />
         </form>
