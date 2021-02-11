@@ -3,7 +3,8 @@ import React from 'react'
 import CommentForm from './CommentForm'
 import CommentsContainer from './CommentsContainer'
 
-const CommentSection = ({ user, comments, dispatchError, dispatchSuccess }) => {
+const CommentSection = ({ user, comments,
+        dispatchError, dispatchSuccess, postId }) => {
     return (
         <section className = "comment-section">
             {
@@ -13,6 +14,7 @@ const CommentSection = ({ user, comments, dispatchError, dispatchSuccess }) => {
                     authorId = { user.username }
                     dispatchSuccess = { dispatchSuccess }
                     dispatchError = { dispatchError }
+                    postId = { postId }
                 />
                 : null
             }

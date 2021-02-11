@@ -3,9 +3,8 @@ import React, { useRef } from 'react'
 import { postComment } from '../../api'
 
 const CommentForm = ({ profilePic, authorId,
-        dispatchError, dispatchSuccess }) => {
+        dispatchError, dispatchSuccess, postId }) => {
     const contentRef = useRef()
-
     const commentSubmit = (e) => {
         e.preventDefault()
         if (!authorId) {
@@ -18,6 +17,8 @@ const CommentForm = ({ profilePic, authorId,
             dispatchError('Can not submit an empty comment')
             return
         }
+
+
     }
 
 

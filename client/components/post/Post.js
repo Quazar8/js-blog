@@ -104,6 +104,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                 comments = { comments }
                 dispatchError = { dispatchError }
                 dispatchSuccess = { dispatchSuccess }
+                postId = { getPostIdFromUrl() }
             />
         </section>
     )
