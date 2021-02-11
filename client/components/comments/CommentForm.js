@@ -3,7 +3,8 @@ import React, { useRef } from 'react'
 import { postComment } from '../../api'
 
 const CommentForm = ({ profilePic, authorId,
-        dispatchError, dispatchSuccess, postId }) => {
+        dispatchError, dispatchSuccess, postId,
+        updateCommentSection }) => {
     const contentRef = useRef()
     const commentSubmit = (e) => {
         e.preventDefault()
@@ -30,6 +31,7 @@ const CommentForm = ({ profilePic, authorId,
 
             dispatchSuccess('Commented')
             contentRef.current.innerText = ""
+            updateCommentSection()
         })
     }
 

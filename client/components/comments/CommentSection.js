@@ -25,6 +25,10 @@ const CommentSection = ({ user, dispatchError,
         getComments()
     }, [])
 
+    const updateCommentSection = () => {
+        getComments()
+    }
+
     return (
         <section className = "comment-section">
             {
@@ -35,6 +39,7 @@ const CommentSection = ({ user, dispatchError,
                     dispatchSuccess = { dispatchSuccess }
                     dispatchError = { dispatchError }
                     postId = { postId }
+                    updateCommentSection = { updateCommentSection }
                 />
                 : null
             }
