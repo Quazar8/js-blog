@@ -118,7 +118,7 @@ const getUserPostsServer = (userId, page) => {
 
 const postComment = (postId, commentObject) => {
     return fetch(baseUrl + `/post/${postId}/comment`,
-        postQueryOptions(commentObject)).then(resp => resp.error)
+        postQueryOptions(commentObject)).then(resp => resp.json())
 }
 
 const getPostCommentsServer = (postId) => {
