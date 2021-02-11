@@ -12,13 +12,19 @@ const CommentForm = ({ profilePic, authorId,
             return
         }
 
-        const commentBody = contentRef.current.innerText
-        if (!commentBody) {
+        const content = contentRef.current.innerText
+        if (!content) {
             dispatchError('Can not submit an empty comment')
             return
         }
 
+        const comment = {
+            content
+        }
 
+        postComment(postId, comment).then(resp => {
+            console.log(resp)
+        })
     }
 
 
