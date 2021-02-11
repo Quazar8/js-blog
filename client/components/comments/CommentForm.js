@@ -23,7 +23,12 @@ const CommentForm = ({ profilePic, authorId,
         }
 
         postComment(postId, comment).then(resp => {
-            console.log(resp)
+            if (resp.error) {
+                dispatchError(resp.errorMsg)
+                return
+            }
+
+            dispatchSuccess('Commented')
         })
     }
 
