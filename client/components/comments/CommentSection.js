@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import { getPostCommentsServer } from '../../api'
 
 import CommentForm from './CommentForm'
 import CommentsContainer from './CommentsContainer'
 
-const CommentSection = ({ user, comments,
-        dispatchError, dispatchSuccess, postId }) => {
+const CommentSection = ({ user, dispatchError,
+        dispatchSuccess, postId }) => {
+    
+    const [comments, setComments] = useState([])
+
+    useEffect(() => {
+          getPostCommentsServer(postId).then(resp => {
+                if (resp.error) {
+                    dispatchError(resp.errorMsg)
+                    return
+                }
+
+                setComments(resp.comments)
+            })
+    }, [])
+
     return (
         <section className = "comment-section">
             {
