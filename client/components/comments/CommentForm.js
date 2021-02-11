@@ -29,6 +29,7 @@ const CommentForm = ({ profilePic, authorId,
             }
 
             dispatchSuccess('Commented')
+            contentRef.current.innerText = ""
         })
     }
 
