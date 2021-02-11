@@ -9,16 +9,20 @@ const CommentSection = ({ user, dispatchError,
         dispatchSuccess, postId }) => {
     
     const [comments, setComments] = useState([])
+    
+    const getComments = () => {
+        getPostCommentsServer(postId).then(resp => {
+            if (resp.error) {
+                dispatchError(resp.errorMsg)
+                return
+            }
+
+            setComments(resp.comments)
+        })
+    }
 
     useEffect(() => {
-          getPostCommentsServer(postId).then(resp => {
-                if (resp.error) {
-                    dispatchError(resp.errorMsg)
-                    return
-                }
-
-                setComments(resp.comments)
-            })
+        getComments()
     }, [])
 
     return (
