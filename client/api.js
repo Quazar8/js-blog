@@ -132,10 +132,10 @@ const getPostCommentsServer = (postId) => {
         getQueryOptions()).then(resp => resp.json())
 }
 
-// const deletePostServer = (commentId) => {
-//     return fetch(baseUrl + `/comment/${commentId}/delete`,
-//         dele)
-// }
+const deleteCommentServer = (commentId) => {
+    return fetch(baseUrl + `/comment/${commentId}/delete`,
+        deleteQueryOptions()).then(resp => resp.json())
+}
 
 export {
     registerUserServer,
@@ -150,5 +150,6 @@ export {
     editPostServer,
     getUserPostsServer,
     postComment,
-    getPostCommentsServer
+    getPostCommentsServer,
+    deleteCommentServer
 }
