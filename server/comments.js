@@ -73,7 +73,12 @@ const getPostComments = (req, res) => {
     res.status(200).send({ comments })
 }
 
+const deleteComment = (req, res) => {
+    res.status(200).send(successResponse({}, 'Delete comment endpoint'))
+}
+
 module.exports = {
     postComment,
-    getPostComments
+    getPostComments,
+    deleteComment
 }
