@@ -45,6 +45,14 @@ const getQueryOptions = () => {
     }
 }
 
+const deleteQueryOptions = () => {
+     return {
+        method: 'DELETE',
+        credentials: 'include',
+        withCredentials: true
+    }   
+}
+
 const registerUserServer = (data) => {
     if(!data && !data.username && !data.password)
         return new Promise((resolve) => {
@@ -98,9 +106,7 @@ const getSinglePostServer = (postId) => {
 }
 
 const deletePostServer = postId => {
-    const queryOptions = getQueryOptions()
-    queryOptions.method = 'DELETE'
-    return fetch(baseUrl + '/post/delete/' + postId, queryOptions)
+    return fetch(baseUrl + '/post/delete/' + postId, deleteQueryOptions())
             .then(resp => resp.json())
 }
 
@@ -125,6 +131,11 @@ const getPostCommentsServer = (postId) => {
     return fetch(baseUrl + `/post/${postId}/comments`,
         getQueryOptions()).then(resp => resp.json())
 }
+
+// const deletePostServer = (commentId) => {
+//     return fetch(baseUrl + `/comment/${commentId}/delete`,
+//         dele)
+// }
 
 export {
     registerUserServer,
