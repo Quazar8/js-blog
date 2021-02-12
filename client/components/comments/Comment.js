@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 const Comment = ({ comment }) => {
     const { content, author: { username, profilePic}} = comment
     return (
@@ -8,7 +10,9 @@ const Comment = ({ comment }) => {
                 <img src = { profilePic } alt = "profile-pic" />
             </div>
             <div className = "comment-right">
-                <h3>{ username }</h3>
+                <Link to = { `/profile/${username}` }>
+                    <h3>{ username }</h3>
+                </Link>
                 <p>{ content }</p>
             </div>
         </div>
