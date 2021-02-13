@@ -150,8 +150,9 @@ const deleteCommentServer = (commentId) => {
         deleteQueryOptions()).then(resp => resp.json())
 }
 
-const editCommentServer = (commentId, dtaa) => {
-    throw new Error('not implemented')
+const editCommentServer = (commentId, data) => {
+    return fetch(baseUrl + `/comment/${commentId}/edit`,
+        putQueryOptions(data)).then(resp => resp.json())
 }
 
 export {
@@ -168,5 +169,6 @@ export {
     getUserPostsServer,
     postComment,
     getPostCommentsServer,
-    deleteCommentServer
+    deleteCommentServer,
+    editCommentServer
 }
