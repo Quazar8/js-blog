@@ -53,6 +53,19 @@ const deleteQueryOptions = () => {
     }   
 }
 
+const putQueryOptions = (data) => {
+    return {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+        withCredentials: true,
+        credentials: 'include'
+    }
+}
+
 const registerUserServer = (data) => {
     if(!data && !data.username && !data.password)
         return new Promise((resolve) => {
@@ -135,6 +148,10 @@ const getPostCommentsServer = (postId) => {
 const deleteCommentServer = (commentId) => {
     return fetch(baseUrl + `/comment/${commentId}/delete`,
         deleteQueryOptions()).then(resp => resp.json())
+}
+
+const editCommentServer = (commentId, dtaa) => {
+    throw new Error('not implemented')
 }
 
 export {
