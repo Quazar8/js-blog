@@ -15,9 +15,14 @@ const Comment = ({ comment, currentUser }) => {
                 <img src = { profilePic } alt = "profile-pic" />
             </div>
             <div className = "comment-right">
-                <Link to = { `/profile/${username}` }>
-                    <h3>{ username }</h3>
-                </Link>
+                <div className = "upper-section">
+                    <Link to = { `/profile/${username}` }>
+                      <h3>{ username }</h3>
+                    </Link>
+                    <div className = "more-menu">
+                        &bull; &bull; &bull;
+                    </div>
+                </div>
                 <p>{ content }</p>
             </div>
         </div>

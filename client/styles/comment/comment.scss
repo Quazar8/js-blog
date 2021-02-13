@@ -22,6 +22,19 @@
         width: 82%;
         margin-left: 3%;
 
+        .upper-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .more-menu {
+            color: rgb(148, 148, 148);
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
         h3 {
             color: skyblue;
             font-family: 'Jura', sans-serif;
