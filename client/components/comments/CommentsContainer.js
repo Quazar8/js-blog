@@ -3,7 +3,6 @@ import React from 'react'
 import Comment from './Comment'
 
 const CommentsContainer = ({ comments, username }) => {
-    console.log(username)
     return (
         <div className = "comments-container">
             {
@@ -11,6 +10,7 @@ const CommentsContainer = ({ comments, username }) => {
                     <Comment 
                         comment = { c } 
                         key = { i }
+                        currentUser = { username }
                     />
                 )).reverse()
             }

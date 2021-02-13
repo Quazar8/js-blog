@@ -2,10 +2,15 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-const Comment = ({ comment }) => {
+const Comment = ({ comment, currentUser }) => {
     const { content, author: { username, profilePic}} = comment
+
+    let commentAppendClass = ""
+    if (currentUser === username) {
+        commentAppendClass = " comment-author"
+    }
     return (
-        <div className = "comment">
+        <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
                 <img src = { profilePic } alt = "profile-pic" />
             </div>
