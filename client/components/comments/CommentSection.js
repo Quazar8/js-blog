@@ -47,6 +47,7 @@ const CommentSection = ({ user, dispatchError,
                 comments?.length > 0
                 ? <CommentsContainer 
                     comments = { comments }
+                    username = { user.username }
                 />
                 : <h2>No comments yet</h2>
             }

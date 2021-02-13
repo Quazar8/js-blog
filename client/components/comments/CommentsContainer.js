@@ -2,7 +2,8 @@ import React from 'react'
 
 import Comment from './Comment'
 
-const CommentsContainer = ({ comments }) => {
+const CommentsContainer = ({ comments, username }) => {
+    console.log(username)
     return (
         <div className = "comments-container">
             {
