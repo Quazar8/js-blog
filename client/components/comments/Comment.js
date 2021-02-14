@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
 const Comment = ({ comment, currentUser }) => {
     const { content, author: { username, profilePic}} = comment
 
+    const [showMenu, setShowMenu] = useState(false)
+
     let commentAppendClass = ""
     if (currentUser === username) {
         commentAppendClass = " comment-author"
+    }
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu)
     }
 
 
@@ -22,11 +28,15 @@ const Comment = ({ comment, currentUser }) => {
                       <h3>{ username }</h3>
                     </Link>
                     <div className = "more-menu-container">
-                        <span>&bull; &bull; &bull;</span>
-                        <ul className = "more-menu">
-                            <li>Edit</li>
-                            <li>Delete</li>
-                        </ul>
+                        <button onClick = { toggleMenu }>&bull; &bull; &bull;</button>
+                        {
+                            showMenu
+                            ?   <ul className = "more-menu">
+                                    <li>Edit</li>
+                                    <li>Delete</li>
+                                </ul>
+                            : null
+                        }
                     </div>
                 </div>
                 <p>{ content }</p>
