@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 import { deleteCommentServer } from '../../api'
 
-const Comment = ({ comment, currentUser }) => {
-    const { commentId, content, author: { username, profilePic}} = comment
+const Comment = ({ comment, currentUser, dispatchError,
+    dispatchSuccess }) => {
+    const { commentId, content, author: { username, profilePic }} = comment
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -28,7 +29,12 @@ const Comment = ({ comment, currentUser }) => {
 
     const deleteComment = () => {
         deleteCommentServer(commentId).then(resp => {
-            console.log(resp)
+            if (resp.error) {
+                dispatchError(resp.errorMsg)
+                return
+            }
+
+            dispatchSuccess('Request reached the server')
         })
     }
 
