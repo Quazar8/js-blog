@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
+import { deleteCommentServer } from '../../api'
+
 const Comment = ({ comment, currentUser }) => {
-    const { content, author: { username, profilePic}} = comment
+    const { commentId, content, author: { username, profilePic}} = comment
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -25,7 +27,9 @@ const Comment = ({ comment, currentUser }) => {
     }
 
     const deleteComment = () => {
-        console.log('delete comment')
+        deleteCommentServer(commentId).then(resp => {
+            console.log(resp)
+        })
     }
 
     return (
