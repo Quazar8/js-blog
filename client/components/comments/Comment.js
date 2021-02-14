@@ -16,6 +16,9 @@ const Comment = ({ comment, currentUser }) => {
         setShowMenu(!showMenu)
     }
 
+    const hideMenu = () => {
+        setShowMenu(false)
+    }
 
     return (
         <div className = { "comment" + commentAppendClass }>
@@ -27,11 +30,11 @@ const Comment = ({ comment, currentUser }) => {
                     <Link to = { `/profile/${username}` }>
                       <h3>{ username }</h3>
                     </Link>
-                    <div className = "more-menu-container">
+                    <div onBlur = { hideMenu } className = "more-menu-container">
                         <button onClick = { toggleMenu }>&bull; &bull; &bull;</button>
                         {
                             showMenu
-                            ?   <ul className = "more-menu">
+                            ?   <ul  className = "more-menu">
                                     <li>Edit</li>
                                     <li>Delete</li>
                                 </ul>
