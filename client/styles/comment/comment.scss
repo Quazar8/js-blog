@@ -31,7 +31,7 @@
             color: rgb(148, 148, 148);
             position: relative;
 
-            &:hover {
+            span:hover {
                 cursor: pointer;
             }
         }
@@ -53,6 +53,12 @@
 
             li {
                 padding: 10% 0%;
+                transition: background-color 0.2s ease-out;
+            }
+
+            li:hover {
+                background-color: skyblue;
+                cursor: pointer;
             }
         }
 
