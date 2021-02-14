@@ -29,9 +29,30 @@
 
         .more-menu-container {
             color: rgb(148, 148, 148);
+            position: relative;
 
             &:hover {
                 cursor: pointer;
+            }
+        }
+
+        .more-menu {
+            width: 10vw;
+            color: white;
+            position: absolute;
+            list-style: none;
+            background-color: rgb(92, 92, 92);
+            top: 120%;
+            left: 0;
+            padding: 5%;
+            text-align: center;
+            font-size: 1.3vw;
+            font-family: 'Jura', sans-serif;
+            font-weight: bolder;
+            border: 0.1vw solid white;
+
+            li {
+                padding: 10% 0%;
             }
         }
 
