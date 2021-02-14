@@ -9,6 +9,8 @@ const Comment = ({ comment, currentUser }) => {
     if (currentUser === username) {
         commentAppendClass = " comment-author"
     }
+
+
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
@@ -19,8 +21,12 @@ const Comment = ({ comment, currentUser }) => {
                     <Link to = { `/profile/${username}` }>
                       <h3>{ username }</h3>
                     </Link>
-                    <div className = "more-menu">
-                        &bull; &bull; &bull;
+                    <div className = "more-menu-container">
+                        <span>&bull; &bull; &bull;</span>
+                        <ul className = "more-menu">
+                            <li>Edit</li>
+                            <li>Delete</li>
+                        </ul>
                     </div>
                 </div>
                 <p>{ content }</p>
