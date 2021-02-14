@@ -20,6 +20,14 @@ const Comment = ({ comment, currentUser }) => {
         setShowMenu(false)
     }
 
+    const editComment = () => {
+        console.log('edit comment')
+    }
+
+    const deleteComment = () => {
+        console.log('delete comment')
+    }
+
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
@@ -35,8 +43,8 @@ const Comment = ({ comment, currentUser }) => {
                         {
                             showMenu
                             ?   <ul  className = "more-menu">
-                                    <li>Edit</li>
-                                    <li>Delete</li>
+                                    <li onMouseDown = { editComment }>Edit</li>
+                                    <li onMouseDown = { deleteComment }>Delete</li>
                                 </ul>
                             : null
                         }
