@@ -48,17 +48,21 @@ const Comment = ({ comment, currentUser, dispatchError,
                     <Link to = { `/profile/${username}` }>
                       <h3>{ username }</h3>
                     </Link>
-                    <div onBlur = { hideMenu } className = "more-menu-container">
-                        <button onClick = { toggleMenu }>&bull; &bull; &bull;</button>
-                        {
-                            showMenu
-                            ?   <ul  className = "more-menu">
-                                    <li onMouseDown = { editComment }>Edit</li>
-                                    <li onMouseDown = { deleteComment }>Delete</li>
-                                </ul>
-                            : null
-                        }
-                    </div>
+                    {
+                        currentUser === username
+                        ? <div onBlur = { hideMenu } className = "more-menu-container">
+                            <button onClick = { toggleMenu }>&bull; &bull; &bull;</button>
+                            {
+                                showMenu
+                                ?   <ul className = "more-menu">
+                                        <li onMouseDown = { editComment }>Edit</li>
+                                        <li onMouseDown = { deleteComment }>Delete</li>
+                                    </ul>
+                                : null
+                            }
+                        </div>
+                        : null
+                    }
                 </div>
                 <p>{ content }</p>
             </div>
