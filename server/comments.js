@@ -81,7 +81,8 @@ const deleteComment = (req, res) => {
         return
     }
 
-    const { Comments } = require('./db.json')
+    const db = require('./db.json')
+    const { Comments, Posts } = db
     const comment = Comments[commentId]
 
     if (!comment) {
@@ -94,7 +95,25 @@ const deleteComment = (req, res) => {
         return
     }
 
-    res.status(200).send(successResponse({}, 'Delete comment endpoint'))
+    const post = Posts[comment.parentPost]
+    for (let i = 0; i < post.comments; i++) {
+        if (post.comments[i] === commentId) {
+            post.comments = post.comments.splice(i)
+            break
+        }
+    }
+
+    delete Comments[commentId]
+
+    writeDb(JSON.stringify(db)).then((err) => {
+        if (err.error) {
+            res.status(500).send(errorResponse({}, 'Error deleting the comment'))
+            return
+        }
+
+        res.status(200).send(successResponse({}, 'Comment deleted'))
+    })
+    
 }
 
 const editComment = (req, res) => {
