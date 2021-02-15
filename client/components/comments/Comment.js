@@ -34,7 +34,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                 return
             }
 
-            dispatchSuccess('Request reached the server')
+            dispatchSuccess('Comment deleted')
         })
     }
     console.log(commentId)
