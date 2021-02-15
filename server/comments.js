@@ -96,26 +96,23 @@ const deleteComment = (req, res) => {
     }
 
     const post = Posts[comment.parentPost]
-    for (let i = 0; i < post.comments; i++) {
+    for (let i = 0; i < post.comments.length; i++) {
         if (post.comments[i] === commentId) {
-            post.comments = post.comments.splice(i, 1)
+            post.comments.splice(i, 1)
             break
         }
     }
 
-    console.log(post.comments)
+    delete Comments[commentId]
 
-    // delete Comments[commentId]
+    writeDb(JSON.stringify(db)).then((err) => {
+        if (err.error) {
+            res.status(500).send(errorResponse({}, 'Error deleting the comment'))
+            return
+        }
 
-    // writeDb(JSON.stringify(db)).then((err) => {
-    //     if (err.error) {
-    //         res.status(500).send(errorResponse({}, 'Error deleting the comment'))
-    //         return
-    //     }
-
-    //     res.status(200).send(successResponse({}, 'Comment deleted'))
-    // })
-    res.send(successResponse({}, ''))
+        res.status(200).send(successResponse({}, 'Comment deleted'))
+    })
 }
 
 const editComment = (req, res) => {
