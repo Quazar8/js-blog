@@ -35,9 +35,9 @@ const routes = (app) => {
 
    app.get('/post/:postId/comments', getPostComments)
 
-   app.delete('/comment/:commentId/delete', deleteComment)
+   app.delete('/comment/:commentId/delete', isLoggedMiddle, deleteComment)
 
-   app.put('/comment/:commentId/edit', editComment)
+   app.put('/comment/:commentId/edit', isLoggedMiddle, editComment)
 }
 
 module.exports = routes
