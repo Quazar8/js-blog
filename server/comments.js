@@ -75,6 +75,20 @@ const getPostComments = (req, res) => {
 }
 
 const deleteComment = (req, res) => {
+    const { commentId } = req.params
+    if (!commentId) {
+        res.status(400).send(errorResponse({}, 'Missing comment id'))
+        return
+    }
+
+    const { Comments } = require('./db.json')
+    const comment = Comments[commentId]
+
+    if (!comment) {
+        res.status(400).send(errorResponse({}, 'Incorrect comment id'))
+        return
+    }
+
     res.status(200).send(successResponse({}, 'Delete comment endpoint'))
 }
 
