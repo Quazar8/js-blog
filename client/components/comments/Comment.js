@@ -37,7 +37,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             dispatchSuccess('Request reached the server')
         })
     }
-
+    console.log(commentId)
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">

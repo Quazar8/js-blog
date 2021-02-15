@@ -89,6 +89,11 @@ const deleteComment = (req, res) => {
         return
     }
 
+    if (req.user !== comment.authorId) {
+        res.status(403).send(errorResponse({}, 'No permission to do that'))
+        return
+    }
+
     res.status(200).send(successResponse({}, 'Delete comment endpoint'))
 }
 
