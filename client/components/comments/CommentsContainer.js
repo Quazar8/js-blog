@@ -3,7 +3,8 @@ import React from 'react'
 import Comment from './Comment'
 
 const CommentsContainer = ({ comments, username,
-        dispatchSuccess, dispatchError }) => {
+        dispatchSuccess, dispatchError,
+        updateCommentSection }) => {
     return (
         <div className = "comments-container">
             {
@@ -14,6 +15,7 @@ const CommentsContainer = ({ comments, username,
                         currentUser = { username }
                         dispatchSuccess = { dispatchSuccess }
                         dispatchError = { dispatchError }
+                        updateCommentSection = { updateCommentSection }
                     />
                 )).reverse()
             }

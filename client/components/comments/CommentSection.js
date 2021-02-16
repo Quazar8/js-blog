@@ -50,6 +50,7 @@ const CommentSection = ({ user, dispatchError,
                     username = { user.username }
                     dispatchSuccess = { dispatchSuccess }
                     dispatchError = { dispatchError }
+                    updateCommentSection = { updateCommentSection }
                 />
                 : <h2>No comments yet</h2>
             }
