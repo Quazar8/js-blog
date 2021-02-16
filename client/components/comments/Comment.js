@@ -42,7 +42,11 @@ const Comment = ({ comment, currentUser, dispatchError,
     }
     
     if (showCommentForm) {
-        return <EditCommentForm />
+        return <EditCommentForm 
+            profilePic = { profilePic }
+            username = { username }
+            content = { content }
+        />
     }
 
     return (
