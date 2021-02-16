@@ -1,0 +1,26 @@
+.edit-comment-form {
+    .buttons-container {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            background: none;
+            border: gold 0.2vw solid;
+            padding: 1% 5%;
+            color: gold;
+            transition: background-color 0.2s ease-out,
+                color 0.2s ease-out, border 0.2s ease-out;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: gold;
+            border: 0.2vw solid gold;
+            color: rgb(19, 30, 68);
+        }
+
+        button:last-child {
+            margin-left: 3%;
+        }
+    }
+}
