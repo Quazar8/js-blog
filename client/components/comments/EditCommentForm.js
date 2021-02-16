@@ -15,6 +15,10 @@ const EditCommentForm = ({ profilePic, username, content }) => {
                     </Link>
                 </div>
                 <p contentEditable suppressContentEditableWarning>{ content }</p>
+                <div className = "buttons-container">
+                    <button>Edit</button>
+                    <button>Cancel</button>
+                </div>
             </div>
         </form>
     )
