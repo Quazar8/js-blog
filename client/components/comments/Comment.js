@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { deleteCommentServer } from '../../api'
+import EditCommentForm from './EditCommentForm'
 
 const Comment = ({ comment, currentUser, dispatchError,
     dispatchSuccess, updateCommentSection }) => {
     const { commentId, content, author: { username, profilePic }} = comment
 
     const [showMenu, setShowMenu] = useState(false)
+    const [showCommentForm, setShowCommentForm] = useState(false)
 
     let commentAppendClass = ""
     if (currentUser === username) {
@@ -23,8 +25,8 @@ const Comment = ({ comment, currentUser, dispatchError,
         setShowMenu(false)
     }
 
-    const editComment = () => {
-        console.log('edit comment')
+    const displayEditForm = () => {
+        setShowCommentForm(true)
     }
 
     const deleteComment = () => {
@@ -38,7 +40,11 @@ const Comment = ({ comment, currentUser, dispatchError,
             updateCommentSection()
         })
     }
-    console.log(commentId)
+    
+    if (showCommentForm) {
+        return <EditCommentForm />
+    }
+
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
@@ -56,7 +62,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                             {
                                 showMenu
                                 ?   <ul className = "more-menu">
-                                        <li onMouseDown = { editComment }>Edit</li>
+                                        <li onMouseDown = { displayEditForm }>Edit</li>
                                         <li onMouseDown = { deleteComment }>Delete</li>
                                     </ul>
                                 : null
