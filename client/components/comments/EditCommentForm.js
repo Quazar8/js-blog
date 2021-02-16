@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-const EditCommentForm = ({ profilePic, username, content }) => {
+const EditCommentForm = ({ profilePic, username, content, hideEditForm }) => {
     return (
         <form className = "edit-comment-form comment">
             <div className = "image-container">
@@ -17,7 +17,7 @@ const EditCommentForm = ({ profilePic, username, content }) => {
                 <p contentEditable suppressContentEditableWarning>{ content }</p>
                 <div className = "buttons-container">
                     <button>Edit</button>
-                    <button>Cancel</button>
+                    <button onClick = { hideEditForm }>Cancel</button>
                 </div>
             </div>
         </form>

@@ -29,6 +29,11 @@ const Comment = ({ comment, currentUser, dispatchError,
         setShowCommentForm(true)
     }
 
+    const hideEditForm = () => {
+        setShowCommentForm(false)
+        setShowMenu(false)
+    }
+
     const deleteComment = () => {
         deleteCommentServer(commentId).then(resp => {
             if (resp.error) {
@@ -46,6 +51,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             profilePic = { profilePic }
             username = { username }
             content = { content }
+            hideEditForm = { hideEditForm }
         />
     }
 
