@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { Link } from 'react-router-dom'
 
-const EditCommentForm = ({ profilePic, username, content, hideEditForm }) => {
+import { editCommentServer } from '../../api'
+
+const EditCommentForm = ({ profilePic, username, content,
+        hideEditForm, commentId }) => {
+    
+    const contentRef = useRef()
+    const tryEditComment = (e) => {
+        e.preventDefault()
+
+        const changedContent = contentRef.current.innerText
+        if (!changedContent) {
+            return
+        }
+
+        if (changedContent === content) {
+            return
+        }
+
+        editCommentServer(commentId, { content: changedContent }).then(resp => {
+            console.log(resp)
+        })
+    }
+
     return (
         <form className = "edit-comment-form comment">
             <div className = "image-container">
@@ -14,9 +36,15 @@ const EditCommentForm = ({ profilePic, username, content, hideEditForm }) => {
                       <h3>{ username }</h3>
                     </Link>
                 </div>
-                <p contentEditable suppressContentEditableWarning>{ content }</p>
+                <p  
+                    ref = { contentRef } 
+                    contentEditable 
+                    suppressContentEditableWarning
+                >
+                    { content }
+                </p>
                 <div className = "buttons-container">
-                    <button>Edit</button>
+                    <button onClick = { tryEditComment }>Edit</button>
                     <button onClick = { hideEditForm }>Cancel</button>
                 </div>
             </div>

@@ -52,6 +52,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             username = { username }
             content = { content }
             hideEditForm = { hideEditForm }
+            commentId = { commentId }
         />
     }
 
