@@ -122,7 +122,7 @@ const editComment = (req, res) => {
         return
     }
 
-    const { content } = req.body
+    const content = req.body.content.trim()
 
     if (!content) {
         res.status(400).send(errorResponse({}, 'Missing comment body'))
