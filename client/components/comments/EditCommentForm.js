@@ -11,7 +11,7 @@ const EditCommentForm = ({ profilePic, username, content,
     const tryEditComment = (e) => {
         e.preventDefault()
 
-        const changedContent = contentRef.current.innerText
+        const changedContent = contentRef.current.innerText.trim()
         if (!changedContent) {
             dispatchError('Comment cannot be empty')
             return
