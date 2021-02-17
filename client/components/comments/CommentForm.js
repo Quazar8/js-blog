@@ -13,7 +13,7 @@ const CommentForm = ({ profilePic, authorId,
             return
         }
 
-        const content = contentRef.current.innerText
+        const content = contentRef.current.innerText.trim()
         if (!content) {
             dispatchError('Can not submit an empty comment')
             return

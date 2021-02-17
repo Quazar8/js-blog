@@ -6,17 +6,20 @@ const postComment = (req, res) => {
     const { postId } = req.params
     if (!postId) {
         res.status(400).send(errorResponse({}, 'Missing post id'))
+        return
     }
 
-    const { content } = req.body
+    const content  = req.body.content.trim()
     if (!content) {
         res.status(400).send(errorResponse({}, 'Empty comment'))
+        return
     }
 
     const db = require('./db.json')
     const post = db.Posts[postId]
     if (!post) {
         res.status(400).send(errorResponse({ postId }, 'Invalid post id'))
+        return
     }
 
     const commentId = `${postId}_${genId(8)}`
