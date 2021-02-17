@@ -142,7 +142,15 @@ const editComment = (req, res) => {
         return
     }
 
-    res.status(200).send(successResponse({}, 'Edit comment endpoint'))
+    comment.content = content
+    writeDb(JSON.stringify(db)).then(err => {
+        if (err.error) {
+            res.status(500).send(errorResponse({}, 'Couldn\'t edit the comment'))
+            return
+        } 
+
+        res.status(200).send(successResponse({}, 'Comment edited'))
+    })
 }
 
 module.exports = {
