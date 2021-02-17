@@ -45,7 +45,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             updateCommentSection()
         })
     }
-    
+
     if (showCommentForm) {
         return <EditCommentForm 
             profilePic = { profilePic }
@@ -55,6 +55,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             commentId = { commentId }
             dispatchSuccess = { dispatchSuccess }
             dispatchError = { dispatchError }
+            updateCommentSection = { updateCommentSection }
         />
     }
 

@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import { editCommentServer } from '../../api'
 
 const EditCommentForm = ({ profilePic, username, content,
-        hideEditForm, commentId, dispatchSuccess, dispatchError }) => {
+        hideEditForm, commentId, dispatchSuccess, dispatchError,
+        updateCommentSection }) => {
     
     const contentRef = useRef()
     const tryEditComment = (e) => {
@@ -29,6 +30,8 @@ const EditCommentForm = ({ profilePic, username, content,
             }
 
             dispatchSuccess('Comment edited')
+            updateCommentSection()
+            hideEditForm()
         })
     }
 
