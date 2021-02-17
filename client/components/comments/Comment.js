@@ -45,7 +45,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             updateCommentSection()
         })
     }
-    
+    console.log(username, commentId)
     if (showCommentForm) {
         return <EditCommentForm 
             profilePic = { profilePic }

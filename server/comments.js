@@ -116,6 +116,32 @@ const deleteComment = (req, res) => {
 }
 
 const editComment = (req, res) => {
+    const { commentId } = req.params
+    if (!commentId) {
+        res.status(400).send(errorResponse({}, 'Missing comment id'))
+        return
+    }
+
+    const { content } = req.body
+
+    if (!content) {
+        res.status(400).send(errorResponse({}, 'Missing comment body'))
+        return
+    }
+
+    const db = require('./db.json')
+    const comment = db.Comments[commentId]
+
+    if (content === comment.content) {
+        res.status(400).send(errorResponse({}, 'Edited content is the same as the old one'))
+        return
+    } 
+
+    if (req.user !== comment.authorId) {
+        res.status(403).send(errorResponse({}, 'Unauthorized to do that'))
+        return
+    }
+
     res.status(200).send(successResponse({}, 'Edit comment endpoint'))
 }
 
