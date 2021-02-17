@@ -13,10 +13,12 @@ const EditCommentForm = ({ profilePic, username, content,
 
         const changedContent = contentRef.current.innerText
         if (!changedContent) {
+            dispatchError('Comment cannot be empty')
             return
         }
 
         if (changedContent === content) {
+            dispatchError('New omment is the same as the old one')
             return
         }
 
