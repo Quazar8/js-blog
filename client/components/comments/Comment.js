@@ -45,7 +45,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             updateCommentSection()
         })
     }
-    console.log(username, commentId)
+    
     if (showCommentForm) {
         return <EditCommentForm 
             profilePic = { profilePic }
@@ -53,6 +53,8 @@ const Comment = ({ comment, currentUser, dispatchError,
             content = { content }
             hideEditForm = { hideEditForm }
             commentId = { commentId }
+            dispatchSuccess = { dispatchSuccess }
+            dispatchError = { dispatchError }
         />
     }
 
