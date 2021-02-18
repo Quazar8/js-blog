@@ -14,7 +14,7 @@ const LoginView = ({ tryLogIn, isOnline }) => {
         if (isOnline) {
             usernameRef.current.value = ''
             passwordRef.current.value = ''
-            history.push('/')
+            history.goBack()
         }
     }, [isOnline])
 
