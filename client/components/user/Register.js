@@ -14,7 +14,7 @@ const RegisterView = ({ dispatchRegister, isOnline }) => {
             usernameRef.current.value = ''
             passwordRef.current.value = ''
             confirmPassRef.current.value = ''
-            history.push('/')
+            history.goBack()
         }
     }, [isOnline])
 
