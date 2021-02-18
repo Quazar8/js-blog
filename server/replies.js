@@ -5,6 +5,11 @@ const postReply = (req, res) => {
     res.send(successResponse({}, 'Post reply endpoint'))
 }
 
+const getReplies = (req, res) => {
+    res.send(successResponse({}, 'Get replies endpoint'))
+}
+
 module.exports = {
-    postReply
+    postReply,
+    getReplies
 }

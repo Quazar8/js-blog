@@ -7,7 +7,7 @@ const { postArticle, getPosts,
 const { getUserProfile } = require('./user')
 const { postComment, getPostComments,
         deleteComment, editComment } = require('./comments')
-const { postReply } = require('./replies')
+const { postReply, getReplies } = require('./replies')
 
 const routes = (app) => {
    app.post('/user/register', registerUser)
@@ -40,7 +40,9 @@ const routes = (app) => {
 
    app.put('/comment/:commentId/edit', isLoggedMiddle, editComment)
 
-   app.post('/comment/:commentId/reply', postReply)
+   app.get('/reply/:parentId/get/all', getReplies)
+
+   app.post('/reply/:parentId/post', postReply)
 }
 
 module.exports = routes
