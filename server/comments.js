@@ -29,7 +29,8 @@ const postComment = (req, res) => {
         authorId: req.user,
         parentPost: postId,
         date: getDate(),
-        upvotedBy: []
+        upvotedBy: [],
+        replies: []
     }
 
     post.comments.push(commentId)
