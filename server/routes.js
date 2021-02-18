@@ -7,6 +7,7 @@ const { postArticle, getPosts,
 const { getUserProfile } = require('./user')
 const { postComment, getPostComments,
         deleteComment, editComment } = require('./comments')
+const { postReply } = require('./replies')
 
 const routes = (app) => {
    app.post('/user/register', registerUser)
@@ -38,6 +39,8 @@ const routes = (app) => {
    app.delete('/comment/:commentId/delete', isLoggedMiddle, deleteComment)
 
    app.put('/comment/:commentId/edit', isLoggedMiddle, editComment)
+
+   app.post('/comment/:commentId/reply', postReply)
 }
 
 module.exports = routes
