@@ -19,7 +19,7 @@ const EditCommentForm = ({ profilePic, username, content,
         }
 
         if (changedContent === content) {
-            dispatchError('New omment is the same as the old one')
+            hideEditForm()
             return
         }
 
