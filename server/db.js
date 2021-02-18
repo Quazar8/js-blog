@@ -26,8 +26,30 @@ const writeDb = async (data) => {
     }
 }
 
+const getDb = () => {
+    const db = require('./db.json')
+    if (!db.Users) {
+        db.Users = {}
+    }
+
+    if (!db.Posts) {
+        db.Posts = {}
+    }
+
+    if (!db.Comments) {
+        db.Comments = {}
+    }
+
+    if (!db.Replies) {
+        db.Replies = {}
+    }
+
+    return db
+}
+
 
 module.exports = {
     initializeDb,
     writeDb,
+    getDb
 }
