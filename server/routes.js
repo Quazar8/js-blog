@@ -33,7 +33,7 @@ const routes = (app) => {
 
    app.post('/post/:parentId/comment', isLoggedMiddle, postComment)
 
-   app.get('/post/:postId/comments', getPostComments)
+   app.get('/post/:parentId/comments', getPostComments)
 
    app.delete('/comment/:commentId/delete', isLoggedMiddle, deleteComment)
 

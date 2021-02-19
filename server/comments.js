@@ -54,20 +54,21 @@ const postComment = (req, res) => {
 }
 
 const getPostComments = (req, res) => {
-    const postId = req.params.postId
-    if (!postId) {
+    const { parentId } = req.params
+    if (!parentId) {
         res.status(400).send(errorResponse({}, 'No post id provided'))
         return
     }
 
-    const post = require('./db.json').Posts[postId]
+    const db = getDb()
+    const post = db.Posts[parentId]
 
     if (!post) {
         res.status(400).send(errorResponse({}, 'Post doesn\'t exist'))
         return
     }
 
-    const serverComments = require('./db.json').Comments
+    const serverComments = db.Comments
     const comments = []
 
     const Users = require('./db.json').Users
