@@ -99,6 +99,9 @@ const deleteComment = (req, res) => {
         return
     }
 
+    res.status(500).send(errorResponse({}, 'Delete comment temporary disabled'))
+    return
+
     const post = Posts[comment.parentPost]
     for (let i = 0; i < post.comments.length; i++) {
         if (post.comments[i] === commentId) {
