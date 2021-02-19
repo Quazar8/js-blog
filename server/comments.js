@@ -17,10 +17,11 @@ const postComment = (req, res) => {
 
     const db = getDb()
     const post = db.Posts[parentId]
-    if (!post) {
+    const parentComment = db.Comments[parentId]
+    if (!post && !parentComment) {
         res.status(400).send(errorResponse({ parentId }, 'Invalid post id'))
         return
-    }   
+    }
 
     const commentId = `${parentId}_${genId(8)}`
     const comment = {
@@ -33,7 +34,12 @@ const postComment = (req, res) => {
         replies: []
     }
 
-    post.comments.push(commentId)
+    if (post) {
+        post.comments.push(commentId)
+    } else if (parentComment) {
+        parentComment.replies.push(commentId)
+    }
+
     db.Comments[commentId] = comment
     
     writeDb(JSON.stringify(db)).then((result) => {
