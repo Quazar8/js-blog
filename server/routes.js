@@ -31,7 +31,7 @@ const routes = (app) => {
 
    app.get('/user/:userId/posts/:page', getUserPosts)
 
-   app.post('/post/:postId/comment', isLoggedMiddle, postComment)
+   app.post('/post/:parentId/comment', isLoggedMiddle, postComment)
 
    app.get('/post/:postId/comments', getPostComments)
 

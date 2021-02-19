@@ -3,8 +3,8 @@ const { successResponse, errorResponse,
 const { writeDb } = require('./db')
 
 const postComment = (req, res) => {
-    const { postId } = req.params
-    if (!postId) {
+    const { parentId } = req.params
+    if (!parentId) {
         res.status(400).send(errorResponse({}, 'Missing post id'))
         return
     }
@@ -16,18 +16,18 @@ const postComment = (req, res) => {
     }
 
     const db = require('./db.json')
-    const post = db.Posts[postId]
+    const post = db.Posts[parentId]
     if (!post) {
-        res.status(400).send(errorResponse({ postId }, 'Invalid post id'))
+        res.status(400).send(errorResponse({ parentId }, 'Invalid post id'))
         return
-    }
+    }   
 
-    const commentId = `${postId}_${genId(8)}`
+    const commentId = `${parentId}_${genId(8)}`
     const comment = {
         commentId,
         content,
         authorId: req.user,
-        parentPost: postId,
+        parentPost: parentId,
         date: getDate(),
         upvotedBy: [],
         replies: []
