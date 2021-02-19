@@ -1,6 +1,6 @@
 const { successResponse, errorResponse,
         getDate, genId } = require('./utils')
-const { writeDb } = require('./db')
+const { writeDb, getDb } = require('./db')
 
 const postComment = (req, res) => {
     const { parentId } = req.params
@@ -15,7 +15,7 @@ const postComment = (req, res) => {
         return
     }
 
-    const db = require('./db.json')
+    const db = getDb()
     const post = db.Posts[parentId]
     if (!post) {
         res.status(400).send(errorResponse({ parentId }, 'Invalid post id'))
