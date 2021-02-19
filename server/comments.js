@@ -71,7 +71,7 @@ const getPostComments = (req, res) => {
     const serverComments = db.Comments
     const comments = []
 
-    const Users = require('./db.json').Users
+    const Users = db.Users
     for (let id of post.comments) {
         const comment = serverComments[id]
         const user = Users[comment.authorId]
@@ -92,7 +92,7 @@ const deleteComment = (req, res) => {
         return
     }
 
-    const db = require('./db.json')
+    const db = getDb()
     const { Comments, Posts } = db
     const comment = Comments[commentId]
 
