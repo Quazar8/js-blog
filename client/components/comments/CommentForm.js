@@ -42,7 +42,11 @@ const CommentForm = ({ profilePic, authorId,
                 <div className = "image-container">
                     <img src = { profilePic } alt = "profile-pic" />
                 </div>
-                <p ref = { contentRef } contentEditable placeholder = "Comment here"></p>
+                <p 
+                    ref = { contentRef } 
+                    contentEditable
+                    placeholder = "Comment here"
+                ></p>
             </div>
             <input type = "submit" value = "comment" />
         </form>

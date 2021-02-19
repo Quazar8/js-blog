@@ -35,8 +35,15 @@ const EditCommentForm = ({ profilePic, username, content,
         })
     }
 
+    const focusEditForm = () => {
+        contentRef.current.focus()
+        contentRef.current.innerText = content
+    }
+
     return (
-        <form className = "edit-comment-form comment">
+        <form  className = "edit-comment-form comment"
+            onLoad = { focusEditForm }
+        >
             <div className = "image-container">
                 <img src = { profilePic } alt = "profile-pic" />
             </div>
@@ -49,9 +56,7 @@ const EditCommentForm = ({ profilePic, username, content,
                 <p  
                     ref = { contentRef } 
                     contentEditable 
-                    suppressContentEditableWarning
                 >
-                    { content }
                 </p>
                 <div className = "buttons-container">
                     <button onClick = { tryEditComment }>Edit</button>
