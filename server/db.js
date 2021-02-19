@@ -40,10 +40,6 @@ const getDb = () => {
         db.Comments = {}
     }
 
-    if (!db.Replies) {
-        db.Replies = {}
-    }
-
     return db
 }
 

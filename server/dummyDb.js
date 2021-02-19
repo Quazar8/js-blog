@@ -105,13 +105,11 @@ const genDummyDb = () => {
     }
 
     const Comments = {}
-    const Replies = {}
 
     return {
         Users,
         Posts,
         Comments,
-        Replies
     }
 }
 
