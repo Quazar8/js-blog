@@ -85,7 +85,10 @@ const Comment = ({ comment, currentUser, dispatchError,
                         : null
                     }
                 </div>
-                <p>{ content }</p>
+                <p>{ content }</p>            
+                <div className = "buttons-container">
+                    <button>Reply</button>
+                </div>
             </div>
         </div>
     )

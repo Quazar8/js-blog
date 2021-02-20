@@ -114,9 +114,6 @@ const deleteComment = (req, res) => {
         return
     }
 
-    // res.status(500).send(errorResponse({}, 'Delete comment temporary disabled'))
-    // return
-
     const post = Posts[comment.parentPost]
     const parentComment = Comments[comment.parentPost]
 
@@ -141,6 +138,8 @@ const deleteComment = (req, res) => {
             delete Comments[id]
         }
     }
+
+    deleteRepliesRec(comment.replies)
 
     delete Comments[commentId]
 
