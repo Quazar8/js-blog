@@ -94,4 +94,24 @@
             width: 100%;
         }
     }
+
+    .buttons-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5%;
+
+        .reply-button {
+            padding: 1% 4%;
+            background: none;
+            border: none;
+            color: skyblue;
+            font-size: 1.3vw;
+            font-family: 'Jura', sans-serif;
+
+            &:hover {
+                text-decoration: underline gold;
+                cursor: pointer;
+            }
+        }
+    }
 }

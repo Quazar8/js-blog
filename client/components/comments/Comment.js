@@ -46,6 +46,10 @@ const Comment = ({ comment, currentUser, dispatchError,
         })
     }
 
+    const replyToComment = () => {
+        dispatchError('Not implemented yet')
+    }
+
     if (showCommentForm) {
         return <EditCommentForm 
             profilePic = { profilePic }
@@ -87,7 +91,12 @@ const Comment = ({ comment, currentUser, dispatchError,
                 </div>
                 <p>{ content }</p>            
                 <div className = "buttons-container">
-                    <button>Reply</button>
+                    <button 
+                        onClick = { replyToComment }
+                        className = "reply-button"
+                    >
+                        Reply
+                    </button>
                 </div>
             </div>
         </div>
