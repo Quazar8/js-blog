@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { deleteCommentServer } from '../../api'
 import EditCommentForm from './EditCommentForm'
+import CommentForm from './CommentForm'
 
 const Comment = ({ comment, currentUser, dispatchError,
     dispatchSuccess, updateCommentSection }) => {
@@ -11,6 +12,7 @@ const Comment = ({ comment, currentUser, dispatchError,
 
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
+    const [showReplyForm, setShowReplyForm] = useState(false)
 
     let commentAppendClass = ""
     if (currentUser === username) {
@@ -47,7 +49,7 @@ const Comment = ({ comment, currentUser, dispatchError,
     }
 
     const replyToComment = () => {
-        dispatchError('Not implemented yet')
+        setShowReplyForm(true)
     }
 
     if (showCommentForm) {
@@ -98,6 +100,17 @@ const Comment = ({ comment, currentUser, dispatchError,
                         Reply
                     </button>
                 </div>
+                {
+                    showReplyForm
+                    ? <CommentForm
+                        profilePic = { profilePic }
+                        authorId = { currentUser }
+                        dispatchError = { dispatchError }
+                        dispatchSuccess = { dispatchSuccess }
+                        updateCommentSection = { updateCommentSection }
+                    />
+                    : null
+                }
             </div>
         </div>
     )
