@@ -134,6 +134,14 @@ const deleteComment = (req, res) => {
         }
     }
 
+    const deleteRepliesRec = (repliesIdArr) => {
+        for (let id of repliesIdArr) {
+            let currentComment = Comments[id]
+            deleteRepliesRec(currentComment.replies)
+            delete Comments[id]
+        }
+    }
+
     delete Comments[commentId]
 
     writeDb(JSON.stringify(db)).then((err) => {
