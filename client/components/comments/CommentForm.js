@@ -4,7 +4,7 @@ import { postComment } from '../../api'
 
 const CommentForm = ({ profilePic, authorId,
         dispatchError, dispatchSuccess, postId,
-        updateCommentSection }) => {
+        updateCommentSection, externalClass = "" }) => {
     const contentRef = useRef()
     const commentSubmit = (e) => {
         e.preventDefault()
@@ -37,7 +37,7 @@ const CommentForm = ({ profilePic, authorId,
 
 
     return (
-        <form className = "comment-form" onSubmit = { commentSubmit }>
+        <form className = {"comment-form " + externalClass } onSubmit = { commentSubmit }>
             <div className = "comment-body">
                 <div className = "image-container">
                     <img src = { profilePic } alt = "profile-pic" />
