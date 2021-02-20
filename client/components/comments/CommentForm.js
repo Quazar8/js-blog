@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { postComment } from '../../api'
 
 const CommentForm = ({ profilePic, authorId,
-        dispatchError, dispatchSuccess, postId,
+        dispatchError, dispatchSuccess, parentId,
         updateCommentSection, externalClass = "" }) => {
     const contentRef = useRef()
     const commentSubmit = (e) => {
@@ -23,7 +23,7 @@ const CommentForm = ({ profilePic, authorId,
             content
         }
 
-        postComment(postId, comment).then(resp => {
+        postComment(parentId, comment).then(resp => {
             if (resp.error) {
                 dispatchError(resp.errorMsg)
                 return

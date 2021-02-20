@@ -109,6 +109,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                         dispatchSuccess = { dispatchSuccess }
                         updateCommentSection = { updateCommentSection }
                         externalClass = { "comment-reply" }
+                        parentId = { commentId }
                     />
                     : null
                 }
