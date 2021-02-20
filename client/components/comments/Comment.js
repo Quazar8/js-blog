@@ -108,7 +108,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                         dispatchError = { dispatchError }
                         dispatchSuccess = { dispatchSuccess }
                         updateCommentSection = { updateCommentSection }
-                        externalClass = { "comment-reply" }
+                        externalClass = { "comment-reply " + commentAppendClass }
                         parentId = { commentId }
                     />
                     : null
