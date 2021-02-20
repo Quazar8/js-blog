@@ -62,8 +62,9 @@ const getPostComments = (req, res) => {
 
     const db = getDb()
     const post = db.Posts[parentId]
+    const parentComment = db.Comments[parentId]
 
-    if (!post) {
+    if (!post && !parentComment) {
         res.status(400).send(errorResponse({}, 'Post doesn\'t exist'))
         return
     }
@@ -71,8 +72,15 @@ const getPostComments = (req, res) => {
     const serverComments = db.Comments
     const comments = []
 
+    let commentsContainer
+    if (post) {
+        commentsContainer = post.comments
+    } else {
+        commentsContainer = parentComment.replies
+    }
+
     const Users = db.Users
-    for (let id of post.comments) {
+    for (let id of commentsContainer) {
         const comment = serverComments[id]
         const user = Users[comment.authorId]
         const author = { username: comment.authorId, profilePic: user.profilePic}
