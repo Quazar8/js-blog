@@ -38,7 +38,7 @@ const CommentSection = ({ user, dispatchError,
                     authorId = { user.username }
                     dispatchSuccess = { dispatchSuccess }
                     dispatchError = { dispatchError }
-                    postId = { postId }
+                    parentId = { postId }
                     updateCommentSection = { updateCommentSection }
                 />
                 : null
