@@ -114,13 +114,22 @@ const deleteComment = (req, res) => {
         return
     }
 
-    res.status(500).send(errorResponse({}, 'Delete comment temporary disabled'))
-    return
+    // res.status(500).send(errorResponse({}, 'Delete comment temporary disabled'))
+    // return
 
     const post = Posts[comment.parentPost]
-    for (let i = 0; i < post.comments.length; i++) {
-        if (post.comments[i] === commentId) {
-            post.comments.splice(i, 1)
+    const parentComment = Comments[comment.parentPost]
+
+    let commentsContainer
+    if (post) {
+        commentsContainer = post.comments
+    } else {
+        commentsContainer = parentComment.replies
+    }
+
+    for (let i = 0; i < commentsContainer.length; i++) {
+        if (commentsContainer[i] === commentId) {
+            commentsContainer.splice(i, 1)
             break
         }
     }
