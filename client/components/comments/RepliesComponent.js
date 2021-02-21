@@ -42,6 +42,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
             updateCommentSection = { updateCommentSection }
             dispatchError = { dispatchError }
             dispatchSuccess = { dispatchSuccess }
+            commentAppendClass = " comment-reply"
         />
     )
 }
