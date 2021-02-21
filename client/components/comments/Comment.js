@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { deleteCommentServer, getPostCommentsServer } from '../../api'
+import { deleteCommentServer } from '../../api'
 import EditCommentForm from './EditCommentForm'
 import CommentForm from './CommentForm'
+import RepliesComponent from './RepliesComponent'
 
 const Comment = ({ comment, currentUser, dispatchError,
     dispatchSuccess, updateCommentSection }) => {
@@ -13,7 +14,6 @@ const Comment = ({ comment, currentUser, dispatchError,
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
-    const [showReplies, setShowReplies] = useState(false)
 
     let commentAppendClass = ""
     if (currentUser === username) {
@@ -51,10 +51,6 @@ const Comment = ({ comment, currentUser, dispatchError,
 
     const replyToComment = () => {
         setShowReplyForm(true)
-    }
-
-    const displayReplies = () => {
-        dispatchSuccess('Not implemented yet')
     }
 
     if (showCommentForm) {
@@ -122,17 +118,12 @@ const Comment = ({ comment, currentUser, dispatchError,
                     />
                     : null
                 }
-                {
-                    showReplies
-                    ? null
-                    : <button onClick = { displayReplies } className = "show-replies-button">
-                        <span>{
-                            replies?.length === 1
-                            ? "1 Reply"
-                            :  replies?.length || 0 + " Replies"
-                        }</span>
-                    </button>
-                }
+                <RepliesComponent 
+                    dispatchError = { dispatchError}
+                    dispatchSuccess = { dispatchSuccess }
+                    replyIds = { replies }
+                    commentId = { commentId }
+                />
             </div>
         </div>
     )
