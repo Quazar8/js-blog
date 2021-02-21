@@ -114,6 +114,37 @@
             }
         }
     }
+
+    .show-replies-button {
+        width: 100%;
+        background: none;
+        color: skyblue;
+        border: none;
+        border-radius: 1%;
+        padding: 1% 0 2% 0;
+        font-family: 'Jura', sans-serif;
+        font-size: 2vw;
+        box-shadow: 0 0.5px skyblue;
+        transition: box-shadow 0.1s linear;
+           
+        &:hover {
+            cursor: pointer;
+        }
+
+        span {
+            display: block;
+            transition: transform 0.1s linear,
+            box-shadow 0.1s linear;
+        }
+
+        &:active {
+            box-shadow: 0 0 skyblue;
+
+            span {
+                transform: translateY(8%);
+            }
+        }
+    }
 }
 
 .comment-reply {

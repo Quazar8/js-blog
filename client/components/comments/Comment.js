@@ -53,10 +53,8 @@ const Comment = ({ comment, currentUser, dispatchError,
         setShowReplyForm(true)
     }
 
-    const getReplies = () => {
-        getPostCommentsServer(commentId).then(resp => {
-            console.log(resp)
-        })
+    const displayReplies = () => {
+        dispatchSuccess('Not implemented yet')
     }
 
     if (showCommentForm) {
@@ -127,12 +125,12 @@ const Comment = ({ comment, currentUser, dispatchError,
                 {
                     showReplies
                     ? null
-                    : <button>
-                        {
+                    : <button onClick = { displayReplies } className = "show-replies-button">
+                        <span>{
                             replies?.length === 1
                             ? "1 Reply"
                             :  replies?.length || 0 + " Replies"
-                        }
+                        }</span>
                     </button>
                 }
             </div>
