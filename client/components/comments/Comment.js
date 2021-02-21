@@ -8,16 +8,15 @@ import CommentForm from './CommentForm'
 import RepliesComponent from './RepliesComponent'
 
 const Comment = ({ comment, currentUser, dispatchError,
-    dispatchSuccess, updateCommentSection }) => {
+    dispatchSuccess, updateCommentSection, commentAppendClass = "" }) => {
     const { commentId, content, author: { username, profilePic }, replies} = comment
 
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
 
-    let commentAppendClass = ""
     if (currentUser === username) {
-        commentAppendClass = " comment-author"
+        commentAppendClass += " comment-author"
     }
 
     const toggleMenu = () => {
@@ -123,6 +122,8 @@ const Comment = ({ comment, currentUser, dispatchError,
                     dispatchSuccess = { dispatchSuccess }
                     replyIds = { replies }
                     commentId = { commentId }
+                    username = { currentUser }
+                    updateCommentSection = { updateCommentSection }
                 />
             </div>
         </div>

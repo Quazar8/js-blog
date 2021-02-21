@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
 import { getPostCommentsServer } from '../../api'
+import CommentsContainer from './CommentsContainer'
 
 const RepliesComponent = ({ dispatchError, dispatchSuccess,
-        replyIds = [], commentId }) => {
+        replyIds = [], commentId, username, updateCommentSection }) => {
     const [replies, setReplies] = useState([])
     if (replyIds.length === 0) {
         return null
@@ -35,7 +36,13 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
     }
 
     return (
-        <h1>Reply section</h1>
+        <CommentsContainer 
+            comments = { replies }
+            username = { username }
+            updateCommentSection = { updateCommentSection }
+            dispatchError = { dispatchError }
+            dispatchSuccess = { dispatchSuccess }
+        />
     )
 }
 
