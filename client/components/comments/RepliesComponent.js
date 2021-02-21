@@ -1,31 +1,41 @@
 import React, { useState } from 'react'
 
+import { getPostCommentsServer } from '../../api'
+
 const RepliesComponent = ({ dispatchError, dispatchSuccess,
         replyIds = [], commentId }) => {
-    const [showReplies, setShowReplies] = useState(false)
     const [replies, setReplies] = useState([])
     if (replyIds.length === 0) {
         return null
     }
 
-    if (showReplies) {
-        return <h1>ShowReplies component</h1>
+    const displayReplies = () => {
+        getPostCommentsServer(commentId).then(resp => {
+            if (resp.error) {
+                dispatchError(resp.errorMsg)
+                return
+            }
+
+            setReplies(resp.comments)
+        })
     }
 
-    const displayReplies = () => {
-        dispatchError('Not implement yet')
+    if (replies.length === 0) { 
+          return (
+            <button onClick = { displayReplies } className = "show-replies-button">
+                <span>
+                {
+                    replyIds.length === 1
+                    ? "1 Reply"
+                    :  replyIds.length || 0 + " Replies"
+                }
+                </span>
+            </button>
+          )
     }
 
     return (
-        <button onClick = { displayReplies } className = "show-replies-button">
-            <span>
-            {
-                replyIds.length === 1
-                ? "1 Reply"
-                :  replyIds.length || 0 + " Replies"
-            }
-            </span>
-        </button>   
+        <h1>Reply section</h1>
     )
 }
 
