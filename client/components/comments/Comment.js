@@ -2,17 +2,18 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { deleteCommentServer } from '../../api'
+import { deleteCommentServer, getPostCommentsServer } from '../../api'
 import EditCommentForm from './EditCommentForm'
 import CommentForm from './CommentForm'
 
 const Comment = ({ comment, currentUser, dispatchError,
     dispatchSuccess, updateCommentSection }) => {
-    const { commentId, content, author: { username, profilePic }} = comment
+    const { commentId, content, author: { username, profilePic }, replies} = comment
 
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
+    const [showReplies, setShowReplies] = useState(false)
 
     let commentAppendClass = ""
     if (currentUser === username) {
@@ -50,6 +51,12 @@ const Comment = ({ comment, currentUser, dispatchError,
 
     const replyToComment = () => {
         setShowReplyForm(true)
+    }
+
+    const getReplies = () => {
+        getPostCommentsServer(commentId).then(resp => {
+            console.log(resp)
+        })
     }
 
     if (showCommentForm) {
@@ -116,6 +123,17 @@ const Comment = ({ comment, currentUser, dispatchError,
                         parentId = { commentId }
                     />
                     : null
+                }
+                {
+                    showReplies
+                    ? null
+                    : <button>
+                        {
+                            replies?.length === 1
+                            ? "1 Reply"
+                            :  replies?.length || 0 + " Replies"
+                        }
+                    </button>
                 }
             </div>
         </div>

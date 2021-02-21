@@ -140,8 +140,8 @@ const postComment = (postId, commentObject) => {
         postQueryOptions(commentObject)).then(resp => resp.json())
 }
 
-const getPostCommentsServer = (postId) => {
-    return fetch(baseUrl + `/post/${postId}/comments`,
+const getPostCommentsServer = (parentId) => {
+    return fetch(baseUrl + `/post/${parentId}/comments`,
         getQueryOptions()).then(resp => resp.json())
 }
 
