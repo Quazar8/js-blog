@@ -43,17 +43,13 @@ const CommentSection = ({ user, dispatchError,
                 />
                 : null
             }
-            {
-                comments?.length > 0
-                ? <CommentsContainer 
-                    comments = { comments }
-                    username = { user.username }
-                    dispatchSuccess = { dispatchSuccess }
-                    dispatchError = { dispatchError }
-                    updateCommentSection = { updateCommentSection }
-                />
-                : <h2>No comments yet</h2>
-            }
+            <CommentsContainer 
+                comments = { comments }
+                username = { user.username }
+                dispatchSuccess = { dispatchSuccess }
+                dispatchError = { dispatchError }
+                updateCommentSection = { updateCommentSection }
+            />
         </section>
     )
 }
