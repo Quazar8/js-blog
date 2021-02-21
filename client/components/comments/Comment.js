@@ -91,15 +91,19 @@ const Comment = ({ comment, currentUser, dispatchError,
                         : null
                     }
                 </div>
-                <p>{ content }</p>            
-                <div className = "buttons-container">
-                    <button 
-                        onClick = { replyToComment }
-                        className = "reply-button"
-                    >
-                        Reply
-                    </button>
-                </div>
+                <p>{ content }</p>
+                {      
+                    currentUser     
+                    ? <div className = "buttons-container">
+                        <button 
+                            onClick = { replyToComment }
+                            className = "reply-button"
+                        >
+                            Reply
+                        </button>
+                    </div>
+                    : null
+                }
                 {
                     showReplyForm
                     ? <CommentForm
