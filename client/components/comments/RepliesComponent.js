@@ -28,7 +28,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
                 {
                     replyIds.length === 1
                     ? "1 Reply"
-                    :  replyIds.length || 0 + " Replies"
+                    :  (replyIds.length || 0) + " Replies"
                 }
                 </span>
             </button>
