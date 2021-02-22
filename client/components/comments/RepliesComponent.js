@@ -3,8 +3,10 @@ import React from 'react'
 import CommentsContainer from './CommentsContainer'
 
 const RepliesComponent = ({ dispatchError, dispatchSuccess,
-        replyIds = [], replies, username, updateCommentSection, displayReplies }) => {
-    if (replyIds.length === 0 && replies.length === 0) {
+        repliesCount, replies, username, updateCommentSection,
+        displayReplies, hideReplySection }) => {
+
+    if (repliesCount === 0) {
         return null
     }
 
@@ -13,9 +15,9 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
             <button onClick = { displayReplies } className = "show-replies-button">
                 <span>
                 {
-                    replyIds.length === 1
+                    repliesCount === 1
                     ? "1 Reply"
-                    :  (replyIds.length || 0) + " Replies"
+                    :  (repliesCount || 0) + " Replies"
                 }
                 </span>
             </button>
@@ -23,14 +25,17 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
     }
 
     return (
-        <CommentsContainer 
-            comments = { replies }
-            username = { username }
-            updateCommentSection = { updateCommentSection }
-            dispatchError = { dispatchError }
-            dispatchSuccess = { dispatchSuccess }
-            commentAppendClass = " comment-reply"
-        />
+        <div>
+            <CommentsContainer 
+                comments = { replies }
+                username = { username }
+                updateCommentSection = { updateCommentSection }
+                dispatchError = { dispatchError }
+                dispatchSuccess = { dispatchSuccess }
+                commentAppendClass = " comment-reply"
+            />
+            <button onClick = { hideReplySection }>Hide Replies</button>
+        </div>
     )
 }
 

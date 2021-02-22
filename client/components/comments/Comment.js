@@ -15,6 +15,7 @@ const Comment = ({ comment, currentUser, dispatchError,
     const [showCommentForm, setShowCommentForm] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
     const [retrievedReplies, setReplies] = useState([])
+    const [repliesCount, setRepliesCount] = useState(replyIds?.length)
 
     if (currentUser === username) {
         commentAppendClass += " comment-author"
@@ -75,12 +76,17 @@ const Comment = ({ comment, currentUser, dispatchError,
 
             setReplies(resp.comments)
             setShowReplyForm(false)
+            setRepliesCount(resp.comments.length)
             console.log('got replies', resp.comments.length)
         })
     }
 
     const updateReplySection = () => {
         displayReplies()
+    }
+
+    const hideReplySection = () => {
+        setReplies([])
     }
 
     return (
@@ -138,10 +144,11 @@ const Comment = ({ comment, currentUser, dispatchError,
                 <RepliesComponent 
                     dispatchError = { dispatchError}
                     dispatchSuccess = { dispatchSuccess }
-                    replyIds = { replyIds }
+                    repliesCount = { repliesCount }
                     replies = { retrievedReplies }
                     username = { currentUser }
                     displayReplies = { displayReplies }
+                    hideReplySection = { hideReplySection }
                 />
             </div>
         </div>
