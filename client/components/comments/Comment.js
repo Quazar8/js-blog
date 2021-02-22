@@ -49,8 +49,8 @@ const Comment = ({ comment, currentUser, dispatchError,
         })
     }
 
-    const replyToComment = () => {
-        setShowReplyForm(true)
+    const toggleReplyForm = () => {
+        setShowReplyForm(!showReplyForm)
     }
 
     if (showCommentForm) {
@@ -113,7 +113,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                     currentUser     
                     ? <div className = "buttons-container">
                         <button 
-                            onClick = { replyToComment }
+                            onClick = { toggleReplyForm }
                             className = "reply-button"
                         >
                             Reply
