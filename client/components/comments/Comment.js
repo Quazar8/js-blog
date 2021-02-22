@@ -74,6 +74,7 @@ const Comment = ({ comment, currentUser, dispatchError,
             }
 
             setReplies(resp.comments)
+            setShowReplyForm(false)
             console.log('got replies', resp.comments.length)
         })
     }
