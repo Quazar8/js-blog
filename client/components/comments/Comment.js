@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { deleteCommentServer } from '../../api'
+import { deleteCommentServer, getPostCommentsServer } from '../../api'
 import EditCommentForm from './EditCommentForm'
 import CommentForm from './CommentForm'
 import RepliesComponent from './RepliesComponent'
 
 const Comment = ({ comment, currentUser, dispatchError,
     dispatchSuccess, updateCommentSection, commentAppendClass = "" }) => {
-    const { commentId, content, author: { username, profilePic }, replies} = comment
+    const { commentId, content, author: { username, profilePic }, replies: replyIds} = comment
 
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
     const [showReplyForm, setShowReplyForm] = useState(false)
+    const [retrievedReplies, setReplies] = useState([])
 
     if (currentUser === username) {
         commentAppendClass += " comment-author"
@@ -65,6 +66,22 @@ const Comment = ({ comment, currentUser, dispatchError,
         />
     }
 
+    const displayReplies = () => {
+        getPostCommentsServer(commentId).then(resp => {
+            if (resp.error) {
+                dispatchError(resp.errorMsg)
+                return
+            }
+
+            setReplies(resp.comments)
+            console.log('got replies', resp.comments.length)
+        })
+    }
+
+    const updateReplySection = () => {
+        displayReplies()
+    }
+
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
@@ -111,7 +128,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                         authorId = { currentUser }
                         dispatchError = { dispatchError }
                         dispatchSuccess = { dispatchSuccess }
-                        updateCommentSection = { updateCommentSection }
+                        updateCommentSection = { updateReplySection }
                         externalClass = { "comment-reply " + commentAppendClass }
                         parentId = { commentId }
                     />
@@ -120,10 +137,10 @@ const Comment = ({ comment, currentUser, dispatchError,
                 <RepliesComponent 
                     dispatchError = { dispatchError}
                     dispatchSuccess = { dispatchSuccess }
-                    replyIds = { replies }
-                    commentId = { commentId }
+                    replyIds = { replyIds }
+                    replies = { retrievedReplies }
                     username = { currentUser }
-                    updateCommentSection = { updateCommentSection }
+                    displayReplies = { displayReplies }
                 />
             </div>
         </div>

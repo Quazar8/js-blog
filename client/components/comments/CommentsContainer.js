@@ -5,7 +5,7 @@ import Comment from './Comment'
 const CommentsContainer = ({ comments, username,
         dispatchSuccess, dispatchError,
         updateCommentSection, commentAppendClass = "" }) => {
-            
+
     if (!comments?.length) {
         return <h2>No comments yet.</h2>
     }
