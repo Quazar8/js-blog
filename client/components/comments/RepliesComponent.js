@@ -34,7 +34,9 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
                 dispatchSuccess = { dispatchSuccess }
                 commentAppendClass = " comment-reply"
             />
-            <button onClick = { hideReplySection }>Hide Replies</button>
+            <button onClick = { hideReplySection }
+                className = "hide-replies-button"
+            >Hide Replies</button>
         </section>
     )
 }
