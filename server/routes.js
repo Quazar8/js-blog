@@ -4,7 +4,7 @@ const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts,
         getSinglePost, deletePost,
         editPost, getUserPosts } = require('./posts')
-const { getUserProfile } = require('./user')
+const { getUserProfile, changeProfilePicture } = require('./user')
 const { postComment, getPostComments,
         deleteComment, editComment } = require('./comments')
 
@@ -18,6 +18,9 @@ const routes = (app) => {
    app.get('/user/logged', getLoggedUser)
 
    app.get('/user/profile/:userId', getUserProfile)
+
+   app.post('/user/profile/:userId/picture/change',
+      isLoggedMiddle, changeProfilePicture)
 
    app.post('/publish', isLoggedMiddle, uploadMiddleware, postArticle)
 

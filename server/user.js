@@ -1,3 +1,5 @@
+const { successResponse, errorResponse } = require('./utils')
+
 const getUserProfile = (req, res) => {
     const user = require('./db.json').Users[req.params.userId]
     if (!user) {
@@ -31,6 +33,11 @@ const getUserProfile = (req, res) => {
      })
 }
 
+const changeProfilePicture = (req, res) => {
+    res.send(successResponse({}, 'change profile endpoint'))
+}
+
 module.exports = {
-    getUserProfile
+    getUserProfile,
+    changeProfilePicture
 }
