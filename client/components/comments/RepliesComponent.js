@@ -6,7 +6,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
         repliesCount, replies, username, updateCommentSection,
         displayReplies, hideReplySection }) => {
 
-    if (repliesCount === 0) {
+    if (!repliesCount) {
         return null
     }
 
