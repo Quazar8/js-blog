@@ -1,3 +1,4 @@
+const uploadImage = require('./upload')
 const { successResponse, errorResponse } = require('./utils')
 
 const getUserProfile = (req, res) => {
@@ -34,7 +35,36 @@ const getUserProfile = (req, res) => {
 }
 
 const changeProfilePicture = (req, res) => {
-    res.send(successResponse({}, 'change profile endpoint'))
+    const userId = req.params.userId
+    if (!userId) {
+        res.status(400).send(errorResponse({}, 'Missing target username'))
+        return
+    }
+
+    if (req.user !== userId) {
+        res.status(403).send(errorResponse({}, 'Don\'t have the right to do that'))
+        return
+    }
+
+    const tryRecordChanges = (req, res) => {
+        if (!req.file) {
+            res.status(400).send(errorResponse({}, 'Missing image file'))
+            return
+        }
+
+        res.status(200).send(successResponse({}, 'Change profile pic endpoint'))
+    }
+
+    uploadImage.single('profilePic')(req, res, (err) => {
+        if (err) {
+            console.error('Error uploading profile picture')
+            res.status(500).send(errorResponse({}, 'Could not upload the profile picture'))
+            return
+        }
+
+        tryRecordChanges(req, res)
+    })
+
 }
 
 module.exports = {
