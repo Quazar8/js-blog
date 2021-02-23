@@ -25,7 +25,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
     }
 
     return (
-        <div>
+        <section className = "replies-section">
             <CommentsContainer 
                 comments = { replies }
                 username = { username }
@@ -35,7 +35,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
                 commentAppendClass = " comment-reply"
             />
             <button onClick = { hideReplySection }>Hide Replies</button>
-        </div>
+        </section>
     )
 }
 
