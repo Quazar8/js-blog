@@ -20,9 +20,9 @@ const routes = (app) => {
    app.get('/user/profile/:userId', getUserProfile)
 
    app.post('/user/profile/:userId/picture/change',
-      isLoggedMiddle, changeProfilePicture)
+      isLoggedMiddle, uploadMiddleware('profilePic'), changeProfilePicture)
 
-   app.post('/publish', isLoggedMiddle, uploadMiddleware, postArticle)
+   app.post('/publish', isLoggedMiddle, uploadMiddleware('thumbnail'), postArticle)
 
    app.get('/posts', getPosts)
 

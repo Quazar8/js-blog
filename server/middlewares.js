@@ -11,7 +11,7 @@ const isLoggedMiddle = (req, res, next) => {
     }
 }
 
-const uploadMiddleware = (req, res, next) => {
+const uploadMiddleware = (fieldName = 'thumbnail') => (req, res, next) => {
     const checkFileType = (file, cb) => {
         const permitted = /jpeg|jpg|png/
 
@@ -42,7 +42,7 @@ const uploadMiddleware = (req, res, next) => {
             }
     })
 
-    const middleware = upload.single('thumbnail')
+    const middleware = upload.single(fieldName)
 
     middleware(req, res, (err) => {
         if (err) {
