@@ -10,6 +10,27 @@
 
     .hide-replies-button {
         width: 100%;
+        background: skyblue;
+        height: 1.2vw;
+        border: none;
+        padding: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+
+        span {
+            position: absolute;
+            top: -57%;
+            font-size: 2vw;
+            color: whitesmoke;
+            display: block;
+            transform: rotateZ(90deg);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .comment-reply {
