@@ -31,18 +31,20 @@ const CommentSection = ({ user, dispatchError,
 
     return (
         <section className = "comment-section">
-            {
-                user.username
-                ? <CommentForm 
-                    profilePic = { user.profilePic } 
-                    authorId = { user.username }
-                    dispatchSuccess = { dispatchSuccess }
-                    dispatchError = { dispatchError }
-                    parentId = { postId }
-                    updateCommentSection = { updateCommentSection }
-                />
-                : null
-            }
+            <div className = "main-comment-form-container">
+                {
+                    user.username
+                    ? <CommentForm 
+                        profilePic = { user.profilePic } 
+                        authorId = { user.username }
+                        dispatchSuccess = { dispatchSuccess }
+                        dispatchError = { dispatchError }
+                        parentId = { postId }
+                        updateCommentSection = { updateCommentSection }
+                    />
+                    : null
+                }
+            </div>
             <CommentsContainer 
                 comments = { comments }
                 username = { user.username }
