@@ -12,7 +12,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
 
     if (replies.length === 0) { 
           return (
-            <button onClick = { displayReplies } className = "show-replies-button">
+            <button onClick = {() => {displayReplies(false)} } className = "show-replies-button">
                 <span>
                 {
                     repliesCount === 1

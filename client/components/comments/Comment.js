@@ -67,7 +67,7 @@ const Comment = ({ comment, currentUser, dispatchError,
         />
     }
 
-    const displayReplies = () => {
+    const displayReplies = (hideReplyForm) => {
         getPostCommentsServer(commentId).then(resp => {
             if (resp.error) {
                 dispatchError(resp.errorMsg)
@@ -75,14 +75,16 @@ const Comment = ({ comment, currentUser, dispatchError,
             }
 
             setReplies(resp.comments)
-            setShowReplyForm(false)
             setRepliesCount(resp.comments.length)
-            console.log('got replies', resp.comments.length)
+
+            if (hideReplyForm) {
+                setShowReplyForm(false)
+            }
         })
     }
 
     const updateReplySection = () => {
-        displayReplies()
+        displayReplies(true)
     }
 
     const hideReplySection = () => {
