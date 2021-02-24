@@ -1,3 +1,4 @@
+const { writeDb, getDb} = require('./db')
 const uploadImage = require('./upload')
 const { successResponse, errorResponse } = require('./utils')
 
@@ -38,6 +39,14 @@ const changeProfilePicture = (req, res) => {
     const userId = req.params.userId
     if (!userId) {
         res.status(400).send(errorResponse({}, 'Missing target username'))
+        return
+    }
+
+    const db = getDb()
+    const user = db.Users[userId]
+
+    if (!user) {
+        res.status(400).send(errorResponse({}, 'No such user exists'))
         return
     }
 
