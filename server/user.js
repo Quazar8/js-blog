@@ -1,3 +1,5 @@
+const fs = require('fs')
+const path = require('path')
 const { writeDb, getDb} = require('./db')
 const uploadImage = require('./upload')
 const { successResponse, errorResponse } = require('./utils')
@@ -61,7 +63,25 @@ const changeProfilePicture = (req, res) => {
             return
         }
 
-        res.status(200).send(successResponse({}, 'Change profile pic endpoint'))
+        if(user.profilePic !== '/server/images/user_default.png') {
+            fs.unlink(path.join('./' + user.profilePic), (err) => {
+                if (err) {
+                    console.error('Old profile pic failed to delete')
+                } else {
+                    console.log('Old profile pic deleted')
+                }
+            })
+         }
+
+        user.profilePic = '\\' + req.file.path
+        writeDb(JSON.stringify(db)).then(resp => {
+            if (resp.error) {
+                res.status(500).send(errorResponse({}, resp.errorMsg))
+                return
+            }
+
+            res.status(200).send(successResponse({}, 'Profile picture changed'))
+        })
     }
 
     uploadImage.single('profilePic')(req, res, (err) => {
