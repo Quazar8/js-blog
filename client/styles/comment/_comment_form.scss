@@ -7,10 +7,15 @@
     border-left: 0.4vw solid transparent;
 
     .image-container {
-        width: 14%;
+        width: 7vw;
+        height: 7vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
 
         img {
-            width: 100%;
+            height: 100%;
         }
     }
 
