@@ -100,6 +100,10 @@
         display: flex;
         align-items: center;
 
+        .author-link {
+            width: 20%;
+        }
+
         .author {
             margin-left: 1%;
             display: flex;
@@ -107,10 +111,18 @@
             color: pv.$label-border-color;
         }
 
-        img {
-            margin-left: 2%;
-            width: 5%;
+        .image-container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden; 
+            margin-left: 5%;
+            width: 3.5vw;
+            height: 3.5vw;
             border-radius: 50%;
+        }
+
+        img {
+            height: 100%;
         }
     }
 
