@@ -31,9 +31,16 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         <section className = "profile-page">
             <div className = "left-section">
                 <div className = "profile-pic-section">
-                    <div className = "image-container">
-                        <img src = { profilePic } alt = "profile picture" />
-                    </div>
+                    {
+                        currentUser === username
+                        ? <label className = "image-container">
+                            <img src = { profilePic } alt = "profile picture" />
+                            <input id = "profile-pic-input" type = "file" />
+                        </label>
+                        : <div className = "image-container">
+                            <img src = { profilePic } alt = "profile picture" />
+                          </div>
+                    }
                 </div>
                 <h2>{ username }</h2>
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>

@@ -44,6 +44,17 @@
             margin: 5% 0;
             width: 100%;
             position: relative;
+
+            label {
+                &:hover {
+                    cursor: pointer;
+                    border-color: burlywood;
+                }
+            }
+
+            #profile-pic-input {
+                display: none;
+            }
         }
 
         .image-container {
