@@ -7,6 +7,8 @@ import { publishPostAction } from '../../store/postsActions'
 import { showError, showSuccess } from '../../store/globalActions'
 import { getSinglePostServer, editPostServer } from '../../api'
 
+import { Link } from 'react-router-dom'
+
 const InputPostFormView = ({ user, tryToPublish, postId, dispatchToStore }) => {
     const [labelText, setLabelText] = useState('Choose a thumbnail image')
     const [labelClass, setLabelClass] = useState('')
@@ -123,10 +125,14 @@ const InputPostFormView = ({ user, tryToPublish, postId, dispatchToStore }) => {
                 </h2>
                 <h3>
                     Author: 
-                    <div className = "author">
-                        <span>{ user.username }</span>
-                        <img src = { user.profilePic } alt = "author picture" />
-                    </div>
+                    <Link className = "author-link" to = { "/profile/" + user.username }>
+                        <div className = "author">
+                            <span>{ user.username }</span>
+                            <div className = "image-container">
+                                <img src = { user.profilePic } alt = "author picture" />
+                            </div>
+                        </div>
+                    </Link>
                 </h3>
                 <p 
                     ref = { contentRef }
