@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { genId, getDate, successResponse, errorResponse } = require('./utils')
-const { writeDb } = require('./db')
+const { writeDb, getDb } = require('./db')
 const uploadImage = require('./upload')
 const idBytes = 8
 
@@ -21,7 +21,7 @@ const postArticle = (req, res) => {
         return res.status(403).send(errorResponse({}, 'Missing form field'))
     } 
 
-    const db = require('./db.json')
+    const db = getDb()
     
     const userId = req.user
     const postId = genId(idBytes)
@@ -50,13 +50,13 @@ const postArticle = (req, res) => {
 }
 
 const getPosts = (req, res) => {
-    const { Posts } = require('./db.json')
+    const { Posts } = getDb()
 
     res.status(200).send(successResponse({ posts: Posts }, ''))
 }
 
 const getSinglePost = (req, res) => {
-    const { Posts, Users} = require('./db.json')
+    const { Posts, Users} = getDb()
 
     const id = req.params.postId
     if (!id)
@@ -87,7 +87,7 @@ const deletePost = (req, res) => {
         return
     }
 
-    const jsonDb = require('./db.json')
+    const jsonDb = getDb()
     const { Posts, Comments } = jsonDb
     const post = Posts[postId]
     if (!post) {
@@ -145,7 +145,7 @@ const editPost = (req, res) => {
         return
     }
 
-    const jsonDb = require('./db.json')
+    const jsonDb = getDb()
     const { Posts } = jsonDb
     const post = Posts[postId]
     if (!post) {
@@ -205,7 +205,7 @@ const getUserPosts = (req, res) => {
         return res.status(400).send(errorResponse({}, 'Page number is invalid'))
     }
 
-    const db = require('./db.json')
+    const db = getDb()
     if (!db.Users.hasOwnProperty(userId)) {
         return res.status(400).send(errorResponse({}, 'No such user exists'))
     }
