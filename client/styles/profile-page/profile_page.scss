@@ -44,19 +44,6 @@
             margin: 5% 0;
             width: 100%;
             position: relative;
-
-            #square {
-                width: 15vw;
-                height: 15vw;
-                position: absolute;
-                z-index: 0;
-                top: -4%;
-                left: calc(50% - 7.5vw);
-                border-radius: 2%;
-                background: skyblue;
-                transform: rotateZ(45deg);
-                // animation: square-animation 10s linear;
-            }
         }
 
         .image-container {
@@ -65,12 +52,15 @@
             border: 0.4vw solid skyblue;
             box-sizing: border-box;
             border-radius: 50%;
-            width: 30%;
+            width: 15vw;
+            height: 15vw;
             display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
 
             img {
-                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -89,6 +79,7 @@
         a {
             width: 93%;
         }
+
         .see-all-container {
             width: 90%;
             text-align: right;

@@ -35,7 +35,6 @@ const ProfileView = ({ match, dispatchToServer }) => {
                     <div className = "image-container">
                         <img src = { profilePic } alt = "profile picture" />
                     </div>
-                    <div id = "square"></div>
                 </div>
                 <h2>{ username }</h2>
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>
