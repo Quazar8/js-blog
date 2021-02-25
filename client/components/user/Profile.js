@@ -6,14 +6,13 @@ import { showError } from '../../store/globalActions'
 
 import PostSnippet from './PostSnippet'
 
-const ProfileView = ({ match, dispatchToServer }) => {
+const ProfileView = ({ currentUser, match, dispatchToServer }) => {
     const [user, setUser] = useState({
         username: '',
         profilePic: '',
         totalPosts: 0,
         posts: []
     })
-
 
     const userId = match.params.id
     useEffect(() => {
@@ -57,6 +56,10 @@ const ProfileView = ({ match, dispatchToServer }) => {
     )
 }
 
+const mapState = store => ({
+    currentUser: store.user.user.username
+})
+
 const mapDispatch = dispatch => {
     return {
         dispatchToServer: action => {
@@ -65,6 +68,6 @@ const mapDispatch = dispatch => {
     }
 }
 
-const Profile = connect(null, mapDispatch)(ProfileView)
+const Profile = connect(mapState, mapDispatch)(ProfileView)
 
 export default Profile
