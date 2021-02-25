@@ -3,7 +3,7 @@ import React from 'react'
 import CommentsContainer from './CommentsContainer'
 
 const RepliesComponent = ({ dispatchError, dispatchSuccess,
-        repliesCount, replies, username, updateCommentSection,
+        repliesCount, replies, user, updateCommentSection,
         displayReplies, hideReplySection }) => {
 
     if (!repliesCount) {
@@ -28,7 +28,7 @@ const RepliesComponent = ({ dispatchError, dispatchSuccess,
         <section className = "replies-section">
             <CommentsContainer 
                 comments = { replies }
-                username = { username }
+                user = { user }
                 updateCommentSection = { updateCommentSection }
                 dispatchError = { dispatchError }
                 dispatchSuccess = { dispatchSuccess }

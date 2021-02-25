@@ -7,9 +7,10 @@ import EditCommentForm from './EditCommentForm'
 import CommentForm from './CommentForm'
 import RepliesComponent from './RepliesComponent'
 
-const Comment = ({ comment, currentUser, dispatchError,
+const Comment = ({ comment, user, dispatchError,
     dispatchSuccess, updateCommentSection, commentAppendClass = "" }) => {
     const { commentId, content, author: { username, profilePic }, replies: replyIds} = comment
+    const { username: currentUser, profilePic: currentProfilePic } = user
 
     const [showMenu, setShowMenu] = useState(false)
     const [showCommentForm, setShowCommentForm] = useState(false)
@@ -133,7 +134,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                 {
                     showReplyForm
                     ? <CommentForm
-                        profilePic = { profilePic }
+                        profilePic = { currentProfilePic }
                         authorId = { currentUser }
                         dispatchError = { dispatchError }
                         dispatchSuccess = { dispatchSuccess }
@@ -148,7 +149,7 @@ const Comment = ({ comment, currentUser, dispatchError,
                     dispatchSuccess = { dispatchSuccess }
                     repliesCount = { repliesCount }
                     replies = { retrievedReplies }
-                    username = { currentUser }
+                    user = { user }
                     displayReplies = { displayReplies }
                     hideReplySection = { hideReplySection }
                 />

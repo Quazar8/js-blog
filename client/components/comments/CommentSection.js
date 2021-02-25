@@ -47,7 +47,7 @@ const CommentSection = ({ user, dispatchError,
             </div>
             <CommentsContainer 
                 comments = { comments }
-                username = { user.username }
+                user = { user }
                 dispatchSuccess = { dispatchSuccess }
                 dispatchError = { dispatchError }
                 updateCommentSection = { updateCommentSection }

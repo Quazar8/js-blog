@@ -2,7 +2,7 @@ import React from 'react'
 
 import Comment from './Comment'
 
-const CommentsContainer = ({ comments, username,
+const CommentsContainer = ({ comments, user,
         dispatchSuccess, dispatchError,
         updateCommentSection, commentAppendClass = "" }) => {
 
@@ -17,7 +17,7 @@ const CommentsContainer = ({ comments, username,
                     <Comment 
                         comment = { c } 
                         key = { i }
-                        currentUser = { username }
+                        user = { user }
                         dispatchSuccess = { dispatchSuccess }
                         dispatchError = { dispatchError }
                         updateCommentSection = { updateCommentSection }
