@@ -88,7 +88,7 @@ const deletePost = (req, res) => {
     }
 
     const jsonDb = require('./db.json')
-    const { Posts } = jsonDb
+    const { Posts, Comments } = jsonDb
     const post = Posts[postId]
     if (!post) {
         res.status(400).send(errorResponse({}, 'No such post exists'))
@@ -101,7 +101,6 @@ const deletePost = (req, res) => {
     }
 
     //post deletion logic
-    delete jsonDb.Posts[postId]
     const userPosts = jsonDb.Users[post.authorId].posts
     for (let index in userPosts) {
         if (userPosts[index] === postId) {
@@ -109,6 +108,18 @@ const deletePost = (req, res) => {
             break
         }
     }
+
+    const deleteRepliesRec = idArr => {
+        for (let id of idArr) {
+            let comment= Comments[id]
+            deleteRepliesRec(comment.replies)
+            delete Comments[id]
+            console.log('deleted comment', id)
+        }
+    }
+
+    deleteRepliesRec(post.comments)
+    delete jsonDb.Posts[postId]
 
     writeDb(JSON.stringify(jsonDb)).then(resp => {
         if (resp.error) {
