@@ -14,7 +14,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
         posts: []
     })
 
-    const [showChangeButton, setShowChangeButton] = useState()
+    const [showChangeButton, setShowChangeButton] = useState(false)
 
     const profilePicRef = useRef()
     const profilePicFile = useRef()
@@ -40,6 +40,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
 
         profilePicRef.current.src = URL.createObjectURL(file)
         profilePicFile.current = file
+        setShowChangeButton(true)
     }
 
     const sendNewProfilePic = () => {
@@ -86,12 +87,16 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
                             <img src = { profilePic } alt = "profile picture" />
                           </div>
                     }
-                    <button 
-                        onClick = { sendNewProfilePic }
-                        className = "change-button"
-                    >
-                        Change?
-                    </button>
+                    {
+                        showChangeButton
+                        ? <button 
+                            onClick = { sendNewProfilePic }
+                            className = "change-button"
+                        >
+                            Change?
+                        </button>
+                        : null
+                    }
                 </div>
                 <h2>{ username }</h2>
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>
