@@ -14,6 +14,8 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         posts: []
     })
 
+    const [showChangeButton, setShowChangeButton] = useState()
+
     const profilePicRef = useRef()
     const profilePicFile = useRef()
 
@@ -65,7 +67,9 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
                             <img src = { profilePic } alt = "profile picture" />
                           </div>
                     }
-                    <button className = "change-button">Change?</button>
+                    <button className = "change-button">
+                        Change?
+                    </button>
                 </div>
                 <h2>{ username }</h2>
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>
