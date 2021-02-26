@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getUserProfileServer } from '../../api'
@@ -14,6 +14,8 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         posts: []
     })
 
+    const profilePicRef = useRef()
+
     const userId = match.params.id
     useEffect(() => {
         getUserProfileServer(userId).then(resp => {
@@ -26,6 +28,20 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         })
     }, [userId])
 
+    const handleDragOver = (e) => {
+        e.preventDefault()
+    }
+
+    const handlePicInput = (e) => {
+        const file = e.target.files[0]
+
+        profilePicRef.current.src = URL.createObjectURL(file)
+    }
+
+    const clearUrlObject = () => {
+        URL.revokeObjectURL(profilePicRef.current.src)
+    }
+
     const { profilePic, username, totalPosts, posts } = user
     return (
         <section className = "profile-page">
@@ -33,9 +49,15 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
                 <div className = "profile-pic-section">
                     {
                         currentUser === username
-                        ? <label className = "image-container">
-                            <img src = { profilePic } alt = "profile picture" />
-                            <input id = "profile-pic-input" type = "file" />
+                        ? <label
+                                onDragOver = { handleDragOver } 
+                                className = "image-container"
+                        >
+                            <img
+                                ref = { profilePicRef }
+                                onLoad = { clearUrlObject }
+                                src = { profilePic } alt = "profile picture" />
+                            <input onChange = { handlePicInput } id = "profile-pic-input" type = "file" />
                         </label>
                         : <div className = "image-container">
                             <img src = { profilePic } alt = "profile picture" />
