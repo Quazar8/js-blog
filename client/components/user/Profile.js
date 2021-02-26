@@ -15,6 +15,7 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
     })
 
     const profilePicRef = useRef()
+    const profilePicFile = useRef()
 
     const userId = match.params.id
     useEffect(() => {
@@ -36,6 +37,7 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         const file = e.target.files[0]
 
         profilePicRef.current.src = URL.createObjectURL(file)
+        profilePicFile.current = file
     }
 
     const clearUrlObject = () => {
@@ -63,6 +65,7 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
                             <img src = { profilePic } alt = "profile picture" />
                           </div>
                     }
+                    <button className = "change-button">Change?</button>
                 </div>
                 <h2>{ username }</h2>
                 <h3>Author of <span>{ totalPosts }</span> articles.</h3>

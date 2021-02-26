@@ -44,6 +44,7 @@
             margin: 5% 0;
             width: 100%;
             position: relative;
+            z-index: 1;
 
             label {
                 &:hover {
@@ -54,6 +55,12 @@
 
             #profile-pic-input {
                 display: none;
+            }
+
+            .change-button {
+                position: absolute;
+                bottom: -20%;
+                z-index: 2;
             }
         }
 
