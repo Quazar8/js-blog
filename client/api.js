@@ -1,3 +1,5 @@
+import { use } from "passport"
+
 const baseUrl = 'http://localhost:8000'
 const registerURL = baseUrl + '/user/register'
 const loginUrl = baseUrl + '/user/login'
@@ -155,6 +157,11 @@ const editCommentServer = (commentId, data) => {
         putQueryOptions(data)).then(resp => resp.json())
 }
 
+const changeProfilePic = (userId, data) => {
+    return fetch(baseUrl = `/profile/${userId}/picture/change`,
+        filePostQueryOptions(data)).then(resp => resp.json())
+} 
+
 export {
     registerUserServer,
     loginUserServer,
@@ -170,5 +177,6 @@ export {
     postComment,
     getPostCommentsServer,
     deleteCommentServer,
-    editCommentServer
+    editCommentServer,
+    changeProfilePic
 }
