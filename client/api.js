@@ -1,5 +1,3 @@
-import { use } from "passport"
-
 const baseUrl = 'http://localhost:8000'
 const registerURL = baseUrl + '/user/register'
 const loginUrl = baseUrl + '/user/login'
