@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getUserProfileServer } from '../../api'
+import { getUserProfileServer, changeProfilePicServer } from '../../api'
 import { showError } from '../../store/globalActions'
 
 import PostSnippet from './PostSnippet'
@@ -42,6 +42,20 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         profilePicFile.current = file
     }
 
+    const sendNewProfilePic = () => {
+        if (!profilePicFile.current) {
+            return
+        }
+
+        const data = {
+            profilePic: profilePicFile.current
+        }
+
+        changeProfilePicServer(userId ,data).then(resp => {
+            console.log(resp)
+        })
+    }
+
     const clearUrlObject = () => {
         URL.revokeObjectURL(profilePicRef.current.src)
     }
@@ -67,7 +81,10 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
                             <img src = { profilePic } alt = "profile picture" />
                           </div>
                     }
-                    <button className = "change-button">
+                    <button 
+                        onClick = { sendNewProfilePic }
+                        className = "change-button"
+                    >
                         Change?
                     </button>
                 </div>
