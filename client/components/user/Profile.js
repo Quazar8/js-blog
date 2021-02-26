@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getUserProfileServer, changeProfilePicServer } from '../../api'
-import { showError } from '../../store/globalActions'
+import { showError, showSuccess } from '../../store/globalActions'
 
 import PostSnippet from './PostSnippet'
 
-const ProfileView = ({ currentUser, match, dispatchToServer }) => {
+const ProfileView = ({ currentUser, match, dispatchToStore }) => {
     const [user, setUser] = useState({
         username: '',
         profilePic: '',
@@ -23,7 +23,7 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
     useEffect(() => {
         getUserProfileServer(userId).then(resp => {
             if (resp.error) {
-                dispatchToServer(showError(resp.errorMsg))
+                dispatchToStore(showError(resp.errorMsg))
                 return
             }
 
@@ -52,7 +52,12 @@ const ProfileView = ({ currentUser, match, dispatchToServer }) => {
         }
 
         changeProfilePicServer(userId ,data).then(resp => {
-            console.log(resp)
+            if (resp.error) {
+                dispatchToStore(showError(resp.errorMsg))
+                return
+            }
+
+            dispatchToStore(showSuccess('Profile pic changed'))
         })
     }
 
@@ -115,7 +120,7 @@ const mapState = store => ({
 
 const mapDispatch = dispatch => {
     return {
-        dispatchToServer: action => {
+        dispatchToStore: action => {
             dispatch(action)
         }
     }
