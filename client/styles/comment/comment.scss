@@ -1,6 +1,7 @@
 @use 'comment_form';
 @use 'edit_comment_form';
 @use 'replies-section';
+@use 'comment-animations';
 
 .comment-section {
     width: 90%;
@@ -15,6 +16,17 @@
     .main-comment-form-container {
         width: 50%;
         padding-left: 1%;
+    }
+
+    .no-comments {
+        width: max-content;
+        padding: 2%;
+        background: linear-gradient(to left, transparent, skyblue 50%);
+        background-size: 200% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: no-comments 2s ease infinite alternate;
     }
 }
 

@@ -7,7 +7,7 @@ const CommentsContainer = ({ comments, user,
         updateCommentSection, commentAppendClass = "" }) => {
 
     if (!comments?.length) {
-        return <h2>No comments yet.</h2>
+        return <h2 className = "no-comments">No comments yet.</h2>
     }
 
     return (
