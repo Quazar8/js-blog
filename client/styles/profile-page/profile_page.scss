@@ -86,10 +86,16 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            transition: transform 0.4s ease-out;
 
             img {
                 height: 100%;
             }
+        }
+
+        .dragged-over {
+            border: 0.4vw dashed burlywood;
+            transform: scale(1.1);
         }
     }
 

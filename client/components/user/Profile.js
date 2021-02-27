@@ -15,6 +15,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
     })
 
     const [showChangeButton, setShowChangeButton] = useState(false)
+    const [labelClass, setLabelClass] = useState('')
 
     const profilePicRef = useRef()
     const profilePicFile = useRef()
@@ -33,6 +34,11 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
 
     const handleDragOver = (e) => {
         e.preventDefault()
+        setLabelClass(' dragged-over')
+    }
+
+    const revertLabelClass = () => {
+        setLabelClass(' ')
     }
 
     const handlePicInput = (e) => {
@@ -52,6 +58,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
         profilePicRef.current.src = URL.createObjectURL(file)
         profilePicFile.current = file
         setShowChangeButton(true)
+        setLabelClass('')
     }
 
     const sendNewProfilePic = () => {
@@ -63,7 +70,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
             profilePic: profilePicFile.current
         }
 
-        changeProfilePicServer(userId ,data).then(resp => {
+        changeProfilePicServer(userId, data).then(resp => {
             if (resp.error) {
                 dispatchToStore(showError(resp.errorMsg))
                 return
@@ -85,9 +92,10 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
                     {
                         currentUser === username
                         ? <label
+                                onDragLeave = { revertLabelClass }
                                 onDragOver = { handleDragOver }
                                 onDrop = { handlePicInput }
-                                className = "image-container"
+                                className = { "image-container" + labelClass }
                         >
                             <img
                                 ref = { profilePicRef }
