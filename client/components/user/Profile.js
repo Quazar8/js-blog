@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getUserProfileServer, changeProfilePicServer } from '../../api'
 import { showError, showSuccess } from '../../store/globalActions'
+import { getLoggedUser } from '../../store/userActions'
 
 import PostSnippet from './PostSnippet'
 
-const ProfileView = ({ currentUser, match, dispatchToStore }) => {
+const ProfileView = ({ currentUser, match, dispatchToStore,
+        updateUserInfo }) => {
     const [user, setUser] = useState({
         username: '',
         profilePic: '',
@@ -76,6 +78,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
                 return
             }
 
+            updateUserInfo()
             dispatchToStore(showSuccess('Profile pic changed'))
         })
     }
@@ -147,6 +150,10 @@ const mapDispatch = dispatch => {
     return {
         dispatchToStore: action => {
             dispatch(action)
+        },
+
+        updateUserInfo: () => {
+            dispatch(getLoggedUser())
         }
     }
 }
