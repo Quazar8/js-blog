@@ -356,9 +356,18 @@ $block-color: v.$block-color;
         .user-link-container {
             width: 50%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .user-nav-link {
+                height: 100%;
+                width: 100%;
+            }
 
             .image-container {
-                width: 55%;
+                height: 7vw;
+                width: 7vw;
             }
         }
         
