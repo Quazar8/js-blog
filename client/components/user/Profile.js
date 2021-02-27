@@ -80,6 +80,7 @@ const ProfileView = ({ currentUser, match, dispatchToStore,
 
             updateUserInfo()
             dispatchToStore(showSuccess('Profile pic changed'))
+            setShowChangeButton(false)
         })
     }
 
