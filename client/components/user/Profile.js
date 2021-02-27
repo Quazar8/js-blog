@@ -36,7 +36,18 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
     }
 
     const handlePicInput = (e) => {
-        const file = e.target.files[0]
+        e.preventDefault()
+
+        let file
+        if (e.dataTransfer) {
+            file = e.dataTransfer.files[0]
+        } else {
+            file = e.target.files[0]
+        }
+
+        if (!file) {
+            return
+        }
 
         profilePicRef.current.src = URL.createObjectURL(file)
         profilePicFile.current = file
@@ -74,7 +85,8 @@ const ProfileView = ({ currentUser, match, dispatchToStore }) => {
                     {
                         currentUser === username
                         ? <label
-                                onDragOver = { handleDragOver } 
+                                onDragOver = { handleDragOver }
+                                onDrop = { handlePicInput }
                                 className = "image-container"
                         >
                             <img
