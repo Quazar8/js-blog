@@ -248,16 +248,33 @@ const changePostStar = (req, res) => {
         return
     }
 
-    if (up) {
-        if (post.starsBy[req.user]) {
-            res.status(403).send(errorResponse({}, 'You have already stared the post'))
-            return
-        }
+    if (!post.starsBy) {
+        post.starsBy = {}
     }
 
     const up = req.body.up
+    let responseMsg = ''
+    if (up) {
+        if (post.starsBy.hasOwnProperty(req.user)) {
+            res.status(403).send(errorResponse({}, 'You have already added a star to this post'))
+            return
+        }
 
-    res.send({ msg: 'Change star rank'})
+        post.starsBy[req.user] = null
+        responseMsg = 'You gave this post a star'
+    } else {
+        responseMsg = 'You took away your star from this post'
+        delete post.starsBy[req.user]
+    }
+
+    writeDb(JSON.stringify(db)).then(err => {
+        if (err.error) {
+            res.status(500).send(errorResponse({}, 'Something went wrong'))
+            return
+        }
+
+        res.status(200).send(successResponse({}, responseMsg))
+    })
 }
 
 module.exports = {

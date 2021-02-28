@@ -85,7 +85,7 @@ const genPost = ( usersDb, idBytes ) => {
         thumbnail: "\\" + defaultPic,
         date: getDate(),
         comments: [],
-        starsBy: {}
+        starsBy: []
     }
 
     return post
@@ -95,7 +95,7 @@ const genDummyDb = () => {
     const postIdBytes = 8
     const postsLimit = 20
     const Users = genUsers()
-    const Posts = {}
+    const Posts = []
 
     for (let i = 0; i < postsLimit; i++) {
         const post = genPost(Users, postIdBytes)
