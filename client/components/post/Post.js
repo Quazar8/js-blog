@@ -6,6 +6,7 @@ import { showError, showSuccess } from '../../store/globalActions'
 
 import PostAuthorButtons from './PostAuthorButtons'
 import CommentSection from '../comments/CommentSection'
+import PostSocials from './PostSocials'
 
 const PostView = ({ user, dispatchError, dispatchSuccess }) => {
     const [post, setPost] = useState({
@@ -68,6 +69,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
                 </div>
+                <PostSocials />
                 <h2>{ title }</h2>
                 <h3>
                     Author: 
