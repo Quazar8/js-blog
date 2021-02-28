@@ -237,6 +237,10 @@ const getUserPosts = (req, res) => {
     }, 'Retrieved user posts'))
 }
 
+const changePostStar = (req, res) => {
+    res.send({ msg: 'Change star rank'})
+}
+
 module.exports = {
     postArticle,
     getPosts,
@@ -244,4 +248,5 @@ module.exports = {
     deletePost,
     editPost,
     getUserPosts,
+    changePostStar
 }

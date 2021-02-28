@@ -3,7 +3,7 @@ const registerUser = require('./register')
 const { loginUser, logoutUser, getLoggedUser } = require('./login')
 const { postArticle, getPosts,
         getSinglePost, deletePost,
-        editPost, getUserPosts } = require('./posts')
+        editPost, getUserPosts, changePostStar } = require('./posts')
 const { getUserProfile, changeProfilePicture } = require('./user')
 const { postComment, getPostComments,
         deleteComment, editComment } = require('./comments')
@@ -35,6 +35,8 @@ const routes = (app) => {
    app.get('/user/:userId/posts/:page', getUserPosts)
 
    app.post('/post/:parentId/comment', isLoggedMiddle, postComment)
+
+   app.put('/post/:postId/stars/change', isLoggedMiddle, changePostStar)
 
    app.get('/post/:parentId/comments', getPostComments)
 
