@@ -85,7 +85,7 @@ const genPost = ( usersDb, idBytes ) => {
         thumbnail: "\\" + defaultPic,
         date: getDate(),
         comments: [],
-        starsBy: []
+        starsBy: {}
     }
 
     return post
