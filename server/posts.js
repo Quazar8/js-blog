@@ -34,7 +34,7 @@ const postArticle = (req, res) => {
         thumbnail: "\\" + req.file.path,
         date: getDate(),
         comments: [],
-        stars: 0
+        starsBy: []
     }
 
     db.Users[userId].posts.push(postId)
@@ -80,7 +80,7 @@ const getSinglePost = (req, res) => {
     }
 
     if (!post.stars) {
-        post.stars = 0
+        post.starsBy = []
     }
 
     res.status(200).send(successResponse({ post }, ''))
