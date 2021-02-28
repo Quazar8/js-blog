@@ -238,6 +238,25 @@ const getUserPosts = (req, res) => {
 }
 
 const changePostStar = (req, res) => {
+    const { postId } = req.params 
+
+    const db = getDb()
+    const post = db.Posts[postId]
+
+    if (!post) {
+        res.status(400).send(errorResponse({}, 'Post doesn\'t exist'))
+        return
+    }
+
+    if (up) {
+        if (post.starsBy[req.user]) {
+            res.status(403).send(errorResponse({}, 'You have already stared the post'))
+            return
+        }
+    }
+
+    const up = req.body.up
+
     res.send({ msg: 'Change star rank'})
 }
 
