@@ -7,9 +7,12 @@
         display: flex;
         align-items: center;
         margin-left: 0.5%;
+        transition: transform 0.2s linear;
     }
 
     .star:hover {
         cursor: pointer;
+        color: yellow;
+        transform: scale(1.5);
     }
 }
