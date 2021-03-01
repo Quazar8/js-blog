@@ -1,14 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const PostSocials = ({ starsBy = {} }) => {
+const PostSocials = ({ starsBy = {}, 
+        dispatchError, dispatchSuccess, username }) => {
     const [star, setStar] = useState('\u2606')
 
     const changeToFilledStar = () => {
         setStar('\u2605')
     }
 
+    useEffect(() => {
+        if (starsBy.hasOwnProperty(username)) {
+            changeToFilledStar()
+        }
+    }, [starsBy])
+
+
+
     const changeToHollowStar = () => {
         setStar('\u2606')
+    }
+
+    const changePostStar = () => {
+        dispatchError('Not implemented yet')
     }
     
     return (
@@ -18,6 +31,7 @@ const PostSocials = ({ starsBy = {} }) => {
                 className = "star"
                 onMouseEnter = { changeToFilledStar }
                 onMouseLeave = { changeToHollowStar }
+                onClick = { changePostStar }
             >
                 { star }
             </span>

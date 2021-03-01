@@ -71,7 +71,12 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
                 </div>
-                <PostSocials starsBy = { starsBy } />
+                <PostSocials 
+                    starsBy = { starsBy }
+                    dispatchError = { dispatchError }
+                    dispatchSuccess = { dispatchSuccess }
+                    username = { user.username } 
+                />
                 <h2>{ title }</h2>
                 <h3>
                     Author: 
