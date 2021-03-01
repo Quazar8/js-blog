@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { changePostStarServer } from '../../api'
 
-const PostSocials = ({ starsBy = {}, 
+const PostSocials = ({ starsBy = {}, postId,
         dispatchError, dispatchSuccess, username }) => {
     const [star, setStar] = useState('\u2606')
 
@@ -9,7 +10,6 @@ const PostSocials = ({ starsBy = {},
     }
 
     useEffect(() => {
-        console.log('username', username)
         if (starsBy.hasOwnProperty(username)) {
             changeToFilledStar()
         }
@@ -24,6 +24,15 @@ const PostSocials = ({ starsBy = {},
     }
 
     const changePostStar = () => {
+        let up = true
+
+        if (starsBy.hasOwnProperty(username)) {
+            up = false
+        }
+
+    //     changePostStarServer(postId, { up }).then(resp => {
+    //         console.log(resp)
+    //     })
         dispatchError('Not implemented yet')
     }
     

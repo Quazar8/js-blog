@@ -277,6 +277,22 @@ const changePostStar = (req, res) => {
     })
 }
 
+const getPostStars = (req, res) => {
+    const postId = req.params.postId
+    if (!postId) {
+        res.status(400).send(errorResponse({}, 'Missing post id'))
+        return
+    }
+
+    const post = getDb().Posts[postId]
+    if (!post) {
+        res.status(400).send(errorResponse({}, 'Post doesn\'t exist'))
+        return
+    }
+
+    res.status(200).send(successResponse({ starsBy: post.starsBy }, ''))
+}
+
 module.exports = {
     postArticle,
     getPosts,
@@ -284,5 +300,6 @@ module.exports = {
     deletePost,
     editPost,
     getUserPosts,
-    changePostStar
+    changePostStar,
+    getPostStars
 }

@@ -30,8 +30,8 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
         return address[address.length - 1]
     }
 
+    const postId = getPostIdFromUrl()
     useEffect(() => {
-        const postId = getPostIdFromUrl()
         if (postId) {
             getSinglePostServer(postId).then(resp => {
                 if (resp.error) {
@@ -76,6 +76,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                     dispatchError = { dispatchError }
                     dispatchSuccess = { dispatchSuccess }
                     username = { user.username } 
+                    postId = { postId }
                 />
                 <h2>{ title }</h2>
                 <h3>

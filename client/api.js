@@ -161,7 +161,7 @@ const changeProfilePicServer = (userId, data) => {
 }
 
 const changePostStarServer = (postId, data) => {
-    return fetch(baseUrl + `/post/${postId}/star/change`,
+    return fetch(baseUrl + `/post/${postId}/stars/change`,
         putQueryOptions(data)).then(resp => resp.json())
 }
 
