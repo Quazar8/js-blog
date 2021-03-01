@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const PostSocials = () => {
+const PostSocials = ({ starsBy = {} }) => {
     const [star, setStar] = useState('\u2606')
 
     const changeToFilledStar = () => {
@@ -13,7 +13,8 @@ const PostSocials = () => {
     
     return (
         <div className = "post-socials-container">
-            0 <span
+            { Object.keys(starsBy).length }
+            <span
                 className = "star"
                 onMouseEnter = { changeToFilledStar }
                 onMouseLeave = { changeToHollowStar }

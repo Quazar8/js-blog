@@ -16,7 +16,9 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
         author: {
             username: '',
             profilePic: ''
-        }
+        },
+        starsBy: {},
+        comments: []
     })
 
 
@@ -59,7 +61,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
         })
     }
 
-    const { title, content, thumbnail, author } = post
+    const { title, content, thumbnail, author, starsBy } = post
     return (
         <section className = "post-container">
             <article className = "post-view">
@@ -69,7 +71,7 @@ const PostView = ({ user, dispatchError, dispatchSuccess }) => {
                     <div className = "shader-bottom"></div>
                     <div className = "shader-right"></div>
                 </div>
-                <PostSocials />
+                <PostSocials starsBy = { starsBy } />
                 <h2>{ title }</h2>
                 <h3>
                     Author: 
