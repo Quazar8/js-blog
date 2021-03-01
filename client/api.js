@@ -158,7 +158,12 @@ const editCommentServer = (commentId, data) => {
 const changeProfilePicServer = (userId, data) => {
     return fetch(baseUrl + `/user/profile/${userId}/picture/change`,
         filePostQueryOptions(data)).then(resp => resp.json())
-} 
+}
+
+const changePostStarServer = (postId, data) => {
+    return fetch(baseUrl + `/post/${postId}/star/change`,
+        putQueryOptions(data)).then(resp => resp.json())
+}
 
 export {
     registerUserServer,
@@ -176,5 +181,6 @@ export {
     getPostCommentsServer,
     deleteCommentServer,
     editCommentServer,
-    changeProfilePicServer
+    changeProfilePicServer,
+    changePostStarServer
 }
