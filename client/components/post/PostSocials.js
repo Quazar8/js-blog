@@ -14,7 +14,7 @@ const PostSocials = ({ starsBy = {},
             console.log('checked')
             changeToFilledStar()
         }
-    }, [starsBy])
+    }, [starsBy, username])
 
 
 
