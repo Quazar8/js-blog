@@ -1,0 +1,15 @@
+.post-socials-container {
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+
+    .star {
+        display: flex;
+        align-items: center;
+        margin-left: 0.5%;
+    }
+
+    .star:hover {
+        cursor: pointer;
+    }
+}

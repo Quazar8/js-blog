@@ -4,6 +4,7 @@
 @use 'post-view';
 @use 'post-row';
 @use 'input-post';
+@use 'post-socials';
 
 .posts-container {
     overflow: scroll;
