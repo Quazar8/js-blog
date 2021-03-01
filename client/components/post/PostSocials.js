@@ -9,7 +9,9 @@ const PostSocials = ({ starsBy = {},
     }
 
     useEffect(() => {
+        console.log('username', username)
         if (starsBy.hasOwnProperty(username)) {
+            console.log('checked')
             changeToFilledStar()
         }
     }, [starsBy])
@@ -17,6 +19,10 @@ const PostSocials = ({ starsBy = {},
 
 
     const changeToHollowStar = () => {
+        if (starsBy.hasOwnProperty(username)) {
+            return
+        }
+
         setStar('\u2606')
     }
 
