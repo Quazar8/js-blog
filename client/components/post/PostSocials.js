@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { changePostStarServer } from '../../api'
 
-const PostSocials = ({ starsBy = {}, postId,
-        dispatchError, dispatchSuccess, username }) => {
+const PostSocials = ({ postId, dispatchError, dispatchSuccess,
+        username }) => {
     const [star, setStar] = useState('\u2606')
+    const [starsBy, setStarsBy] = useState({})
 
     const changeToFilledStar = () => {
         setStar('\u2605')
@@ -28,17 +29,16 @@ const PostSocials = ({ starsBy = {}, postId,
             dispatchError('You need to be logged in to do that')
             return
         }
-        
+
         let up = true
 
         if (starsBy.hasOwnProperty(username)) {
             up = false
         }
 
-    //     changePostStarServer(postId, { up }).then(resp => {
-    //         console.log(resp)
-    //     })
-        dispatchError('Not implemented yet')
+        // changePostStarServer(postId, { up }).then(resp => {
+        //     console.log(resp)
+        // })
     }
     
     return (
