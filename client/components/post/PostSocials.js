@@ -48,9 +48,13 @@ const PostSocials = ({ postId, dispatchError, dispatchSuccess,
             up = false
         }
 
-        // changePostStarServer(postId, { up }).then(resp => {
-        //     console.log(resp)
-        // })
+        changePostStarServer(postId, { up }).then(resp => {
+            if (resp.error) {
+                return
+            }
+
+            retrieveStars()
+        })
     }
     
     return (
