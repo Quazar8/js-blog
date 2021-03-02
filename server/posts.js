@@ -290,7 +290,8 @@ const getPostStars = (req, res) => {
         return
     }
 
-    res.status(200).send(successResponse({ starsBy: post.starsBy }, ''))
+    let starsBy = post.starsBy || {}
+    res.status(200).send(successResponse({ starsBy }, ''))
 }
 
 module.exports = {
