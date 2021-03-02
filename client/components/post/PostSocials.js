@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { changePostStarServer } from '../../api'
+import { changePostStarServer, getPostStarsServer } from '../../api'
 
 const PostSocials = ({ postId, dispatchError, dispatchSuccess,
         username }) => {
@@ -9,6 +9,18 @@ const PostSocials = ({ postId, dispatchError, dispatchSuccess,
     const changeToFilledStar = () => {
         setStar('\u2605')
     }
+
+    const retrieveStars = () => {
+        getPostStarsServer(postId).then(resp => {
+            if (!resp.error) {
+                setStarsBy(resp.starsBy)
+            }
+        })
+    }
+
+    useEffect(() => {
+        retrieveStars()
+    }, [postId])
 
     useEffect(() => {
         if (starsBy.hasOwnProperty(username)) {
