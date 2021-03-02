@@ -50,9 +50,15 @@ const PostSocials = ({ postId, dispatchError, dispatchSuccess,
 
         changePostStarServer(postId, { up }).then(resp => {
             if (resp.error) {
+                dispatchError(resp.errorMsg)
                 return
             }
 
+            if (up) {
+                dispatchSuccess('You gave this post a star')
+            } else {
+                dispatchSuccess('You took away a star')
+            }
             retrieveStars()
         })
     }
