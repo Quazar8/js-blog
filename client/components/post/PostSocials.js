@@ -24,6 +24,11 @@ const PostSocials = ({ starsBy = {}, postId,
     }
 
     const changePostStar = () => {
+        if (!username) {
+            dispatchError('You need to be logged in to do that')
+            return
+        }
+        
         let up = true
 
         if (starsBy.hasOwnProperty(username)) {
