@@ -165,6 +165,11 @@ const changePostStarServer = (postId, data) => {
         putQueryOptions(data)).then(resp => resp.json())
 }
 
+const getPostStarsServer = (postId) => {
+    return fetch(baseUrl + `/post/${postId}/stars/get`,
+        getQueryOptions()).then(resp => resp.json())
+}
+
 export {
     registerUserServer,
     loginUserServer,
@@ -182,5 +187,6 @@ export {
     deleteCommentServer,
     editCommentServer,
     changeProfilePicServer,
-    changePostStarServer
+    changePostStarServer,
+    getPostStarsServer
 }
