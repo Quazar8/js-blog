@@ -46,7 +46,7 @@ const routes = (app) => {
 
    app.put('/comment/:commentId/edit', isLoggedMiddle, editComment)
 
-   app.put('/comment/:commentId/upvote', upvoteComment)
+   app.put('/comment/:commentId/upvote', isLoggedMiddle, upvoteComment)
 }
 
 module.exports = routes

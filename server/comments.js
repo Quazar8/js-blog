@@ -201,10 +201,10 @@ const upvoteComment = (req, res) => {
     const db = getDb()
     const comment = db.Comments[commentId]
     if (!comment) {
-        res.send(400).send(errorResponse({}, 'Comment doesn\'t exist'))
+        res.status(400).send(errorResponse({}, 'Comment doesn\'t exist'))
         return
     }
-    
+
     res.send({ msg: 'Upvote comment endpoint'})
 }
 
