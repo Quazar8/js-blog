@@ -205,7 +205,16 @@ const upvoteComment = (req, res) => {
         return
     }
 
-    res.send({ msg: 'Upvote comment endpoint'})
+    comment.upvotedBy.push(req.user)
+
+    writeDb(JSON.stringify(db)).then(result => {
+        if (result.error) {
+            res.status(500).send(errorResponse({}, 'Something went wrong'))
+            return
+        }
+
+        res.status(200).send(successResponse({}, 'Comment upvoted'))
+    })
 }
 
 module.exports = {

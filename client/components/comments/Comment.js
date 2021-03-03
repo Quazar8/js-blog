@@ -17,7 +17,7 @@ const Comment = ({ comment, user, dispatchError,
     const [showReplyForm, setShowReplyForm] = useState(false)
     const [retrievedReplies, setReplies] = useState([])
     const [repliesCount, setRepliesCount] = useState(replyIds?.length)
-
+    
     if (currentUser === username) {
         commentAppendClass += " comment-author"
     }
@@ -91,7 +91,7 @@ const Comment = ({ comment, user, dispatchError,
     const hideReplySection = () => {
         setReplies([])
     }
-
+    console.log(commentId)
     return (
         <div className = { "comment" + commentAppendClass }>
             <div className = "image-container">
