@@ -191,9 +191,14 @@ const editComment = (req, res) => {
     })
 }
 
+const upvoteComment = (req, res) => [
+    res.send({ msg: 'Upvote comment endpoint'})
+]
+
 module.exports = {
     postComment,
     getPostComments,
     deleteComment,
-    editComment
+    editComment,
+    upvoteComment
 }
