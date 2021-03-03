@@ -3,11 +3,11 @@ import { changePostStarServer, getPostStarsServer } from '../../api'
 
 const PostSocials = ({ postId, dispatchError, dispatchSuccess,
         username }) => {
-    const [star, setStar] = useState('\u2606')
+    const [star, setStar] = useState(false)
     const [starsBy, setStarsBy] = useState({})
 
     const changeToFilledStar = () => {
-        setStar('\u2605')
+        setStar(true)
     }
 
     const retrieveStars = () => {
@@ -33,7 +33,7 @@ const PostSocials = ({ postId, dispatchError, dispatchSuccess,
             return
         }
 
-        setStar('\u2606')
+        setStar(false)
     }
 
     const changePostStar = () => {
@@ -67,12 +67,16 @@ const PostSocials = ({ postId, dispatchError, dispatchSuccess,
         <div className = "post-socials-container">
             { Object.keys(starsBy).length }
             <span
-                className = "star"
+                className = { star ? "star star-colored" : "star"}
                 onMouseEnter = { changeToFilledStar }
                 onMouseLeave = { changeToHollowStar }
                 onClick = { changePostStar }
             >
-                { star }
+                {
+                    star 
+                    ? '\u2605'
+                    : '\u2606'
+                }
             </span>
         </div>
     )
