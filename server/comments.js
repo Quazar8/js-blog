@@ -217,10 +217,17 @@ const upvoteComment = (req, res) => {
     })
 }
 
+const downvoteComment = (req, res) => {
+    res.send({
+        msg: 'Downvote comment endpoint'
+    })
+}
+
 module.exports = {
     postComment,
     getPostComments,
     deleteComment,
     editComment,
-    upvoteComment
+    upvoteComment,
+    downvoteComment
 }

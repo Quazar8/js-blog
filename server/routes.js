@@ -6,7 +6,8 @@ const { postArticle, getPosts,
         editPost, getUserPosts, changePostStar, getPostStars } = require('./posts')
 const { getUserProfile, changeProfilePicture } = require('./user')
 const { postComment, getPostComments,
-        deleteComment, editComment, upvoteComment } = require('./comments')
+        deleteComment, editComment, upvoteComment,
+        downvoteComment } = require('./comments')
 
 const routes = (app) => {
    app.post('/user/register', registerUser)
@@ -47,6 +48,8 @@ const routes = (app) => {
    app.put('/comment/:commentId/edit', isLoggedMiddle, editComment)
 
    app.put('/comment/:commentId/upvote', isLoggedMiddle, upvoteComment)
+
+   app.put('/comment/:commentId/downvote', isLoggedMiddle, downvoteComment)
 }
 
 module.exports = routes
