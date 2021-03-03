@@ -191,9 +191,22 @@ const editComment = (req, res) => {
     })
 }
 
-const upvoteComment = (req, res) => [
+const upvoteComment = (req, res) => {
+    const { commentId } = req.params
+    if (!commentId) {
+        res.status(400).send(errorResponse({}, 'No comment id provided'))
+        return
+    }
+
+    const db = getDb()
+    const comment = db.Comments[commentId]
+    if (!comment) {
+        res.send(400).send(errorResponse({}, 'Comment doesn\'t exist'))
+        return
+    }
+    
     res.send({ msg: 'Upvote comment endpoint'})
-]
+}
 
 module.exports = {
     postComment,
