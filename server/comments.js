@@ -206,7 +206,13 @@ const upvoteComment = (req, res) => {
         return
     }
 
-    comment.upvotedBy[req.user] = null
+    let responseMsg = "Comment upvoted."
+    if (comment.upvotedBy.hasOwnProperty(req.user)) {
+        delete comment.upvotedBy[req.user]
+        responseMsg = "Upvote removed"
+    } else {
+        comment.upvotedBy[req.user] = null
+    }
 
     writeDb(JSON.stringify(db)).then(result => {
         if (result.error) {
@@ -214,7 +220,7 @@ const upvoteComment = (req, res) => {
             return
         }
 
-        res.status(200).send(successResponse({}, 'Comment upvoted'))
+        res.status(200).send(successResponse({}, responseMsg))
     })
 }
 
