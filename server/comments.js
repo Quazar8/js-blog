@@ -218,9 +218,21 @@ const upvoteComment = (req, res) => {
 }
 
 const downvoteComment = (req, res) => {
-    res.send({
-        msg: 'Downvote comment endpoint'
-    })
+    const commentId = req.params.commentId
+    if (!commentId) {
+        res.status(400).send(errorResponse({}, 'Missing comment id'))
+        return
+    }
+
+    const db = getDb()
+    const comment = db.Comments[commentId]
+
+    if (!comment) {
+        res.status(400).send(errorResponse({}, 'Comment doesn\'t exist'))
+        return
+    }
+
+    res.send('OK')
 }
 
 module.exports = {
