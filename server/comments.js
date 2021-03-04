@@ -30,7 +30,7 @@ const postComment = (req, res) => {
         authorId: req.user,
         parentPost: parentId,
         date: getDate(),
-        upvotedBy: [],
+        upvotedBy: {},
         replies: []
     }
 
@@ -205,7 +205,7 @@ const upvoteComment = (req, res) => {
         return
     }
 
-    comment.upvotedBy.push(req.user)
+    comment.upvotedBy[req.user] = null
 
     writeDb(JSON.stringify(db)).then(result => {
         if (result.error) {
