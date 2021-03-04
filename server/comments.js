@@ -206,6 +206,10 @@ const upvoteComment = (req, res) => {
         return
     }
 
+    if (comment.downvotedBy.hasOwnProperty(req.user)) {
+        delete comment.downvotedBy[req.user]
+    }
+
     let responseMsg = "Comment upvoted."
     if (comment.upvotedBy.hasOwnProperty(req.user)) {
         delete comment.upvotedBy[req.user]
