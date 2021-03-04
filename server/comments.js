@@ -239,7 +239,30 @@ const downvoteComment = (req, res) => {
         return
     }
 
-    res.send('OK')
+    if (!comment.downvotedBy) {
+        comment.downvotedBy = {}
+    }
+
+    if (comment.upvotedBy.hasOwnProperty(req.user)) {
+        delete comment.upvotedBy[req.user]
+    }
+
+    let msg = 'Comment downvoted'
+    if (comment.downvotedBy.hasOwnProperty(req.user)) {
+        delete comment.downvotedBy[req.user]
+        msg = 'Canceled comment downvote'
+    } else {
+        comment.downvotedBy[req.user] = null
+    }
+
+    writeDb(JSON.stringify(db)).then(result => {
+        if (result.error) {
+            res.status(500).send(errorResponse({}, 'Something went wrong'))
+            return
+        }
+
+        res.status(200).send(successResponse({}, msg))
+    })
 }
 
 module.exports = {
