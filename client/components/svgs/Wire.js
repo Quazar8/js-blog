@@ -4,12 +4,12 @@ const Wire = () => {
     return (
         <svg viewBox = "0 0 100 100" className = "wire">
             <path
-                d = "M100 60 L55 60 L50 50"
+                d = "M130 50 L55 50 L40 30"
             />
             <circle 
-                cx = "47"
-                cy = "45"
-                r = "5"
+                cx = "37"
+                cy = "25"
+                r = "7"
             />
         </svg>
     )
