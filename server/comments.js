@@ -31,6 +31,7 @@ const postComment = (req, res) => {
         parentPost: parentId,
         date: getDate(),
         upvotedBy: {},
+        downvotedBy: {},
         replies: []
     }
 
