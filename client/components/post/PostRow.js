@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { getUrlTitle } from '../../utils'
 
+import Wire from '../svgs/Wire'
+
 const PostRow = ({ post, index, postsLength }) => {
     const { title = "", content = "", 
             authorId = "", postId = "",
@@ -59,8 +61,9 @@ const PostRow = ({ post, index, postsLength }) => {
                     <div className = "rotating-element second"></div>
                 </Link>
             </article>
-            <div className = "left-element"></div>
-            <div className = "right-element"></div>
+            {/* <div className = "left-element"></div>
+            <div className = "right-element"></div> */}
+            <Wire />
         </article>
     )
 }

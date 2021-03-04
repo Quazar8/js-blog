@@ -1,0 +1,13 @@
+.wire {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    stroke: gold;
+    stroke-width: 8;
+    width: 100%;
+    height: 100%;
+
+    circle {
+        stroke-width: 4;
+    }
+}
