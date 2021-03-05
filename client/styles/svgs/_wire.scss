@@ -8,6 +8,18 @@
     height: 100%;
     z-index: 1;
 
+    .color1 {
+        stop-color: skyblue;
+    }
+
+    .color2 {
+        stop-color: rgb(169, 231, 255);
+    }
+
+    .color3 {
+        stop-color: skyblue;
+    }
+
     circle {
         stroke-width: 4;
     }
