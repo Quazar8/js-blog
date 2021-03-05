@@ -5,7 +5,7 @@ import { getUrlTitle } from '../../utils'
 
 import Wire from '../svgs/Wire'
 
-const PostRow = ({ post, index, postsLength }) => {
+const PostRow = ({ post, index }) => {
     const { title = "", content = "", 
             authorId = "", postId = "",
             thumbnail = "" } = post
@@ -61,7 +61,7 @@ const PostRow = ({ post, index, postsLength }) => {
                     <div className = "rotating-element second"></div>
                 </Link>
             </article>
-            <Wire />
+            <Wire index = { index }/>
         </article>
     )
 }

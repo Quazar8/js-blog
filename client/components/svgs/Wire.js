@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-const Wire = () => {
+const Wire = (index) => {
+    const [wireClass, setWireClass] = useState('wire')
+
+    useEffect(() => {
+        if (index % 2 !== 0) {
+            setWireClass('wire wire-right')
+        }
+    }, [index])
+
     return (
-        <svg viewBox = "0 0 100 100" className = "wire">
+        <svg viewBox = "0 0 100 100" className = { wireClass }>
             <defs>
                 <linearGradient id = "grad"
                 x1 = "0%" y1 = "0%"
