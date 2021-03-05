@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-const Wire = (index) => {
-    const [wireClass, setWireClass] = useState('wire')
+const Wire = ({ index }) => {
+    const [wireClass, setWireClass] = useState('wire wire-left')
 
     useEffect(() => {
         if (index % 2 !== 0) {
