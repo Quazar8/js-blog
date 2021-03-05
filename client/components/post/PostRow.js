@@ -61,8 +61,6 @@ const PostRow = ({ post, index, postsLength }) => {
                     <div className = "rotating-element second"></div>
                 </Link>
             </article>
-            {/* <div className = "left-element"></div>
-            <div className = "right-element"></div> */}
             <Wire />
         </article>
     )
