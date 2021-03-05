@@ -22,7 +22,7 @@ const Wire = ({ index }) => {
                             from = "-10%"
                             to = "140%"
                             dur = "2s"
-                            begin = "1s;c1.end"
+                            begin = "c1.end"
                         />
                     </stop>
                     <stop className = "color2">
@@ -32,7 +32,7 @@ const Wire = ({ index }) => {
                             from = "0%"
                             to = "150%"
                             dur = "2s"
-                            begin = "1s;c2.end"
+                            begin = "c2.end"
                         />
                     </stop>
                     <stop className = "color3">
@@ -42,7 +42,7 @@ const Wire = ({ index }) => {
                             from = "10%"
                             to = "160%"
                             dur = "2s"
-                            begin = "1s;c3.end"
+                            begin = "c3.end"
                         />
                     </stop>
                 </linearGradient>
@@ -56,7 +56,7 @@ const Wire = ({ index }) => {
                             attributeName = "offset"
                             from = "-10%"
                             to = "80%"
-                            dur = "1s"
+                            dur = "0.35s"
                             begin = "0s; w\-c1.end"
                         />
                     </stop>
@@ -66,7 +66,7 @@ const Wire = ({ index }) => {
                             attributeName = "offset"
                             from = "0%"
                             to = "90%"
-                            dur = "1s"
+                            dur = "0.35s"
                             begin = "0s;w\-c2.end"
                         />
                     </stop>
@@ -76,7 +76,7 @@ const Wire = ({ index }) => {
                             attributeName = "offset"
                             from = "10%"
                             to = "100%"
-                            dur = "1s"
+                            dur = "0.35s"
                             begin = "0s;w\-c3.end"
                         />
                     </stop>
